@@ -6,8 +6,10 @@ from app.database import db
 from app.home.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm, ContactForm
 from app.user.models import User, Message, Notification
 from app.email_sender import send_password_reset_email
-from app.utils import flash_errors
-from datetime import datetime
+import markdown
+import markdown.extensions.fenced_code
+from pygments.formatters.html import HtmlFormatter
+from markupsafe import Markup
 
 # Blueprint Configuration
 home_bp = Blueprint(
@@ -122,3 +124,23 @@ def contact():
         "home/contact.html",
         form=form
     )
+
+@home_bp.route("/readme")
+def readme():
+    with open("README.md", "r") as fp:
+        formatter = HtmlFormatter(
+            style="solarizeddark", full=True, cssclass="codehilite",
+        )
+        styles = f"<style>{formatter.get_style_defs()}</style>"
+        html = (
+            markdown.markdown(fp.read(), extensions=["codehilite", "fenced_code"])
+            .replace(
+                # Fix relative path for image(s) when rendering README.md on index page
+                'src="app/',
+                'src="',
+            )
+            .replace("codehilite", "codehilite p-2 mb-3 bg-dark")
+        )
+        return render_template(
+            "index.html", content=Markup(html), styles=Markup(styles),
+        )
