@@ -129,7 +129,7 @@ def contact():
 def readme():
     with open("README.md", "r") as fp:
         formatter = HtmlFormatter(
-            style="solarizeddark", full=True, cssclass="codehilite",
+            style="solarized-dark", full=True, cssclass="codehilite",
         )
         styles = f"<style>{formatter.get_style_defs()}</style>"
         html = (
@@ -142,5 +142,5 @@ def readme():
             .replace("codehilite", "codehilite p-2 mb-3 bg-dark")
         )
         return render_template(
-            "index.html", content=Markup(html), styles=Markup(styles),
+            "home/readme.html", content=Markup(html), styles=Markup(styles)
         )
