@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{%  block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/clock.css') }}" />
+{%  endblock head %}
+
+{%  block title %}{{ title }}{%  endblock title %}
+
+{% block content %}
+    <div id="clock-container" class="clock-container">
+        <div class="four-digits">
+            {% for d in range(4) %}
+            <div class="one-digit">
+                {% for c in range(6) %}
+                <div class="clock-face">
+                    <div id="clock--{{ d }}{{ c }}" class="clock">
+                        <div class="ticks">
+                            {% for m in range(60) %}
+                            <div class="tick-radius" data-minute="{{m}}">
+                                <div class="tickmark"></div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="hand hoursHand"></div>
+                        <div class="hand minutesHand"></div>
+                        <div class="center-peg"></div>
+                    </div>
+                    <div id="label--{{d}}{{c}}" class="label" ></div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="trigger-container" class="row d-flex p-0">
+        <div class="trigger trigger--left"></div>
+        <div class="trigger trigger--right"></div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+{{ super() }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+    <script type='text/javascript' src="../static/js/jquery.fittext.js" ></script>
+    <script type='text/javascript' src="../static/js/circletype.min.js" ></script>
+    <script type='module' src="../static/js/clock.js" ></script>
+    <script type='text/javascript' src="../static/js/require.min.js"></script>
+{% endblock script %}

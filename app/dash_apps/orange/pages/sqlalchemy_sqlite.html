@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>SQL Alchemy - SQGite</title>
+</head>
+<body>
+  <section class="section3" id="table-creates-associations">
+    <h3>
+      <code>Table</code> Creates Associations<a
+        class="headerlink"
+        href="#table-creates-associations"
+        title="Permanent link"
+      ></a>
+    </h3>
+    <p>
+      <code>author_publisher</code> and <code>book_publisher</code> are both
+      instances of the <code>Table</code> class that create the many-to-many
+      association tables used between the <code>author</code> and
+      <code>publisher</code> tables and the <code>book</code> and
+      <code>publisher</code> tables, respectively.
+    </p>
+    <p>
+      The SQLAlchemy <code>Table</code> class creates a unique instance of an ORM
+      mapped table within the database. The first parameter is the table name as
+      defined in the database, and the second is <code>Base.metadata</code>, which
+      provides the connection between the SQLAlchemy functionality and the
+      database engine.
+    </p>
+    <p>
+      The rest of the parameters are instances of the <code>Column</code> class
+      defining the table fields by name, their type, and in the example above, an
+      instance of a <code>ForeignKey</code>.
+    </p>
+    <div>
+      <div
+        class="rounded border border-light"
+        style="display:block;position:relative;"
+      >
+        <div style="display:block;width:100%;padding-top:12.5%;"></div>
+        <div
+          class="rpad rounded border"
+          data-unit="8x1"
+          style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"
+        ></div>
+      </div>
+      <a class="small text-muted" href="/account/join/" rel="nofollow"
+        ><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a
+      >
+    </div>
+  </section>
+  <section class="section3" id="foreignkey-creates-a-connection">
+    <h3>
+      <code>ForeignKey</code> Creates a Connection<a
+        class="headerlink"
+        href="#foreignkey-creates-a-connection"
+        title="Permanent link"
+      ></a>
+    </h3>
+    <p>
+      The SQLAlchemy <strong><code>ForeignKey</code></strong> class defines a
+      dependency between two <code>Column</code> fields in different tables. A
+      <code>ForeignKey</code> is how you make SQLAlchemy aware of the
+      relationships between tables. For example, this line from the
+      <code>author_publisher</code> instance creation establishes a foreign key
+      relationship:
+    </p>
+    <div class="highlight python">
+      <pre><span></span><code><span class="n">Column</span><span class="p">(</span><span class="s2">&quot;author_id&quot;</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;author.author_id&quot;</span><span class="p">))</span>
+  </code></pre>
+    </div>
+    <p>
+      The statement above tells SQLAlchemy that there&rsquo;s a column in the
+      <code>author_publisher</code> table named <code>author_id</code>. The type
+      of that column is <code>Integer</code>, and <code>author_id</code> is a
+      foreign key related to the primary key in the <code>author</code> table.
+    </p>
+    <p>
+      Having both <code>author_id</code> and <code>publisher_id</code> defined in
+      the <code>author_publisher</code> <code>Table</code> instance creates the
+      connection from the <code>author</code> table to the
+      <code>publisher</code> table and vice versa, establishing a many-to-many
+      relationship.
+    </p>
+  </section>
+  <section class="section3" id="relationship-establishes-a-collection">
+    <h3>
+      <code>relationship()</code> Establishes a Collection<a
+        class="headerlink"
+        href="#relationship-establishes-a-collection"
+        title="Permanent link"
+      ></a>
+    </h3>
+    <p>
+      Having a <code>ForeignKey</code> defines the existence of the relationship
+      between tables but not the collection of books an author can have. Take a
+      look at this line in the <code>Author</code> class definition:
+    </p>
+    <div class="highlight python">
+      <pre><span></span><code><span class="n">books</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span><span class="s2">&quot;Book&quot;</span><span class="p">,</span> <span class="n">backref</span><span class="o">=</span><span class="n">backref</span><span class="p">(</span><span class="s2">&quot;author&quot;</span><span class="p">))</span>
+  </code></pre>
+    </div>
+    <p>
+      The code above defines a parent-child collection. The
+      <code>books</code> attribute being plural (which is not a requirement, just
+      a convention) is an indication that it&rsquo;s a collection.
+    </p>
+    <p>
+      The first parameter to <code>relationship()</code>, the class name
+      <code>Book</code> (which is <em>not</em> the table name <code>book</code>),
+      is the class to which the <code>books</code> attribute is related. The
+      <code>relationship</code> informs SQLAlchemy that there&rsquo;s a
+      relationship between the <code>Author</code> and <code>Book</code> classes.
+      SQLAlchemy will find the relationship in the <code>Book</code> class
+      definition:
+    </p>
+    <div class="highlight python">
+      <pre><span></span><code><span class="n">author_id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;author.author_id&quot;</span><span class="p">))</span>
+  </code></pre>
+    </div>
+    <p>
+      SQLAlchemy recognizes that this is the <code>ForeignKey</code> connection
+      point between the two classes. You&rsquo;ll get to the
+      <code>backref</code> parameter in <code>relationship()</code> in a moment.
+    </p>
+    <p>
+      The other relationship in <code>Author</code> is to the
+      <code>Publisher</code> class. This is created with the following statement
+      in the <code>Author</code> class definition:
+    </p>
+    <div class="highlight python">
+      <pre><span></span><code><span class="n">publishers</span> <span class="o">=</span> <span class="n">relationship</span><span class="p">(</span>
+      <span class="s2">&quot;Publisher&quot;</span><span class="p">,</span> <span class="n">secondary</span><span class="o">=</span><span class="n">author_publisher</span><span class="p">,</span> <span class="n">back_populates</span><span class="o">=</span><span class="s2">&quot;authors&quot;</span>
+  <span class="p">)</span>
+  </code></pre>
+    </div>
+    <p>
+      Like <code>books</code>, the attribute <code>publishers</code> indicates a
+      collection of publishers associated with an author. The first parameter,
+      <code>"Publisher"</code>, informs SQLAlchemy what the related class is. The
+      second and third parameters are <code>secondary=author_publisher</code> and
+      <code>back_populates="authors"</code>:
+    </p>
+    <ul>
+      <li>
+        <p>
+          <strong><code>secondary</code></strong> tells SQLAlchemy that the
+          relationship to the <code>Publisher</code> class is through a secondary
+          table, which is the <code>author_publisher</code> association table
+          created earlier in <code>models.py</code>. The
+          <code>secondary</code> parameter makes SQLAlchemy find the
+          <code>publisher_id</code> <code>ForeignKey</code> defined in the
+          <code>author_publisher</code> association table.
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong><code>back_populates</code></strong> is a convenience
+          configuration telling SQLAlchemy that there&rsquo;s a complementary
+          collection in the <code>Publisher</code> class called
+          <code>authors</code>.
+        </p>
+      </li>
+    </ul>
+  </section>
+  <section class="section3" id="backref-mirrors-attributes">
+    <h3>
+      <code>backref</code> Mirrors Attributes<a
+        class="headerlink"
+        href="#backref-mirrors-attributes"
+        title="Permanent link"
+      ></a>
+    </h3>
+    <p>
+      The <strong><code>backref</code></strong> parameter of the
+      <code>books</code> collection <code>relationship()</code> creates an
+      <code>author</code> attribute for each <code>Book</code> instance. This
+      attribute refers to the parent <code>Author</code> that the
+      <code>Book</code> instance is related to.
+    </p>
+    <p>
+      For example, if you executed the following Python code, then a
+      <code>Book</code> instance would be returned from the SQLAlchemy query. The
+      <code>Book</code> instance has attributes that can be used to print out
+      information about the book:
+    </p>
+    <div class="highlight python">
+      <pre><span></span><code><span class="n">book</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">Book</span><span class="p">)</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">Book</span><span class="o">.</span><span class="n">title</span> <span class="o">==</span> <span class="s2">&quot;The Stand&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">one_or_none</span><span class="p">()</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Authors name: </span><span class="si">{</span><span class="n">book</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">book</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">last_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  </code></pre>
+    </div>
+    <p>
+      The existence of the <code>author</code> attribute in the
+      <code>Book</code> above is because of the <code>backref</code> definition. A
+      <code>backref</code> can be very handy to have when you need to refer to the
+      parent and all you have is a child instance.
+    </p>
+    <div>
+      <div
+        class="rounded border border-light"
+        style="display:block;position:relative;"
+      >
+        <div style="display:block;width:100%;padding-top:12.5%;"></div>
+        <div
+          class="rpad rounded border"
+          data-unit="8x1"
+          style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"
+        ></div>
+      </div>
+      <a class="small text-muted" href="/account/join/" rel="nofollow"
+        ><i aria-hidden="true" class="fa fa-info-circle"> </i> Remove ads</a
+      >
+    </div>
+  </section>
+</body>

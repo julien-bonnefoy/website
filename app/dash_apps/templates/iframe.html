@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+	{{ super() }}
+	{% block app_content %}
+		<div class="embed-responsive inner" style="min-height: {% if min_height is defined %}{{ min_height }}{% else %}100vh{% endif %}">
+			<iframe
+				src={{ dash_url }}
+				allowfullscreen>
+			</iframe>
+		</div>
+	{% endblock app_content %}
+{% endblock content %}
+{% block scripts %}
+    {{ super() }}
+{% endblock %}

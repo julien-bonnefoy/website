@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    {% block head %}
+    <!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <!-- Title -->
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+    {% endblock head %}
+</head>
+<body class="is-preload">
+{% block body %}
+    <!-- Wrapper -->
+    <div id="wrapper" class="inner">
+        <!-- Navbar -->
+        <div class="inner">
+            {% include 'partials/navbar.html' %}
+        </div>
+        <!-- Header -->
+        <header id="header">
+            {% block header %}
+            {% endblock header %}
+        </header>
+        <!-- Messages -->
+        <div id="messages">
+            {% block messages %}
+                {% include 'partials/messages.html' %}
+            {% endblock messages %}
+        </div>
+        <!-- Main -->
+        <main role="main" class="container-fluid justify-content-center align-items-center pb-0" id="main">
+            {% block content %}
+            {% endblock content %}
+        </main>
+        <!-- Modal -->
+        <div id="modal">
+            {% block modal %}
+            {% endblock modal %}
+        </div>
+        <!-- Footer -->
+        <div id="footer">
+            {% block footer %}
+                {% include 'partials/footer.html' %}
+            {% endblock footer %}
+        </div>
+	</div>
+    {% block script %}
+    <!-- Scripts -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" type="text/javascript"></script>
+    <script src="../static/js/browser.min.js"></script>
+    <script src="../static/js/breakpoints.min.js"></script>
+    <script src="../static/js/util.js"></script>
+    <script src="../static/js/html5up.js"></script>
+    <script src="../static/js/jquery.fittext.js"></script>
+    {% endblock script %}
+  {% endblock body %}
+  </body>
+</html>
+
+
+
+
