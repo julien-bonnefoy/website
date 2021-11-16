@@ -1,5 +1,6 @@
 from os import environ, path
 from dotenv import load_dotenv
+from flask_app.database import connect_to_azure
 
 basedir = path.abspath(path.dirname(__file__))
 load_dotenv(path.join(basedir, '.env'))
@@ -7,6 +8,8 @@ load_dotenv(path.join(basedir, '.env'))
 
 class Config(object):
     """Base config."""
+    CACHE_TYPE = "simple"
+    FLASK_APP = environ.get("FLASK_APP")
     APP_NAME = environ.get("APP_NAME")
     SECRET_KEY = environ.get('SECRET_KEY')
     STATIC_FOLDER = environ.get('STATIC_FOLDER')

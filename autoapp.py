@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
-"""Create an application instance."""
-from app import create_app
-from config import DevConfig
+from flask_app import create_app
+from config import ProdConfig, DevConfig
+from flask_app.dash.orange.models import User
+from flask_app.extensions import db
 
-conf = DevConfig()
-app = create_app(conf)
+prod = ProdConfig()
+dev = DevConfig()
+app = create_app(dev)
+
+@app.shell_context_processor
+def make_shell_context():
+    return {'db': db, 'User': User}

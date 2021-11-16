@@ -1,6 +1,9 @@
 import sys
-from autoapp import app
 from config import basedir
+import site
+import os
 
 sys.path.insert(0, basedir)
-application = app
+site.addsitedir(os.path.join(basedir, 'venv/lib/python3.8/site-pacjages'))
+
+from autoapp import app as application

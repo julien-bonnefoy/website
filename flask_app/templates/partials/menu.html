@@ -1,0 +1,28 @@
+{% block menu %}
+<nav id="menu">
+  <h2>Menu</h2>
+  <ul>
+    <li>
+      <a href="{{ url_for('home') }}">Home</a>
+    </li>
+    <li>
+      <a href="{{ url_for('ocr') }}">OCR</a>
+    </li>
+    <li>
+      <a href="{{ url_for('clock') }}">Clock</a>
+    </li>
+    <li class="nav-item dropdown dash_dropdown" >
+      <a class="nav-link dropdown-toggle dash_dropdown" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+        Dash
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ url_for('orange') }}">Orange</a>
+      <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{{ url_for('iris') }}">Iris</a>
+      <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{{ url_for('crossfilter') }}">Crossfilter</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+{% endblock menu %}
