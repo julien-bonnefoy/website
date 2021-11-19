@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock title%}
+{% block header %}
+<div class="row justify-content-center align-items-center inner" style="height: 77vh;">
+    <div class="c">
+    <h1 class="text-center">{{ _('WELCOME') }}</h1>
+        <p class="text-center" style="font-size: 1.5em">{{ _('... to my freshly built website. You will see some
+        of my projects about Artifical Intelligence and application development.Hope you will enjoy') }}</p><br>
+    </div>
+</div>
+{% endblock header %}
+{% block content %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.lang(g.locale) }}
+{% endblock content %}
+
+

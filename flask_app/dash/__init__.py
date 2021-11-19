@@ -10,7 +10,7 @@ external_stylesheets = [
 ]
 
 
-def create_dashboard(server):
+def dash_apps_facrory(server):
     """Create a Plotly Dash dashboard."""
 
     # Meta tags for viewport responsiveness
@@ -50,11 +50,11 @@ def create_dashboard(server):
 
         callback_function = getattr(
              importlib.import_module(
-                 'app.dash.' + dashapp['name'] + '.' + dashapp['callback_file']), dashapp['callback_function'])
+                 'flask_app.dash.' + dashapp['name'] + '.' + dashapp['callback_file']), dashapp['callback_function'])
 
         layout_function = getattr(
             importlib.import_module(
-                 'app.dash.' + dashapp['name'] + '.' + dashapp['layout_file']), dashapp['layout_function'])
+                 'flask_app.dash.' + dashapp['name'] + '.' + dashapp['layout_file']), dashapp['layout_function'])
 
         dash_app = dash.Dash(
             __name__,

@@ -1,7 +1,7 @@
 {% block footer %}
-<div class="inner" style="max-width: 68em; margin: 0 auto;  padding: 0 2.5em;">
-	<section>
-		<h4>Get in touch</h4>
+<div class="row inner" style="margin: 0 auto;  padding: 0 2.5em;">
+	<div class="col-6">
+		<h3 style="text-align: center">Get in touch</h3>
 		<form method="post" action="#">
 			<div class="fields">
 				<div class="field half">
@@ -23,10 +23,9 @@
 				</li>
 			</ul>
 		</form>
-	</section>
-	<section>
-		<h4>Follow
-		</h4>
+	</div>
+	<div class="col-6">
+		<h3  style="text-align: center;">Follow</h3>
 		<ul class="icons">
 			<li>
 				<a href="https://github.com/julien-bonnefoy" class="icon brands style2 fa-github">
@@ -53,7 +52,7 @@
 				</a>
 			</li>
 		</ul>
-	</section>
+	</fiv>
 	<ul class="copyright">
 		<li>© Julien Bonnefoy. All rights reserved
 		</li>
@@ -68,7 +67,7 @@
 	</ul>
 	<ul class="footer-nav">
 		<li>
-			<a href="{{ url_for('about') }}">About
+			<a href="{{ url_for('home_bp.about') }}">About
 			</a>
 		</li>
 		<li>

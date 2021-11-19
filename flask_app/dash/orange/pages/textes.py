@@ -78,7 +78,7 @@ p_7 = html.Div(
                             "statistic that is intended to reflect how important a word "
                             "is to a document in a collection or corpus. It is often '"
                             "'used as a weighting factor in searches of information '"
-                            "'retrieval, text mining, and user modeling. The tf–idf value'"
+                            "'retrieval, text mining, and users modeling. The tf–idf value'"
                             "' increases proportionally to the number of times a word "
                             "appears in the document and is offset by the number of "
                             "documents in the corpus that contain the word, which helps "

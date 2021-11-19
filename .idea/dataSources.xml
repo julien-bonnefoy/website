@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="website-database" uuid="f221c28b-765c-43ce-a2d7-db33ffddf4eb">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/app/data/app.db</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
     <data-source source="LOCAL" name="dashol-db@dashol-server.database.windows.net" uuid="4d31c533-2bab-4304-b2b4-e9799e7ff97d">
       <driver-ref>azure.ms</driver-ref>
       <synchronize>true</synchronize>
@@ -15,11 +8,18 @@
       <jdbc-url>jdbc:sqlserver://dashol-server.database.windows.net:1433;database=dashol-db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="orange.sqlite" uuid="53f76917-b5d9-4248-91e3-f15d4ff74858">
+    <data-source source="LOCAL" name="website-dev.db" uuid="d2aa5d8c-4f17-41c5-b482-5c1dac628b5a">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/flask_app/data/orange.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/flask_app/data/sql/website-dev.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="orange.db" uuid="a8826ea5-725b-4e83-8d3d-260f9e5b063f">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../website-backup/app/data/orange.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

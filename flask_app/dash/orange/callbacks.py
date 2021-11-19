@@ -35,7 +35,7 @@ def init_callbacks(dash_app):
             return kw_content
         elif pathname == "/dash/orange/categorie/s":
             return
-        # If the user tries to reach a different page, return a 404 message
+        # If the users tries to reach a different page, return a 404 message
         return dbc.Jumbotron(
             [
                 html.H1("404: Not found", className="text-danger")

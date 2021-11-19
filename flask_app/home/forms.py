@@ -8,7 +8,7 @@ from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, DateField, TextAreaField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, URL, Length
 from flask_babel import _, lazy_gettext as _l
-from flask_app.user.models import User
+from flask_app.users.models import User
 
 
 class LoginForm(FlaskForm):
@@ -33,54 +33,12 @@ class LoginForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
-    username = StringField(
-        _l('Username'),
-        validators=[
-            DataRequired()
-        ]
-    )
-    email = StringField(
-        _l("Email"),
-        validators=[
-            Email(message="Not a valid email address."),
-            DataRequired()
-        ]
-    )
-    password = PasswordField(
-        _l("Password"),
-        validators=[
-            DataRequired(message="Please enter a password.")
-        ]
-    )
+    username = StringField(_l('Username'), validators=[DataRequired()])
+    email = StringField(_l('Email'), validators=[DataRequired(), Email()])
+    password = PasswordField(_l('Password'), validators=[DataRequired()])
     confirmPassword = PasswordField(
-        _l('Repeat Password'),
-        validators=[
-            DataRequired(),
-            EqualTo('password', message="Passwords must match.")
-        ]
-    )
-    title = SelectField(
-        _l("Title"),
-        validators=[
-            DataRequired()
-        ],
-        choices=[
-            ("Farmer", "farmer"),
-            ("Corrupt Politician", "politician"),
-            ("No-nonsense City Cop", "cop"),
-            ("Professional Rocket League Player", "rocket"),
-            ("Lonely Guy At A Diner", "lonely"),
-            ("Pokemon Trainer", "pokemon"),
-        ],
-    )
-    website = StringField(
-        "Website",
-        validators=[
-            URL()
-        ]
-    )
-    birthday = DateField("Your Birthday")
-    recaptcha = RecaptchaField()
+        _l('Repeat Password'), validators=[DataRequired(),
+                                           EqualTo('password')])
     submit = SubmitField(_l('Register'))
 
     def validate_username(self, username):

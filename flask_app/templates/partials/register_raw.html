@@ -1,0 +1,62 @@
+<!-- MODAL -->
+<div class="modal fade" id="RegistrationForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- MODAL DIALOG -->
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <!-- MODAL CONTENT -->
+    <div class="modal-content">
+      <!-- MODAL HEADER -->
+      <div class="modal-header border-0"></div>
+      <!-- end modal header -->
+      <!-- MODAL BODY -->
+      <div class="modal-body">
+        <h2 class="text-center">{{ _('Register') }}</h2>
+        <br>
+        <div class="d-flex flex-column text-center">
+          <form action="" method="post">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+          <div class="form-group">
+              <p class="text-left">{{ form.username.label }}</p>
+              <p>{{ form.username(size=8) }}</p>
+              {% for error in form.username.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+          </div>
+          <br>
+          <div class="form-group">
+              <p class="text-left">{{ form.email.label }}</p>
+              <p>{{ form.email(size=8) }}</p>
+              {% for error in form.email.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+          </div>
+          <br>
+          <div class="form-group">
+              <p class="text-left">{{ form.password.label }}</p>
+              <p>{{ form.password(size=8) }}</p>
+              {% for error in form.password.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+          </div>
+          <br>
+          <div class="form-group">
+              <p class="text-left">{{ form.confirmPassword.label }}</p>
+              <p>{{ form.confirmPassword(size=8) }}</p>
+              {% for error in form.confirmPassword.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+              {% endfor %}
+          </div>
+          <br>
+           <div type="button" class="btn  btn-block btn-round border-0">{{ form.submit() }}</div>
+          </form>
+        </div>
+      </div>
+      <!-- end modal body -->
+      <!-- MODAL FOOTER -->
+      <div class="modal-footer border-0"></div>
+      <!-- end modal footer -->
+    </div>
+    <!-- end modal content -->
+  </div>
+  <!-- end modal dialog -->
+</div>
+<!-- end modal -->

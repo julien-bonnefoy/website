@@ -7,7 +7,7 @@ import pandas as pd
 '''
 
 # ENGINE
-engine = create_engine('sqlite:///../data/orange.db', echo=True)
+engine = create_engine('sqlite:///../data/website-dev.db', echo=True)
 
 # QUERY
 query = "SELECT * FROM learning_objects"

@@ -3,22 +3,22 @@
 		{% if messages %}
 			{% for category, msg in messages %}
 				{% if category == 'message' or category == 'info' %}
-				<div class="alert alert-info">
+				<div class="alert alert-info text-center inner">
 						<strong>Info!</strong> {{ msg }}
 				</div>
 				{% endif %}
 				{% if category == 'danger' %}
-				<div class="alert alert-danger">
+				<div class="alert alert-danger inner">
 						<strong>Danger!</strong> {{ msg }}
 				</div>
 				{% endif %}
 				{% if category == 'warning' %}
-				<div class="alert alert-warning">
+				<div class="alert alert-warning inner">
 						<strong>Warning!</strong>  {{ msg }}
 				</div>
 				{% endif %}
 				{% if category == 'success' %}
-				<div class="alert alert-success">
+				<div class="alert alert-success inner">
 						<strong>Success!</strong> {{ msg }}
 				</div>
 				{% endif %}

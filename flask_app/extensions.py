@@ -12,15 +12,16 @@ from flask_mail import Mail
 from flask_moment import Moment
 from flask_babel import Babel, lazy_gettext as _l
 
+
 bcrypt = Bcrypt()
 csrf_protect = CSRFProtect()
 login_manager = LoginManager()
-login_manager.login_view = 'users.login'
+login_manager.login_view = 'home_bp.index'
 login_manager.login_message = _l('Please log in to access this page.')
 db = SQLAlchemy()
 migrate = Migrate()
 cache = Cache()
-debug_toolbar = DebugToolbarExtension()
+# debug_toolbar = DebugToolbarExtension()
 flask_static_digest = FlaskStaticDigest()
 mail = Mail()
 moment = Moment()
