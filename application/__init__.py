@@ -98,7 +98,7 @@ def create_flask_server():
     """
     server = Flask(__name__)
     server.config.from_object(DevConfig())
-    server.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///application/data/biocodex.db"
+    server.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////home/julien/website/application/data/biocodex.db"
     server.config["SECRET_KEY"] = "93807f0a7b2e5577c4e3b4f93e70ad4de7ecc9c6d0262652d3a47be8700379e0"
 
     """
@@ -123,26 +123,3 @@ def create_flask_server():
 fserver = create_flask_server()
 app = dash_apps_factory(fserver)
 
-
-if __name__ == "__main__":
-
-    cli.register(app)
-
-    with app.app_context():
-        db.create_all()
-
-    app.run(host='0.0.0.0', debug=True, poty=5001)
-
-    @app.shell_context_processor
-    def make_shell_context():
-        return {
-            'db': db,
-            'User': User,
-            "Identities": Identity,
-            "Adresses": Adress,
-            "Cdbs": Cdb,
-            "Connections": Connections
-        }
-
-
-from application.users import forms, models
