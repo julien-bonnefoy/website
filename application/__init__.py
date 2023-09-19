@@ -118,8 +118,9 @@ def create_flask_server():
 
     return server
 
-server = create_flask_server()
-app = dash_apps_factory(server)
+fserver = create_flask_server()
+app = dash_apps_factory(fserver)
+server=app.server
 
 if __name__ == "__main__":
 
