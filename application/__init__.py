@@ -104,7 +104,7 @@ def create_flask_server():
     server = Flask(__name__)
     server.config.from_object(config.get('default'))
     server.config['SECRET_KEY'] = environ.get('SECRET_KEY')
-    server.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL')
+    server.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL') or DATABASE_DEFAULT
 
 
     bootstrap.init_app(server)
