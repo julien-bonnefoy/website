@@ -99,9 +99,16 @@ def configure_logger(app):
 
 def create_flask_server():
 
+    print(environ.get('DATABASE_URL'))
+    print(environ.get('SQLALCHEMY_DATABASE_URI'))
+    print(environ.get('SECRET_KEY'))
+
+
     server = Flask(__name__)
     server.config.from_object(config.get('default'))
     server.config['SECRET_KEY'] = environ.get('SECRET_KEY')
+    server.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL')
+
 
     bootstrap.init_app(server)
     register_extensions(server)
