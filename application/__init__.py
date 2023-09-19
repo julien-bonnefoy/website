@@ -11,7 +11,7 @@ from application.users.models import User
 from elasticsearch import Elasticsearch
 from application.dashboards.biocodex.models import Identity, Adress, Cdb, Connections
 
-
+SQLALCHEMY_DATABASE_URI="sqlite:////home/julien/website/app/data/biocodex.db"
 
 def register_extensions(app):
     """Register Flask extensions."""
