@@ -72,3 +72,11 @@ class TestConfig(Config):
     TESTING = True
     SESSION_COOKIE_SECURE = False
     DEBUG = True
+
+
+config = {
+    'dev': DevConfig,
+    'prod': ProdConfig,
+    'default': DevConfig,
+}
+

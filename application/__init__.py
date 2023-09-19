@@ -9,7 +9,7 @@ from application.extensions import migrate, mail, moment, babel, bootstrap
 from application.users.models import User
 from elasticsearch import Elasticsearch
 from application.dashboards.biocodex.models import Identity, Adress, Cdb, Connections
-from application.config import DATABASE_DEFAULT, DevConfig
+from application.config import DATABASE_DEFAULT, config
 
 
 def register_extensions(app):
@@ -96,7 +96,7 @@ def create_flask_server():
 
 
     server = Flask(__name__)
-    server.config.from_object(DevConfig())
+    server.config.from_object(config.get('default'))
 
     bootstrap.init_app(server)
     register_extensions(server)
