@@ -1,0 +1,93 @@
+{% block navbar %}
+<div id="navbar" class="row bg-dark d-flex w-100 px-0 mx-0">
+    {% if current_user and current_user.is_authenticated %}
+    <div class="row d-flex w-100">
+        <div class="col-1 offset-2">
+            <button class="w-100 btn btn-danger" type="button" href="{{ url_for('ocr_bp.ocr') }}" style="font-weight: 900;">O.C.R.</button>
+        </div>
+        <div class="col-1">
+            <button class="w-100 btn btn-primary" type="button" href="{{ url_for('home_bp.clock') }}" style="font-weight: 900;">Clock 24</button>
+        </div>
+        <div class="col-1">
+            <button class="w-100 btn btn-info" type="button" href="{{ url_for('home_bp.clock') }}" style="font-weight: 900;">Dash</button>
+        </div>
+        <div class="col-1">
+            <button class="w-100 btn btn-success" type="button" href="{{ url_for('home_bp.clock') }}" style="font-weight: 900;">Dash</button>
+        </div>
+        <div class="col-1">
+            <button class="w-100 btn btn-warning" type="button" href="{{ url_for('home_bp.clock') }}" style="font-weight: 900;">Dash</button>
+        </div>>
+        <div class="col-2">
+            <a class="w-100 btn btn-info" href="/{{ current_user.username }}" style="font-weight: 900;">Logged in as {{ current_user.username }}</a>
+        </div>
+        <div class="col-1">
+            <a class="w-100 btn btn-danger" href="{{ url_for('auth_bp.logout') }}"><i class="fas fa-sign-out"></i></a>
+        </div>
+    </div>
+
+    {% elif form %}
+
+    <div class="col-2 offset-2">
+        <ul class="navbar-nav my-auto">
+            <li class="container nav-item active">
+                <button class="btn btn-dark btn-primary m-auto" type="submit">
+                    <a class="nav-link navbar-text" href="{{ url_for('auth_bp.register') }}" style="color: white; font-weight: 900; font-size:0.8em">Create account</a>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="col-5 offset-2">
+        <ul class="navbar-nav my-auto">
+            <li class="nav-item w-100">
+                <form class="form-inline d-flex w-100" id="loginForm" method="POST" action="" role="form" style="justify-content: space-evenly;">
+                {{ form.csrf_token }}
+                    <div class="input-group w-100 mr-sm-2">
+                        {{ form.email(placeholder=" Email", class_="form-control mr-sm-1 my-auto") }}
+                        {{ form.password(placeholder="Password", class_="form-control mr-sm-1 my-auto") }}
+                        <input type="hidden" value="{{ request.args.get('next') }}" name="next_page" id="next_page"/>
+                        <input type="submit" name="login" class="btn btn-dark btn-primary text-white" value="Sign in"/>
+                    </div>
+                    {% if form.errors %}
+                        {{ form.errors }}
+                    {% endif %}
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    {% else %}
+    <div class="d-flex col-6">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" >
+                <a class="nav-link" href="{{ url_for('ocr_bp.ocr') }}">O.C.R.<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" href="{{ url_for('home_bp.clock') }}">Clock</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle drop-button" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dash</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                    <a class="dropdown-item" href="">Biocodex</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="">Iris</a>
+                    <a class="dropdown-item" href="">Crossfilter</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col-2 offset-2">
+        <ul class="navbar-nav my-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="">Logged Out</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth_bp.logout') }}">
+                    <i class="fa fa-sign-out"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    {% endif %}
+</div>
+{% endblock navbar %}
+

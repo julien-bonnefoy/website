@@ -1,0 +1,23 @@
+.VirtualizedSelectFocusedOption {
+  background-color: green !important;
+  color: white;
+}
+
+.Select-value-label {
+  background-color: red !important;
+  color: white;
+}
+
+#react-select-2--value-item {
+  background-color: yellow !important;
+  color: white;
+}
+
+.VirtualizedSelectFocusedOption {
+    background-color: green;
+    color: white;
+}
+.VirtualizedSelectOption {
+    background-color: red;
+    color: white;
+}

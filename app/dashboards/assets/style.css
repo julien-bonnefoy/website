@@ -1,0 +1,25 @@
+#country-name .Select-value-label {
+  color: red !important;;
+  font-weight: 750;
+}
+
+#crossfilter-xaxis-column .Select-value-label {
+  color: #570e82 !important;;
+  font-weight: 750;
+}
+
+#crossfilter-yaxis-column .Select-value-label {
+  color: #196010 !important;;
+  font-weight: 750;
+}
+
+/*
+.VirtualizedSelectFocusedOption {
+    background-color: green;
+    color: red;
+}
+*/
+
+.VirtualizedSelectOption {
+    background-color: #e1f5ff;
+}
