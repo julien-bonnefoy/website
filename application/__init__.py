@@ -98,6 +98,7 @@ def create_flask_server():
     """
     server = Flask(__name__)
     server.config.from_object(DevConfig())
+    server.config["SQLALCHEMY_DATABASE_URI"]="sqlite:////home/julien/website/app/data/biocodex.db"
 
     """
     if server.config["ENV"] == "production":
@@ -119,7 +120,6 @@ def create_flask_server():
 
 fserver = create_flask_server()
 app = dash_apps_factory(fserver)
-app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:////home/julien/website/app/data/biocodex.db"
 server = app.server
 
 if __name__ == "__main__":
