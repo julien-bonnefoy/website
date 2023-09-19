@@ -9,10 +9,9 @@ host = environ.get("HOST")
 database = environ.get("DATABASE")
 user = environ.get("USERNAME")
 password = environ.get("PASSWORD")
-conn = psycopg2.connect(host=host, database=database, user=user, password=password)
 
-DATABASE_DEFAULT = 'postgresql://postgres:password@localhost:5432/mydatabase'
-DATABASE_URL=f"postgres://{user}:{password}@{host}/{database}"
+DATABASE_DEFAULT = 'postgresql://postgres:password@localhost:5432/bioco_db'
+DATABASE_URL = f"postgres://{user}:{password}@{host}/{database}"
 
 
 class Config(object):
