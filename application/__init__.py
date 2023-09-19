@@ -11,10 +11,7 @@ from elasticsearch import Elasticsearch
 from application.dashboards.biocodex.models import Identity, Adress, Cdb, Connections
 from application.config import DATABASE_DEFAULT, config, basedir
 from os import environ, path
-from dotenv import load_dotenv
 
-load_dotenv(path.join(basedir, '.env'))
-SECRET_KEY = environ.get('SECRET_KEY')
 
 
 def register_extensions(app):
