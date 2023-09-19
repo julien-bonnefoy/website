@@ -25,7 +25,7 @@ def register_extensions(app):
     csrf_protect.init_app(app)
     csrf_protect._exempt_views.add('dash.dash.dispatch')
     lm.init_app(app)
-    debug_toolbar.init_app(app)
+    # debug_toolbar.init_app(app)
     migrate.init_app(app, db)
     flask_static_digest.init_app(app)
     mail.init_app((app))
