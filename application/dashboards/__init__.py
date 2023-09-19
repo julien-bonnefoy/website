@@ -70,6 +70,6 @@ def dash_apps_factory(server):
                 html.Div(id='page-layout', children=layout_function())
             ])
             callback_function(dash_app)
-            dash_app.run_server(dev_tools_hot_reload=True)
+            # dash_app.run_server(dev_tools_hot_reload=True)
 
     return server
