@@ -1,6 +1,6 @@
 from os import environ, path
 from dotenv import load_dotenv
-import psycopg2
+import os
 
 basedir = path.abspath(path.dirname(__file__))
 load_dotenv(path.join(basedir, '.env'))
@@ -28,7 +28,7 @@ class Config(object):
 
     FLASK_DEBUG = True
 
-
+    DATABASE_URL = os.environ['DATABASE_URL']
     if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
         DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
