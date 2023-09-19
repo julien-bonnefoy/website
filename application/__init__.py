@@ -119,6 +119,7 @@ def create_flask_server():
 
     return server
 
+
 fserver = create_flask_server()
 app = dash_apps_factory(fserver)
 
