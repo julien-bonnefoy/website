@@ -28,7 +28,7 @@ class Config(object):
 
     FLASK_DEBUG = True
 
-    DATABASE_URL = os.environ['DATABASE_URL']
+    DATABASE_URL = environ.get('DATABASE_URL')
     if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
         DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
