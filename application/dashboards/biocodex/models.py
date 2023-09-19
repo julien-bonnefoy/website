@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-from app.extensions import db
+from application.extensions import db
 from sqlalchemy.orm import relationship
 
 

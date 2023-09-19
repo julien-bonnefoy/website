@@ -8,7 +8,7 @@ OTHER FUNCTIONS:
 from flask import render_template, Blueprint, redirect, url_for
 from .biocodex.models import Identity
 from .biocodex.forms import EditForm
-from app import db
+from application import db
 
 # Blueprint Configuration
 dash_bp = Blueprint(

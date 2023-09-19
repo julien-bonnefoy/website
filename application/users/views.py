@@ -8,10 +8,10 @@ OTHER FUNCTIONS: load_user, before_request
 from flask import render_template, flash, redirect, url_for, request, g, jsonify, current_app, Blueprint
 from flask_login import login_required, current_user
 from flask_babel import _, get_locale
-from app.extensions import lm, db
-from app.users.models import User
+from application.extensions import lm, db
+from application.users.models import User
 from datetime import datetime
-from app.users.forms import SearchForm, EditProfileForm, EmptyForm,  MessageForm
+from application.users.forms import SearchForm, EditProfileForm, EmptyForm,  MessageForm
 
 
 user_bp = Blueprint(

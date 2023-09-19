@@ -3,7 +3,7 @@
 from compat import basestring
 import pandas as pd
 from sqlalchemy import create_engine
-from app.extensions import db
+from application.extensions import db
 import os
 import pyodbc
 from dotenv import load_dotenv

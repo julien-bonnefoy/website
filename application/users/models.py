@@ -6,9 +6,9 @@ from time import time
 from flask import current_app, url_for
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-from app.extensions import db, lm
+from application.extensions import db, lm
 import jwt
-from app.models import PaginatedAPIMixin
+from application.models import PaginatedAPIMixin
 
 
 class User(UserMixin, PaginatedAPIMixin, db.Model):

@@ -8,19 +8,19 @@ OTHER FUNCTIONS: before_request
 from datetime import datetime
 from flask import render_template, flash, redirect, url_for, request, g, jsonify, current_app
 from flask_login import login_required
-from app.users.forms import SearchForm
+from application.users.forms import SearchForm
 from flask import Blueprint
 from flask_login import logout_user, current_user
-from app.translate import translate
-from app.auth.forms import LoginForm, ResetPasswordRequestForm, ResetPasswordForm
-from app.home.forms import ContactForm
+from application.translate import translate
+from application.auth.forms import LoginForm, ResetPasswordRequestForm, ResetPasswordForm
+from application.home.forms import ContactForm
 from pygments.formatters.html import HtmlFormatter
 import markdown
 from markupsafe import Markup
-from app.email_sender import send_password_reset_email
+from application.email_sender import send_password_reset_email
 from flask_babel import _, get_locale
-from app.extensions import db
-from app.users.models import User
+from application.extensions import db
+from application.users.models import User
 
 
 home_bp = Blueprint(

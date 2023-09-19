@@ -4,11 +4,11 @@ from flask_login import login_required
 from werkzeug.urls import url_parse
 from flask import Blueprint
 from flask_login import login_user, logout_user, current_user
-from app.auth.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm
-from app.users.models import User
-from app.email_sender import send_password_reset_email
+from application.auth.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm
+from application.users.models import User
+from application.email_sender import send_password_reset_email
 from flask_babel import _
-from app.extensions import db
+from application.extensions import db
 
 
 

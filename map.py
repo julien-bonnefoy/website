@@ -5,7 +5,7 @@ import collections
 import pandas as pd
 import json
 import random
-from app.dashboards.biocodex.functions import join_id_adr_cdb, spe_options, uga_options, ciblage_options, datatable_cols, styles, build_one
+from application.dashboards.biocodex.functions import join_id_adr_cdb, spe_options, uga_options, ciblage_options, datatable_cols, styles, build_one
 from dash_extensions.javascript import assign, arrow_function, Namespace
 import dash_leaflet as dl
 import dash_leaflet.express as dlx

@@ -1,5 +1,5 @@
 from flask import jsonify
-from app.extensions import db
+from application.extensions import db
 from api import bp
 from api.auth import basic_auth, token_auth
 

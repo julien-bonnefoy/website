@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-from app import cli, commands
+from application import cli, commands
 from .config import DevConfig
-from app.dashboards import dash_apps_factory
+from application.dashboards import dash_apps_factory
 import logging
 import sys
 from flask import Flask, render_template
-from app.extensions import bcrypt, cache, csrf_protect, db, flask_static_digest, lm, debug_toolbar
-from app.extensions import migrate, mail, moment, babel, bootstrap
-from app.users.models import User
+from application.extensions import bcrypt, cache, csrf_protect, db, flask_static_digest, lm, debug_toolbar
+from application.extensions import migrate, mail, moment, babel, bootstrap
+from application.users.models import User
 from elasticsearch import Elasticsearch
-from app.dashboards.biocodex.models import Identity, Adress, Cdb, Connections
+from application.dashboards.biocodex.models import Identity, Adress, Cdb, Connections
 
 
 
@@ -32,12 +32,12 @@ def register_extensions(app):
 
 def register_blueprints(server):
     """Register Flask blueprints."""
-    from app.home.views import home_bp
-    from app.auth.views import auth_bp
-    from app.dashboards.views import dash_bp
-    from app.ocr.views import ocr_bp
-    from app.users.views import user_bp
-    from app.pds.views import pds_bp
+    from application.home.views import home_bp
+    from application.auth.views import auth_bp
+    from application.dashboards.views import dash_bp
+    from application.ocr.views import ocr_bp
+    from application.users.views import user_bp
+    from application.pds.views import pds_bp
 
     server.register_blueprint(home_bp)
     server.register_blueprint(auth_bp)
@@ -118,12 +118,11 @@ def create_flask_server():
 
     return server
 
-
+server = create_flask_server()
+app = dash_apps_factory(server)
 
 if __name__ == "__main__":
 
-    server = create_flask_server()
-    app = dash_apps_factory(server)
     cli.register(app)
 
     with app.app_context():
@@ -143,4 +142,4 @@ if __name__ == "__main__":
         }
 
 
-from app.users import forms, models
+from application.users import forms, models

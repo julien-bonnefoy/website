@@ -1,10 +1,10 @@
-from app.search import add_to_index, remove_from_index, query_index
-from app.extensions import db
+from application.search import add_to_index, remove_from_index, query_index
+from application.extensions import db
 from flask import url_for
 from datetime import datetime
 from time import time
 import json
-from app.dashboards.biocodex.models import Identity
+from application.dashboards.biocodex.models import Identity
 
 
 class SearchableMixin(object):
