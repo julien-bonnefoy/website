@@ -98,7 +98,8 @@ def create_flask_server():
     """
     server = Flask(__name__)
     server.config.from_object(DevConfig())
-    server.config["SQLALCHEMY_DATABASE_URI"]="sqlite:////home/julien/website/app/data/biocodex.db"
+    server.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////home/julien/website/app/data/biocodex.db"
+    server.config["SECRET_KEY"] = "93807f0a7b2e5577c4e3b4f93e70ad4de7ecc9c6d0262652d3a47be8700379e0"
 
     """
     if server.config["ENV"] == "production":
