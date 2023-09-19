@@ -1,17 +1,5 @@
 from os import environ, path
-from dotenv import load_dotenv
 
-basedir = path.abspath(path.dirname(__file__))
-load_dotenv(path.join(basedir, '.env'))
-
-driver = environ.get("DRIVER")
-server = environ.get("SERVER")
-database = environ.get("DATABASE")
-username = environ.get("USERNAME")
-password = environ.get("PASSWORD")
-port = environ.get("PORT")
-
-CONN_STR = f'DRIVER={driver};PORT=1433;SERVER={server};DATABASE={database};UID={username};PWD={password}'
 
 
 class Config(object):
@@ -20,13 +8,6 @@ class Config(object):
     SECRET_KEY = ("93807f0a7b2e5577c4e3b4f93e70ad4de7ecc9c6d0262652d3a47be8700379e0")
 
     CACHE_TYPE = "simple"
-
-    LANGUAGES = ['en', 'fr']
-
-    STATIC_FOLDER = environ.get('STATIC_FOLDER')
-    TEMPLATES_FOLDER = environ.get('TEMPLATES_FOLDER')
-
-    FLASK_DEBUG = True
 
     SQLALCHEMY_DATABASE_URI = "sqlite:///application/data/biocodex.db"
     SQLALCHEMY_TRACK_MODIFICATIONS = environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')

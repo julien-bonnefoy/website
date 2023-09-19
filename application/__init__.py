@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from application import cli, commands
-from .config import DevConfig
 from application.dashboards import dash_apps_factory
 import logging
 import sys
@@ -97,16 +96,8 @@ def create_flask_server():
     :param config_object: The configuration object to use.
     """
     server = Flask(__name__)
-    server.config.from_object(DevConfig())
     server.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////home/julien/website/application/data/biocodex.db"
     server.config["SECRET_KEY"] = "93807f0a7b2e5577c4e3b4f93e70ad4de7ecc9c6d0262652d3a47be8700379e0"
-
-    """
-    if server.config["ENV"] == "production":
-        server.config.from_object("config.ProdConfig")
-    else:
-        server.config.from_object("config.DevConfig")
-    """
 
     bootstrap.init_app(server)
     register_extensions(server)
@@ -118,8 +109,3 @@ def create_flask_server():
     server.elasticsearch = Elasticsearch([server.config['ELASTICSEARCH_URL']]) if server.config['ELASTICSEARCH_URL'] else None
 
     return server
-
-
-fserver = create_flask_server()
-app = dash_apps_factory(fserver)
-
