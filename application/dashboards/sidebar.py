@@ -4,7 +4,7 @@ from .biocodex.functions import uga_options, spe_options, ciblage_options
 import base64
 
 FA = "https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-image_filename = "app/static/img/shield_125.png"
+image_filename = "application/static/img/shield_125.png"
 
 encoded_image = base64.b64encode(open(image_filename, 'rb').read())
 

@@ -90,7 +90,7 @@ def readme():
             markdown.markdown(fp.read(), extensions=["codehilite", "fenced_code"])
             .replace(
                 # Fix relative path for image(s) when rendering README.md on index page
-                'src="app/',
+                'src="application/',
                 'src="',
             )
             .replace("codehilite", "codehilite p-2 mb-3 bg-dark")

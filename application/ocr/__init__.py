@@ -26,8 +26,8 @@ def ocr():
                 return redirect(request.url)
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
-                file.save(f'app/ocr/uploads/{filename}')
-                source = os.path.join(basedir, f'app/ocr/uploads/{filename}')
+                file.save(f'application/ocr/uploads/{filename}')
+                source = os.path.join(basedir, f'application/ocr/uploads/{filename}')
                 img = Image.open(source)
                 ocr_text = tesseract_get_text(img)
                 ocr_text = ocr_text.split('\n')
@@ -41,7 +41,7 @@ def ocr():
             filename = get_img_from_url(url)
             if url and allowed_file(filename):
                 filename = secure_filename(filename)
-                source = os.path.join(basedir, f'app/ocr/uploads/{filename}')
+                source = os.path.join(basedir, f'application/ocr/uploads/{filename}')
                 img = Image.open(source)
                 ocr_text = tesseract_get_text(img)
                 ocr_text = ocr_text.split('\n')
@@ -82,7 +82,7 @@ def get_img_from_url(img_url):
         # Set decode_content value to True, otherwise the downloaded image file's size will be zero.
         r.raw.decode_content = True
 
-    with open(os.path.join(basedir, f'app/ocr/uploads/{filename}'), 'wb') as file:
+    with open(os.path.join(basedir, f'application/ocr/uploads/{filename}'), 'wb') as file:
         shutil.copyfileobj(r.raw, file)
 
     return filename
