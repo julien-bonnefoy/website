@@ -47,11 +47,11 @@ def dash_apps_factory(server):
 
         callback_function = getattr(
              importlib.import_module(
-                 'app.dashboards.' + dashapp['name'] + '.' + dashapp['callback_file']), dashapp['callback_function'])
+                 'application.dashboards.' + dashapp['name'] + '.' + dashapp['callback_file']), dashapp['callback_function'])
 
         layout_function = getattr(
             importlib.import_module(
-                 'app.dashboards.' + dashapp['name'] + '.' + dashapp['layout_file']), dashapp['layout_function'])
+                 'application.dashboards.' + dashapp['name'] + '.' + dashapp['layout_file']), dashapp['layout_function'])
 
         dash_app = dash.Dash(
             __name__,
