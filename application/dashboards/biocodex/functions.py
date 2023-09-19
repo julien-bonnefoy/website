@@ -12,7 +12,7 @@ import numpy as np
 
 def join_id_adr():
     engine = create_engine(
-        'sqlite:////home/julien/website/app/data/biocodex.db'
+        'sqlite:////app/data/biocodex.db'
     )
 
     with Session(engine) as session:
@@ -34,7 +34,7 @@ def join_id_adr():
 
 def join_id_cdb():
     engine = create_engine(
-        'sqlite:////home/julien/website/app/data/biocodex.db'
+        'sqlite:////app/data/biocodex.db'
     )
 
     with Session(engine) as session:
@@ -54,7 +54,7 @@ def join_id_cdb():
 
 def join_id_adr_cdb():
     engine = create_engine(
-        'sqlite:////home/julien/website/app/data/biocodex.db'
+        'sqlite:////app/data/biocodex.db'
     )
 
     with Session(engine) as session:
