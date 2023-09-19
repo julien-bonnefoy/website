@@ -9,7 +9,7 @@ from application.extensions import migrate, mail, moment, babel, bootstrap
 from application.users.models import User
 from elasticsearch import Elasticsearch
 from application.dashboards.biocodex.models import Identity, Adress, Cdb, Connections
-
+import os
 
 def register_extensions(app):
     """Register Flask extensions."""
@@ -92,9 +92,12 @@ def configure_logger(app):
 
 
 def create_flask_server():
-    """Create application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
-    :param config_object: The configuration object to use.
-    """
+    uri = os.getenv("DATABASE_URL")
+    if uri.startswith("postgres://"):
+        uri = uri.replace("postgres://", "postgresql://", 1)
+
+    SQLALCHEMY_DATABASE_URI = uri or 'sqlite:///data_base.db'
+
     server = Flask(__name__)
     server.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///application/data/biocodex.db"
     server.config["SECRET_KEY"] = "93807f0a7b2e5577c4e3b4f93e70ad4de7ecc9c6d0262652d3a47be8700379e0"

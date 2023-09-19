@@ -1,4 +1,5 @@
 from os import environ, path
+import os
 
 
 
@@ -9,7 +10,11 @@ class Config(object):
 
     CACHE_TYPE = "simple"
 
-    SQLALCHEMY_DATABASE_URI = "sqlite:///application/data/biocodex.db"
+    uri = os.getenv("SQLALCHEMY_DATABASE_URI")
+    if uri.startswith("postgres://"):
+        uri = uri.replace("postgres://", "postgresql://", 1)
+
+    SQLALCHEMY_DATABASE_URI = uri or 'sqlite:///application/data/biocodex.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
 
     MAIL_SERVER = environ.get('MAIL_SERVER')
