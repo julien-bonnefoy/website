@@ -1,17 +1,18 @@
 from os import environ, path
 from dotenv import load_dotenv
+import psycopg2
 
 basedir = path.abspath(path.dirname(__file__))
 load_dotenv(path.join(basedir, '.env'))
 
-driver = environ.get("DRIVER")
-server = environ.get("SERVER")
+host = environ.get("HOST")
 database = environ.get("DATABASE")
-username = environ.get("USERNAME")
+user = environ.get("USERNAME")
 password = environ.get("PASSWORD")
-port = environ.get("PORT")
+conn = psycopg2.connect(host=host, database=database, user=user, password=password)
 
-CONN_STR = f'DRIVER={driver};PORT=1433;SERVER={server};DATABASE={database};UID={username};PWD={password}'
+DATABASE_DEFAULT = 'postgresql://postgres:password@localhost:5432/mydatabase'
+DATABASE_URL=f"postgres://{user}:{password}@{host}/{database}"
 
 
 class Config(object):
@@ -28,11 +29,11 @@ class Config(object):
 
     FLASK_DEBUG = True
 
-    uri = environ.get("DEV_DATABASE_URL")
-    if uri.startswith("postgres://"):
-        uri = uri.replace("postgres://", "postgresql://", 1)
 
-    SQLALCHEMY_DATABASE_URI = uri or 'sqlite:///application/data/biocodex.db'
+    if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
+        DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
+    SQLALCHEMY_DATABASE_URI = DATABASE_URL or DATABASE_DEFAULT
     SQLALCHEMY_TRACK_MODIFICATIONS = environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
 
     MAIL_SERVER = environ.get('MAIL_SERVER')

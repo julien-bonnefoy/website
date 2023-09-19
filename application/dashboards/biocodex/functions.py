@@ -1,19 +1,23 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
-from .models import Identity, Adress, Cdb, Connections
+from application.dashboards.biocodex.models import Identity, Adress, Cdb, Connections
 import pandas as pd
 from dash import html, dash_table
 import dash_bootstrap_components as dbc
 from flask import url_for
+import os
+from dotenv import load_dotenv
 from dash_extensions.javascript import Namespace, arrow_function
-import dash_leaflet as dl
-import json
 import numpy as np
+import json
+import dash_leaflet as dl
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
+
+engine = create_engine(f"postgresql://{os.environ.get('USERNAME')}:{os.environ.get('PASSWORD')}@{os.environ.get('HOST')}:5432/{os.environ.get('DATABASE')}")
 
 def join_id_adr():
-    engine = create_engine(
-        'sqlite:///application/data/biocodex.db'
-    )
 
     with Session(engine) as session:
         id_adr = pd.read_sql_query(
@@ -33,9 +37,6 @@ def join_id_adr():
 
 
 def join_id_cdb():
-    engine = create_engine(
-        'sqlite:///application/data/biocodex.db'
-    )
 
     with Session(engine) as session:
         id_cdb = pd.read_sql_query(
@@ -53,9 +54,6 @@ def join_id_cdb():
 
 
 def join_id_adr_cdb():
-    engine = create_engine(
-        'sqlite:///application/data/biocodex.db'
-    )
 
     with Session(engine) as session:
         id_adr_cdb = pd.read_sql_query(
@@ -136,7 +134,7 @@ id_adr = join_id_adr()
 (styles2, legend2) = discrete_background_color_bins(id_adr, n_bins=9, columns=["pot"], colorscale="YlGn")
 styles = styles1 + styles2
 
-id_adr = join_id_adr_cdb()
+df = join_id_adr_cdb()
 
 spe_options = [
     {'label': 'GY', 'value': 'GY'},
@@ -173,7 +171,7 @@ ciblage_options = [
     {"label": "4", "value": 4}
 ]
 
-datatable_cols =[{"name": i.upper(), "id": i} for i in id_adr.columns]
+datatable_cols =[{"name": i.upper(), "id": i} for i in df.columns]
 
 def build_one(row):
 
@@ -213,8 +211,8 @@ def build_one(row):
         className="col-xl-2 col-sm-6",
 )
 
-mean_lat = id_adr['lat'].mean()
-mean_lon = id_adr['lon'].mean()
+mean_lat = df['lat'].mean()
+mean_lon = df['lon'].mean()
 
 
 def get_compo(df):
@@ -244,7 +242,7 @@ def get_info(feature=None):
     header = [html.H4("Composition")]
     if not feature:
         return header + [html.P("Hoover over a UGA")]
-    uga_compo = get_uga_compo(get_compo(id_adr), feature["properties"]["CODE_UGA"])
+    uga_compo = get_uga_compo(get_compo(df), feature["properties"]["CODE_UGA"])
     table = dash_table.DataTable(
         uga_compo.to_dict('records'),
         [{"name": i.upper(), "id": i} for i in uga_compo.columns],

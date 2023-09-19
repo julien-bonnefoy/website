@@ -9,7 +9,8 @@ from application.extensions import migrate, mail, moment, babel, bootstrap
 from application.users.models import User
 from elasticsearch import Elasticsearch
 from application.dashboards.biocodex.models import Identity, Adress, Cdb, Connections
-import os
+from application.config import DATABASE_DEFAULT, DevConfig
+
 
 def register_extensions(app):
     """Register Flask extensions."""
@@ -95,8 +96,7 @@ def create_flask_server():
 
 
     server = Flask(__name__)
-    server.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///application/data/biocodex.db"
-    server.config["SECRET_KEY"] = "93807f0a7b2e5577c4e3b4f93e70ad4de7ecc9c6d0262652d3a47be8700379e0"
+    server.config.from_object(DevConfig())
 
     bootstrap.init_app(server)
     register_extensions(server)
