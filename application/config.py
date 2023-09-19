@@ -17,7 +17,7 @@ CONN_STR = f'DRIVER={driver};PORT=1433;SERVER={server};DATABASE={database};UID={
 class Config(object):
     """Base config."""
 
-    SECRET_KEY = ("93807f0a7b2e5577c4e3b4f93e70ad4de7ecc9c6d0262652d3a47be8700379e0")
+    SECRET_KEY = environ.get('SECRET_KEY')
 
     CACHE_TYPE = "simple"
 
@@ -28,7 +28,11 @@ class Config(object):
 
     FLASK_DEBUG = True
 
-    SQLALCHEMY_DATABASE_URI = environ.get('SQLALCHEMY_DATABASE_URI')
+    uri = environ.get("DEV_DATABASE_URL")
+    if uri.startswith("postgres://"):
+        uri = uri.replace("postgres://", "postgresql://", 1)
+
+    SQLALCHEMY_DATABASE_URI = uri or 'sqlite:///application/data/biocodex.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
 
     MAIL_SERVER = environ.get('MAIL_SERVER')

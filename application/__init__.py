@@ -92,11 +92,7 @@ def configure_logger(app):
 
 
 def create_flask_server():
-    uri = os.getenv("DATABASE_URL")
-    if uri.startswith("postgres://"):
-        uri = uri.replace("postgres://", "postgresql://", 1)
 
-    SQLALCHEMY_DATABASE_URI = uri or 'sqlite:///data_base.db'
 
     server = Flask(__name__)
     server.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///application/data/biocodex.db"
