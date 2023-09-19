@@ -33,7 +33,7 @@ class Config(object):
         uri = uri.replace("postgres://", "postgresql://", 1)
     # rest of connection code using the connection string `uri`
 
-    SQLALCHEMY_DATABASE_URI = uri
+    SQLALCHEMY_DATABASE_URI = uri or DATABASE_DEFAULT
     SQLALCHEMY_TRACK_MODIFICATIONS = environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
 
     MAIL_SERVER = environ.get('MAIL_SERVER')
