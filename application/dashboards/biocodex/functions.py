@@ -5,17 +5,18 @@ import pandas as pd
 from dash import html, dash_table
 import dash_bootstrap_components as dbc
 from flask import url_for
-import os
-from dotenv import load_dotenv
 from dash_extensions.javascript import Namespace, arrow_function
 import numpy as np
 import json
 import dash_leaflet as dl
+import os
+from application.config import basedir
+from dotenv import load_dotenv
 
-basedir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(basedir, '.env'))
 
 engine = create_engine(f"postgresql://{os.environ.get('USERNAME')}:{os.environ.get('PASSWORD')}@{os.environ.get('HOST')}:5432/{os.environ.get('DATABASE')}")
+
 
 def join_id_adr():
 
