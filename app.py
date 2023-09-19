@@ -5,7 +5,6 @@ from application.users.models import User
 
 server = create_flask_server()
 app = dash_apps_factory(server)
-server = app.server
 cli.register(app)
 
 
