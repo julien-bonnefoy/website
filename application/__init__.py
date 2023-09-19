@@ -9,10 +9,12 @@ from application.extensions import migrate, mail, moment, babel, bootstrap
 from application.users.models import User
 from elasticsearch import Elasticsearch
 from application.dashboards.biocodex.models import Identity, Adress, Cdb, Connections
-from application.config import DATABASE_DEFAULT, config
-from os import environ
+from application.config import DATABASE_DEFAULT, config, basedir
+from os import environ, path
+from dotenv import load_dotenv
 
-print(environ)
+load_dotenv(path.join(basedir, '.env'))
+SECRET_KEY = environ.get('SECRET_KEY')
 
 
 def register_extensions(app):
@@ -96,7 +98,6 @@ def configure_logger(app):
 
 
 def create_flask_server():
-
 
     server = Flask(__name__)
     server.config.from_object(config.get('default'))
