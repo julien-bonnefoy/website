@@ -1,6 +1,17 @@
 from os import environ, path
-import os
+from dotenv import load_dotenv
 
+basedir = path.abspath(path.dirname(__file__))
+load_dotenv(path.join(basedir, '.env'))
+
+driver = environ.get("DRIVER")
+server = environ.get("SERVER")
+database = environ.get("DATABASE")
+username = environ.get("USERNAME")
+password = environ.get("PASSWORD")
+port = environ.get("PORT")
+
+CONN_STR = f'DRIVER={driver};PORT=1433;SERVER={server};DATABASE={database};UID={username};PWD={password}'
 
 
 class Config(object):
@@ -10,11 +21,14 @@ class Config(object):
 
     CACHE_TYPE = "simple"
 
-    uri = os.getenv("SQLALCHEMY_DATABASE_URI")
-    if uri.startswith("postgres://"):
-        uri = uri.replace("postgres://", "postgresql://", 1)
+    LANGUAGES = ['en', 'fr']
 
-    SQLALCHEMY_DATABASE_URI = uri or 'sqlite:///application/data/biocodex.db'
+    STATIC_FOLDER = environ.get('STATIC_FOLDER')
+    TEMPLATES_FOLDER = environ.get('TEMPLATES_FOLDER')
+
+    FLASK_DEBUG = True
+
+    SQLALCHEMY_DATABASE_URI = environ.get('SQLALCHEMY_DATABASE_URI')
     SQLALCHEMY_TRACK_MODIFICATIONS = environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
 
     MAIL_SERVER = environ.get('MAIL_SERVER')
