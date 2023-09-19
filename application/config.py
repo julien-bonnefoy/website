@@ -11,7 +11,7 @@ user = environ.get("USERNAME")
 password = environ.get("PASSWORD")
 
 DATABASE_DEFAULT = 'postgresql://postgres:password@localhost:5432/bioco_db'
-# DATABASE_URL = f"postgres://{user}:{password}@{host}/{database}"
+DATABASE_URL = f"postgres://{user}:{password}@{host}/{database}"
 
 
 class Config(object):
