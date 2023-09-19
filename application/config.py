@@ -28,12 +28,12 @@ class Config(object):
 
     FLASK_DEBUG = True
 
-    uri = os.getenv("DATABASE_URL")  # or other relevant config var
-    if uri.startswith("postgres://"):
-        uri = uri.replace("postgres://", "postgresql://", 1)
+    URI = os.getenv("DATABASE_URL")  # or other relevant config var
+    if URI and URI.startswith("postgres://"):
+        URI = URI.replace("postgres://", "postgresql://", 1)
     # rest of connection code using the connection string `uri`
 
-    SQLALCHEMY_DATABASE_URI = uri or DATABASE_DEFAULT
+    SQLALCHEMY_DATABASE_URI = URI or DATABASE_DEFAULT
     SQLALCHEMY_TRACK_MODIFICATIONS = environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
 
     MAIL_SERVER = environ.get('MAIL_SERVER')
