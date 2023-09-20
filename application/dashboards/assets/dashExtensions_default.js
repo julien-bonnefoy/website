@@ -58,7 +58,7 @@ window.dashExtensions = Object.assign({}, window.dashExtensions, {
                 '92LEV': '#adff2f',
                 '92NEU': '#f3ff00'
             };
-            return {opacity: 1, dashArray: '5', fillOpacity: 0.1, weight:1, fillColor: uga_colors[feature.properties.CODE_UGA], color: uga_colors[feature.properties.CODE_UGA]}
+            return {fillColor: uga_colors[feature.properties.CODE_UGA], fillOpacity: 0.3,  color: uga_colors[feature.properties.CODE_UGA], opacity: 1, weight:5, dashArray: '5'}
         }
     }
 });
