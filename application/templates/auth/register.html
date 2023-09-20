@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="row inner">
+    <div class="row inner h-100 align-items-center">
          <div class="col-4 offset-4">
                 <h1 class="" style="text-align: center;">Register</h1>
                     <form id="registerForm" class="form form form-register d-flex flex-column w-100" method="POST" action="" role="form" style="justify-content: space-evenly;">
@@ -38,8 +38,7 @@
 
                                 <span class="input-group-text" id="basic-addon5"></span>
                                 {{  form.submit() }}
-                                <!-- <input class="btn btn-primary btn-dark" type="submit" value="Register"> -->
-                            </div>
+                                <input class="mb-1 form-control-lg form-control" type="submit" value="Register">                             </div>
                         </div>
                     </form>
                 <p style="text-align: center;"><em>Already registered?</em> Click <a href="/">here</a> to login.</p>
