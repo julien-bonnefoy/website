@@ -29,7 +29,7 @@ class Config(object):
     if URI and URI.startswith("postgres://"):
         URI = URI.replace("postgres://", "postgresql://", 1)
     # rest of connection code using the connection string `uri`
-    print(URI)
+
     SQLALCHEMY_DATABASE_URI = URI
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
 

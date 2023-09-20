@@ -304,6 +304,7 @@ target_layer = dl.GeoJSON(
     filter=ns('geojson_filter'),
     zoomToBounds=True,
     pointToLayer=ns('cible_icon'),
+    cluster=True,
     id="target-geojson"
 )
 

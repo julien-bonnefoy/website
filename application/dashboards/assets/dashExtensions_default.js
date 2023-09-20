@@ -15,17 +15,15 @@ window.dashExtensions = Object.assign({}, window.dashExtensions, {
                 'NE': 'violet',
             };
             if (feature.properties.ciblage>0) {
-                var iconColor = 'white'
                 var shape = 'star'
             } else {
-                var iconColor = 'red'
                 var shape = 'square'
             };
             const marker = L.ExtraMarkers.icon({
                 icon: 'fa-user-doctor',
                 prefix: 'fa',
                 markerColor: doctor_colors[feature.properties.spe],
-                iconColor: iconColor,
+                iconColor: 'white',
                 shape: shape,
                 svg: true
             });

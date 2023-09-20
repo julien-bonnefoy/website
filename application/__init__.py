@@ -98,7 +98,6 @@ def create_flask_server():
 
     server = Flask(__name__)
     server.config.from_object(config.get('default'))
-    print('server.config default: ', server.config)
 
     bootstrap.init_app(server)
     register_extensions(server)
