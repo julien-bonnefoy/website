@@ -100,12 +100,11 @@ def create_flask_server():
     print('SQLALCHEMY_DATABASE_URI: ', os.environ.get('SQLALCHEMY_DATABASE_URI'))
     print('SECRET_KEY: ', os.environ.get('SECRET_KEY'))
 
-
     server = Flask(__name__)
     server.config.from_object(config.get('default'))
+    print('server.config default: ', server.config)
     server.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
     server.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
-
 
     bootstrap.init_app(server)
     register_extensions(server)

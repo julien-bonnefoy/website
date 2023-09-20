@@ -29,8 +29,8 @@ class Config(object):
     if URI and URI.startswith("postgres://"):
         URI = URI.replace("postgres://", "postgresql://", 1)
     # rest of connection code using the connection string `uri`
-
-    SQLALCHEMY_DATABASE_URI = URI or DATABASE_DEFAULT
+    print(URI)
+    SQLALCHEMY_DATABASE_URI = URI
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
 
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
