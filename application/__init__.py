@@ -10,7 +10,7 @@ from application.users.models import User
 from elasticsearch import Elasticsearch
 from application.dashboards.biocodex.models import Identity, Adress, Cdb, Connections
 from application.config import DATABASE_DEFAULT, config, basedir
-from os import environ, path
+import os
 
 
 
@@ -96,15 +96,15 @@ def configure_logger(app):
 
 def create_flask_server():
 
-    print(environ.get('DATABASE_URL'))
-    print(environ.get('SQLALCHEMY_DATABASE_URI'))
-    print(environ.get('SECRET_KEY'))
+    print('DATABASE_URL: ', os.environ.get('DATABASE_URL'))
+    print('SQLALCHEMY_DATABASE_URI: ', os.environ.get('SQLALCHEMY_DATABASE_URI'))
+    print('SECRET_KEY: ', os.environ.get('SECRET_KEY'))
 
 
     server = Flask(__name__)
     server.config.from_object(config.get('default'))
-    server.config['SECRET_KEY'] = environ.get('SECRET_KEY')
-    server.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL') or DATABASE_DEFAULT
+    server.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+    server.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or DATABASE_DEFAULT
 
 
     bootstrap.init_app(server)

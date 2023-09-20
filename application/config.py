@@ -1,14 +1,13 @@
-from os import environ, path
 from dotenv import load_dotenv
 import os
 
-basedir = path.abspath(path.dirname(__file__))
-load_dotenv(path.join(basedir, '.env'))
+basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
 
-host = environ.get("HOST")
-database = environ.get("DATABASE")
-user = environ.get("USERNAME")
-password = environ.get("PASSWORD")
+host = os.environ.get("HOST")
+database = os.environ.get("DATABASE")
+user = os.environ.get("USERNAME")
+password = os.environ.get("PASSWORD")
 
 DATABASE_DEFAULT = 'postgresql://postgres:password@localhost:5432/bioco_db'
 DATABASE_URL = f"postgres://{user}:{password}@{host}/{database}"
@@ -17,46 +16,46 @@ DATABASE_URL = f"postgres://{user}:{password}@{host}/{database}"
 class Config(object):
     """Base config."""
 
-    SECRET_KEY = environ.get('SECRET_KEY')
+    SECRET_KEY = os.environ.get('SECRET_KEY')
 
     CACHE_TYPE = "simple"
 
     LANGUAGES = ['en', 'fr']
 
-    STATIC_FOLDER = environ.get('STATIC_FOLDER')
-    TEMPLATES_FOLDER = environ.get('TEMPLATES_FOLDER')
+    STATIC_FOLDER = os.environ.get('STATIC_FOLDER')
+    TEMPLATES_FOLDER = os.environ.get('TEMPLATES_FOLDER')
 
     FLASK_DEBUG = True
 
-    URI = os.getenv("DATABASE_URL")  # or other relevant config var
+    URI = os.environ.get("DATABASE_URL")  # or other relevant config var
     if URI and URI.startswith("postgres://"):
         URI = URI.replace("postgres://", "postgresql://", 1)
     # rest of connection code using the connection string `uri`
 
     SQLALCHEMY_DATABASE_URI = URI or DATABASE_DEFAULT
-    SQLALCHEMY_TRACK_MODIFICATIONS = environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
+    SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get('SQLALCHEMY_TRACK_MODIFICATIONS')
 
-    MAIL_SERVER = environ.get('MAIL_SERVER')
-    MAIL_PORT = int(environ.get('MAIL_PORT') or 25)
-    MAIL_USE_SSL = environ.get('MAIL_USE_SSL') is not None
-    MAIL_USE_TLS = environ.get('MAIL_USE_TLS') is not None
-    MAIL_USERNAME = environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD = environ.get('MAIL_PASSWORD')
-    MAIL_DEFAULT_SENDER = environ.get('MAIL_DEFAULT_SENDER')
-    ADMINS = environ.get('ADMINS')
+    MAIL_SERVER = os.environ.get('MAIL_SERVER')
+    MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)
+    MAIL_USE_SSL = os.environ.get('MAIL_USE_SSL') is not None
+    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS') is not None
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER')
+    ADMINS = os.environ.get('ADMINS')
 
-    MS_TRANSLATOR_KEY = environ.get('MS_TRANSLATOR_KEY')
-    LOG_TO_STDOUT = environ.get('LOG_TO_STDOUT')
-    ELASTICSEARCH_URL = environ.get('ELASTICSEARCH_URL')
-    REDIS_URL = environ.get('REDIS_URL') or 'redis://'
-    TEMPLATES_AUTO_RELOAD = environ.get('TEMPLATES_AUTO_RELOAD')
-    RECAPTCHA_PUBLIC_KEY = environ.get('RC_SITE_KEY')
-    RECAPTCHA_PRIVATE_KEY = environ.get('RC_SECRET_KEY')
-    DEBUG_TB_INTERCEPT_REDIRECTS = environ.get('DEBUG_TB_INTERCEPT_REDIRECTS')
+    MS_TRANSLATOR_KEY = os.environ.get('MS_TRANSLATOR_KEY')
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+    REDIS_URL = os.environ.get('REDIS_URL') or 'redis://'
+    TEMPLATES_AUTO_RELOAD = os.environ.get('TEMPLATES_AUTO_RELOAD')
+    RECAPTCHA_PUBLIC_KEY = os.environ.get('RC_SITE_KEY')
+    RECAPTCHA_PRIVATE_KEY = os.environ.get('RC_SECRET_KEY')
+    DEBUG_TB_INTERCEPT_REDIRECTS = os.environ.get('DEBUG_TB_INTERCEPT_REDIRECTS')
 
     SESSION_COOKIE_SECURE = True
 
-    ELASTICSEARCH_URL = environ.get('ELASTICSEARCH_URL')
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
 
 
 class ProdConfig(Config):
