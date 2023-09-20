@@ -10,8 +10,6 @@ user = os.environ.get("USERNAME")
 password = os.environ.get("PASSWORD")
 
 DATABASE_DEFAULT = 'postgresql://postgres:password@localhost:5432/bioco_db'
-DATABASE_URL = f"postgres://{user}:{password}@{host}/{database}"
-
 
 class Config(object):
     """Base config."""
