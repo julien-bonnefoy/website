@@ -33,8 +33,8 @@ def init_callbacks(dashapp):
 
     @dashapp.callback(
         Output('memory', 'data'),
-        Input('uga-check', 'value'),
-        Input("spe-check", "value"),
+        Input('uga-cl', 'value'),
+        Input("spe-cl", "value"),
         Input('ciblage-check', 'value'),
     )
     def filter(ugas_selected, spe_selected, ciblage_selected):
@@ -132,41 +132,45 @@ def init_callbacks(dashapp):
             return [], is_open
         else:
             return [], False
-        
+
     @dashapp.callback(
         Output("uga-geojson", "hideout"),
-        Input("uga-check", "value"),
+        Input("uga-cl", "value"),
         State("uga-geojson", "hideout"),
     )
-    def toggle_select(uga_selected, uga_hideout):
-        uga_hideout["selected"] = uga_selected
+    def toggle_select(ugas_selected, uga_hideout):
+        uga_hideout["selected"] = ugas_selected
         return uga_hideout
 
     @dashapp.callback(
         Output("pharma-geojson", "hideout"),
-        Input("uga-check", "value"),
+        Input("uga-cl", "value"),
         State("pharma-geojson", "hideout")
     )
-    def toggle_select(uga_selected, pharma_hideout):
-        pharma_hideout["selected"] = uga_selected
+    def toggle_select(ugas_selected, pharma_hideout):
+        pharma_hideout["ugas_selected"] = ugas_selected
         return pharma_hideout
 
     @dashapp.callback(
         Output("target-geojson", "hideout"),
-        Input("uga-check", "value"),
+        Input("uga-cl", "value"),
+        Input("spe-cl", "value"),
         State("target-geojson", "hideout")
     )
-    def toggle_select(uga_selected, target_hideout):
-        target_hideout["selected"] = uga_selected
+    def toggle_select(ugas_selected, spes_selected, target_hideout):
+        target_hideout["ugas_selected"] = ugas_selected
+        target_hideout["spes_selected"] = spes_selected
         return target_hideout
 
     @dashapp.callback(
         Output("untarget-geojson", "hideout"),
-        Input("uga-check", "value"),
+        Input("uga-cl", "value"),
+        Input("spe-cl", "value"),
         State("untarget-geojson", "hideout")
     )
-    def toggle_select(uga_selected, untarget_hideout):
-        untarget_hideout["selected"] = uga_selected
+    def toggle_select(ugas_selected, spes_selected, untarget_hideout):
+        untarget_hideout["ugas_selected"] = ugas_selected
+        untarget_hideout["spes_selected"] = spes_selected
         return untarget_hideout
 
     @dashapp.callback(
@@ -174,4 +178,4 @@ def init_callbacks(dashapp):
         Input("uga-geojson", "hoverData")
     )
     def info_hover(feature):
-                return get_info(feature)
+        return get_info(feature)

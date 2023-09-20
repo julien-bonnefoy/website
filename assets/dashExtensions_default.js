@@ -1,7 +1,8 @@
 window.dashExtensions = Object.assign({}, window.dashExtensions, {
     default: {
-        geojson_filter: function(feature, context) {return context.hideout.selected.includes(feature.properties.uga);},
+        geojson_filter: function(feature, context) { return context.hideout.ugas_selected.includes(feature.properties.uga) && context.hideout.spes_selected.includes(feature.properties.spe);},
         uga_geojson_filter: function(feature, context) {return context.hideout.selected.includes(feature.properties.CODE_UGA);},
+        pharma_filter: function(feature, context) {return context.hideout.ugas_selected.includes(feature.properties.uga);},
         cible_icon: function(feature, latlng) {
             const doctor_colors = {
                 'GY': 'pink',
@@ -14,18 +15,16 @@ window.dashExtensions = Object.assign({}, window.dashExtensions, {
                 'PSY': 'purple',
                 'NE': 'violet',
             };
-            if (feature.properties.ciblage===0) {
-                var iconColor = 'red'
-                var shape = 'square'
-            } else {
-                var iconColor = 'white'
+            if (feature.properties.ciblage>0) {
                 var shape = 'star'
+            } else {
+                var shape = 'square'
             };
             const marker = L.ExtraMarkers.icon({
                 icon: 'fa-user-doctor',
                 prefix: 'fa',
                 markerColor: doctor_colors[feature.properties.spe],
-                iconColor: iconColor,
+                iconColor: 'white',
                 shape: shape,
                 svg: true
             });
@@ -51,7 +50,7 @@ window.dashExtensions = Object.assign({}, window.dashExtensions, {
                 '75PAS': '#bd0071',
                 '75TRO': '#410E66',
                 '75INV': '#130066',
-                '75ELY': '#ffffff',
+                '75ELY': '#fe7600',
                 '75GRE': '#060087',
                 '75VAU': '#00877d',
                 '75MNP': '#008000',
@@ -60,7 +59,7 @@ window.dashExtensions = Object.assign({}, window.dashExtensions, {
                 '92LEV': '#adff2f',
                 '92NEU': '#f3ff00'
             };
-            return {opacity: 1, dashArray: '5', fillOpacity: 0.1, weight:1, fillColor: uga_colors[feature.properties.CODE_UGA], color: uga_colors[feature.properties.CODE_UGA]}
+            return {fillColor: uga_colors[feature.properties.CODE_UGA], fillOpacity: 0.3,  color: uga_colors[feature.properties.CODE_UGA], opacity: 1, weight:5, dashArray: '5'}
         }
     }
 });

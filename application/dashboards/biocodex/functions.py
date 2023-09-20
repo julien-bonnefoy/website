@@ -20,6 +20,7 @@ engine = create_engine(DATABASE_URL)
 
 def join_id_adr():
 
+
     with Session(engine) as session:
         id_adr = pd.read_sql_query(
             sql=session.query(
@@ -137,42 +138,8 @@ styles = styles1 + styles2
 
 df = join_id_adr_cdb()
 
-spe_options = [
-    {'label': 'GY', 'value': 'GY'},
-    {'label': 'MG-GY', 'value': 'MG-GY'},
-    {'label': 'SF', 'value': 'SF'},
-    {'label': 'MG', 'value': 'MG'},
-    {'label': 'GE', 'value': 'GE'},
-    {'label': 'PE', 'value': 'PE'},
-    {'label': 'PE-PSY', 'value': 'PE-PSY'},
-    {'label': 'PSY', 'value': 'PSY'},
-    {'label': 'NE', 'value': 'NE'},
-]
-
-uga_options = [
-    {'label': '75AUT', 'value': '75AUT'},
-    {'label': '75ELY', 'value': '75ELY'},
-    {'label': '75GRE', 'value': '75GRE'},
-    {'label': '75INV', 'value': '75INV'},
-    {'label': '75MNP', 'value': '75MNP'},
-    {'label': '75PAS', 'value': '75PAS'},
-    {'label': '75PER', 'value': '75PER'},
-    {'label': '75TER', 'value': '75TER'},
-    {'label': '75TRO', 'value': '75TRO'},
-    {'label': '75VAU', 'value': '75VAU'},
-    {'label': '92LEV', 'value': '92LEV'},
-    {'label': '92NEU', 'value': '92NEU'}
-]
-
-ciblage_options = [
-    {"label": "Non ciblé", "value": 0},
-    {"label": "1", "value": 1},
-    {"label": "2", "value": 2},
-    {"label": "3", "value": 3},
-    {"label": "4", "value": 4}
-]
-
 datatable_cols =[{"name": i.upper(), "id": i} for i in df.columns]
+
 
 def build_one(row):
 
@@ -184,17 +151,35 @@ def build_one(row):
                     [
                         html.Div(
                             [
-                                html.Div(html.Img(width=32, height=32, src=url_for("static", filename=f"img/{row['spe']}.jpg"), className="avatar-md rounded-circle img-thumbnail"))
+                                html.Div(
+                                    [
+                                        html.Img(
+                                            width=32,
+                                            height=32,
+                                            src=url_for("static", filename=f"img/{row['spe']}.jpg"),
+                                            className="avatar-md rounded-circle img-thumbnail"
+                                        ),
+                                        html.P(
+                                            [
+                                                html.A(
+                                                    [
+                                                        row["nom"], html.Span(' '), row["prenom"].title()
+                                                    ],
+                                                    className="text-dark",
+                                                    href=f"/dash/biocodex/table/{row['doc_id']}",
+                                                    style={"font-size": 10}
+                                                )
+                                            ]
+                                        )
+
+                                    ]
+                                )
                             ]
                             , className="d-flex align-items-center"
                         ),
                         html.Div(
                             [
-                                html.P(
-                                    [
-                                        html.A([row["nom"],row["prenom"].title()], className="text-dark", href=f"/dash/biocodex/table/{row['doc_id']}", style={"font-size": 10})
-                                    ]
-                                ),
+
                                 html.Span(
 
                                         row["spe"]
@@ -291,8 +276,8 @@ ugas_layer = dl.GeoJSON(
 
 pharmas_layer = dl.GeoJSON(
     data=pharma_geojson,
-    hideout=dict(selected=[]),
-    filter=ns('geojson_filter'),
+    hideout=dict(ugas_selected=[]),
+    filter=ns('pharma_filter'),
     zoomToBounds=True,
     pointToLayer=ns('pharma_icon'),
     id="pharma-geojson"
@@ -300,16 +285,16 @@ pharmas_layer = dl.GeoJSON(
 
 target_layer = dl.GeoJSON(
     data=target_geojson,
-    hideout=dict(selected=[]),
+    hideout=dict(ugas_selected=[], spes_selected=[]),
     filter=ns('geojson_filter'),
+    zoomToBounds=True,
     pointToLayer=ns('cible_icon'),
-    cluster=True,
     id="target-geojson"
 )
 
 untarget_layer = dl.GeoJSON(
     data=untarget_geojson,
-    hideout=dict(selected=[]),
+    hideout=dict(ugas_selected=[], spes_selected=[]),
     filter=ns('geojson_filter'),
     zoomToBounds=True,
     pointToLayer=ns('cible_icon'),

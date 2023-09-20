@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 from flask_login import login_required
-from application.dashboards. biocodex.functions import join_id_adr_cdb
+from application.dashboards.biocodex.functions import join_id_adr_cdb
 
 # Blueprint Configuration
 pds_bp = Blueprint(

@@ -1,7 +1,8 @@
 window.dashExtensions = Object.assign({}, window.dashExtensions, {
     default: {
-        geojson_filter: function(feature, context) {return context.hideout.selected.includes(feature.properties.uga);},
+        geojson_filter: function(feature, context) { return context.hideout.ugas_selected.includes(feature.properties.uga) && context.hideout.spes_selected.includes(feature.properties.spe);},
         uga_geojson_filter: function(feature, context) {return context.hideout.selected.includes(feature.properties.CODE_UGA);},
+        pharma_filter: function(feature, context) {return context.hideout.ugas_selected.includes(feature.properties.uga);},
         cible_icon: function(feature, latlng) {
             const doctor_colors = {
                 'GY': 'pink',
