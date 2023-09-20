@@ -14,8 +14,8 @@ from application.config import basedir
 from dotenv import load_dotenv
 
 load_dotenv(os.path.join(basedir, '.env'))
-
-engine = create_engine(f"postgresql://{os.environ.get('USERNAME')}:{os.environ.get('PASSWORD')}@{os.environ.get('HOST')}:5432/{os.environ.get('DATABASE')}")
+DATABASE_URL=os.environ.get('DATABASE_URL').replace('postgres://', 'postgresql://')
+engine = create_engine(DATABASE_URL)
 
 
 def join_id_adr():
