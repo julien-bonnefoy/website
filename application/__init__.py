@@ -9,7 +9,7 @@ from application.extensions import migrate, mail, moment, babel, bootstrap
 from application.users.models import User
 from elasticsearch import Elasticsearch
 from application.dashboards.biocodex.models import Identity, Adress, Cdb, Connections
-from application.config import DATABASE_URL, DATABASE_DEFAULT, config, basedir
+from application.config import DATABASE_DEFAULT, config, basedir
 import os
 
 
