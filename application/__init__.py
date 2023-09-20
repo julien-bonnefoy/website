@@ -104,7 +104,7 @@ def create_flask_server():
     server = Flask(__name__)
     server.config.from_object(config.get('default'))
     server.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-    server.config['SQLALCHEMY_DATABASE_URI'] = ("postgres://isepkymkwyhlsd:50e0f93d5939aca1d4f2a83542f5de1d1dfe5350313b47e495fd5c62b11742ac@ec2-34-193-110-25.compute-1.amazonaws.com:5432/d2nvf1d8vmlses")
+    server.config['SQLALCHEMY_DATABASE_URI'] = ("postgresql://isepkymkwyhlsd:50e0f93d5939aca1d4f2a83542f5de1d1dfe5350313b47e495fd5c62b11742ac@ec2-34-193-110-25.compute-1.amazonaws.com:5432/d2nvf1d8vmlses")
 
 
     bootstrap.init_app(server)
