@@ -2,26 +2,26 @@
 <div id="navbar" class="row bg-dark d-flex w-100 px-0 mx-0">
     {% if current_user and current_user.is_authenticated %}
     <div class="row d-flex w-100">
-        <div class="col-1 offset-2">
-            <button class="w-100 btn btn-danger" type="button" href="{{ url_for('ocr_bp.ocr') }}" style="font-weight: 900;">O.C.R.</button>
+        <div class="col-1 offset-2 mr-4">
+            <address class="w-100 btn btn-danger" href="{{ url_for('ocr_bp.ocr') }}" style="font-weight: 900;">O.C.R.</a>
         </div>
-        <div class="col-1">
-            <button class="w-100 btn btn-primary" type="button" href="{{ url_for('home_bp.clock') }}" style="font-weight: 900;">Clock 24</button>
+        <div class="col-1 mr-4">
+            <a class="w-100 btn btn-primary" href="{{ url_for('home_bp.clock') }}" style="font-weight: 900;">Clock 24</a>
         </div>
-        <div class="col-1">
-            <button class="w-100 btn btn-info" type="button" href="{{ url_for('home_bp.clock') }}" style="font-weight: 900;">Dash</button>
+        <div class="col-1 mr-4">
+            <a class="w-100 btn btn-info" href="{{ url_for('dash_bp.crossfilter_dash') }}" style="font-weight: 900;">Cross</a>
         </div>
-        <div class="col-1">
-            <button class="w-100 btn btn-success" type="button" href="{{ url_for('home_bp.clock') }}" style="font-weight: 900;">Dash</button>
+        <div class="col-1 mr-4">
+            <a class="w-100 btn btn-success" href="{{ url_for('dash_bp.iris_dash') }}" style="font-weight: 900;">Iris</a>
         </div>
-        <div class="col-1">
-            <button class="w-100 btn btn-warning" type="button" href="{{ url_for('home_bp.clock') }}" style="font-weight: 900;">Dash</button>
+        <div class="col-1 mr-4">
+            <a class="w-100 btn btn-warning" href="{{ url_for('dash_bp.biocodex_dash') }}" style="font-weight: 900;">Bioco</a>
         </div>>
-        <div class="col-2">
-            <a class="w-100 btn btn-info" href="/{{ current_user.username }}" style="font-weight: 900;">Logged in as {{ current_user.username }}</a>
+        <div class="align-center col-2 mr-4">
+            <a class="w-50 btn btn-info" href="/{{ current_user.username }}" style="font-weight: 900;">Logged in as {{ current_user.username }}</a>
         </div>
-        <div class="col-1">
-            <a class="w-100 btn btn-danger" href="{{ url_for('auth_bp.logout') }}"><i class="fas fa-sign-out"></i></a>
+        <div class="col-1 mr-4">
+            <a class="w-100 btn btn-danger" href="{{ url_for('auth_bp.logout') }}"><i class="fa fa-sign-out" style="font-family: FontAwesome";></i></a>
         </div>
     </div>
 
@@ -82,7 +82,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('auth_bp.logout') }}">
-                    <i class="fa fa-sign-out"></i>
+                    <i class="fa fa-sign-out" style="font-family: FontAwesome";></i>
                 </a>
             </li>
         </ul>

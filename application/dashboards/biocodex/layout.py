@@ -131,12 +131,20 @@ map_content = html.Div(
     id='table-col'
 )
 
-content = html.Div(id="page-content", className="container-fluid", style={"max-width": "94vw"})
+button = html.Div(
+    [
+        dbc.Button(
+            "Click me", id="example-button", className="me-2", n_clicks=0
+        ),
+        html.Span(id="example-output", style={"verticalAlign": "middle"}),
+    ]
+)
+
 
 app_layout = html.Div(
     [
         dcc.Location(id='biocodex-url', refresh=False),
-        content
+        html.Div(id="page-content", className="container-fluid", style={"max-width": "94vw"})
     ],
     id="dash-wrapper"
 )

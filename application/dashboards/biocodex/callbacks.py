@@ -2,7 +2,7 @@ from .functions import join_id_adr_cdb, build_one, get_info
 from dash import Input, Output, State
 from dash.exceptions import PreventUpdate
 from flask_login import current_user
-from .layout import table_content, map_content
+from .layout import table_content, map_content, button
 import dash_bootstrap_components as dbc
 from ..sidebar import sidebar1, sidebar2
 
@@ -13,7 +13,8 @@ def init_callbacks(dashapp):
 
     @dashapp.callback(
         Output('page-content', 'children'),
-        Input('biocodex-url', 'pathname')
+        Input('biocodex-url', 'pathname'),
+
     )
     def display_page(pathname):
         if pathname == "/dash/biocodex/table/":

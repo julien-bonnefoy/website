@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}HOME{% endblock %}
 {% block content %}
-<div class="row inner justify-content-center">
+<div class="row inner h-100 justify-content-center">
     <header>
         <div class="row">
             <div class="col">
@@ -10,14 +10,15 @@
             </div>
         </div>
     </header>
-    <section class="tiles">
+    <section class="d-flex h-100 container tiles">
+        <div class="d-flex row justify-content-center w-100">
         <article class="style1">
             <span class="image">
                 <img src="/static/img/pic05.jpg" alt="" />
              </span>
             <a href="{{ url_for('home_bp.clock') }}">
-                <h1 style="font-family: Helvetica">It's time</h1>
-                <h3>to be on time</h3>
+                <h3 style="font-family: Helvetica">It's time</h3>
+                <h5>to be on time</h5>
                 <div class="content">
                     <p><b>24 clocks for 1</b></p>
                 </div>
@@ -28,19 +29,21 @@
                 <img src="/static/img/pic03.jpg" alt="" />
             </span>
             <a href="">
-                <h1 style="font-family: Helvetica"><b>Orange</b></h1>
-                <h3>is the new...</h3>
+                <h3 style="font-family: Helvetica"><b>Orange</b></h3>
+                <h5>is the new...</h5>
                 <div class="content">
                     <p><b>... way to learn</b></p>
                 </div>
             </a>
         </article>
+        </div>
+        <div class="d-flex row justify-content-center w-100">
         <article class="style3">
             <span class="image">
                 <img src="/static/img/pic01.jpg" alt="" />
             </span>
             <a href="{{ url_for('ocr_bp.ocr') }}">
-                <h1 style="font-family: Helvetica">Do you<br>read me ?</h1>
+                <h3 style="font-family: Helvetica">Do you<br>read me ?</h3>
                 <div class="content">
                      <h4>Now you see me</h4>
                 </div>
@@ -51,13 +54,15 @@
                 <img src="/static/img/under.jpg" alt="" />
             </span>
             <a href="">
-                <h1 style="font-family: Helvetica">Let's cheat</h1>
-                <h3>on Git</h3>
+                <h3 style="font-family: Helvetica">Let's cheat</h3>
+                <h5>on Git</h5>
                 <div class="content">
                     <h4>UNDER CONSTRUCTION</h4>
                 </div>
             </a>
         </article>
+        </div>
+        <!--
         <article class="style5">
             <span class="image">
                 <img src="/static/img/under.jpg" alt="" />
@@ -82,6 +87,7 @@
                 </div>
             </a>
         </article>
+        -->
     </section>
 </div>
 {% endblock content %}

@@ -6,6 +6,12 @@
   {{ super() }}
 {% endblock head %}
 
+{% block header %}
+    <div class="col-1 mr-4">
+        <a class="w-100 btn btn-warning" href="/dash/biocodex/map/" style="font-weight: 900;">MAP</a>
+    </div>
+{% endblock header %}
+
 {% block content %}
   <section class="min-vh-50 d-flex align-items-start section-image overlay-soft-dark" data-background="/static/assets/img/pages/form-image.jpg">
     <div class="container-fluid px-0" style="height: 80vh;">

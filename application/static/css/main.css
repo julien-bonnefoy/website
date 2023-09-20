@@ -513,7 +513,7 @@ align-items: baseline;
 }
 
 	.row > * {
-		padding: 0 0 0 2em;
+		padding: 0;
 	}
 
 	.row.gtr-uniform {
