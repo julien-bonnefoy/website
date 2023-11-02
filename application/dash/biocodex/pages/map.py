@@ -28,6 +28,5 @@ layout = html.Div(
                style={'height': '90vh'}
             ),
         ],
-        id='map',
-        className='d-none'
+        id='map'
     )

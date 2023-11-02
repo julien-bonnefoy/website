@@ -163,7 +163,7 @@ def discrete_background_color_bins(df, n_bins=5, columns=['all'], colorscale="Bl
 
 def get_compo(df):
     idx = pd.IndexSlice
-    compo = df.pivot_table(values="nom", index=["uga", "spe"], columns="ciblage", aggfunc='count').fillna(0).astype(int)
+    compo = df.pivot_table(values="nom", index=["uga", "spe"], columns="cib", aggfunc='count').fillna(0).astype(int)
     compo = compo[[2, 3, 4, 0]]
     compo.columns = ["2x", "3x", "4x", "non ciblé"]
     compo.index.name = None
