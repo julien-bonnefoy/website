@@ -1,82 +1,63 @@
-{% block footer %}
-<div class="inner" style="max-width: 90vw; margin: 0 auto;  padding: 0;">
-	<!--
-	<section>
-		<h4>Get in touch</h4>
-		<form method="post" action="#">
-			<div class="fields">
-				<div class="field half">
-						<label for="name">Name</label><input type="text" name="name" id="name" placeholder="Name">
-				</div>
-				<div class="field half">
-						<label for="email">Email</label><input type="email" name="email" id="email" placeholder="Email">
-				</div>
-				<div class="field">
-					<div class="textarea-wrapper">
-							<label for="message">Message</label><textarea name="message" id="message" placeholder="Message" rows="1" style="overflow: hidden; resize: none; height: 79px;">
-						</textarea>
-					</div>
-				</div>
-			</div>
-			<ul class="actions">
-				<li>
-					<input type="submit" value="Send" class="primary">
-				</li>
-			</ul>
-		</form>
-	</section>
-	-->
-	<div class="col">
-		<div class="row align-items-center justify-content-center">
-			<ul class="icons">
-				<li><h4>Follow</h4></li>
-				<li>
-					<a href="https://github.com/julien-bonnefoy" class="icon brands style2 fa-github">
-						<span class="label">GitHub
-						</span>
-					</a>
-				</li>
-				<li>
-					<a href="#" class="icon brands style2 fa-500px">
-						<span class="label">500px
-						</span>
-					</a>
-				</li>
-				<li>
-					<a href="#" class="icon solid style2 fa-phone">
-						<span class="label">Phone
-						</span>
-					</a>
-				</li>
-				<li>
-					<a href="#" class="icon solid style2 fa-envelope">
-						<span class="label">Email
-						</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div class="d-flex align-center row w-100 justify-content-center">
-			<ul class="copyright">
-				<li>© Julien Bonnefoy. All rights reserved
-				</li>
-				<li>Design:
-					<a href="http://html5up.net"><span>HTML5 UP</span>
-					</a>
-				</li>
-				<li>Demo Images:
-					<a href="http://unsplash.com"><span>Unsplash</span>
-					</a>
-				</li>
-				<li>
-					<a href="{{ url_for('home_bp.about') }}"><span>About</span>
-					</a>
-				</li>
-				<li>
-					<a href="mailto:julien.bonnefoy1@orange.fr"><span>Contact</span></a>
-				</li>
-			</ul>
-		</div>
-	</div>
-</div>
-{% endblock footer %}
+<footer class="footer d-flex align-items-center justify-content-around py-2 bg-dark">
+    <ul class="d-flex icons">
+        <li>
+            <a href="https://github.com/julien-bonnefoy" class="icon brands style2 fa-github">
+                <span class="label">GitHub</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="d-flex icons">
+        <li>
+            <a href="#" class="icon brands style2 fa-500px">
+                <span class="label">500px</span>
+            </a>
+        </li>
+    </ul>
+    <a class="icon style2" id="bd-theme"
+          type="button"
+          aria-expanded="false"
+          data-bs-toggle="dropdown"
+          aria-label="Toggle theme">
+        <svg class="bi theme-icon-active" width="16px" height="16px"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                <svg class="bi me-2 opacity-50 theme-icon" width="16px" height="16px"><use href="#sun-fill"></use></svg>
+                Light
+                <svg class="bi ms-auto d-none" width="16px" height="16px"><use href="#check2"></use></svg>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                <svg class="bi me-2 opacity-50 theme-icon" width="16px" height="16px"><use href="#moon-stars-fill"></use></svg>
+                Dark
+                <svg class="bi ms-auto d-none" width="16px" height="16px"><use href="#check2"></use></svg>
+            </button>
+        </li>
+        <li>
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+                <svg class="bi me-2 opacity-50 theme-icon" width="16px" height="16px"><use href="#circle-half"></use></svg>
+                Auto
+                <svg class="bi ms-auto d-none" width="16px" height="16px"><use href="#check2"></use></svg>
+            </button>
+        </li>
+    </ul>
+    <ul class="d-flex icons">
+        <li>
+            <a href="#" class="icon solid style2 fa-phone">
+                <span class="label">Phone</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="d-flex icons">
+        <li>
+            <a href="#" class="icon solid style2 fa-envelope">
+                <span class="label">Email</span>
+            </a>
+        </li>
+    </ul>
+    <!-- THEME CHOICE DROPDOWN -->
+
+</footer>

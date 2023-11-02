@@ -7,7 +7,6 @@ OTHER FUNCTIONS: load_user, before_request
 """
 from flask import render_template, flash, redirect, url_for, request, g, jsonify, current_app, Blueprint
 from flask_login import login_required, current_user
-from flask_babel import _, get_locale
 from application.extensions import lm, db
 from application.users.models import User
 from datetime import datetime
@@ -34,7 +33,6 @@ def before_request():
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
         g.search_form = SearchForm()
-    g.locale = str(get_locale())
 
 
 @user_bp.route('/<username>')
@@ -61,7 +59,7 @@ def edit_profile():
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
         db.session.commit()
-        flash(_('Your changes have been saved.'))
+        flash('Your changes have been saved.')
         return redirect(url_for('home_bp.edit_profile'))
     elif request.method == 'GET':
         form.username.data = current_user.username

@@ -1,0 +1,107 @@
+/* SIDEBAR */
+#sidebar {
+  color: #ffffff;
+  text-align: center;
+  background-color: #212529;
+  z-index: 1500;
+}
+
+#sidebar h2 {
+  text-align: left;
+  margin-bottom: 0;
+}
+
+/* Hide the blurb on a small screen */
+#blurb {
+  display: none;
+}
+
+#sidebar-toggler {
+  display: none;
+}
+
+#collapse *:first-child {
+  margin-top: 1rem;
+}
+
+#page-layout {
+  height: 100vh;
+  padding: 1rem 1rem;
+  font-size: 12px;
+  border: none;
+}
+
+@media (min-width: 736px) {
+  #sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    text-align: left;
+    transition: margin 0.5s ease-in-out, padding 0.5s ease-in-out;
+  }
+
+   #sidebar ~ #page-content, #sidebar ~ #page-layout {
+     margin-left: 250px;
+     max-width: calc(100vw - 250px);
+  }
+
+  #sidebar-toggler {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: top 0.5s ease-in-out;
+  }
+
+  /* add negative margin to sidebar to achieve the collapse */
+  #sidebar.collapsed {
+    margin-left: -180px;
+  }
+
+  /* also adjust margin of page content */
+  #sidebar.collapsed ~ #page-content, #sidebar ~ #page-layout {
+    margin-left: 70px;
+    max-width: calc(100vw - 70px);
+  }
+
+  /* move all contents of navbar other than header (containing toggle) further
+     off-screen */
+  #sidebar.collapsed > *:not(:last-child){
+    margin-left: -70px;
+    margin-right: 70px;
+  }
+
+  /* reveal the blurb on a large screen */
+  #blurb {
+    display: block;
+  }
+
+  #collapse {
+    display: block;
+  }
+
+  /* set margins of the main content so that it doesn't overlap the sidebar */
+  #page-content {
+    margin-left: calc(70px + 2rem);
+    margin-right: 1rem;
+    transition: margin-left 0.5s ease-in-out;
+  }
+}
+
+#sidebar a {
+  color: #000080
+}
+
+#sidebar a.active {
+  color: #8B0000;
+}
+
+#loading {
+    display: none !important;
+}
+
+body:has(#_pages_content[data-dash-is-loading="true"]) #loading {
+    display: flex !important;
+}

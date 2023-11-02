@@ -1,17 +1,14 @@
-{% extends 'base.html' %}
-{% block styles %}
-  {{ super() }}
-  {{ styles }}
-{% endblock %}
+{% extends "base.html" %}
+
+{% block title %}Welcome{% endblock %}
+
 {% block content %}
-  <div class="container pb-5">
-    <div class="row justify-content-center">
-      <div class="col-auto col-md-10">
-        {{ content2 }}
-      </div>
+<div class="d-flex justify-content-center align-items-center container">
+    <div class="d-flex justify-content-center align-items-center row">
+        <header id="title">
+            <h1 style="text-align: center">Welcome</h1><br>
+            <!-- <p style="text-align: center">Hi, my name is Julien. This website is mainly but not only destined to present the project i worked on while I was intern at Orange</p>-->
+        </header>
     </div>
-  </div>
-{% endblock %}
-{% block scripts %}
-  {{ super() }}
-{% endblock %}
+</div>+
+{% endblock content %}

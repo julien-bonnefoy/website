@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="bioco_db@localhost" uuid="5a746fe0-4424-4125-9ddd-a6dc656cd82c">
+    <data-source source="LOCAL" name="da61svgrqh800b@ec2-44-218-92-155.compute-1.amazonaws.com" uuid="37cc1c53-a4c1-4171-9e1f-fc7c362fb107">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/bioco_db</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="d2nvf1d8vmlses@ec2-34-193-110-25.compute-1.amazonaws.com" uuid="630ca6f0-ef6e-46f7-aa29-7e248e85c606">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://ec2-34-193-110-25.compute-1.amazonaws.com:5432/d2nvf1d8vmlses</jdbc-url>
+      <jdbc-url>jdbc:postgresql://ec2-44-218-92-155.compute-1.amazonaws.com:5432/da61svgrqh800b</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

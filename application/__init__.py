@@ -1,23 +1,21 @@
 # -*- coding: utf-8 -*-
 from application import cli, commands
-from application.dashboards import dash_apps_factory
+from application.dash import dash_apps_factory
 import logging
 import sys
 from flask import Flask, render_template
-from application.extensions import bcrypt, cache, csrf_protect, db, flask_static_digest, lm, debug_toolbar
-from application.extensions import migrate, mail, moment, babel, bootstrap
+from application.extensions import bcrypt, cache, db, flask_static_digest, lm, debug_toolbar
+from application.extensions import migrate, mail, moment, bootstrap, csrf_protect
 from application.users.models import User
 from elasticsearch import Elasticsearch
-from application.dashboards.biocodex.models import Identity, Adress, Cdb, Connections
-from application.config import DATABASE_DEFAULT, config, basedir
-import os
-
+from application.pds.models import Identity, Adress, Cdb, Connections
+from application.config import DATABASE_DEFAULT, config, basedir, CACHE_CONFIG
 
 
 def register_extensions(app):
     """Register Flask extensions."""
     bcrypt.init_app(app)
-    cache.init_app(app)
+    cache.init_app(app, config=CACHE_CONFIG)
     db.init_app(app)
     csrf_protect.init_app(app)
     csrf_protect._exempt_views.add('dash.dash.dispatch')
@@ -27,7 +25,9 @@ def register_extensions(app):
     flask_static_digest.init_app(app)
     mail.init_app((app))
     moment.init_app(app)
-    babel.init_app(app)
+
+
+
     return None
 
 
@@ -35,7 +35,7 @@ def register_blueprints(server):
     """Register Flask blueprints."""
     from application.home.views import home_bp
     from application.auth.views import auth_bp
-    from application.dashboards.views import dash_bp
+    from application.dash.views import dash_bp
     from application.ocr.views import ocr_bp
     from application.users.views import user_bp
     from application.pds.views import pds_bp

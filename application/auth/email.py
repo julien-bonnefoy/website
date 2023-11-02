@@ -1,5 +1,4 @@
 from flask import render_template, current_app
-from flask_babel import _
 from application.email_sender import send_email
 
 

@@ -5,6 +5,7 @@ import os
 from time import time
 from flask import current_app, url_for
 from flask_login import UserMixin
+from sqlalchemy.orm import validates
 from werkzeug.security import generate_password_hash, check_password_hash
 from application.extensions import db, lm
 import jwt
@@ -15,7 +16,7 @@ class User(UserMixin, PaginatedAPIMixin, db.Model):
 
     __tablename__ = 'users'
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, nullable=False, unique=True)
     username = db.Column(db.String(64), unique=True)
     email = db.Column(db.String(120), unique=True)
     password_hash = db.Column(db.String(128))
@@ -95,6 +96,14 @@ class User(UserMixin, PaginatedAPIMixin, db.Model):
         db.session.commit( )
 
         return self
+
+    # Set an empty string to null for username field => https://stackoverflow.com/a/57294872
+    @validates('username')
+    def empty_string_to_null(self, key, value):
+        if isinstance(value, str) and value == '':
+            return None
+        else:
+            return value
 
 
 @lm.user_loader

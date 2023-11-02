@@ -8,17 +8,16 @@ OTHER FUNCTIONS: before_request
 from datetime import datetime
 from flask import render_template, flash, redirect, url_for, request, g, jsonify, current_app
 from flask_login import login_required
-from application.users.forms import SearchForm
+from application.users.forms import SearchForm, EmptyForm
 from flask import Blueprint
 from flask_login import logout_user, current_user
 from application.translate import translate
-from application.auth.forms import LoginForm, ResetPasswordRequestForm, ResetPasswordForm
+from application.auth.forms import LoginForm, ResetPasswordRequestForm
 from application.home.forms import ContactForm
 from pygments.formatters.html import HtmlFormatter
 import markdown
 from markupsafe import Markup
 from application.email_sender import send_password_reset_email
-from flask_babel import _, get_locale
 from application.extensions import db
 from application.users.models import User
 
@@ -26,8 +25,8 @@ from application.users.models import User
 home_bp = Blueprint(
     "home_bp",
     __name__,
-    template_folder='../templates/',
-    static_folder="../static/"
+    template_folder='../../templates/',
+    static_folder="../../static/"
 )
 
 
@@ -38,15 +37,14 @@ def before_request():
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
         g.search_form = SearchForm()
-    g.locale = str(get_locale())
 
 
 
-@home_bp.route('/', methods=['GET'])
+@home_bp.route('/', methods=['GET', 'POST'])
 def index():
     if current_user.is_authenticated:
         return redirect(url_for('home_bp.home'))
-    return render_template("auth/login.html", form=LoginForm())
+    return render_template("home/index.html", form=LoginForm())
 
 
 @home_bp.route('/clock', methods=['GET'])
@@ -118,5 +116,4 @@ def translate_text():
 @login_required
 def search():
     return render_template('home/search.html', title='Search')
-
 

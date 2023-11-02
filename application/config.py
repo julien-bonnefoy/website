@@ -10,6 +10,12 @@ user = os.environ.get("USERNAME")
 password = os.environ.get("PASSWORD")
 
 DATABASE_DEFAULT = 'postgresql://postgres:password@localhost:5432/bioco_db'
+CACHE_CONFIG = {
+    # try 'FileSystemCache' if you don't want to setup redis
+    'CACHE_TYPE': 'FileSystemCache',
+    'CACHE_DIR': '/home/julien/Cache',
+    'CACHE_OPTIONS': {"mode": 755}
+}
 
 class Config(object):
     """Base config."""
@@ -54,6 +60,8 @@ class Config(object):
     SESSION_COOKIE_SECURE = True
 
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+
+
 
 
 class ProdConfig(Config):

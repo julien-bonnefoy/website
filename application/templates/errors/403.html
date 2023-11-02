@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block page_title %}Forbidden{% endblock %}
+
+{% block content %}
+<div class="jumbotron w-100 d-flex align-items-center justify-content-center">
+    <div class="text-center">
+        <h1>401</h1>
+        <p>You are not authorized to see this page. Please <a href="{{ url_for('home_bp.home')}}">log in</a> or
+            <a href="{{ url_for('auth_bp.register') }}">create a new account</a>.
+        </p>
+    </div>
+</div>
+{% endblock %}
+

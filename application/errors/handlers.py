@@ -1,7 +1,7 @@
 from flask import render_template, request
-from flask_app import db
-from flask_app.errors import bp
-from flask_app.api.errors import error_response as api_error_response
+from application import db
+from application.errors import bp
+from application.api.errors import error_response as api_error_response
 
 
 def wants_json_response():

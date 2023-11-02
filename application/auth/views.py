@@ -7,7 +7,6 @@ from flask_login import login_user, logout_user, current_user
 from application.auth.forms import LoginForm, RegistrationForm, ResetPasswordRequestForm, ResetPasswordForm
 from application.users.models import User
 from application.email_sender import send_password_reset_email
-from flask_babel import _
 from application.extensions import db
 
 
@@ -19,7 +18,6 @@ auth_bp = Blueprint(
     static_folder="../static/"
 )
 
-@auth_bp.route('/', methods=['POST'])
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
 
@@ -45,8 +43,7 @@ def login():
             next_page = url_for('home_bp.home')
         return redirect(next_page)
 
-    flash("Incorrect email or password")
-    return render_template('auth/login.html', title=_('Sign In'), form=form)
+    return render_template('auth/login.html', title='Sign In', form=form, url='login')
 
 
 @auth_bp.route("/register", methods=["GET", "POST"])
@@ -61,7 +58,7 @@ def register():
         db.session.commit()
         flash('Congratulations, you are now a registered user!', "success")
         return redirect(url_for('auth_bp.login'))
-    return render_template('auth/register.html', title='Register', form=form)
+    return render_template('auth/register.html', title='Register', form=form, url='register')
 
 
 @auth_bp.route("/logout")

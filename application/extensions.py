@@ -10,22 +10,21 @@ from flask_static_digest import FlaskStaticDigest
 from flask_wtf.csrf import CSRFProtect
 from flask_mail import Mail
 from flask_moment import Moment
-from flask_babel import Babel, lazy_gettext as _l
+
 from flask_bootstrap import Bootstrap
 
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
-csrf_protect = CSRFProtect()
 lm = LoginManager()
 lm.login_view = 'auth_bp.login'
-lm.login_message = _l('You need to log in to access this page.')
-
-migrate = Migrate()
+lm.login_message = ('You need to log in to access this page.')
+csrf_protect=CSRFProtect()
+migrate = Migrate(compare_type=True)
 cache = Cache()
 debug_toolbar = DebugToolbarExtension()
 flask_static_digest = FlaskStaticDigest()
 mail = Mail()
 moment = Moment()
-babel = Babel()
 bootstrap = Bootstrap()
+
