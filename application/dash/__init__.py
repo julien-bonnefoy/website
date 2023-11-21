@@ -97,7 +97,7 @@ def dash_apps_factory(server):
             dash_app.title = dashapp['title']
             dash_app.layout = html.Div(
                 [
-                    dcc.Location(id='url', refresh=True),
+                    dcc.Location(id='url', refresh=False),
                     html.Div(id='page-layout', children=layout_function())
                 ])
             dash_app.enable_dev_tools(
