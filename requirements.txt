@@ -78,7 +78,6 @@ geographiclib==2.0
 geopy==2.4.0
 greenlet==2.0.2
 gunicorn==21.2.0
-heroku
 idna==3.4
 importlib-metadata==6.8.0
 importlib-resources==6.0.1
