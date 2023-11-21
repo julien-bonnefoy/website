@@ -1,14 +1,18 @@
-from dash import html, callback, Input, Output, State
+from dash import html
 import dash
-import dash_loading_spinners as dls
 
 dash.register_page(__name__, path="/tiles")
 
-layout = dls.Hash(
-    [
-        html.Div(id="tiles-content", className="d-flex flex-row flex-wrap justify-content-space-evenly")
+
+layout = html.Div(
+[
+    html.Div(
+        [],
+            id="tiles-content",
+            className="w-100 flex-row flex-wrap container-fluid p-0 m-0 align-items-baseline justify-content-center d-flex",
+            style={"align-content": "baseline"}
+        )
     ],
-    color='#000080',
-    debounce=1000,
-    size=100,
+    style={"color": "#000080", "height": "90vh"},
+    className="d-flex"
 )

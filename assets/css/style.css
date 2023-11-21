@@ -1,0 +1,26 @@
+#gy-pot-slider,
+#mg-pot-slider,
+#pe-pot-slider,
+#mgy-pot-slider,
+#sf-pot-slider,
+#ge-pot-slider,
+#ppsy-pot-slider,
+#psy-pot-slider,
+#ne-pot-slider
+{
+    flex-grow: 1
+}
+
+.rc-slider-tooltip-inner {
+    font-size: 11px;
+    padding: 2px;
+    min-width: 15px;
+    height: 15px;
+}
+
+#gy-pot-slider > .rc-slider > .rc-slider-handle {
+    border: solid 2px #000080
+}
+#gy-pot-slider > .rc-slider > .rc-slider-track {
+    background-color: #000080
+}

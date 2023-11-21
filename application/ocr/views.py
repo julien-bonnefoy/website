@@ -14,6 +14,7 @@ import shutil
 import os
 from ..config import basedir
 from flask_login import login_required
+from ..ocr import allowed_file
 
 
 # Blueprint Configuration
@@ -38,12 +39,14 @@ def ocr():
                 return redirect(request.url)
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
-                file.save(f'ocr/uploads/{filename}')
+                print(filename)
+                file.save(f'application/ocr/uploads/{filename}')
                 source = os.path.join(basedir, f'ocr/uploads/{filename}')
+                print(source)
                 img = Image.open(source)
                 ocr_text = tesseract_get_text(img)
                 ocr_text = ocr_text.split('\n')
-                return render_template("ocr/ocr.html", source=f"/ocr/uploads/{filename}", ocr_text=ocr_text)
+                return render_template("ocr/ocr.html", source=f"/home/julien/website/application/ocr/uploads/{filename}", ocr_text=ocr_text)
 
         elif "img_url" in request.form:
             url = request.form['img_url']
@@ -53,7 +56,7 @@ def ocr():
             filename = get_img_from_url(url)
             if url and allowed_file(filename):
                 filename = secure_filename(filename)
-                source = os.path.join(basedir, f'ocr/uploads/{filename}')
+                source = os.path.join(basedir, f'/ocr/uploads/{filename}')
                 img = Image.open(source)
                 ocr_text = tesseract_get_text(img)
                 ocr_text = ocr_text.split('\n')
@@ -65,9 +68,9 @@ def ocr():
     return render_template("ocr/ocr.html")
 
 
-@ocr_bp.route('/ocr/uploads/<filename>')
+@ocr_bp.route('/uploads/<filename>')
 def uploaded_file(filename):
-    return send_from_directory('ocr/uploads', filename)
+    return send_from_directory('uploads', filename)
 
 
 def tesseract_get_text(img):
@@ -88,7 +91,7 @@ def get_img_from_url(img_url):
         # Set decode_content value to True, otherwise the downloaded image file's size will be zero.
         r.raw.decode_content = True
 
-    with open(os.path.join(basedir, f'ocr/uploads/{filename}'), 'wb') as file:
+    with open(os.path.join(basedir, f'application/ocr/uploads/{filename}'), 'wb') as file:
         shutil.copyfileobj(r.raw, file)
 
     return filename

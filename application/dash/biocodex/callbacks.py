@@ -1,21 +1,18 @@
 import pandas as pd
-from dash import Input, Output, State, html, dcc, DiskcacheManager
-from application.dash.biocodex.functions import build_flip, get_info, join_id_adr_cdb, doctor_colors
-from application.pds.controllers import retrieve_pds_ctrlr
-from application.pds.forms import CdbForm
+from dash import Input, Output, State, ALL, MATCH
+from application.dash.biocodex.functions import get_info, join_id_adr_cdb, build_flip, build_modal
+from application.dash.biocodex.pages.table import dashtable
+from application.dash.biocodex.pages.map import data_to_geojson
 import numpy as np
 from psycopg2.extensions import register_adapter, AsIs
 import re
-from flask import render_template
+import dash
 
 
-
-
-reg=re.compile("[0-9]+")
 register_adapter(np.int64, AsIs)
 
-def init_callbacks(dashapp):
 
+def init_callbacks(dashapp):
 
     dashapp.config.suppress_callback_exceptions = True
     # UGA & SPES SELECTION ==> UPDATE MEMORY
@@ -26,19 +23,13 @@ def init_callbacks(dashapp):
         Input("cib-cl", "value"),
         Input("pvm-slider", "value")
     )
-    def filter(ugas_selected, spe_selected, cib_selected, pvm_range):
+    def filter(ugas_selected, spes_selected, cib_selected, pvm_range):
         data_df = join_id_adr_cdb()
         data = data_df.query('uga in @ugas_selected') \
-                      .query('spe in @spe_selected') \
+                      .query('spe in @spes_selected') \
                       .query('cib in @cib_selected') \
                       .query('pvm > @pvm_range[0] and pvm < @pvm_range[1]') \
                       .to_dict('records')
-
-        print('output: ', len(data))
-        print('ugas_selected: ', ugas_selected)
-        print('spe_selected: ', spe_selected)
-        print('cib_selected: ', cib_selected)
-        print('pvm_range: ', pvm_range)
         return data
 
     @dashapp.callback(
@@ -56,21 +47,88 @@ def init_callbacks(dashapp):
         Input("memory", "data")
     )
     def update_tiles(data):
+
         if not data:
             data = join_id_adr_cdb().to_dict('records')
-        return [build_flip(d) for d in data]
+        return [build_flip(d) for d in data]+[build_modal(d) for d in data]
+
+
+    @dashapp.callback(
+        Output("data-geojson", "hideout"),
+        Input("memory", "data"),
+        State('uga-cl', 'value'),
+        State("spe-cl", "value"),
+        State("cib-cl", "value"),
+        State("pvm-slider", "value")
+    )
+    def update_map(data, ugas_selected, spes_selected, cib_selected, pvm_range):
+
+        if not data:
+            data = join_id_adr_cdb().to_dict('records')
+        # print(data_to_geojson(data))
+        return dict(ugas_selected=ugas_selected, spes_selected=spes_selected, cib_selected=cib_selected, pvm_range=pvm_range)
+
+
+
+    @dashapp.callback(
+        Output("table-container", "children"),
+        Input("tabledash", "active_cell"),
+        State("memory", "data")
+    )
+    def update_tabledash(act_cell, data):
+        if not data:
+            data = join_id_adr_cdb().to_dict('records')
+
+        if act_cell:
+            df = pd.DataFrame(data)
+            row = df.loc[df['id']==act_cell["row_id"]].to_dict('records')[0]
+            modal = build_modal(row, is_open=True)
+            return [dashtable, modal]
+        else:
+            return [dashtable]
 
     @dashapp.callback(
         Output("visdcc", "run"),
         Input("tiles-content", "children")
     )
-    def run_js(children):
-        if children:
-            return """
-            const arrows = toArray(document.getElementsByTagName('img'));
-            arrows.forEach( (arrow) => arrow.addEventListener('click', flipCard))
-            """
+    def run_js(tiles):
+        return """
+        const arrows = toArray(document.getElementsByClassName('arrow'));
+        arrows.forEach( (arrow) => arrow.addEventListener('click', flipCard))
+        const shields = toArray(document.getElementsByClassName('shield'));
+        shields.forEach( (shield) => shield.addEventListener('click', toggleBodyCard))
+        """
 
+
+    @dashapp.callback(
+        Output("page-container", "children"),
+        Input("noms-dd", "value")
+    )
+    def modal_dd(nom_pre):
+        data = join_id_adr_cdb()
+        if nom_pre is not None:
+            reg = "([A-Z\s]+)\s(([A-Z]{1}[a-z\s]*)+)"
+            s = re.search(reg, nom_pre)
+            nom=s.group(1)
+            pre=s.group(2)
+            filter=(data['nom']==nom) & (data['prenom']==pre)
+            row=data.loc[filter].to_dict('records')[0]
+            modal = build_modal(row, is_open=True)
+            return [dash.page_container]+[modal]
+        return [dash.page_container]
+
+    @dashapp.callback(
+        Output({'type': 'modal', 'index': MATCH }, "is_open"),
+        Input({'type': 'modal-open', 'index': MATCH}, "n_clicks"),
+        # Input({'type': 'modal-close', 'index': MATCH}, "n_clicks"),
+        Input({'type': 'submit', 'index': MATCH}, "n_clicks"),
+        State({'type': 'modal', 'index': MATCH}, "is_open"),
+        prevent_initial_call=True
+    )
+    def toggle_modal(n1, n2, is_open):
+        if n1 or n2:
+            return not is_open
+        return is_open
 
     # SIDEBAR TOGGLE
     @dashapp.callback(
@@ -83,19 +141,6 @@ def init_callbacks(dashapp):
         if n and classname != "":
             return "btn-dark hamburger hamburger--elastic collapsed", ""
         return "btn-dark hamburger hamburger--elastic", "collapsed"
-
-    # MODAL TOGGLE
-    @dashapp.callback(
-        Output("pds-modal", "is_open"),
-        Input("modal-btn", "n_clicks"),
-        State("pds-modal", "is_open"),
-
-    )
-    def toggle_modal(n, is_open):
-        if n :
-            return not is_open
-        return is_open
-
 
 
     # MAP CALLBACKS
@@ -146,16 +191,3 @@ def init_callbacks(dashapp):
     )
     def info_hover(feature, data):
         return get_info(pd.DataFrame(data), feature)
-
-    """
-    # OFFCANVAS TOGGLE
-    @dashapp.callback(
-        Output("offcanvas", "is_open"),
-        Input("open-offcanvas", "n_clicks"),
-        [State("offcanvas", "is_open")],
-    )
-    def toggle_offcanvas(n1, is_open):
-        if n1:
-            return not is_open
-        return is_open
-    """

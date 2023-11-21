@@ -8,7 +8,7 @@ from application.extensions import bcrypt, cache, db, flask_static_digest, lm, d
 from application.extensions import migrate, mail, moment, bootstrap, csrf_protect
 from application.users.models import User
 from elasticsearch import Elasticsearch
-from application.pds.models import Identity, Adress, Cdb, Connections
+from application.dash.biocodex.models import Identity, Adress, Cdb, Connections
 from application.config import DATABASE_DEFAULT, config, basedir, CACHE_CONFIG
 
 
@@ -38,14 +38,13 @@ def register_blueprints(server):
     from application.dash.views import dash_bp
     from application.ocr.views import ocr_bp
     from application.users.views import user_bp
-    from application.pds.views import pds_bp
 
     server.register_blueprint(home_bp)
     server.register_blueprint(auth_bp)
     server.register_blueprint(dash_bp)
     server.register_blueprint(ocr_bp)
     server.register_blueprint(user_bp)
-    server.register_blueprint(pds_bp)
+
 
     return None
 
@@ -97,8 +96,9 @@ def configure_logger(app):
 def create_flask_server():
 
     server = Flask(__name__)
+    server.app_context().push()
     server.config.from_object(config.get('default'))
-
+    csrf_protect._exempt_views.add('dash.dash.dispatch')
     bootstrap.init_app(server)
     register_extensions(server)
     register_blueprints(server)

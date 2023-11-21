@@ -2,25 +2,11 @@ import dash_bootstrap_components as dbc
 from dash import dcc, html
 import dash
 import importlib
-from dash_bootstrap_templates import ThemeChangerAIO, template_from_url
 
 
 external_scripts=[
     "https://code.jquery.com/jquery-3.7.0.js",
-    "https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js",
-    "https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js",
-    {
-        "type": "text/javascript",
-        "src": "js/leaflet.extra-markers.min.js"
-    },
-    {
-        "type": "text/javascript",
-        "src": "js/modalize.js"
-    },
-    {
-        "type": "text/javascript",
-        "src": "js/flipper.js"
-    }
+
 ]
 
 
@@ -30,9 +16,9 @@ external_stylesheets=[
     # Dash CSS
     # 'https://codepen.io/chriddyp/pen/bWLwgP.css',
     # Loading screen CSS
-    'https://codepen.io/chriddyp/pen/brPBPO.css',
+    # 'https://codepen.io/chriddyp/pen/brPBPO.css',
     # JQuery DataTables
-    "https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css",
+    # "https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css",
     # Leaflet
     {"rel": "stylesheet", "type": "text/css", "src": "css/leaflet.extra-markers.min.css"},
     # Sidebar

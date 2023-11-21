@@ -4,7 +4,8 @@ from flask import url_for
 from datetime import datetime
 from time import time
 import json
-from application.pds.models import Identity
+from application.dash.biocodex.models import Identity
+
 
 
 class SearchableMixin(object):

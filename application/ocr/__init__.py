@@ -31,7 +31,7 @@ def ocr():
                 img = Image.open(source)
                 ocr_text = tesseract_get_text(img)
                 ocr_text = ocr_text.split('\n')
-                return render_template("ocr/ocr.html", source=f"/ocr/uploads/{filename}", ocr_text=ocr_text)
+                return render_template("ocr/ocr.html", source=f"/application/ocr/uploads/{filename}", ocr_text=ocr_text)
 
         elif "img_url" in request.form:
             url = request.form['img_url']
@@ -54,7 +54,7 @@ def ocr():
 
 
 def uploaded_file(filename):
-    return send_from_directory('ocr/uploads', filename)
+    return send_from_directory('application/ocr/uploads', filename)
 
 
 

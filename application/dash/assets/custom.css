@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@font-face {
+    font-family: 'Coolvetica';
+    src: url('../../static/fonts/Coolvetica_Regular.ttf') format('truetype'), url('../../static/fonts/Open_24_Display_St.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 :root {
     --gy : #bd0071;
@@ -12,221 +18,15 @@
     --ne: #410e66;
 }
 
-.custom-tabs-container {
-    width: 100%;
-}
-.custom-tabs {
-    border-top-left-radius: 3px;
-    background-color: #ffffff;
-    padding: 0 24px;
-    border-bottom: 1px solid #d6d6d6;
-    height: 100%;
+body {
+    font-family:'Coolvetica', sans-serif !Important;
+    background:#edf2f9;
 }
 
-.custom-tab {
-    color:#000080;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-top: 1px solid #929291 !important;
-    border-left: 1px solid #929291 !important;
-    border-right: 1px solid #929291 !important;
-    border-bottom: 3px solid #8B0000 !important;
-    background-color: #d3d3d3;
-    padding: 12px !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
+* {
+    margin:0; padding:0;
+    box-sizing:border-box;
 }
-.custom-tab--selected {
-    color: #000080;
-    font-weight: 900;
-    border-bottom: 0 !important;
-    border-left: 3px solid #8B0000 !important;
-    border-right: 3px solid #8B0000 !important;
-    border-top: 3px solid #8B0000 !important;
-    background-color: #929291;
-}
-
-.tab-content {
-    height: 100%;
-}
-
-
-/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
-.flip-card {
-    display: flex;
-    background-color: #fff;
-    height: 300px;
-    /* width: 300px;*/
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-/* This container is needed to position the front and back side */
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transform-style: preserve-3d;
-    -webkit-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    border-radius: 16px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-
-.flip-card-inner.flip {
-    transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-/* Position the front and back side */
-.flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-}
-
-/* Style the front side (fallback if image is missing) */
-.flip-card-front .card-header, .flip-card-front .card-footer {
-    background-image: linear-gradient(135deg, rgba(159, 159, 159, 0.46) 0%, rgba(159, 159, 159, 0.46) 14.286%,rgba(165, 165, 165, 0.46) 14.286%, rgba(165, 165, 165, 0.46) 28.572%,rgba(171, 171, 171, 0.46) 28.572%, rgba(171, 171, 171, 0.46) 42.858%,rgba(178, 178, 178, 0.46) 42.858%, rgba(178, 178, 178, 0.46) 57.144%,rgba(184, 184, 184, 0.46) 57.144%, rgba(184, 184, 184, 0.46) 71.43%,rgba(190, 190, 190, 0.46) 71.43%, rgba(190, 190, 190, 0.46) 85.716%,rgba(196, 196, 196, 0.46) 85.716%, rgba(196, 196, 196, 0.46) 100.002%),linear-gradient(45deg, rgb(252, 252, 252) 0%, rgb(252, 252, 252) 14.286%,rgb(246, 246, 246) 14.286%, rgb(246, 246, 246) 28.572%,rgb(241, 241, 241) 28.572%, rgb(241, 241, 241) 42.858%,rgb(235, 235, 235) 42.858%, rgb(235, 235, 235) 57.144%,rgb(229, 229, 229) 57.144%, rgb(229, 229, 229) 71.43%,rgb(224, 224, 224) 71.43%, rgb(224, 224, 224) 85.716%,rgb(218, 218, 218) 85.716%, rgb(218, 218, 218) 100.002%);
-    color: #000080;
-}
-
-/* Style the back side */
-.flip-card-back  {
-    position: absolute;
-    text-align: center;
-    transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-/* Style the back side */
-.flip-card-back .card-header, .flip-card-back .card-footer {
-    background-image: linear-gradient(161deg, rgba(121, 121, 121, 0.02) 0%, rgba(121, 121, 121, 0.02) 16.667%,rgba(193, 193, 193, 0.02) 16.667%, rgba(193, 193, 193, 0.02) 33.334%,rgba(177, 177, 177, 0.02) 33.334%, rgba(177, 177, 177, 0.02) 50.001000000000005%,rgba(5, 5, 5, 0.02) 50.001%, rgba(5, 5, 5, 0.02) 66.668%,rgba(229, 229, 229, 0.02) 66.668%, rgba(229, 229, 229, 0.02) 83.33500000000001%,rgba(211, 211, 211, 0.02) 83.335%, rgba(211, 211, 211, 0.02) 100.002%),linear-gradient(45deg, rgba(223, 223, 223, 0.02) 0%, rgba(223, 223, 223, 0.02) 14.286%,rgba(70, 70, 70, 0.02) 14.286%, rgba(70, 70, 70, 0.02) 28.572%,rgba(109, 109, 109, 0.02) 28.572%, rgba(109, 109, 109, 0.02) 42.858%,rgba(19, 19, 19, 0.02) 42.858%, rgba(19, 19, 19, 0.02) 57.144%,rgba(180, 180, 180, 0.02) 57.144%, rgba(180, 180, 180, 0.02) 71.42999999999999%,rgba(63, 63, 63, 0.02) 71.43%, rgba(63, 63, 63, 0.02) 85.71600000000001%,rgba(87, 87, 87, 0.02) 85.716%, rgba(87, 87, 87, 0.02) 100.002%),linear-gradient(337deg, rgba(142, 142, 142, 0.02) 0%, rgba(142, 142, 142, 0.02) 20%,rgba(164, 164, 164, 0.02) 20%, rgba(164, 164, 164, 0.02) 40%,rgba(203, 203, 203, 0.02) 40%, rgba(203, 203, 203, 0.02) 60%,rgba(228, 228, 228, 0.02) 60%, rgba(228, 228, 228, 0.02) 80%,rgba(54, 54, 54, 0.02) 80%, rgba(54, 54, 54, 0.02) 100%),linear-gradient(314deg, rgba(187, 187, 187, 0.02) 0%, rgba(187, 187, 187, 0.02) 12.5%,rgba(170, 170, 170, 0.02) 12.5%, rgba(170, 170, 170, 0.02) 25%,rgba(214, 214, 214, 0.02) 25%, rgba(214, 214, 214, 0.02) 37.5%,rgba(187, 187, 187, 0.02) 37.5%, rgba(187, 187, 187, 0.02) 50%,rgba(190, 190, 190, 0.02) 50%, rgba(190, 190, 190, 0.02) 62.5%,rgba(6, 6, 6, 0.02) 62.5%, rgba(6, 6, 6, 0.02) 75%,rgba(206, 206, 206, 0.02) 75%, rgba(206, 206, 206, 0.02) 87.5%,rgba(171, 171, 171, 0.02) 87.5%, rgba(171, 171, 171, 0.02) 100%),linear-gradient(300deg, rgba(243, 243, 243, 0.01) 0%, rgba(243, 243, 243, 0.01) 12.5%,rgba(209, 209, 209, 0.01) 12.5%, rgba(209, 209, 209, 0.01) 25%,rgba(179, 179, 179, 0.01) 25%, rgba(179, 179, 179, 0.01) 37.5%,rgba(3, 3, 3, 0.01) 37.5%, rgba(3, 3, 3, 0.01) 50%,rgba(211, 211, 211, 0.01) 50%, rgba(211, 211, 211, 0.01) 62.5%,rgba(151, 151, 151, 0.01) 62.5%, rgba(151, 151, 151, 0.01) 75%,rgba(16, 16, 16, 0.01) 75%, rgba(16, 16, 16, 0.01) 87.5%,rgba(242, 242, 242, 0.01) 87.5%, rgba(242, 242, 242, 0.01) 100%),linear-gradient(6deg, rgba(31, 31, 31, 0.02) 0%, rgba(31, 31, 31, 0.02) 20%,rgba(193, 193, 193, 0.02) 20%, rgba(193, 193, 193, 0.02) 40%,rgba(139, 139, 139, 0.02) 40%, rgba(139, 139, 139, 0.02) 60%,rgba(14, 14, 14, 0.02) 60%, rgba(14, 14, 14, 0.02) 80%,rgba(122, 122, 122, 0.02) 80%, rgba(122, 122, 122, 0.02) 100%),linear-gradient(279deg, rgba(190, 190, 190, 0.02) 0%, rgba(190, 190, 190, 0.02) 14.286%,rgba(160, 160, 160, 0.02) 14.286%, rgba(160, 160, 160, 0.02) 28.572%,rgba(23, 23, 23, 0.02) 28.572%, rgba(23, 23, 23, 0.02) 42.858%,rgba(60, 60, 60, 0.02) 42.858%, rgba(60, 60, 60, 0.02) 57.144%,rgba(149, 149, 149, 0.02) 57.144%, rgba(149, 149, 149, 0.02) 71.42999999999999%,rgba(4, 4, 4, 0.02) 71.43%, rgba(4, 4, 4, 0.02) 85.71600000000001%,rgba(50, 50, 50, 0.02) 85.716%, rgba(50, 50, 50, 0.02) 100.002%),linear-gradient(109deg, rgba(124, 124, 124, 0.03) 0%, rgba(124, 124, 124, 0.03) 12.5%,rgba(61, 61, 61, 0.03) 12.5%, rgba(61, 61, 61, 0.03) 25%,rgba(187, 187, 187, 0.03) 25%, rgba(187, 187, 187, 0.03) 37.5%,rgba(207, 207, 207, 0.03) 37.5%, rgba(207, 207, 207, 0.03) 50%,rgba(206, 206, 206, 0.03) 50%, rgba(206, 206, 206, 0.03) 62.5%,rgba(118, 118, 118, 0.03) 62.5%, rgba(118, 118, 118, 0.03) 75%,rgba(89, 89, 89, 0.03) 75%, rgba(89, 89, 89, 0.03) 87.5%,rgba(96, 96, 96, 0.03) 87.5%, rgba(96, 96, 96, 0.03) 100%),linear-gradient(329deg, rgba(35, 35, 35, 0.02) 0%, rgba(35, 35, 35, 0.02) 20%,rgba(246, 246, 246, 0.02) 20%, rgba(246, 246, 246, 0.02) 40%,rgba(118, 118, 118, 0.02) 40%, rgba(118, 118, 118, 0.02) 60%,rgba(245, 245, 245, 0.02) 60%, rgba(245, 245, 245, 0.02) 80%,rgba(140, 140, 140, 0.02) 80%, rgba(140, 140, 140, 0.02) 100%),linear-gradient(90deg, hsl(314,0%,31%),hsl(314,0%,31%));
-    color: white;
-}
-
-label.form-label:hover {
-    color: #8b0000;
-}
-
-.arrow {
-    cursor: pointer;
-}
-*{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif}
-body{background:#edf2f9}
-.content{
-    margin: auto;
-    padding: 15px;
-    max-width: 800px;
-    text-align: center;
-}
-.dpx{
-    display:flex;
-    align-items:center;
-    justify-content:space-around;
-}
-h1{
-    font-size:28px;
-    line-height:28px;
-    margin-bottom:15px;
-}
-label{
-    display:block;
-    line-height:30px;
-}
-.option-input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-    position: relative;
-    top: 13.33333px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 30px;
-    width: 30px;
-    transition: all 0.15s ease-out 0s;
-    background: #cbd1d8;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    margin-right: 0.5rem;
-    outline: none;
-    z-index: 1000;
-}
-.option-input:hover {
-    background: #9faab7;
-}
-.option-input:checked {
-    background: #40e0d0;
-}
-.option-input:checked::before {
-    width: 30px;
-    height: 30px;
-    display:flex;
-    content: '\f00c';
-    font-size: 25px;
-    font-weight:bold;
-    position: absolute;
-    align-items:center;
-    justify-content:center;
-    font-family:'Font Awesome 5 Free';
-}
-.option-input:checked::after {
-    -webkit-animation: click-wave 0.65s;
-    -moz-animation: click-wave 0.65s;
-    animation: click-wave 0.65s;
-    background: #40e0d0;
-    content: '';
-    display: block;
-    position: relative;
-    z-index: 100;
-}
-.option-input.radio {
-    border-radius: 50%;
-}
-.option-input.radio::after {
-    border-radius: 50%;
-}
-
-@keyframes click-wave {
-    0% {
-        height: 30px;
-        width: 30px;
-        opacity: 0.35;
-        position: relative;
-    }
-    100% {
-        height: 200px;
-        width: 200px;
-        margin-left: -80px;
-        margin-top: -80px;
-        opacity: 0;
-    }
-}
-
 
 #GY-pot-slider .rc-slider-track {
     background-color: var(--gy);
@@ -342,10 +142,306 @@ label{
     background-color: var(--ne);
 }
 
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+    background-color: #fff;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    width: 18rem;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    transform-style: preserve-3d;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+
+.flip-card-inner.flip {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front .card-header, .flip-card-front .card-footer {
+    background-image: linear-gradient(135deg, rgba(159, 159, 159, 0.46) 0%, rgba(159, 159, 159, 0.46) 14.286%,rgba(165, 165, 165, 0.46) 14.286%, rgba(165, 165, 165, 0.46) 28.572%,rgba(171, 171, 171, 0.46) 28.572%, rgba(171, 171, 171, 0.46) 42.858%,rgba(178, 178, 178, 0.46) 42.858%, rgba(178, 178, 178, 0.46) 57.144%,rgba(184, 184, 184, 0.46) 57.144%, rgba(184, 184, 184, 0.46) 71.43%,rgba(190, 190, 190, 0.46) 71.43%, rgba(190, 190, 190, 0.46) 85.716%,rgba(196, 196, 196, 0.46) 85.716%, rgba(196, 196, 196, 0.46) 100.002%),linear-gradient(45deg, rgb(252, 252, 252) 0%, rgb(252, 252, 252) 14.286%,rgb(246, 246, 246) 14.286%, rgb(246, 246, 246) 28.572%,rgb(241, 241, 241) 28.572%, rgb(241, 241, 241) 42.858%,rgb(235, 235, 235) 42.858%, rgb(235, 235, 235) 57.144%,rgb(229, 229, 229) 57.144%, rgb(229, 229, 229) 71.43%,rgb(224, 224, 224) 71.43%, rgb(224, 224, 224) 85.716%,rgb(218, 218, 218) 85.716%, rgb(218, 218, 218) 100.002%);
+    color: #000080;
+}
+
+/* Style the back side */
+.flip-card-back  {
+    position: absolute;
+    text-align: center;
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Style the back side */
+.flip-card-back .card-header, .flip-card-back .card-footer {
+    background-image: linear-gradient(161deg, rgba(121, 121, 121, 0.02) 0%, rgba(121, 121, 121, 0.02) 16.667%,rgba(193, 193, 193, 0.02) 16.667%, rgba(193, 193, 193, 0.02) 33.334%,rgba(177, 177, 177, 0.02) 33.334%, rgba(177, 177, 177, 0.02) 50.001000000000005%,rgba(5, 5, 5, 0.02) 50.001%, rgba(5, 5, 5, 0.02) 66.668%,rgba(229, 229, 229, 0.02) 66.668%, rgba(229, 229, 229, 0.02) 83.33500000000001%,rgba(211, 211, 211, 0.02) 83.335%, rgba(211, 211, 211, 0.02) 100.002%),linear-gradient(45deg, rgba(223, 223, 223, 0.02) 0%, rgba(223, 223, 223, 0.02) 14.286%,rgba(70, 70, 70, 0.02) 14.286%, rgba(70, 70, 70, 0.02) 28.572%,rgba(109, 109, 109, 0.02) 28.572%, rgba(109, 109, 109, 0.02) 42.858%,rgba(19, 19, 19, 0.02) 42.858%, rgba(19, 19, 19, 0.02) 57.144%,rgba(180, 180, 180, 0.02) 57.144%, rgba(180, 180, 180, 0.02) 71.42999999999999%,rgba(63, 63, 63, 0.02) 71.43%, rgba(63, 63, 63, 0.02) 85.71600000000001%,rgba(87, 87, 87, 0.02) 85.716%, rgba(87, 87, 87, 0.02) 100.002%),linear-gradient(337deg, rgba(142, 142, 142, 0.02) 0%, rgba(142, 142, 142, 0.02) 20%,rgba(164, 164, 164, 0.02) 20%, rgba(164, 164, 164, 0.02) 40%,rgba(203, 203, 203, 0.02) 40%, rgba(203, 203, 203, 0.02) 60%,rgba(228, 228, 228, 0.02) 60%, rgba(228, 228, 228, 0.02) 80%,rgba(54, 54, 54, 0.02) 80%, rgba(54, 54, 54, 0.02) 100%),linear-gradient(314deg, rgba(187, 187, 187, 0.02) 0%, rgba(187, 187, 187, 0.02) 12.5%,rgba(170, 170, 170, 0.02) 12.5%, rgba(170, 170, 170, 0.02) 25%,rgba(214, 214, 214, 0.02) 25%, rgba(214, 214, 214, 0.02) 37.5%,rgba(187, 187, 187, 0.02) 37.5%, rgba(187, 187, 187, 0.02) 50%,rgba(190, 190, 190, 0.02) 50%, rgba(190, 190, 190, 0.02) 62.5%,rgba(6, 6, 6, 0.02) 62.5%, rgba(6, 6, 6, 0.02) 75%,rgba(206, 206, 206, 0.02) 75%, rgba(206, 206, 206, 0.02) 87.5%,rgba(171, 171, 171, 0.02) 87.5%, rgba(171, 171, 171, 0.02) 100%),linear-gradient(300deg, rgba(243, 243, 243, 0.01) 0%, rgba(243, 243, 243, 0.01) 12.5%,rgba(209, 209, 209, 0.01) 12.5%, rgba(209, 209, 209, 0.01) 25%,rgba(179, 179, 179, 0.01) 25%, rgba(179, 179, 179, 0.01) 37.5%,rgba(3, 3, 3, 0.01) 37.5%, rgba(3, 3, 3, 0.01) 50%,rgba(211, 211, 211, 0.01) 50%, rgba(211, 211, 211, 0.01) 62.5%,rgba(151, 151, 151, 0.01) 62.5%, rgba(151, 151, 151, 0.01) 75%,rgba(16, 16, 16, 0.01) 75%, rgba(16, 16, 16, 0.01) 87.5%,rgba(242, 242, 242, 0.01) 87.5%, rgba(242, 242, 242, 0.01) 100%),linear-gradient(6deg, rgba(31, 31, 31, 0.02) 0%, rgba(31, 31, 31, 0.02) 20%,rgba(193, 193, 193, 0.02) 20%, rgba(193, 193, 193, 0.02) 40%,rgba(139, 139, 139, 0.02) 40%, rgba(139, 139, 139, 0.02) 60%,rgba(14, 14, 14, 0.02) 60%, rgba(14, 14, 14, 0.02) 80%,rgba(122, 122, 122, 0.02) 80%, rgba(122, 122, 122, 0.02) 100%),linear-gradient(279deg, rgba(190, 190, 190, 0.02) 0%, rgba(190, 190, 190, 0.02) 14.286%,rgba(160, 160, 160, 0.02) 14.286%, rgba(160, 160, 160, 0.02) 28.572%,rgba(23, 23, 23, 0.02) 28.572%, rgba(23, 23, 23, 0.02) 42.858%,rgba(60, 60, 60, 0.02) 42.858%, rgba(60, 60, 60, 0.02) 57.144%,rgba(149, 149, 149, 0.02) 57.144%, rgba(149, 149, 149, 0.02) 71.42999999999999%,rgba(4, 4, 4, 0.02) 71.43%, rgba(4, 4, 4, 0.02) 85.71600000000001%,rgba(50, 50, 50, 0.02) 85.716%, rgba(50, 50, 50, 0.02) 100.002%),linear-gradient(109deg, rgba(124, 124, 124, 0.03) 0%, rgba(124, 124, 124, 0.03) 12.5%,rgba(61, 61, 61, 0.03) 12.5%, rgba(61, 61, 61, 0.03) 25%,rgba(187, 187, 187, 0.03) 25%, rgba(187, 187, 187, 0.03) 37.5%,rgba(207, 207, 207, 0.03) 37.5%, rgba(207, 207, 207, 0.03) 50%,rgba(206, 206, 206, 0.03) 50%, rgba(206, 206, 206, 0.03) 62.5%,rgba(118, 118, 118, 0.03) 62.5%, rgba(118, 118, 118, 0.03) 75%,rgba(89, 89, 89, 0.03) 75%, rgba(89, 89, 89, 0.03) 87.5%,rgba(96, 96, 96, 0.03) 87.5%, rgba(96, 96, 96, 0.03) 100%),linear-gradient(329deg, rgba(35, 35, 35, 0.02) 0%, rgba(35, 35, 35, 0.02) 20%,rgba(246, 246, 246, 0.02) 20%, rgba(246, 246, 246, 0.02) 40%,rgba(118, 118, 118, 0.02) 40%, rgba(118, 118, 118, 0.02) 60%,rgba(245, 245, 245, 0.02) 60%, rgba(245, 245, 245, 0.02) 80%,rgba(140, 140, 140, 0.02) 80%, rgba(140, 140, 140, 0.02) 100%),linear-gradient(90deg, hsl(314,0%,31%),hsl(314,0%,31%));
+    color: white;
+}
+
+label.form-label:hover {
+    color: #8b0000;
+}
+
+.arrow {
+    cursor: pointer;
+}
+.shield {
+    cursor: pointer;
+    position: absolute;
+    transform: translateY(calc(-50% - 68px));
+}
+
+.content{
+    margin: auto;
+    padding: 15px;
+    max-width: 800px;
+    text-align: center;
+}
+.dpx{
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+}
+h1{
+    font-size:28px;
+    line-height:28px;
+    margin-bottom:15px;
+}
+label{
+    display:block;
+    line-height:30px;
+}
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 13.33333px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    transition: all 0.15s ease-out 0s;
+    background: #cbd1d8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    z-index: 1000;
+}
+.option-input:hover {
+    background: #9faab7;
+}
+.option-input:checked {
+    background: #40e0d0;
+}
+.option-input:checked::before {
+    width: 30px;
+    height: 30px;
+    display:flex;
+    content: '\f00c';
+    font-size: 25px;
+    font-weight:bold;
+    position: absolute;
+    align-items:center;
+    justify-content:center;
+    font-family:'Font Awesome 5 Free';
+}
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #40e0d0;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+.option-input.radio {
+    border-radius: 50%;
+}
+.option-input.radio::after {
+    border-radius: 50%;
+}
+
+@keyframes click-wave {
+    0% {
+        height: 30px;
+        width: 30px;
+        opacity: 0.35;
+        position: relative;
+    }
+    100% {
+        height: 200px;
+        width: 200px;
+        margin-left: -80px;
+        margin-top: -80px;
+        opacity: 0;
+    }
+}
+
+
 #_dash-global-error-container {
     height: 100vh
 }
 
-.form-floating > .form-control:not(:placeholder-shown) {
+.accordion-button {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-size: 1.5rem;
+}
 
+.accordion-button:not(.collapsed) {
+  color: #8B0000;
+  background-color: #B3CBDC;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.accordion-body {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+
+.form-floating {
+    max-height: 35px;
+    min-height: 35px;
+    height: 35px;
+}
+
+.form-floating > .form-control,
+.form-floating > .form-control:not(:placeholder-shown) {
+    font-size: 11px;
+    max-height: 35px;
+    min-height: 35px;
+    height: 35px;
+    text-align: right;
+    background-color: #E0E9F1;
+}
+
+
+.form-floating > .form-control-plaintext ~ label::after,
+.form-floating > .form-control:focus ~ label::after,
+.form-floating > .form-control:not(:placeholder-shown) ~ label::after,
+.form-floating > .form-select ~ label::after {
+    background-color: transparent !important;
+}
+
+.form-floating > .form-control-plaintext ~ label,
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
+  color: #000080;
+  transform: translateY(-25%) translateX(0);
+  font-size: 9px;
+}
+
+#_pages_content {
+    height: 100%
+}
+
+.uga-badge {
+    font-size: 10px;
+    font-weight: bolder;
+    color: #000080;
+    align-self: center;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    opacity: 1;
+    background-color: white;
+    border: 1px solid #000080
+}
+
+.spe-badge {
+    font-size: 11px;
+    font-weight: 900;
+    transform: translate(-50%, -50%);
+}
+
+.card-body.hide {
+  animation: slideaway 200ms;
+  display: none;
+}
+
+@keyframes slideaway {
+  from { display: flex; }
+  to { transform: translateY(40px); opacity: 0;}
+}
+
+.modal-body {
+  height: 475px;
+}
+
+.complete-card {
+    height: 415px;
+}
+
+.complete-card.small {
+    height: 210px;
+}
+
+.card-header {
+    height: 107px;
+}
+
+.card-body {
+    height: 203px;
+}
+
+.card-footer {
+    height: 70px;}
+
+#page-container > div {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+.leaflet-popup {
+    width: 330px;
+}
+.leaflet-popup-content {
+    width: 330px;
+}
+.leaflet-popup-content-wrapper {
+    display: contents;
 }

@@ -1,8 +1,7 @@
-from dash import html, dash_table, Input, Output, State, callback
+from dash import dash_table, html
 import dash
-from application.dash.biocodex.functions import build_flip, datatable_cols, styles, build_modal_flip
-import dash_bootstrap_components as dbc
-import dash_loading_spinners as dls
+from application.dash.biocodex.functions import datatable_cols, styles
+
 
 dash.register_page(__name__, path="/table")
 
@@ -53,13 +52,9 @@ dashtable = dash_table.DataTable(
 )
 
 
-layout = dls.Scale(
+layout = html.Div(
     [
         dashtable
     ],
-    color='#8B0000',
-    height=60,
-    margin=5,
-    width=100,
-    debounce=1000
+    id="table-container"
 )

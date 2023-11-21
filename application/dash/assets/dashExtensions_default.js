@@ -1,48 +1,49 @@
 window.dashExtensions = Object.assign({}, window.dashExtensions, {
     default: {
-        geojson_filter: function(feature, context) { return context.hideout.ugas_selected.includes(feature.properties.uga) && context.hideout.spes_selected.includes(feature.properties.spe);},
+        geojson_filter: function(feature, context) {return context.hideout.ugas_selected.includes(feature.properties.uga) && context.hideout.spes_selected.includes(feature.properties.spe) && context.hideout.cib_selected.includes(feature.properties.cib) && context.hideout.pvm_range[0]<feature.properties.pvm && context.hideout.pvm_range[1]>feature.properties.pvm;},
         uga_geojson_filter: function(feature, context) {return context.hideout.selected.includes(feature.properties.CODE_UGA);},
-        pharma_filter: function(feature, context) {return context.hideout.ugas_selected.includes(feature.properties.uga);},
         cible_icon: function(feature, latlng) {
             const doctor_colors = {
-                'GY': 'pink',
-                'MG-GY': 'pink',
-                'SF': 'pink',
+                'GY': '#bd0071',
+                'MGY': '#bd0071',
+                'SF': '#bd0071',
                 'MG': '#aaa',
-                'GE': 'orange',
-                'PE': 'cyan',
-                'PE-PSY': 'blue-dark',
-                'PSY': 'purple',
-                'NE': 'violet',
+                'GE': '#fe7600',
+                'PE': '#0080ff',
+                'PPSY': '#410E66',
+                'PSY': '#410E66',
+                'NE': '#410e66',
+                '': '#000000'
             };
-            if (feature.properties.ciblage>0) {
+            if (feature.properties.cib > 0) {
                 var shape = 'star'
             } else {
                 var shape = 'square'
             };
-            const marker = L.ExtraMarkers.icon({
-                icon: 'fa-user-doctor',
-                prefix: 'fa',
-                markerColor: doctor_colors[feature.properties.spe],
-                iconColor: 'white',
-                shape: shape,
-                svg: true
-            });
-            return L.marker(latlng, {
-                icon: marker
-            });
-        },
-        pharma_icon: function(feature, latlng) {
-            const pmarker = L.ExtraMarkers.icon({
-                icon: 'fa-prescription-bottle-medical',
-                prefix: 'fa',
-                markerColor: 'green',
-                iconColor: 'white',
-                shape: 'circle',
-            });
-            return L.marker(latlng, {
-                icon: pmarker
-            });
+            if (feature.properties.spe !== '') {
+                const marker = L.ExtraMarkers.icon({
+                    icon: 'fa-user-doctor',
+                    prefix: 'fa',
+                    markerColor: doctor_colors[feature.properties.spe],
+                    iconColor: 'white',
+                    shape: shape,
+                    svg: true
+                });
+                return L.marker(latlng, {
+                    icon: marker
+                });
+            } else {
+                const pmarker = L.ExtraMarkers.icon({
+                    icon: 'fa-prescription-bottle-medical',
+                    prefix: 'fa',
+                    markerColor: 'green',
+                    iconColor: 'white',
+                    shape: 'circle',
+                });
+                return L.marker(latlng, {
+                    icon: pmarker
+                });
+            }
         },
         uga_style_handle: function(feature, context){
             const uga_colors = {
@@ -59,10 +60,6 @@ window.dashExtensions = Object.assign({}, window.dashExtensions, {
                 '92LEV': '#adff2f',
                 '92NEU': '#f3ff00'
             };
-            return {fillColor: uga_colors[feature.properties.CODE_UGA], fillOpacity: 0.3,  color: uga_colors[feature.properties.CODE_UGA], opacity: 1, weight:5, dashArray: '5'}
-        },
-        badge_style_handle: function(feature, context){
-            
             return {fillColor: uga_colors[feature.properties.CODE_UGA], fillOpacity: 0.3,  color: uga_colors[feature.properties.CODE_UGA], opacity: 1, weight:5, dashArray: '5'}
         },
         search: function () {

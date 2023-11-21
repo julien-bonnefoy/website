@@ -1,54 +1,39 @@
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 import dash
-from application.dash.biocodex.functions import legend1, legend2
-from application.dash.sidebar import sidebar
+from application.dash.sidebar import build_sidebar
 import visdcc
 import dash_loading_spinners as dls
 
-
-offcanvas = html.Div(
-    [
-        dbc.Offcanvas([
-
-            html.Br(),
-            dbc.Label("PVM", className="fw-bold"),
-            legend1,
-            html.Br(),
-            dbc.Label("POTENTIEL", className="fw-bold"),
-            legend2
-        ],
-            id="offcanvas",
-            scrollable=True,
-            title="FILTERS",
-            is_open=False,
-            placement='bottom',
-            style={"height": "25%", "max-width": "100%"},
-        )
-    ]
-)
 
 def build_layout():
     return html.Div(
         [
             dcc.Store(id="memory"),
             visdcc.Run_js(id="visdcc"),
-            sidebar,
-            dbc.Row(
+            build_sidebar(),
+            html.Div(
                 [
-                    html.Div(
+
+                    dbc.Col(
                         [
-                            dcc.Link(f"{page['name']}", href=page["relative_path"], className="btn btn-secondary w-100")
-                        ], className="d-flex col-1"
-                    ) for page in dash.page_registry.values()
-                ]+[
+                            html.Div(
+                                [
+                                    dcc.Link(f"{page['name']}", href=page["relative_path"],
+                                             className="btn btn-secondary w-100")
+                                ], className="d-flex col-1 mx-2"
+                            ) for page in dash.page_registry.values()
+                        ],
+                        className="d-flex flex-row mt-2",
+                        style={"justify-content": "center"}
+                    ),
                     html.Br(),
-                    dash.page_container
+                    dbc.Col([dash.page_container], id="page-container", className="d-flex h-100 w-100")
                 ],
-                id="page-content",
-                className="d-flex",
-                justify="center"
+                id="dash-page"
             )
-        ]
+        ],
+        id="page-content",
+        className="h-100",
     )
 

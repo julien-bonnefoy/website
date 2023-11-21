@@ -72,6 +72,7 @@ class DevConfig(Config):
 
     SESSION_COOKIE_SECURE = False
     DEBUG = True
+    WTF_CSRF_ENABLED = False
 
 
 class TestConfig(Config):

@@ -40,6 +40,8 @@ def before_request():
 
 
 
+
+@home_bp.route('/index', methods=['GET', 'POST'])
 @home_bp.route('/', methods=['GET', 'POST'])
 def index():
     if current_user.is_authenticated:
