@@ -4,14 +4,14 @@ from application.dash.biocodex.models import Cdb, Connections, Identity, Adress
 import pandas as pd
 from dash import html, dash_table
 import dash_bootstrap_components as dbc
-from stem import Signal
+#from stem import Signal
 import numpy as np
 import os
 from application.config import basedir
 from dotenv import load_dotenv
 import requests
 from datetime import datetime
-from stem.control import Controller
+# from stem.control import Controller
 import dash_leaflet as dl
 import dash_leaflet.express as dlx
 import json
@@ -652,7 +652,7 @@ def build_flip(row):
         className="row p-3 complete-card m-3 small",
     )
 
-
+"""
 def switchIp():
     with Controller.from_port(port = 9051) as controller:
         controller.authenticate("welcome")
@@ -681,7 +681,7 @@ def check_doctolib_profile(conn_id):
     ville = adress.ville.lower()
     return f"https://www.doctolib.fr/{spe}/{ville}/{prenom}-{nom}"
 
-
+"""
 
 
 id_adr = join_id_adr()
