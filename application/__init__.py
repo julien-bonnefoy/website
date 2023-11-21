@@ -95,6 +95,7 @@ def configure_logger(app):
 def create_flask_server():
 
     server = Flask(__name__)
+    server.app_context().push()
     server.config.from_object(config.get('prod'))
     csrf_protect._exempt_views.add('dash.dash.dispatch')
     bootstrap.init_app(server)
