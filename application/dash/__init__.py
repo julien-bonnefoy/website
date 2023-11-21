@@ -99,9 +99,7 @@ def dash_apps_factory(server):
                 [
                     dcc.Location(id='url', refresh=False),
                     html.Div(id='page-layout', children=layout_function())
-                ])
-            dash_app.enable_dev_tools(
-                debug=True
+                ]
             )
             callback_function(dash_app)
             # dash_app.run_server(dev_tools_hot_reload=True, debug=True, threaded=True)
