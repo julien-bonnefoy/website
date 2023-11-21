@@ -9,13 +9,12 @@ from application.extensions import migrate, mail, moment, bootstrap, csrf_protec
 from application.users.models import User
 from elasticsearch import Elasticsearch
 from application.dash.biocodex.models import Identity, Adress, Cdb, Connections
-from application.config import DATABASE_DEFAULT, config, basedir, CACHE_CONFIG
+from application.config import DATABASE_DEFAULT, config, basedir
 
 
 def register_extensions(app):
     """Register Flask extensions."""
     bcrypt.init_app(app)
-    cache.init_app(app, config=CACHE_CONFIG)
     db.init_app(app)
     csrf_protect.init_app(app)
     csrf_protect._exempt_views.add('dash.dash.dispatch')
