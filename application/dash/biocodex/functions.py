@@ -1,10 +1,11 @@
 from sqlalchemy import create_engine, func, extract
 from sqlalchemy.orm import Session
-from application.dash.biocodex.models import Cdb, Connections, Identity, Adress
+from application.dash.biocodex.models import Cdb, Connections, Identity, Adress, Pharmacy
 import pandas as pd
-from dash import html, dash_table
+from dash import html, dash_table, dcc
 import dash_bootstrap_components as dbc
-#from stem import Signal
+import dash_datetimepicker
+from random import randint
 import numpy as np
 import os
 from application.config import basedir
@@ -17,7 +18,8 @@ import dash_leaflet.express as dlx
 import json
 import io
 from flask import render_template
-
+from datetime import date, time
+import dash
 
 load_dotenv(os.path.join(basedir, '.env'))
 DATABASE_URL = os.environ.get('DATABASE_URL').replace('postgres://', 'postgresql://')
@@ -38,21 +40,73 @@ doctor_colors = {
     'NE': '#410e66',
     '': '#000000'
 }
-doctors_spes = {
-    'GY': 'gynecologue',
-    'MG-GY': 'medecin-generaliste',
-    'SF': 'sage-femme',
-    'MG': 'medecin-generaliste',
-    'GE': 'gastro-enterologue',
-    'PE': 'pediatre',
-    'PE-PSY': 'pedopsychiatre',
-    'PSY': 'psychiatre',
-    'NE': 'neurologue'
+doctors_bg = {
+    'GY': 'c23 v',
+    'MGY': 'c23 v',
+    'SF': 'c23 v',
+    'MG': 'c2 v',
+    'GE': 'c3 v',
+    'PE': 'c11 v',
+    'PPSY': 'c27 v',
+    'PSY': 'c27 v',
+    'NE': 'c27 v'
 }
 
 
-def prepare_data(df):
+def p_popup(row):
+    for col in ['ddv', 'rdv']:
+        if not pd.isnull(row[col]):
+            if type(row[col]) == int or type(row[col]) == float:
+                row[col] = unix_to_dt(row[col])
+            elif isinstance(row[col], pd.Timestamp):
+                row[col] = row[col].strftime(format="%d/%m/%Y %H:%M")
 
+    return render_template("partials/pharma.html", row=row)
+
+
+def tiptool(item):
+    return render_template("partials/tooltip.html", content=item['nom'])
+
+
+def c_popup(row):
+    for col in ['ddv', 'dpv']:
+        if not pd.isnull(row[col]):
+            if type(row[col]) == int or type(row[col]) == float:
+                row[col] = unix_to_dt(row[col])
+            elif isinstance(row[col], pd.Timestamp):
+                row[col] = row[col].strftime(format="%d/%m/%Y %H:%M")
+    return render_template("partials/front.html", row=row)
+
+
+def data_to_geojson(data):
+    df_geojson = dlx.dicts_to_geojson([{**c, **dict(popup=c_popup(c), tooltip=c['nom'])} for c in data])
+    return df_geojson
+
+
+def pharmas_to_geojson(pharmas_data):
+    df_geojson = dlx.dicts_to_geojson(
+        [{**c, **dict(popup=p_popup(c), tooltip=c['nom'])} for c in pharmas_data]
+    )
+    return df_geojson
+
+
+def json_js_to_geojson(json_js_file):
+    import json
+
+    with open(f'assets/js/{json_js_file}.js') as dataFile:
+        data = dataFile.read()
+
+        obj = data[data.find('{'): data.rfind('}') + 1]
+
+        geojson = json.loads(obj)
+
+    with open(f'assets/{json_js_file}.json', 'w') as j:
+        j.write(json.dumps(geojson).replace(": ", ":").replace(", ", ","))
+
+    return geojson
+
+
+def prepare_data(df):
     df['nv22'] = np.where(df['nv22'] == 0, '', df["nv22"])
     df['nv22'] = [int(nv) if nv != '' else '' for nv in df['nv22']]
 
@@ -67,12 +121,12 @@ def prepare_data(df):
 
 
 def join_id_adr():
-
     with Session(engine) as session:
         id_adr = pd.read_sql_query(
             sql=session.query(
                 Connections.doc_id, Identity.nom, Identity.prenom, Identity.spe, Identity.pot, Identity.pvm,
-                Identity.nv22, Identity.cib, Identity.dec, Adress.eta, Adress.uga, Adress.adr, Adress.cp, Adress.ville, Adress.tel,
+                Identity.nv22, Identity.cib, Identity.dec, Adress.eta, Adress.uga, Adress.adr, Adress.cp, Adress.ville,
+                Adress.tel,
                 Adress.lat, Adress.lon
             ).join(Identity).join(Adress).statement,
             con=engine
@@ -83,13 +137,13 @@ def join_id_adr():
 
 
 def join_id_cdb():
-
     with Session(engine) as session:
         id_cdb = pd.read_sql_query(
             sql=session.query(
                 Connections.doc_id, Identity.nom, Identity.prenom, Identity.spe, Identity.pot, Identity.pvm,
                 Identity.nv22, Identity.cib, Identity.dec,
-                Cdb.mode, Cdb.com, Cdb.ddv, Cdb.dpv, Cdb.rdv, Cdb.rec, Cdb.pk, Cdb.lun_mat, Cdb.lun_am, Cdb.mar_mat, Cdb.mar_am, Cdb.mer_mat, Cdb.mer_am, Cdb.jeu_mat, Cdb.jeu_am,
+                Cdb.mode, Cdb.com, Cdb.ddv, Cdb.dpv, Cdb.rdv, Cdb.rec, Cdb.pk, Cdb.lun_mat, Cdb.lun_am, Cdb.mar_mat,
+                Cdb.mar_am, Cdb.mer_mat, Cdb.mer_am, Cdb.jeu_mat, Cdb.jeu_am,
                 Cdb.ven_mat, Cdb.ven_am,
             ).join(Identity).join(Cdb).statement,
             con=engine
@@ -100,7 +154,6 @@ def join_id_cdb():
 
 
 def join_id_adr_cdb():
-
     with Session(engine) as session:
         id_adr_cdb = pd.read_sql_query(
             sql=session.query(
@@ -115,18 +168,37 @@ def join_id_adr_cdb():
         )
         session.close()
         id_adr_cdb.columns = [
-            'id', 'nom', 'prenom', 'spe', 'pot', 'pvm', 
+            'id', 'nom', 'prenom', 'spe', 'pot', 'pvm',
             'nv22', 'cib', 'dec',
-            'eta', 'uga', 'adr', 'cp', 'ville', 'tel', 'lat', 'lon', 
+            'eta', 'uga', 'adr', 'cp', 'ville', 'tel', 'lat', 'lon',
             'mode', 'com', 'ddv', 'dpv', 'rdv', 'rec', 'pk',
             'lun_mat', 'lun_am', 'mar_mat', 'mar_am', 'mer_mat', 'mer_am', 'jeu_mat', 'jeu_am',
             'ven_mat', 'ven_am'
         ]
 
-        df=prepare_data(id_adr_cdb)
+        df = prepare_data(id_adr_cdb)
 
     return df
 
+
+def get_pharmas():
+    with Session(engine) as session:
+        pharmas = pd.read_sql_query(
+            sql=session.query(
+                Pharmacy.id, Pharmacy.cip, Pharmacy.nom, Pharmacy.uga, Pharmacy.adr, Pharmacy.cp, Pharmacy.ville, Pharmacy.tel,
+                Pharmacy.cib_vm, Pharmacy.cib_dp, Pharmacy.cib_dso, Pharmacy.nv22, Pharmacy.ddv, Pharmacy.rdv,
+                Pharmacy.ca_circ_cma_fev23, Pharmacy.rang_ca_circ_fev23, Pharmacy.ca_ul_cma_fev_23,
+                Pharmacy.rang_ca_ul_fev23, Pharmacy.ca_circ_cma_juin23,
+                Pharmacy.rang_ca_circ_juin23, Pharmacy.ca_ul_cma_juin_23, Pharmacy.rang_ca_ul_juin23,
+                Pharmacy.ca_circ_cma_sept23, Pharmacy.ca_ul_cma_sept23,
+                Pharmacy.rang_ca_ul_sept23, Pharmacy.decil_23, Pharmacy.groupement, Pharmacy.contrat_23, Pharmacy.lat,
+                Pharmacy.lon, Pharmacy.com
+            ).statement,
+            con=engine
+        )
+        session.close()
+
+    return pharmas
 
 
 def discrete_background_color_bins(df, n_bins=5, columns=['all'], colorscale="Blues"):
@@ -157,8 +229,8 @@ def discrete_background_color_bins(df, n_bins=5, columns=['all'], colorscale="Bl
             styles.append({
                 'if': {
                     'filter_query': (
-                        '{{{column}}} >= {min_bound}' +
-                        (' && {{{column}}} < {max_bound}' if (i < len(bounds) - 1) else '')
+                            '{{{column}}} >= {min_bound}' +
+                            (' && {{{column}}} < {max_bound}' if (i < len(bounds) - 1) else '')
                     ).format(column=column, min_bound=min_bound, max_bound=max_bound),
                     'column_id': column
                 },
@@ -244,16 +316,89 @@ def generate_html_table_from_df(df):
     )
     Tbody = html.Tbody(
         [html.Tr(
-            [html.Td( df.iloc[i, j], id = '{}_{}_{}'.format(id, i, j) ) for j in range(len(df.columns))]
-         ) for i in range(len(df))]
+            [html.Td(df.iloc[i, j], id='{}_{}_{}'.format(id, i, j)) for j in range(len(df.columns))]
+        ) for i in range(len(df))]
     )
     return [Thead, Tbody]
 
 
-def build_tile_front(row, in_modal=False, need_form = False):
+def build_data(row, el, disabled):
+    return html.Div(
+        [
+            dbc.FormFloating(
+                [
+                    dbc.Input(disabled=disabled, value=row[el], name=el, size="sm", className="pt-3")
+                ],
+                className="border-3 border-info col-12 px-0"
+            )
+        ], className="d-flex"
+    )
+
+
+def build_calendar(row, in_modal=False):
+    disabled = True
+    if in_modal:
+        disabled = False
+
+    return html.Div(
+        [
+            html.Thead(
+                [
+                    html.Tr(
+                        [
+                            html.Th(), html.Th('MATIN'), html.Th('AP. MIDI')
+                        ]
+                    )
+                ]
+            ),
+            html.Tbody(
+                [
+                    html.Tr(
+                        [
+                            html.Td(children="LUNDI"),
+                            html.Td(children=build_data(row, 'lun_mat', disabled), id='<built-in function id>_0_0'),
+                            html.Td(children=build_data(row, 'lun_am', disabled), id='<built-in function id>_0_1')
+                        ]
+                    ),
+                    html.Tr(
+                        [
+                            html.Td(children="MARDI"),
+                            html.Td(children=build_data(row, 'mar_mat', disabled), id='<built-in function id>_1_0'),
+                            html.Td(children=build_data(row, 'mar_am', disabled), id='<built-in function id>_1_1')
+                        ]
+                    ),
+                    html.Tr(
+                        [
+                            html.Td(children="MERCREDI"),
+                            html.Td(children=build_data(row, 'mer_mat', disabled), id='<built-in function id>_2_0'),
+                            html.Td(children=build_data(row, 'mer_am', disabled), id='<built-in function id>_2_1')
+                        ]
+                    ),
+                    html.Tr(
+                        [
+                            html.Td(children="JEUDI"),
+                            html.Td(children=build_data(row, 'jeu_mat', disabled), id='<built-in function id>_3_0'),
+                            html.Td(children=build_data(row, 'jeu_am', disabled), id='<built-in function id>_3_1')
+                        ]
+                    ),
+                    html.Tr(
+                        [
+                            html.Td(children="VENDREDI"),
+                            html.Td(children=build_data(row, 'ven_mat', disabled), id='<built-in function id>_4_0'),
+                            html.Td(children=build_data(row, 'ven_am', disabled), id='<built-in function id>_4_1')
+                        ]
+                    )
+                ]
+            )
+        ],
+        style={"font-size": "12px"}
+    )
+
+
+
+def build_tile_front(row, in_modal=False, need_form=False):
     if row['tel'] == "":
         row['tel'] = "  .  .  .  .  "
-
 
     now = datetime.now()
     ddv = None
@@ -269,7 +414,7 @@ def build_tile_front(row, in_modal=False, need_form = False):
         color = "secondary"
 
     if not pd.isnull(row['dpv']):
-        if type(row['dpv']) == int or type(row['dpv']) == float :
+        if type(row['dpv']) == int or type(row['dpv']) == float:
             dpv = unix_to_dt(row['dpv'])
             if row['dpv'] < now.timestamp():
                 color = 'danger'
@@ -282,123 +427,30 @@ def build_tile_front(row, in_modal=False, need_form = False):
             ddv = unix_to_dt(row['ddv'])
             if row['ddv'] >= int(pd.to_datetime("01/08/2023 00:00", dayfirst=True).timestamp()):
                 badge_color = 'success'
-                color="success"
+                color = "success"
 
-    btn_id = {"type": "modal-open", "index": row['id']}
+    btn_id = {"type": "modal-btn", "index": row['id']}
     sub_id = {"type": "submit", "index": row['id']}
+    cal_btn_id = {"type": "cal-modal-btn", "index": row['id']}
     form_id = f"form-{row['id']}"
     arrow_class = "d-block"
     shield_class = "d-block p-0 border-0"
     save_btn_style = {"display": "none"}
-    disabled=True
+    disabled = True
     hide = "hide"
     front_style = {"backgroundColor": "#FFFFFF", "opacity": 1}
+    calendar = build_calendar(row)
     if in_modal:
         btn_id = f"btn-{row['id']}"
         sub_id = f"sub-{row['id']}"
+        cal_btn_id = f"cal-btn-{row['id']}"
         form_id = {"type": "form", "index": row['id']}
         arrow_class = shield_class = "d-none"
         save_btn_style = {"display": "block"}
-        disabled=False
-        hide=""
-        front_style = {"backgroundColor": "#FFFFFF", "opacity": 0.5, "width": "330px"}
-
-
-    cbody = dbc.CardBody(
-        [
-            html.Div(
-                [
-                    dbc.FormFloating([
-                        dbc.Input(disabled=disabled, value=row['adr'], name="adr", size="sm", className="pt-3"),
-                        dbc.Label('ADRESSE', size="sm", className="px-1 py-2 bg-transparent"),
-                    ], className="border-3 border-info col-12 px-0")
-                ], className="d-flex"),
-                html.Div([
-                    dbc.Badge(dbc.Input(disabled=disabled, value=row['tel'], name="tel", size="sm", className="text-bold my-2 col-5", style={"font-size": "10px"}),
-                              color="#FFFFFF", style={"opacity": .5, "color": "#000080"}),
-                    dbc.FormFloating([
-                        dbc.Input(disabled=disabled, value=row['cp'], name="cp", size="sm", className="pt-3"),
-                        dbc.Label('CP', size="sm", className="px-1 py-2 bg-transparent")
-                    ], className="border-3 border-info col-3 px-0"),
-                    dbc.FormFloating([
-                        dbc.Input(disabled=disabled, value=row['ville'], name="ville", size="sm", className="pt-3",
-                                  style={"font-size": "11px", "overflow-x": "hidden"}),
-                        dbc.Label('VILLE', size="sm", className="px-1 py-2 bg-transparent")
-                    ], className="border-3 border-info col-4 px-0"),
-                ], className="d-flex"),
-                html.Br(),
-                html.Div([
-                    dbc.FormFloating([
-                        dbc.Input(disabled=disabled, value=row['rec'], name="rec", size="sm",
-                                  className="pt-3"),
-                        dbc.Label('REÇOIT ?', size="sm", className="px-1 py-2 bg-transparent")
-                    ], className="border-3 border-info col-4 px-0"),
-                    dbc.FormFloating([
-                        dbc.Input(disabled=disabled, value=row['mode'], name="mode", size="sm",
-                                  className="pt-3"),
-                        dbc.Label('MODE', size="sm", className="px-1 py-2 bg-transparent")
-                    ], className="border-3 border-info col-4 px-0"),
-                    dbc.FormFloating([
-                        dbc.Input(disabled=disabled, value=row['pk'], name="pk", size="sm",
-                                  className="pt-3"),
-                        dbc.Label('IF NOT, WHY?', size="sm", className="px-1 py-2 bg-transparent")
-                    ], className="border-3 border-info col-4 px-0")
-                ], className="d-flex"),
-                html.Div([
-                    dbc.FormFloating([
-                        dbc.Input(disabled=disabled, value=row['com'], name="com", size="sm",
-                                  className="pt-3"),
-                        dbc.Label('COMMENT.', size="sm", className="px-1 py-2 bg-transparent")
-                    ], className="border-3 border-info col-12 px-0")
-                ], className="d-flex" )
-        ],
-        id={"type": "card-body", "index": row['id']},
-        style={"flex": "0 1 auto"},
-        className=hide
-    )
-
-    cfooter = dbc.CardFooter(
-        [
-            html.Div(
-                [
-                    dbc.FormFloating([
-                        dbc.Input(disabled=disabled, value=ddv, name="ddv", size="sm", className="pt-4"),
-                        dbc.Label('DDV', size="sm", className="px-1 py-2 bg-transparent")
-                    ], className="ms-auto w-50"),
-                    dbc.FormFloating([
-                        dbc.Input(disabled=disabled, value=dpv, name="dpv", size="sm", className="pt-4"),
-                        dbc.Label('DPV', size="sm", className="px-1 py-2 bg-transparent")
-                    ], className="w-50")
-                ],
-                className="d-flex"
-            )
-        ],
-        className="p-3"
-    )
-
-    input = dbc.Input(
-        id=sub_id,
-        value="SAVE & CLOSE",
-        className="btn btn-xl mx-auto",
-        type="submit",
-        style=save_btn_style
-    )
-
-    form = html.Form(
-        [
-            cbody,
-            cfooter,
-            input
-        ],
-        id = form_id,
-        method = 'post',
-        action = f'/dash/biocodex/pds/{row["id"]}'
-    )
-
-    card_content = html.Div([cbody, cfooter, input])
-
-    if need_form:
-        card_content = form
+        disabled = False
+        hide = ""
+        front_style = {"backgroundColor": "#FFFFFF", "opacity": 1, "width": "330px"}
+        calendar = build_calendar(row, in_modal=True)
 
     potentiel = dbc.FormFloating(
         [
@@ -417,7 +469,8 @@ def build_tile_front(row, in_modal=False, need_form = False):
 
     nv22 = dbc.FormFloating(
         [
-            dbc.Input(disabled=True, value=row['nv22'], id=f"nv22-input", size="sm", className="pt-3 fw-bolder bg-light"),
+            dbc.Input(disabled=True, value=row['nv22'], id=f"nv22-input", size="sm",
+                      className="pt-3 fw-bolder bg-light"),
             dbc.Label('NV 2022', size="sm", className="px-1 py-2 bg-transparent")
         ],
         className="border-3 border-info col-3"
@@ -433,9 +486,163 @@ def build_tile_front(row, in_modal=False, need_form = False):
 
     kpis = []
     if row["spe"] == "PSY" or row["spe"] == "PPSY":
-        kpis=[potentiel, pvm, nv22, decile]
+        kpis = [potentiel, pvm, nv22, decile]
     else:
         kpis = [potentiel, pvm, nv22]
+
+    rdint = randint(1,28)
+
+    cheader = dbc.CardHeader(
+        [
+            html.Button(
+                [
+                    html.Pre([f'{row["nom"]} {row["prenom"].title()} '], className="pb-0 mb-0",
+                             style={"font-size": "14px", "text-decoration": "none"}),
+                    dbc.Badge(
+                        [row['id'], html.Span([], className="visually-hidden")],
+                        id="id-badge-front",
+                        className=f"position-absolute bg-dark",
+                        style={"fontSize": "10px", "transform": "translateX(-50%)"}
+                    )
+                ],
+                id=btn_id,
+                className=f"btn btn-{color} btn-sm d-block fw-bold w-100 mb-2"
+            ),
+            html.Div(
+                kpis, className="d-flex justify-content-center"
+            )
+        ],
+        className=f"p-3 {doctors_bg[row['spe'].upper()]}"
+    )
+
+    cbody = dbc.CardBody(
+        [
+            html.Div(
+                [
+                    dbc.FormFloating(
+                        [
+                            dbc.Input(disabled=disabled, value=row['adr'], name="adr", size="sm", className="pt-3"),
+                            dbc.Label('ADRESSE', size="sm", className="px-1 py-2 bg-transparent"),
+                        ],
+                        className="border-3 border-info col-12 px-0"
+                    )
+                ], className="d-flex"
+            ),
+            html.Div([
+                dbc.Badge(dbc.Input(disabled=disabled, value=row['tel'], name="tel", size="sm",
+                                    className="text-bold my-2 col-5", style={"font-size": "12px"}),
+                          color="#FFFFFF", style={"opacity": .5, "color": "#000080"}),
+                dbc.FormFloating([
+                    dbc.Input(disabled=disabled, value=row['cp'], name="cp", size="sm", className="pt-3"),
+                    dbc.Label('CP', size="sm", className="px-1 py-2 bg-transparent")
+                ], className="border-3 border-info col-3 px-0"),
+                dbc.FormFloating([
+                    dbc.Input(disabled=disabled, value=row['ville'], name="ville", size="sm", className="pt-3",
+                              style={"font-size": "11px", "overflow-x": "hidden"}),
+                    dbc.Label('VILLE', size="sm", className="px-1 py-2 bg-transparent")
+                ], className="border-3 border-info col-4 px-0"),
+            ], className="d-flex"),
+            html.Div([
+                dbc.FormFloating([
+                    dbc.Input(disabled=disabled, value=row['rec'], name="rec", size="sm",
+                              className="pt-3"),
+                    dbc.Label('REÇOIT ?', size="sm", className="px-1 py-2 bg-transparent")
+                ], className="border-3 border-info col-4 px-0"),
+                dbc.FormFloating([
+                    dbc.Input(disabled=disabled, value=row['mode'], name="mode", size="sm",
+                              className="pt-3"),
+                    dbc.Label('MODE', size="sm", className="px-1 py-2 bg-transparent")
+                ], className="border-3 border-info col-4 px-0"),
+                dbc.FormFloating([
+                    dbc.Input(disabled=disabled, value=row['pk'], name="pk", size="sm",
+                              className="pt-3"),
+                    dbc.Label('IF NOT, WHY?', size="sm", className="px-1 py-2 bg-transparent")
+                ], className="border-3 border-info col-4 px-0")
+            ], className="d-flex"),
+            html.Div([
+                dbc.FormFloating([
+                    dbc.Input(disabled=disabled, value=row['com'], name="com", size="sm",
+                              className="pt-3"),
+                    dbc.Label('COMMENT.', size="sm", className="px-1 py-2 bg-transparent")
+                ], className="border-3 border-info col-12 px-0")
+            ], className="d-flex"),
+            html.Hr(),
+            calendar
+        ],
+        id={"type": "card-body", "index": row['id']},
+        style={"flex": "0 1 auto"},
+        className=hide
+    )
+
+    cfooter = dbc.CardFooter(
+        [
+            html.Div(
+                [
+
+                    dbc.FormFloating([
+                        dcc.Input(id={"type": "ddv-input", "index": row['id']}, disabled=disabled, value=ddv, name="ddv", size="sm", className="pt-4 pb-0", type="hidden"),
+                        dbc.Label('DDV', size="sm", className="px-1 py-2 bg-transparent", style={"font-size": "10px", "color": "#000080", "transform": "translateY(-30%)"}),
+                        dash_datetimepicker.DashDatetimepickerSingle(
+                           id={"type": "ddv-picker", "index": row['id']},
+                           locale="fr",
+                           date=ddv
+                        ),
+                    ], className="ms-auto w-50"),
+
+                    dbc.FormFloating([
+                        dbc.Input(id={"type": "dpv-input", "index": row['id']}, disabled=disabled, value=dpv, name="dpv", size="sm", className="pt-4 pb-0", type="hidden"),
+                        dbc.Label('DPV', size="sm", className="px-1 py-2 bg-transparent", style={"color": "#000080", "transform": "translateY(-30%)"}),
+                        dash_datetimepicker.DashDatetimepickerSingle(
+                            id={"type": "dpv-picker", "index": row['id']},
+                            locale="fr",
+                            date=dpv
+                        ),
+                    ], className="w-50")
+                ],
+                className="d-flex"
+            )
+        ],
+        className=f"small p-3 {doctors_bg[row['spe'].upper()]}"
+    )
+
+    input = dbc.Input(
+        id=sub_id,
+        value="SAVE & CLOSE",
+        className="btn btn-xl mx-auto",
+        type="submit",
+        style=save_btn_style
+    )
+
+    pds_form = html.Form(
+        [
+            cheader,
+            cbody,
+            cfooter,
+            input
+        ],
+        id=form_id,
+        method='post',
+        action=f'/dash/biocodex/pds/{row["id"]}'
+    )
+
+    pharma_form = html.Form(
+        [
+            cheader,
+            cbody,
+            cfooter,
+            input
+        ],
+        id=form_id,
+        method='post',
+        action=f'/dash/biocodex/pharma/{row["id"]}'
+    )
+
+    card_content = html.Div([cheader, cbody, cfooter, input])
+
+    if need_form:
+        card_content = pds_form
+
+
 
     return dbc.Card(
         [
@@ -464,47 +671,23 @@ def build_tile_front(row, in_modal=False, need_form = False):
                     src="assets/img/blue_turn.png",
                     height=25,
                     width=25,
-                    style={"position": "absolute", "zIndex": "1", "transform": "translate(-25%, -50%)"},
+                    style={"position": "absolute", "zIndex": 3, "transform": "translate(-25%, -50%)"},
                     className="arrow top-100 start-0"
                 ),
                 className=arrow_class
             ),
-            dbc.CardHeader(
-                [
-                    html.Button(
-                        [
-                            html.Pre([f'{row["nom"]} {row["prenom"].title()} '], className="pb-0 mb-0", style={"font-size": "14px", "text-decoration": "none"}),
-                            dbc.Badge(
-                                [row['id'], html.Span([], className="visually-hidden")],
-                                id="id-badge-front",
-                                className=f"position-absolute bg-dark",
-                                style={"fontSize": "8px", "transform": "translateX(-50%)"}
-                            )
-                        ],
-                        id=btn_id,
-                        className=f"btn btn-{color} btn-sm d-block fw-bold w-100 mb-2"
-                    ),
-                    html.Div(
-
-                            kpis
-                        ,
-                        className="d-flex justify-content-center"
-                    ),
-                    html.Span(
-                        html.Img(
-                            [],
-                            id={"type": "card-shield", "index": row['id']},
-                            src="assets/img/shield_125.png",
-                            height=25,
-                            width=25,
-                            style={"transform": "translateX(-50%)"},
-                            className="shield"
-                        ),
-                        className=shield_class,
-                        style={"zIndex": 3}
-                    )
-                ],
-                className="p-3"
+            html.Span(
+                html.Img(
+                    [],
+                    id={"type": "card-shield", "index": row['id']},
+                    src="assets/img/shield_125.png",
+                    height=25,
+                    width=25,
+                    style={"position": "absolute", "zIndex": 3, "transform": "translate(130px, -55px)"},
+                    className="shield"
+                ),
+                className=shield_class,
+                style={"zIndex": 3}
             ),
             card_content
         ],
@@ -514,7 +697,6 @@ def build_tile_front(row, in_modal=False, need_form = False):
 
 
 def build_tile_back(row):
-
     now = datetime.now()
     ddv = None
     dpv = None
@@ -528,7 +710,7 @@ def build_tile_back(row):
     else:
         color = "secondary"
 
-    if type(row['dpv']) == int :
+    if type(row['dpv']) == int:
         dpv = unix_to_dt(row['dpv'])
         if row['dpv'] < now.timestamp():
             color = 'danger'
@@ -574,27 +756,22 @@ def build_tile_back(row):
             ),
             dbc.CardHeader(
                 [
-                    html.Button(
-                        [
-                            html.Pre(f'{row["nom"]} {row["prenom"].title()}', className="mb-0",
-                                     style={"fontSize": "15px", "textDecoration": "none"}),
-
-                        ],
-                        id={"type": "modal-btn", "index": row['id']},
-                        className=f"btn btn-{color} d-block fw-bold w-100"
-                    )
+                    html.Pre(f'{row["nom"]} {row["prenom"].title()}', className="mb-0",
+                                 style={"fontSize": "15px", "textDecoration": "none"})
                 ],
                 className="d-flex flex-column p-3"
             ),
             dbc.CardBody(
                 [
 
-                ]
+                ],
+                className='hide'
             ),
             dbc.CardFooter(
                 [
 
-                ]
+                ],
+                className="small"
             )
         ],
         className="flip-card-back px-0 w-100",
@@ -604,20 +781,28 @@ def build_tile_back(row):
 
 def build_modal(row, is_open=False):
 
-    return  dbc.Modal(
+    return dbc.Modal(
         [
             dbc.ModalHeader(
                 [],
                 id="modal-header"
             ),
             dbc.ModalBody(
-                dbc.Row(
-                    [
-                        dbc.Col([build_tile_front(row, in_modal=True, need_form=True)], width=12, className="d-flex justify-content-center")
-                    ],
-                    style={"height": "475px"}
-                ),
-                id="modal-body",
+                [
+                    dbc.Row(
+                        [
+                            dbc.Col(
+                                [
+                                    build_tile_front(row, in_modal=True, need_form=True)
+                                ],
+                                width=12,
+                                className="d-flex justify-content-center"
+                            )
+                        ],
+                        style={"height": "475px"}
+                    )
+                ],
+                id="modal-body"
             ),
             dbc.ModalFooter(
                 [
@@ -630,10 +815,11 @@ def build_modal(row, is_open=False):
         is_open=is_open
     )
 
+    
+
 
 def build_flip(row):
-
-    return  html.Div(
+    return html.Div(
         [
             html.Div(
                 [
@@ -651,6 +837,7 @@ def build_flip(row):
         ],
         className="row p-3 complete-card m-3 small",
     )
+
 
 """
 def switchIp():
@@ -683,7 +870,6 @@ def check_doctolib_profile(conn_id):
 
 """
 
-
 id_adr = join_id_adr()
 (styles1, legend1) = discrete_background_color_bins(id_adr, n_bins=9, columns=["pvm"])
 (styles2, legend2) = discrete_background_color_bins(id_adr, n_bins=9, columns=["pot"], colorscale="YlGn")
@@ -693,6 +879,7 @@ df = join_id_adr_cdb()
 mean_lat = df['lat'].mean()
 mean_lon = df['lon'].mean()
 
-datatable_cols =[{"name": i.upper(), "id": i} for i in df.columns]
+datatable_cols = [{"name": i.upper(), "id": i} for i in df.columns]
+df = prepare_data(df)
 
 

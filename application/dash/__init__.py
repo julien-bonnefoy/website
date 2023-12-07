@@ -2,11 +2,14 @@ import dash_bootstrap_components as dbc
 from dash import dcc, html
 import dash
 import importlib
+import os
+
+assets_path = os.getcwd() + "/application/dash/assets"
 
 
 external_scripts=[
     "https://code.jquery.com/jquery-3.7.0.js",
-
+    {"type": "text/javascript", "src": "js/calendar.js"},
 ]
 
 
@@ -24,7 +27,9 @@ external_stylesheets=[
     # Sidebar
     {"rel": "stylesheet","type": "text/css","src": "css/sidebar.css"},
     # Hamburgers
-    {"rel": "stylesheet","type": "text/css","src": "css/hamburgers.css"}
+    {"rel": "stylesheet","type": "text/css","src": "css/hamburgers.css"},
+    # calendar
+    {"rel": "stylesheet","type": "text/css","src": "css/calendar.css"}
 ]
 
 
@@ -89,7 +94,8 @@ def dash_apps_factory(server):
             external_scripts=external_scripts,
             use_pages=dashapp['use_pages'],
             pages_folder=dashapp['pages_folder'],
-            suppress_callback_exceptions=True
+            suppress_callback_exceptions=True,
+            assets_folder=assets_path
         )
 
 

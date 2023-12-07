@@ -19,10 +19,10 @@ def spe_slider(spe):
             dbc.Col(
                 [
                     dcc.RangeSlider(
-                        sub_df.pot.min(),
-                        sub_df.pot.max(),
-                        id=f"{spe.lower()}-pot-slider",
-                        value = [sub_df.pot.min(), sub_df.pot.max()],
+                        sub_df.pvm.min(),
+                        sub_df.pvm.max(),
+                        id=f"{spe.lower()}-pvm-slider",
+                        value = [sub_df.pvm.min(), sub_df.pvm.max()],
                         tooltip = {"placement": "bottom", "always_visible": True},
                         className="ms-1 w-100 px-0",
                         marks=None
@@ -41,11 +41,11 @@ def options(df, col):
 
 df = join_id_adr_cdb()
 df["nom_prenom"] = df["nom"] + ' ' + df["prenom"]
-noms_options = options(df, "nom_prenom")
+noms_options = options(df.sort_values(by="nom"),"nom_prenom")
 del df
 
 FA = "https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-image_filename = "application/static/img/shield_125.png"
+image_filename = "/home/julien/website/application/static/img/shield_125.png"
 
 encoded_image = base64.b64encode(open(image_filename, 'rb').read())
 
@@ -76,9 +76,7 @@ doctors_spes = {
     'NE': 'neurologue'
 }
 
-doctors_features = {}
-
-spes_options = [{"label": spe_slider(spe), "value": spe} for spe in doctors_spes.keys()]
+spes_options = [{"label": spe.upper(), "value": spe} for spe in doctors_spes.keys()]
 
 ciblage_options = [
     {"label": "HC", "value": 'HC'},
@@ -89,15 +87,6 @@ ciblage_options = [
 ]
 
 df = join_id_adr_cdb()
-
-for spe in doctors_spes.keys():
-    sub_df = df[df["spe"] == spe]
-    doctors_features[spe] = {
-        'special': doctors_spes[spe],
-        'slider': dcc.RangeSlider(sub_df.pot.min(), sub_df.pot.max(), id=f"{spe}-pot-slider",  value = [sub_df.pot.min(), sub_df.pot.max()], tooltip = {"placement": "bottom", "always_visible": True})
-    }
-
-
 
 sidebar_button = dbc.Button(
     [
@@ -157,9 +146,11 @@ def build_sidebar(ugas=["75AUT"], spes=["GY", "MGY", "SF", "MG", "GE", "PE"], ci
                                                 value=ugas,
                                                 id="uga-cl",
                                                 inline=True,
-                                                inputStyle={"marginRight": "5px"},
-                                                labelStyle={"marginRight": "5px"},
-                                                style={"display": "flex", "flex-wrap": "wrap", "justify-content": "space-evenly"}
+                                                inputStyle={"margin": "5px", "transform": "scale(1.25)"},
+                                                labelStyle={"marginLeft": "5px"},
+                                                inputClassName="col-3",
+                                                labelClassName="col-3"
+                                                #style={"display": "flex", "flex-wrap": "wrap", "justify-content": "space-evenly"}
                                             )
                                         ],
                                         title="UGA",
@@ -170,8 +161,11 @@ def build_sidebar(ugas=["75AUT"], spes=["GY", "MGY", "SF", "MG", "GE", "PE"], ci
                                                 options=spes_options,
                                                 value=spes,
                                                 id="spe-cl",
-                                                inputStyle={"marginRight": "5px", "transform": "scale(1.5)"},
-                                                labelStyle={"margin": "5px", "display": "flex", "align-items": "center", "height": "65px"}
+                                                inline=True,
+                                                inputStyle={"margin": "5px", "transform": "scale(1.25)"},
+                                                labelStyle={"marginLeft": "5px", "font-size": "12px"},
+                                                inputClassName="col-3",
+                                                labelClassName="col-3"
                                             )
                                         ],
                                         title="SPÉCIALITÉS"
@@ -183,8 +177,8 @@ def build_sidebar(ugas=["75AUT"], spes=["GY", "MGY", "SF", "MG", "GE", "PE"], ci
                                                 value=cib,
                                                 id="cib-cl",
                                                 inline=True,
-                                                inputStyle={"marginRight": "5px"},
-                                                labelStyle={"marginRight": "5px"},
+                                                inputStyle={"margin": "5px", "transform": "scale(1.25)"},
+                                                labelStyle={"marginLeft": "5px", "font-size": "12px"},
                                                 style={"display": "flex", "flex-wrap": "wrap",
                                                        "justify-content": "space-evenly"}
                                             ),
@@ -207,7 +201,7 @@ def build_sidebar(ugas=["75AUT"], spes=["GY", "MGY", "SF", "MG", "GE", "PE"], ci
                             ],
                             always_open=True,
                             style={"font-size": "10px"},
-                            active_item=["item-1", "item-3"],
+                            active_item=["item-1", "item-2", "item-3"],
                                 flush=True
                         )
 

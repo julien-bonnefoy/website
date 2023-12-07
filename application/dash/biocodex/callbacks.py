@@ -1,8 +1,7 @@
 import pandas as pd
-from dash import Input, Output, State, ALL, MATCH
-from application.dash.biocodex.functions import get_info, join_id_adr_cdb, build_flip, build_modal
+from dash import Input, Output, State, MATCH, ClientsideFunction
+from application.dash.biocodex.functions import get_info, join_id_adr_cdb, build_flip, build_modal, unix_to_dt
 from application.dash.biocodex.pages.table import dashtable
-from application.dash.biocodex.pages.map import data_to_geojson
 import numpy as np
 from psycopg2.extensions import register_adapter, AsIs
 import re
@@ -15,9 +14,21 @@ register_adapter(np.int64, AsIs)
 def init_callbacks(dashapp):
 
     dashapp.config.suppress_callback_exceptions = True
+
+    dashapp.clientside_callback(
+        ClientsideFunction(
+            namespace='clientside',
+            function_name='render_calendar'
+        ),
+        Output("calendar", "children"),
+        Input("link2-calendar", "n_clicks"),
+        Input("all-memory", "data")
+    )
+
     # UGA & SPES SELECTION ==> UPDATE MEMORY
     @dashapp.callback(
         Output("memory", "data"),
+        Output("all-memory", "data"),
         Input('uga-cl', 'value'),
         Input("spe-cl", "value"),
         Input("cib-cl", "value"),
@@ -28,9 +39,9 @@ def init_callbacks(dashapp):
         data = data_df.query('uga in @ugas_selected') \
                       .query('spe in @spes_selected') \
                       .query('cib in @cib_selected') \
-                      .query('pvm > @pvm_range[0] and pvm < @pvm_range[1]') \
-                      .to_dict('records')
-        return data
+                      .query('pvm > @pvm_range[0] and pvm < @pvm_range[1]')
+
+        return data.to_dict('records'), join_id_adr_cdb().to_dict('records')
 
     @dashapp.callback(
         Output("tabledash", "data"),
@@ -39,6 +50,14 @@ def init_callbacks(dashapp):
     def update_table(data):
         if not data:
             data = join_id_adr_cdb().to_dict('records')
+
+        for i in range(len(data)):
+            row=data[i]
+            for col in ['ddv', 'dpv']:
+                if not pd.isnull(row[col]):
+                    if type(row[col]) == int or type(row[col]) == float:
+                        data[i][col] = unix_to_dt(row[col])
+
         return data
 
 
@@ -55,6 +74,7 @@ def init_callbacks(dashapp):
 
     @dashapp.callback(
         Output("data-geojson", "hideout"),
+        Output("pharma-geojson", "hideout"),
         Input("memory", "data"),
         State('uga-cl', 'value'),
         State("spe-cl", "value"),
@@ -62,12 +82,10 @@ def init_callbacks(dashapp):
         State("pvm-slider", "value")
     )
     def update_map(data, ugas_selected, spes_selected, cib_selected, pvm_range):
-
-        if not data:
-            data = join_id_adr_cdb().to_dict('records')
-        # print(data_to_geojson(data))
-        return dict(ugas_selected=ugas_selected, spes_selected=spes_selected, cib_selected=cib_selected, pvm_range=pvm_range)
-
+        data_hideout = dict(ugas_selected=ugas_selected, spes_selected=spes_selected, cib_selected=cib_selected, pvm_range=pvm_range)
+        cib_sel = [str(i) if i != "HC" else "" for i in cib_selected]
+        pharma_hideout = dict(ugas_selected=ugas_selected, cib_selected=cib_sel)
+        return data_hideout, pharma_hideout
 
 
     @dashapp.callback(
@@ -87,6 +105,7 @@ def init_callbacks(dashapp):
         else:
             return [dashtable]
 
+
     @dashapp.callback(
         Output("visdcc", "run"),
         Input("tiles-content", "children")
@@ -98,7 +117,6 @@ def init_callbacks(dashapp):
         const shields = toArray(document.getElementsByClassName('shield'));
         shields.forEach( (shield) => shield.addEventListener('click', toggleBodyCard))
         """
-
 
     @dashapp.callback(
         Output("page-container", "children"),
@@ -117,18 +135,33 @@ def init_callbacks(dashapp):
             return [dash.page_container]+[modal]
         return [dash.page_container]
 
+
     @dashapp.callback(
         Output({'type': 'modal', 'index': MATCH }, "is_open"),
-        Input({'type': 'modal-open', 'index': MATCH}, "n_clicks"),
-        # Input({'type': 'modal-close', 'index': MATCH}, "n_clicks"),
+        Input({'type': 'modal-btn', 'index': MATCH}, "n_clicks"),
         Input({'type': 'submit', 'index': MATCH}, "n_clicks"),
-        State({'type': 'modal', 'index': MATCH}, "is_open"),
-        prevent_initial_call=True
+        State({'type': 'modal', 'index': MATCH}, "is_open")
     )
     def toggle_modal(n1, n2, is_open):
         if n1 or n2:
             return not is_open
         return is_open
+
+
+    @dashapp.callback(
+        Output({'type': 'ddv-input', 'index': MATCH}, "value"),
+        Input({'type': 'ddv-picker', 'index': MATCH}, "date")
+    )
+    def toggle_modal(d1):
+        return d1
+
+    @dashapp.callback(
+        Output({'type': 'dpv-input', 'index': MATCH}, "value"),
+        Input({'type': 'dpv-picker', 'index': MATCH}, "date")
+    )
+    def toggle_modal(d1):
+        return d1
+
 
     # SIDEBAR TOGGLE
     @dashapp.callback(
@@ -153,36 +186,6 @@ def init_callbacks(dashapp):
         uga_hideout["selected"] = ugas_selected
         return uga_hideout
 
-    @dashapp.callback(
-        Output("pharma-geojson", "hideout"),
-        Input("uga-cl", "value"),
-        State("pharma-geojson", "hideout")
-    )
-    def pharma_select(ugas_selected, pharma_hideout):
-        pharma_hideout["ugas_selected"] = ugas_selected
-        return pharma_hideout
-
-    @dashapp.callback(
-        Output("target-geojson", "hideout"),
-        Input("uga-cl", "value"),
-        Input("spe-cl", "value"),
-        State("target-geojson", "hideout")
-    )
-    def target_select(ugas_selected, spes_selected, target_hideout):
-        target_hideout["ugas_selected"] = ugas_selected
-        target_hideout["spes_selected"] = spes_selected
-        return target_hideout
-
-    @dashapp.callback(
-        Output("untarget-geojson", "hideout"),
-        Input("uga-cl", "value"),
-        Input("spe-cl", "value"),
-        State("untarget-geojson", "hideout")
-    )
-    def untarget_select(ugas_selected, spes_selected, untarget_hideout):
-        untarget_hideout["ugas_selected"] = ugas_selected
-        untarget_hideout["spes_selected"] = spes_selected
-        return untarget_hideout
 
     @dashapp.callback(
         Output("info", "children"),

@@ -51,6 +51,12 @@
      margin-left: calc(250px + 1rem);
      margin-right: 1rem;
      max-width: calc(100vw - 250px);
+     width: calc(100vw - 250px);
+     height: 100vh;
+  }
+
+   #sidebar ~ #map{
+     width: calc(100% - 250px - 6.5rem);
   }
 
   #hamburger-div {
@@ -78,8 +84,16 @@
   #sidebar.collapsed ~ #dash-page {
     margin-left: calc(70px + 1rem);
     margin-right: 1rem;
-    max-width: calc(100vw - 70px);
+    max-width: calc(100vw - 70px - 2rem );
+    width: calc(100vw - 70px - 2rem );
+    height: 100vh;
   }
+  #sidebar.collapsed ~ #map {
+    width: calc(100% - 6.5rem);
+  }
+
+
+
 
   #sidebar.collapsed > #hamburger-div {
     width: 70px

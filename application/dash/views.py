@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import render_template, Blueprint, request
-from application.dash.controllers import list_all_pds_ctrlr, create_pds_ctrlr, retrieve_pds_ctrlr, update_pds_ctrlr
+from application.dash.controllers import list_all_pds_ctrlr, create_pds_ctrlr, update_pharma_ctrlr, update_pds_ctrlr
 from application.dash.biocodex.functions import df, build_modal, build_tile_front
 from application.dash.biocodex.forms import MegaForm
 from dash import html
@@ -61,10 +61,26 @@ def list_or_create_pds():
 @dash_bp.route("/dash/biocodex/pds/<pds_id>", methods=['POST'])
 def show_or_update_pds(pds_id):
 
-    form = request.form
-    print(request.environ['HTTP_REFERER'])
     url = request.environ['HTTP_REFERER']
-
+    form = request.form
     if request.method == 'POST':
-        print('posting')
+
         return update_pds_ctrlr(pds_id, form, url)
+
+
+@dash_bp.route("/dash/biocodex/pharma/<pha_id>", methods=['POST'])
+def show_or_update_pharma(pha_id):
+
+
+    url = request.environ['HTTP_REFERER']
+    form = request.form
+    print(form['ddv'], type(form['ddv']))
+    if request.method == 'POST':
+
+        return update_pharma_ctrlr(pha_id, form, url)
+
+@dash_bp.route('/calendar', methods=['GET', 'POST'])
+def calendar():
+    return render_template(
+        'partials/calendar.html'
+    )
