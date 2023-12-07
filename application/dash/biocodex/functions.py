@@ -17,7 +17,7 @@ import dash_leaflet as dl
 import dash_leaflet.express as dlx
 import json
 import io
-from flask import render_template
+from flask import render_template, session, g
 from datetime import date, time
 import dash
 
@@ -614,7 +614,8 @@ def build_tile_front(row, in_modal=False, need_form=False):
     )
 
     token = dbc.Input(
-        id="csrf-token",
+        id="csrf_token",
+        name="csrf_token",
         type="hidden",
         value=csrf.generate_csrf()
     )

@@ -4,12 +4,18 @@ from application import cli
 from application import db
 from application.users.models import User
 from application.dash.biocodex.models import Identity, Adress, Cdb, Connections
-
+from flask import g, session
 
 server = create_flask_server()
 app = dash_apps_factory(server)
 cli.register(app)
 app.app_context().push()
+
+@app.before_request
+def fix_missing_csrf_token():
+    if app.config['WTF_CSRF_FIELD_NAME'] not in session:
+        if app.config['WTF_CSRF_FIELD_NAME'] in g:
+            g.pop(app.config['WTF_CSRF_FIELD_NAME'])
 """
 server = Server(app.wsgi_app)
 # server.watch

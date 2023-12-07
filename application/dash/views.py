@@ -15,9 +15,6 @@ dash_bp = Blueprint(
     template_folder='./templates'
 )
 
-
-
-
 @dash_bp.route('/crossfilter', methods=['GET', 'POST'])
 def crossfilter_dash():
     return render_template(
