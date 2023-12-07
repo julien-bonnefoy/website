@@ -45,7 +45,7 @@ noms_options = options(df.sort_values(by="nom"),"nom_prenom")
 del df
 
 FA = "https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-image_filename = "/home/julien/website/application/static/img/shield_125.png"
+image_filename = "application/static/img/shield_125.png"
 
 encoded_image = base64.b64encode(open(image_filename, 'rb').read())
 
