@@ -34,6 +34,7 @@ dash-bootstrap-components==1.4.2
 dash-bootstrap-templates==1.0.8
 dash-core-components==2.0.0
 dash-dangerously-set-inner-html==0.0.2
+dash-datetimepicker==0.0.7
 dash-daq==0.5.0
 dash-defer-js-import==0.0.2
 dash-down==0.1.2
