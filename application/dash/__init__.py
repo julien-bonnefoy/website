@@ -9,27 +9,14 @@ assets_path = os.getcwd() + "/application/dash/assets"
 
 external_scripts=[
     "https://code.jquery.com/jquery-3.7.0.js",
-    {"type": "text/javascript", "src": "js/calendar.js"},
+    {"type": "text/javascript", "src": "assets/js/calendar.js"},
 ]
+
 
 
 external_stylesheets=[
     dbc.themes.BOOTSTRAP,
-    dbc.icons.FONT_AWESOME,
-    # Dash CSS
-    # 'https://codepen.io/chriddyp/pen/bWLwgP.css',
-    # Loading screen CSS
-    # 'https://codepen.io/chriddyp/pen/brPBPO.css',
-    # JQuery DataTables
-    # "https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css",
-    # Leaflet
-    {"rel": "stylesheet", "type": "text/css", "src": "css/leaflet.extra-markers.min.css"},
-    # Sidebar
-    {"rel": "stylesheet","type": "text/css","src": "css/sidebar.css"},
-    # Hamburgers
-    {"rel": "stylesheet","type": "text/css","src": "css/hamburgers.css"},
-    # calendar
-    {"rel": "stylesheet","type": "text/css","src": "css/calendar.css"}
+    dbc.icons.FONT_AWESOME
 ]
 
 

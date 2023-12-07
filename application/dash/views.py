@@ -33,13 +33,21 @@ def iris_dash():
     )
 
 
-@dash_bp.route('/dash/biocodex', methods=['GET', 'POST'])
-def biocodex():
-    return render_template(
-        'dashboards/dashboard.html',
-        dash_url="/dash/biocodex/",
-        title="Biocodex"
-    )
+@dash_bp.route('/dash/biocodex/<page>', methods=['GET', 'POST'])
+def biocodex(page):
+    if page is None:
+        tpl = render_template(
+            'dashboards/dashboard.html',
+            dash_url=f"/dash/biocodex/",
+            title="Biocodex"
+        )
+    else:
+        tpl = render_template(
+            'dashboards/dashboard.html',
+            dash_url=f"/dash/biocodex/{page}/",
+            title=page.title()
+        )
+    return tpl
 
 
 @dash_bp.route("/dash/biocodex/pds", methods=['GET', 'POST'])

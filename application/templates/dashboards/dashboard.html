@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block head %}
+    {{ super() }}
+    <base target="_parent">
+{% endblock head %}
+
 {% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
@@ -15,10 +20,8 @@
     </div>
 {% endblock content %}
 
-
 {% block script %}
     {{ super() }}
-    <script></script>
 {% endblock script %}
 
 
