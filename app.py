@@ -13,6 +13,7 @@ app.app_context().push()
 
 @app.before_request
 def fix_missing_csrf_token():
+    app.config['WTF_CSRF_TIME_LIMIT'] = 7200
     if app.config['WTF_CSRF_FIELD_NAME'] not in session:
         if app.config['WTF_CSRF_FIELD_NAME'] in g:
             g.pop(app.config['WTF_CSRF_FIELD_NAME'])
