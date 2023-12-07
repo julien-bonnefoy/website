@@ -18,7 +18,7 @@ ns = Namespace('dashExtensions','default')
 
 ugas = ["75AUT", "75PAS", "75TRO", "75ELY", "75INV", "75GRE", "75VAU", "75MNP", "75PER", "75TER", "92LEV", "92NEU"]
 
-with open("/home/julien/website/application/dash/assets/uga_gpd.json", "r") as uga_json:
+with open("application/dash/assets/uga_gpd.json", "r") as uga_json:
     uga_geojson = json.loads(uga_json.read())
 
 sector_features = [
