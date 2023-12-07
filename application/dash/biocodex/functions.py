@@ -613,8 +613,15 @@ def build_tile_front(row, in_modal=False, need_form=False):
         style=save_btn_style
     )
 
+    token = dbc.Input(
+        id="csrf-token",
+        type="hidden",
+        value=csrf.generate_csrf()
+    )
+
     pds_form = html.Form(
         [
+            token,
             cheader,
             cbody,
             cfooter,
@@ -640,9 +647,8 @@ def build_tile_front(row, in_modal=False, need_form=False):
     card_content = html.Div([cheader, cbody, cfooter, input])
 
     if need_form:
-        csrf.generate_csrf()
         card_content = pds_form
-            
+
     return dbc.Card(
         [
             dbc.Badge(
