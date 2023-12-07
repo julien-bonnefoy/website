@@ -10,7 +10,7 @@ import numpy as np
 import os
 from application.config import basedir
 from dotenv import load_dotenv
-import requests
+from flask_wtf import csrf
 from datetime import datetime
 # from stem.control import Controller
 import dash_leaflet as dl
@@ -640,10 +640,9 @@ def build_tile_front(row, in_modal=False, need_form=False):
     card_content = html.Div([cheader, cbody, cfooter, input])
 
     if need_form:
+        csrf.generate_csrf()
         card_content = pds_form
-
-
-
+            
     return dbc.Card(
         [
             dbc.Badge(
