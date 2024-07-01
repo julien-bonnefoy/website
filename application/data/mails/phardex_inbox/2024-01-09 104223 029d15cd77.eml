@@ -1,0 +1,1347 @@
+From isabelle.n.laffont@gmail.com Tue Jan 09 10:42:23 2024
+Received: from DB9PR07MB9074.eurprd07.prod.outlook.com (2603:10a6:10:3d9::10)
+ by AM7PR07MB6692.eurprd07.prod.outlook.com with HTTPS; Tue, 9 Jan 2024
+ 10:42:23 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=YfTjdjRWQEUW9OUX4BxlKEt9LX37Kvn+ZAXKEYq/M4HH/y6Lz3MMaLlIrTF0hTUHNQ/Y8UEqgHTpC2ChrwfgN6UVbd8rXk9Ixe9eHmk75Q1IyXetNw15Cff1W0EsfDd5c/GvbSnYSsoJ83Zif3xl6wLxnmxD1FHDk2haD65AYu54oAr6lojodxtjLFyYhccTbnEai5eR2/TjKW/fNOOHJwvGLoIzmp5MNd0oYLI5Yh5gFQt5zja5j+1EsnweShAo3Qtgfy/2z6hvNF2y98EyL4VmAes2YlMgPnvj0pqLzFeJWBvrhInJmaCDmYi3Lz/AfIeCiZbq5vhehWVKWvW8+g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SvchDe9+Jg7W15bjnhPfhXTf/wTPA9AyeoY1U0yCnD0=;
+ b=EZ4SBWmbnjOPR6J+B/naefh9VvERl5CxwZWgHvZZjdHZFEtH4FR0Z0BMrw6SU33N1dZ1i5ENDvxw8dD4ncLLEHhaR4yap4wcxIMF0raGi/GnJhLv1U9P2d0XvZgITGs659lRUqWPHM5uS/4GnQUzNhjugtwWIuV40Ipo3sXW/TO6o5vH3wBq2jPD4MfxpM+COuqN5vabDBiBDLN2Mj8DyFQkX4HIAd5Dep8weWE8RP0n9eg21YJp8drsEb3g89zDpBscwz7cpWnu6Cer+7VqP4Z4YQbnmArpuoluY5SKscqs3LUDOGw3Zd5MWng46W+OI81JqMJoqgeVXSLEAMtSPA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 194.104.108.241) smtp.rcpttodomain=phardex.fr smtp.mailfrom=gmail.com;
+ dmarc=fail (p=none sp=quarantine pct=100) action=none header.from=gmail.com;
+ dkim=fail (signature did not verify) header.d=gmail.com; arc=pass (0 oda=0
+ ltdi=0 93)
+Received: from AS8PR05CA0004.eurprd05.prod.outlook.com (2603:10a6:20b:311::9)
+ by DB9PR07MB9074.eurprd07.prod.outlook.com (2603:10a6:10:3d9::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7159.23; Tue, 9 Jan
+ 2024 10:42:20 +0000
+Received: from AMS0EPF000001A4.eurprd05.prod.outlook.com
+ (2603:10a6:20b:311:cafe::d3) by AS8PR05CA0004.outlook.office365.com
+ (2603:10a6:20b:311::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7159.23 via Frontend
+ Transport; Tue, 9 Jan 2024 10:42:20 +0000
+Authentication-Results: spf=softfail (sender IP is 194.104.108.241)
+ smtp.mailfrom=gmail.com; dkim=fail (signature did not verify)
+ header.d=gmail.com;dmarc=fail action=none header.from=gmail.com;compauth=none
+ reason=405
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ gmail.com discourages use of 194.104.108.241 as permitted sender)
+Received: from de-smtp-inbound-delivery-1.mimecast.com (194.104.108.241) by
+ AMS0EPF000001A4.mail.protection.outlook.com (10.167.16.229) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7181.14 via Frontend Transport; Tue, 9 Jan 2024 10:42:20 +0000
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=dkim.mimecast.com; s=201903; t=1704796940;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=SvchDe9+Jg7W15bjnhPfhXTf/wTPA9AyeoY1U0yCnD0=;
+	b=NcX9apwgmjVy4EgWw7oUO5U+iHl5hsD8eVK+VaySUII3RQfgqrFUhcvOeyhwm8AjkQuCBZ
+	V9FMNiy/WirCxd1fcHqqCXRBCh5tNQ9YEiTIWfhGHo7oi7dlMB3RPzc6nBjbVvFsiUkVLn
+	SC49k657ooR7hk4wvzLyFBNJ/QoUi0btlhRD0VqMfevwlERXmvlDhEOjRp0rE3qn9kcpzj
+	+yE9bLW6SbPUKMWFv0VAHwDivzphX6e1D8TxoSfQtzRNerL7oYzMKh05cOHSgnPJaOskIt
+	gxscQ2Nd22xjA/ULlAbaTw8LQN9iVBi2E3glaGcIfBUYUkXvkb5wZ6BcVGGAtA==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1704796940; a=rsa-sha256;
+	cv=none;
+	b=VO0rl383twltj8muTXo8MHRbh8TyXe5QE1TeCLz3jeGgACbkR2PrY6ayWy+meQHvYp00HC
+	YmT32a3o7N6ERJtWg+wCQybT9fDO87xuP++vSFFoMmWbLXrT2IQqZ5VlH751ExZUygRbHC
+	ifT1NawMvqykfIJpnnuQz3mb9pWgWJ1NsmkyIcdCaZz8dli6tNhQR+FchW8zcUGNS+nlz/
+	35aeSN7N7zprZzBFByCKv0fmWDHpeeQQn27l9kFum0UdP92D/lzm0ODIu9b5s0n2gsn2z5
+	oTHG1RWTmxVwy0mY0zU8ZupbWu/ZOzqLI+dgrSRI3nbSPm+oBRZc/0U+yy9CpQ==
+ARC-Authentication-Results: i=1;
+	relay.mimecast.com;
+	dkim=pass header.d=gmail.com header.s=20230601 header.b=O9qc96hy;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (relay.mimecast.com: domain of isabelle.n.laffont@gmail.com designates 209.85.128.46 as permitted sender) smtp.mailfrom=isabelle.n.laffont@gmail.com
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com
+ [209.85.128.46]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ de-mta-57-7CA5sK7FMQa0VpMUdmN4cg-1; Tue, 09 Jan 2024 11:42:17 +0100
+X-MC-Unique: 7CA5sK7FMQa0VpMUdmN4cg-1
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-40d6b4e2945so33798475e9.0
+        for <j.bonnefoy@phardex.fr>; Tue, 09 Jan 2024 02:42:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1704796936; x=1705401736; darn=phardex.fr;
+        h=to:in-reply-to:references:message-id:date:subject:mime-version:from
+         :content-transfer-encoding:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0trL+BV/7FNvNRAF/rbZGnuO5CNheSvGUto2AoJGyGc=;
+        b=O9qc96hyecOKrpxU7rC9+bOndH3lUXccSVnHsyxV8kW2k/8qjSHDiXlIq/z6KP/8tF
+         a4CoUTCuPY5P3zRFJpZyrqTlX/3IoOBtMHnSJxFrKKplt7sXOvG6gEfD6fQ+a69FJyu/
+         Btp7l9mjqh2tv7VDHFcd18r4CrZRru2ThIn0EoVYMwIAh4SDOKmIi2P3d+2J8w3ztVJ6
+         QoiDtCYRrFUMJd5EEFkdM8iLCeWbf4xp6j/UQz1IfaKV5YE2SFvOqwGPHqzSbrspckLr
+         pVoPpuRQmZc7eBYvZ88SNj0mJboDQHJ+i8BHCktUKNen9ggX2s2V59yvdhZjhNykytPa
+         yCYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1704796936; x=1705401736;
+        h=to:in-reply-to:references:message-id:date:subject:mime-version:from
+         :content-transfer-encoding:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=0trL+BV/7FNvNRAF/rbZGnuO5CNheSvGUto2AoJGyGc=;
+        b=oZvbWB82SphABt8d4QrKi5wVTAtsLBZcAipdXVdIIBVRG4YS7t2HNtlkpAAcqIedTF
+         qFj1HMQ0JyGuPtjOcADhgbipzGW5oTn7gYAXlpIt5yxeBqarWV6wcGcYylCqar2OpQ3N
+         BmWRo9VsO+GRXeriaqHHchNju0/4YTORiGPuZ3HPEVVpi8f8+YLSSelKN9bgZuKxsS4o
+         hOaMazeHp2vAfWNxj4w2efHq8dEtFTtOp0xCDBtprXaQx0zbEjsHAYw1OXnG0jXXvehS
+         GD3zYCWRFki97gLxXckj3Bx+ti8Ktq9MBZwlx7sf6IAppAHCpw/jpVPCJFM8sjteF/fW
+         xaTA==
+X-Gm-Message-State: AOJu0YyP9HdfWrhdPamfqaPtpPLRrLD8wZzlX1Po+AcNxBiymzhRqZ2Q
+	z6w/qd1IfXhBkpq4VhDcDF4rhDzXfDY=
+X-Google-Smtp-Source: AGHT+IGgbQSIIEGdr/Qlb3CMlGZuSTAtewsfdwy8VitqiOYDwqCwrfD98f2HWmKMORwSTNMl3pHftQ==
+X-Received: by 2002:a05:600c:19ce:b0:40d:7fdd:f558 with SMTP id u14-20020a05600c19ce00b0040d7fddf558mr1783763wmq.266.1704796935865;
+        Tue, 09 Jan 2024 02:42:15 -0800 (PST)
+Return-Path: isabelle.n.laffont@gmail.com
+Received: from smtpclient.apple ([37.170.230.175])
+        by smtp.gmail.com with ESMTPSA id r10-20020a05600c458a00b0040d4e1393dcsm14235839wmo.20.2024.01.09.02.42.15
+        for <j.bonnefoy@phardex.fr>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 09 Jan 2024 02:42:15 -0800 (PST)
+From: Isabelle Laffont <isabelle.n.laffont@gmail.com>
+Subject: Re: Laboratoire BIOCODEX - VM
+Date: Tue, 9 Jan 2024 11:42:14 +0100
+Message-Id: <E1438B8E-3FFE-4C2D-AF6B-D00D599D2D5B@gmail.com>
+References: <AM7PR07MB669265361849C9EF3F42720BEE6A2@AM7PR07MB6692.eurprd07.prod.outlook.com>
+In-Reply-To: <AM7PR07MB669265361849C9EF3F42720BEE6A2@AM7PR07MB6692.eurprd07.prod.outlook.com>
+To: BONNEFOY Julien <j.bonnefoy@phardex.fr>
+X-Mailer: iPhone Mail (19H370)
+Authentication-Results-Original: relay.mimecast.com;	dkim=pass
+ header.d=gmail.com header.s=20230601 header.b=O9qc96hy;	dmarc=pass
+ (policy=none) header.from=gmail.com;	spf=pass (relay.mimecast.com: domain of
+ isabelle.n.laffont@gmail.com designates 209.85.128.46 as permitted sender)
+ smtp.mailfrom=isabelle.n.laffont@gmail.com
+X-Mimecast-Spam-Score: -3
+X-Mimecast-Impersonation-Protect: Policy=Impersonation - VIP Header Display Name Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+X-Mimecast-Impersonation-Protect: Policy=New Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+Content-Type: multipart/alternative; boundary=Apple-Mail-2E44F3BF-B559-4780-8470-B25C654A7740
+X-MS-Exchange-Organization-ExpirationStartTime: 09 Jan 2024 10:42:20.4190
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ d750f952-f959-4992-fe95-08dc10ffa82f
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: d1197c46-2c75-438b-a7ef-16690d1f8b64:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AMS0EPF000001A4:EE_|DB9PR07MB9074:EE_|AM7PR07MB6692:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AMS0EPF000001A4.eurprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: d750f952-f959-4992-fe95-08dc10ffa82f
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:194.104.108.241;CTRY:DE;LANG:fr;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:de-smtp-inbound-delivery-1.mimecast.com;PTR:de-smtp-inbound-delivery-1.mimecast.com;CAT:NONE;SFS:(13230031)(230922051799003)(230273577357003)(230173577357003)(451199024)(1690799017)(30864003)(5660300002)(15974865002)(45080400002)(33656002)(2616005)(956004)(55446002)(33964004)(86362001)(1096003)(8676002)(76482006)(6916009)(36756003)(166002)(83380400001)(26005)(336012)(426003)(73392003)(66574015)(82202003)(7596003)(7636003)(356005)(34756004)(19627405001);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jan 2024 10:42:20.3409
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d750f952-f959-4992-fe95-08dc10ffa82f
+X-MS-Exchange-CrossTenant-Id: d1197c46-2c75-438b-a7ef-16690d1f8b64
+X-MS-Exchange-CrossTenant-AuthSource:
+ AMS0EPF000001A4.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR07MB9074
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.9996573
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7159.020
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?R2lpLzZaUjJFckxIRFV2eTgyVW41YXZDdnYyVkszNHJ3OERLYWVVVDRlS0Ez?=
+ =?utf-8?B?bGx6Sk1QTk40U0VvQkswaUNEOE9BZ1FJc0w1RUhYV0pydWZNVVd3Wi9IL1lw?=
+ =?utf-8?B?ZzQyTlFVQ2sxWkREQUI3Z0hRTEdaQ1RtejFNYTRVbURxYW9nQnl0YWpxUHcw?=
+ =?utf-8?B?ajUvVVhCMTIrOUhDVkYrRVpOa2FENnZQclNiQ0puZ1dpcEgwRGw3VWF3SHJ1?=
+ =?utf-8?B?RnNoQ3YvTkVFd0hLL1hsa1F6TEUvd1RqRHhWTGlUNVVmdlBSSU5WUEtnemJh?=
+ =?utf-8?B?K3lVMEZBRGdUbGJvWk01aFFxYjNrdFh2LzdmSjBZQmdQSmFGdXJQYVAyWTJk?=
+ =?utf-8?B?a2dtZXRGTUpnYTUyL2h6UVBPMjFjaHo4dS85VUl2L1R5eGJ6WCtlVmkvTmpj?=
+ =?utf-8?B?QlprUTNBNzdENkE2eGRYMDBqcUlwTXBpS1U1eVUyQjVKSEhOQVlnay9KV3Vh?=
+ =?utf-8?B?KzRFTERIVXh3Wll4RTg3dFF4YjFjckFGbGUyMjMydXowK2pNaWJuSWhFUmpz?=
+ =?utf-8?B?UERjY0tOQkdEb2ZWTWtFR0g4b3RweUlKZXZPMmJvMXlKSDhmRkFPaWs0ekVi?=
+ =?utf-8?B?L0Q0SWk4N3lJNi9pNXlnR0xhUUpvNTVVaU9GNk9lTTRwY1lGVFFiMlovZ3U4?=
+ =?utf-8?B?eWovaDZyNmQwT2xXYkNjdUVHVmdNNnpJM0JtSkZia2ZQNWdRTjRYZFphODlw?=
+ =?utf-8?B?SjkzaDh2elEzMzN6SjZ1QU91S2JlQkUyOC9RT29sR0liMGdCRmE5QmlJUy85?=
+ =?utf-8?B?czl2RXhUM1dtOGszcHhRZGFFa2hFMm1JQnB4bnpJK3FlQVdDYmt2dnlTdWRW?=
+ =?utf-8?B?RGEvLzUrTmVlWDhrTmtrWE1qdDVvaHYzZ0pPVDZ4ZUZDUEtIdDlOSDJEZ0I3?=
+ =?utf-8?B?V0ZyMG9yNEdWSU1Sck9zTFpkRytPc0hMMkp6K0xVMXhSTU44aGJVbEFTQXRK?=
+ =?utf-8?B?cC9ZYXovSFpNdzVGMndkbjltRDMva1p4OHh1L3E4RzdZMjhFUThTbFlBZkJG?=
+ =?utf-8?B?eVZ0MFR3aUozTVptT0V5QjF3a0lZYWZISlJjeWYxbm40L3VFQVB0MXI0aWhz?=
+ =?utf-8?B?RDA2c1JBb0Q5eWRTZ1pZempIUzhrOU16THZvbVNPb1NDeEhzUmY2Y3poSExi?=
+ =?utf-8?B?a3p4bTVXc0I4Nms3bW05TDl2ZUlsbnpuSFhuTE4yZm9oTjZ3b1VIMkpLcHJr?=
+ =?utf-8?B?b2l6UDl2VkxEb2RMenMzQ05tVWJmeWFMb0RwMVNtWi9rMmZrS1FBa043aWhW?=
+ =?utf-8?B?aHFSU2hndm9JZ3B5dUNiY0M1R2RGOC9WcUNXaVlTVExUNGhpeTVadS9STVJJ?=
+ =?utf-8?B?c3BvYnVzVFBjMGVzakdMS3AxUFRVZXRLeWtIdEtGMmtJQUhQazd4ODFJejZn?=
+ =?utf-8?B?RlNSRmFNbzVSU25aeGpvZytVeGo0c2g3UXRlM0cwcmVIWTc5NncxcW93cEUw?=
+ =?utf-8?B?bk8xQUQ0c3lzU0VhQWdnY0FoYVRMVnNrNFRIWWRFOHBoeHY5OWdSUEIzNnRj?=
+ =?utf-8?B?NVRUT3E0KzBaejVTK2RtUndmUTdINmZFdTFsaEpjS0xBakd2SXl1clhTZmEx?=
+ =?utf-8?B?WlQyZUxsby9CbFNGY2NzMmI4dk9oODlYdGx0bnBTWTdWQm44WVUxT1U3Qm5H?=
+ =?utf-8?B?VnFrWGVYQzZrN1pZdXMwbDdSSGlTLzFYNVJUakE1Qy9jdFpUTHRGWFRUWEg2?=
+ =?utf-8?B?cEZUN3FOdjNXKzRvTFg0ZXA2bWxWTFVjNFNCTStaUjJWTTRMY2pCanBaTis4?=
+ =?utf-8?B?QnNINHhqNXdDUUVVM0dFMFpoc1Q3dnVtSWZxUzZjcEFGTXAyYTlucVpMMU5w?=
+ =?utf-8?B?WHFWTG45UEJ1NVhnSVdPb2tFUXA2ZW1QVFQ3V2IxNmhKSW9rVHFBbzU4c2x6?=
+ =?utf-8?B?YkRvSkFjbTMzVU12M0lxNW1ORkxWaHI3ckkxQVp0clg2ak1sK0JKQm92VjlE?=
+ =?utf-8?B?WFdRUmcxSk9mZTJJdmdJVXA1d29wSDRKazA4SGJ6dXg4WTh1MjN3QTcwbmFm?=
+ =?utf-8?B?QlRLUXBVbklBNHNiWnlRWnpZMVA5dEFubUJWUk1nbU5ZdFNPTmlrSVFqaTRk?=
+ =?utf-8?B?cG1ma0NDRnMyVnFaRzhVTEREUisxSlBKNW13Rm9Gcis5ckhQZDBmaHlUbm0r?=
+ =?utf-8?B?ZVM1TzFCWnF4Sk4vd3gzWGxXbFBtUGdVbU56VWN4MWpxZk14Z25FdkxJeHhW?=
+ =?utf-8?B?bGhaMmdvWnZBNVk4QUV0aHJXelNNaWxGaExOOGJrQUhOamd5OHZFWktOMUJZ?=
+ =?utf-8?B?SU85WnBMNXhjN3pyKzQ2UVFLM2g5dnhqc0Q4bGRvSWdFbmVZc0IzZ2wxMEdr?=
+ =?utf-8?B?MnNGZStnalVmQXYwa3FCcnJiVWNhS25EcXhTNS9ydEtpWXpWRzlTTE5JOUxs?=
+ =?utf-8?B?Y3pYaERWVnArMWxadi9PNlQ2bm8rRlJBK1BmS3Qzb1lFWGg5WUJFUk5QWmZT?=
+ =?utf-8?B?UXhQOFRiZTRjcUNzRklqWllqanFNREVtYW8xOU45ZFRyS1RPTGV5Vk9VRnVF?=
+ =?utf-8?Q?4G9s83U99pk?=
+MIME-Version: 1.0
+
+--Apple-Mail-2E44F3BF-B559-4780-8470-B25C654A7740
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+=E2=96=88 Caution : External Email. Do not click links or open attachments =
+unless you recognize the sender and the content is safe.
+Do not scan QR codes from external emails.
+
+11 rue Vignon 75008, le code rue n=E2=80=99est pas mis, n=E2=80=99importe q=
+uel chiffre fonctionne puis interphone dans le hall, puis 2eme =C3=A9tage E=
+nvoy=C3=A9 de mon iPhoneLe 9 janv. 2024 =C3=A0 11:34, BONNEFOY Julien <j.bo=
+nnefoy@phardex.fr> a =C3=A9crit :=EF=BB=BFTr=C3=A8s bien mardi prochain le =
+16/1 19h.11 rue vignon  =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C
+[https://alert-eu-central-1.api.getmessagecontrol.com/onprem_security_warni=
+ng_fetch?r=3D1&dep=3DBw0PBGeVUcPsfjY345e71g%3D%3DyDyaJH7weSl8xME%2BY0LaIY8S=
+LYFAN%2FTgkbG8YWcQtasYKOMs3rVv6pukNoPL97g8yT46utXFd%2F1iiysduGfQPCZ%2Bmbeo3=
+6ZlhRhK1lzgmM4MNz18mbc%2BNosBamzkUEkdrLi1jXq1Osp5tBAo0tfhaxrywMdVTgSa90B0fZ=
+RIuyLDFbM%2BhPOotQESUggT84AjLSx5Y1tu1dzg7oL%2FC9WC1Z8xB8J3N1edaEHB8udfYUvXr=
+ssST0JQj9vM5j8GFl8%2FjSOdKHYJFXBiIjx%2BrsBeuihgx2DdA%2BKMRcGc6MOgfIbsF5l1Qy=
+utlRB4Kt%2B5UrJvnadZ90B7rkvybST6noVR1la5EAHqnrunt%2BLPJ4Lwacgn2%2BODlYG%2Ff=
+zPDgb%2Bl5jOxNu4XlnZAO8D34TF2kFhBEFToYPXV%2FVHtjKusPQCRuT2kN9JH5ZR79jfYzIvV=
+HTgKsoEYFTJibhfE5%2BM3Q64x0ZHFt9MMANXlc3OBFADnndk2OTDEaq3eQnyOW8pwor0Z4CsHi=
+J95E7AtpiP5%2FfOTUw%2Bab%2FPLru7NRBSEY60OyQLSMNuNj64Gcf5ehc9JsZzCQEffOBdIc1=
+2OSdbDX0b6u1PwPYddftL2mSQaiPDiCdf7ZUo8QkQUBITSmBiBO%2Fnmr0B4tJ5tOFpdLiqj6eY=
+8%2Fw%2BN%2BOAXiwfy%2FBCjj80MJVfLgSEGtHcKVHv3HkdYRCQERIyIx2VGf6%2FJcux6VVKP=
+FsQeSQX3H%2FLZuZHMnd8SusJaMf7kWKJooToPxuyA5VeBR2g%2F81YF2OBvj60yZRSZa0gul4B=
+UuIDV3j1IYykMRB7%2Fvd0WmlFjxGMZhhFiHZDSuBDnKgZZdUPrrNtZQqhAnmKwf3YJuVf5QGfg=
+DId8UExU%2BG64x2cD%2FRWCongeb9zcyWqLV6E8cMGufjb5P%2BPF%2B%2Bf5UlBbkL2cv0XBd=
+%2F3EjEdgnFSSZ%2F%2F8T3FaTK5WpqD6]<https://protect-de.mimecast.com/s/uec6CV=
+vw1WixnWprtz_gT6?domain=3Dde.report.cybergraph.mimecast.com>
+11 rue Vignon 75008, le code rue n=E2=80=99est pas mis, n=E2=80=99importe q=
+uel chiffre fonctionne puis interphone dans le hall, puis 2eme =C3=A9tage
+
+Envoy=C3=A9 de mon iPhone
+
+Le 9 janv. 2024 =C3=A0 11:34, BONNEFOY Julien <j.bonnefoy@phardex.fr> a =C3=
+=A9crit :
+
+=EF=BB=BF
+Tr=C3=A8s bien mardi prochain le 16/1 19h.
+
+11 rue vignon c'est bien =C3=A7a ?
+
+________________________________
+De : Isabelle Laffont <isabelle.n.laffont@gmail.com>
+Envoy=C3=A9 : mardi 9 janvier 2024 10:01
+=C3=80 : BONNEFOY Julien <j.bonnefoy@phardex.fr>
+Objet : Re: Laboratoire BIOCODEX - VM
+
+
+=E2=96=88 Caution : External Email. Do not click links or open attachments =
+unless you recognize the sender and the content is safe.
+Do not scan QR codes from external emails.
+
+
+Mardi 16/1 =C3=A0 19h vous conviendrait-il pour un RV
+Je suis =C3=A0 la Madeleine
+
+Envoy=C3=A9 de mon iPhone
+
+Le 9 janv. 2024 =C3=A0 09:58, BONNEFOY Julien <j.bonnefoy@phardex.fr> a =C3=
+=A9crit :
+
+=EF=BB=BF
+Ch=C3=A8re Docteur Laffont, ch=C3=A8re Docteur Claret,
+
+Tout d'abord permettez-moi de vous pr=C3=A9senter mes meilleurs v=C5=93ux p=
+our ce nouveau voyage autour du soleil.
+
+Je reviens vers vous concernant mon mail pr=C3=A9c=C3=A9dent qui contenait =
+assez peu d'informations. J'ai depuis =C3=A9t=C3=A9 form=C3=A9 et le traite=
+ment dont la promotion a =C3=A9t=C3=A9 confi=C3=A9e =C3=A0 Biocodex est MED=
+IKINET
+
+J'aimerai donc, si vous =C3=AAtes toujours d'accord, vous rencontrer afin d=
+'=C3=A9changer sur la prise en charge des patients TDAH d'uneDans l'attente=
+ de votre r=C3=A9ponse, mani=C3=A8re g=C3=A9n=C3=A9rale.
+
+Je vous laisse me proposer quelques cr=C3=A9neaux que vus auriez de disponi=
+ble.
+
+En vous souhaitant une agr=C3=A9able journ=C3=A9e.
+
+
+________________________________
+
+[Outlook-ntnbv41h.png]
+
+
+
+Julien BONNEFOY
+Visiteur m=C3=A9dical
+
+
+7 Avenue Gallieni
+94257 Gentilly cedex - France
+
+
+ www.biocodex.com<https://protect-de.mimecast.com/s/g0LECWPx21f5LMn7cK-Rqm?=
+domain=3Dbiocodex.com>
+
+
+
+
+
+[Outlook-f3mxhutg.png]
+
+Tel :
+
+
++33 7 50 64 31 44
+
+
+j.bonnefoy@phardex.fr<mailto:j.bonnefoy@phardex.fr>
+
+________________________________
+
+=C3=BC
+
+Pensez ENVIRONNEMENT : N'imprimer que si n=C3=A9cessaire !
+
+________________________________
+De : Dr Anne Claret Tournier <dr.anne.claret@gmail.com>
+Envoy=C3=A9 : jeudi 12 octobre 2023 18:12
+=C3=80 : BONNEFOY Julien <j.bonnefoy@phardex.fr>
+Cc : isabelle.n.laffont@gmail.com <isabelle.n.laffont@gmail.com>
+Objet : Re: Laboratoire BIOCODEX - VM
+
+
+=E2=96=88 Caution : External Email. Do not click links or open attachments =
+unless you recognize the sender and the content is safe.
+
+
+Oui sur le principe bien s=C3=BBr  mais pouvez vous nous dire de quel trait=
+ement il s'agit ?
+
+
+
+--------------------------------
+
+Dr Anne Claret-Tournier
+
+Psychiatre
+
+11 rue Vignon
+
+75008 Paris
+
+
+Le jeu. 12 oct. 2023 =C3=A0 14:57, BONNEFOY Julien <j.bonnefoy@phardex.fr<m=
+ailto:j.bonnefoy@phardex.fr>> a =C3=A9crit :
+Bonjour Docteur Laffont,
+Bonjour Docteur Claret
+
+Je suis d=C3=A9l=C3=A9gu=C3=A9 m=C3=A9dical pour le laboratoire BIOCODEX et=
+ je souhaitais prendre rendez-vous avec vous pour le d=C3=A9but d=E2=80=99a=
+nn=C3=A9e prochaine, car nous obtenons une extension d=E2=80=99 AMM dans un=
+ traitement des troubles du d=C3=A9ficit de l=E2=80=99attention/hyperactivi=
+t=C3=A9.
+
+Je n=E2=80=99ai pas plus de pr=C3=A9cisions pour le moment, car je n=E2=80=
+=99ai pas encore =C3=A9t=C3=A9 form=C3=A9=E2=80=A6
+
+Merci de me pr=C3=A9ciser si vous =C3=AAtes int=C3=A9ress=C3=A9 auquel cas,=
+ je serai ravi de vous rencontrer =C3=A0 partir de la deuxi=C3=A8me semaine=
+ de janvier 2024.
+
+Je vous souhaite une agr=C3=A9able journ=C3=A9e.
+
+Cordialement.
+
+Julien Bonnefoy
+D=C3=A9l=C3=A9gu=C3=A9 m=C3=A9dical Paris
+Laboratoire Biocodex
+07.50.64.31.44
+
+Envoy=C3=A9 de mon iPhone
+
+--Apple-Mail-2E44F3BF-B559-4780-8470-B25C654A7740
+Content-Type: multipart/related;
+	type="text/html";
+	boundary=Apple-Mail-1C3A94A9-FB52-47A3-94E8-43BA5A5424CB
+Content-Transfer-Encoding: 7bit
+
+--Apple-Mail-1C3A94A9-FB52-47A3-94E8-43BA5A5424CB
+Content-Type: text/html;
+	charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</head>
+<body dir=3D"auto">
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-family:&quot;Time=
+s New Roman&quot;,serif;=0A=
+color:red">=E2=96=88</span><span lang=3D"EN-US" style=3D"font-family:&quot;=
+Arial&quot;,sans-serif;=0A=
+color:red">
+</span><b><span lang=3D"EN-US" style=3D"color:black;background:yellow">Caut=
+ion : External Email. Do not click links or open attachments unless you rec=
+ognize the sender and the content is safe.<br>
+Do not scan QR codes from external emails. </span></b><br>
+<br>
+</p>
+<div>
+<table id=3D"mcpreviewzzyygg" style=3D"display: none; mso-hide: all; width:=
+ 0px; height: 0px; max-width: 0px; max-height: 0px; font-size: 0px; line-he=
+ight: 0px; color: white; text-decoration: none;">
+<tbody>
+<tr>
+<td>11 rue Vignon 75008, le code rue n=E2=80=99est pas mis, n=E2=80=99impor=
+te quel chiffre fonctionne puis interphone dans le hall, puis 2eme =C3=A9ta=
+ge Envoy=C3=A9 de mon iPhoneLe 9 janv. 2024 =C3=A0 11:34, BONNEFOY Julien &=
+lt;j.bonnefoy@phardex.fr&gt; a =C3=A9crit :=EF=BB=BFTr=C3=A8s bien mardi pr=
+ochain le 16/1
+ 19h.11 rue vignon &nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C</td>
+</tr>
+</tbody>
+</table>
+<table id=3D"mcalertwrapperzzyygg" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+<tbody>
+<tr>
+<td><a href=3D"https://protect-de.mimecast.com/s/uec6CVvw1WixnWprtz_gT6?dom=
+ain=3Dde.report.cybergraph.mimecast.com"><img id=3D"mcalertzzyygg" src=3D"h=
+ttps://alert-eu-central-1.api.getmessagecontrol.com/onprem_security_warning=
+_fetch?r=3D1&amp;dep=3DBw0PBGeVUcPsfjY345e71g%3D%3DyDyaJH7weSl8xME%2BY0LaIY=
+8SLYFAN%2FTgkbG8YWcQtasYKOMs3rVv6pukNoPL97g8yT46utXFd%2F1iiysduGfQPCZ%2Bmbe=
+o36ZlhRhK1lzgmM4MNz18mbc%2BNosBamzkUEkdrLi1jXq1Osp5tBAo0tfhaxrywMdVTgSa90B0=
+fZRIuyLDFbM%2BhPOotQESUggT84AjLSx5Y1tu1dzg7oL%2FC9WC1Z8xB8J3N1edaEHB8udfYUv=
+XrssST0JQj9vM5j8GFl8%2FjSOdKHYJFXBiIjx%2BrsBeuihgx2DdA%2BKMRcGc6MOgfIbsF5l1=
+QyutlRB4Kt%2B5UrJvnadZ90B7rkvybST6noVR1la5EAHqnrunt%2BLPJ4Lwacgn2%2BODlYG%2=
+FfzPDgb%2Bl5jOxNu4XlnZAO8D34TF2kFhBEFToYPXV%2FVHtjKusPQCRuT2kN9JH5ZR79jfYzI=
+vVHTgKsoEYFTJibhfE5%2BM3Q64x0ZHFt9MMANXlc3OBFADnndk2OTDEaq3eQnyOW8pwor0Z4Cs=
+HiJ95E7AtpiP5%2FfOTUw%2Bab%2FPLru7NRBSEY60OyQLSMNuNj64Gcf5ehc9JsZzCQEffOBdI=
+c12OSdbDX0b6u1PwPYddftL2mSQaiPDiCdf7ZUo8QkQUBITSmBiBO%2Fnmr0B4tJ5tOFpdLiqj6=
+eY8%2Fw%2BN%2BOAXiwfy%2FBCjj80MJVfLgSEGtHcKVHv3HkdYRCQERIyIx2VGf6%2FJcux6VV=
+KPFsQeSQX3H%2FLZuZHMnd8SusJaMf7kWKJooToPxuyA5VeBR2g%2F81YF2OBvj60yZRSZa0gul=
+4BUuIDV3j1IYykMRB7%2Fvd0WmlFjxGMZhhFiHZDSuBDnKgZZdUPrrNtZQqhAnmKwf3YJuVf5QG=
+fgDId8UExU%2BG64x2cD%2FRWCongeb9zcyWqLV6E8cMGufjb5P%2BPF%2B%2Bf5UlBbkL2cv0X=
+Bd%2F3EjEdgnFSSZ%2F%2F8T3FaTK5WpqD6" style=3D"display: block; border: 0px; =
+border-style: none;" border=3D"0"></a></td>
+</tr>
+</tbody>
+</table>
+11 rue Vignon 75008, le code rue n=E2=80=99est pas mis, n=E2=80=99importe q=
+uel chiffre fonctionne puis interphone dans le hall, puis 2eme =C3=A9tage&n=
+bsp;<br>
+<br>
+<div dir=3D"ltr">Envoy=C3=A9 de mon iPhone</div>
+<div dir=3D"ltr"><br>
+<blockquote type=3D"cite">Le 9 janv. 2024 =C3=A0 11:34, BONNEFOY Julien &lt=
+;j.bonnefoy@phardex.fr&gt; a =C3=A9crit&nbsp;:<br>
+<br>
+</blockquote>
+</div>
+<blockquote type=3D"cite">
+<div dir=3D"ltr">=EF=BB=BF
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" clas=
+s=3D"elementToProof">
+Tr=C3=A8s bien mardi prochain le 16/1 19h.</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" clas=
+s=3D"elementToProof">
+<br>
+</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" clas=
+s=3D"elementToProof">
+11 rue vignon c'est bien =C3=A7a ?</div>
+<div style=3D"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, =
+Calibri, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" clas=
+s=3D"elementToProof">
+<br>
+</div>
+<div id=3D"appendonsend"></div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>De :</b> Isabelle Laffont &lt;i=
+sabelle.n.laffont@gmail.com&gt;<br>
+<b>Envoy=C3=A9 :</b> mardi 9 janvier 2024 10:01<br>
+<b>=C3=80 :</b> BONNEFOY Julien &lt;j.bonnefoy@phardex.fr&gt;<br>
+<b>Objet :</b> Re: Laboratoire BIOCODEX - VM</font>
+<div>&nbsp;</div>
+</div>
+<div dir=3D"auto">
+<p class=3D"x_MsoNormal"><span lang=3D"EN-US" style=3D"font-family:&quot;Ti=
+mes New Roman&quot;,serif; color:red">=E2=96=88</span><span lang=3D"EN-US" =
+style=3D"font-family:&quot;Arial&quot;,sans-serif; color:red">
+</span><b><span lang=3D"EN-US" style=3D"color:black; background:yellow">Cau=
+tion : External Email. Do not click links or open attachments unless you re=
+cognize the sender and the content is safe.<br>
+Do not scan QR codes from external emails. </span></b><br>
+<br>
+</p>
+<div>Mardi 16/1 =C3=A0 19h vous conviendrait-il pour un RV&nbsp;
+<div>Je suis =C3=A0 la Madeleine&nbsp;<br>
+<br>
+<div dir=3D"ltr">Envoy=C3=A9 de mon iPhone</div>
+<div dir=3D"ltr"><br>
+<blockquote type=3D"cite">Le 9 janv. 2024 =C3=A0 09:58, BONNEFOY Julien &lt=
+;j.bonnefoy@phardex.fr&gt; a =C3=A9crit&nbsp;:<br>
+<br>
+</blockquote>
+</div>
+<blockquote type=3D"cite">
+<div dir=3D"ltr">=EF=BB=BF
+<div><span style=3D"font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontServic=
+e,Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">Ch=C3=A8r=
+e Docteur Laffont, ch=C3=A8re Docteur Claret,</span></div>
+<div class=3D"x_elementToProof"><span style=3D"font-family:Aptos,Aptos_Embe=
+ddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; =
+color:rgb(0,0,0)"><br>
+</span></div>
+<div class=3D"x_elementToProof"><span style=3D"font-family:Aptos,Aptos_Embe=
+ddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; =
+color:rgb(0,0,0)">Tout d'abord permettez-moi de vous pr=C3=A9senter mes mei=
+lleurs v=C5=93ux pour ce nouveau voyage autour
+ du soleil.</span></div>
+<div class=3D"x_elementToProof"><span style=3D"font-family:Aptos,Aptos_Embe=
+ddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; =
+color:rgb(0,0,0)"><br>
+</span></div>
+<div class=3D"x_elementToProof"><span style=3D"font-family:Aptos,Aptos_Embe=
+ddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; =
+color:rgb(0,0,0)">Je reviens vers vous concernant mon mail pr=C3=A9c=C3=A9d=
+ent qui contenait assez peu d'informations. J'ai
+ depuis =C3=A9t=C3=A9 form=C3=A9 et le traitement dont la promotion a =C3=
+=A9t=C3=A9 confi=C3=A9e =C3=A0 Biocodex est MEDIKINET</span></div>
+<div class=3D"x_elementToProof"><span style=3D"font-family:Aptos,Aptos_Embe=
+ddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; =
+color:rgb(0,0,0)">&nbsp;</span></div>
+<div class=3D"x_elementToProof"><span style=3D"font-family:Aptos,Aptos_Embe=
+ddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; =
+color:rgb(0,0,0)">J'aimerai donc, si vous =C3=AAtes toujours d'accord, vous=
+ rencontrer afin d'=C3=A9changer sur la prise
+ en charge des patients TDAH d'uneDans l'attente de votre r=C3=A9ponse,&nbs=
+p;mani=C3=A8re g=C3=A9n=C3=A9rale.</span></div>
+<div class=3D"x_elementToProof"><span style=3D"font-family:Aptos,Aptos_Embe=
+ddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; =
+color:rgb(0,0,0)"><br>
+</span></div>
+<div class=3D"x_elementToProof"><span style=3D"font-family:Aptos,Aptos_Embe=
+ddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; =
+color:rgb(0,0,0)">Je vous laisse me proposer quelques cr=C3=A9neaux que vus=
+ auriez de disponible.</span></div>
+<div class=3D"x_elementToProof"><span style=3D"font-family:Aptos,Aptos_Embe=
+ddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; =
+color:rgb(0,0,0)"><br>
+</span></div>
+<div class=3D"x_elementToProof"><span style=3D"font-family:Aptos,Aptos_Embe=
+ddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; =
+color:rgb(0,0,0)">En vous souhaitant une agr=C3=A9able journ=C3=A9e.</span>=
+</div>
+<div class=3D"x_elementToProof"><span style=3D"font-family:Aptos,Aptos_Embe=
+ddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; =
+color:rgb(0,0,0)"><br>
+</span></div>
+<div class=3D"x_elementToProof"><span style=3D"font-family:Aptos,Aptos_Embe=
+ddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:10pt; =
+color:rgb(0,0,0)">&nbsp;</span></div>
+<div id=3D"x_Signature">
+<table id=3D"x_tableSelected0" style=3D"width:337.5pt">
+<tbody>
+<tr>
+<td colspan=3D"3" style=3D"padding:0cm">
+<div align=3D"center">
+<hr align=3D"center" size=3D"2" style=3D"width:100%">
+</div>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:0cm; vertical-align:top">
+<p><span style=3D"font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,=
+Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)"><img alt=3D=
+"Outlook-ntnbv41h.png" style=3D"width:1.3541in; height:0.6041in; min-width:=
+auto; min-height:auto; margin-top:0px; margin-bottom:0px" data-outlook-trac=
+e=3D"F:2|T:2" src=3D"cid:a3b27704-ddbf-4dc8-95bf-a06ff81a84f7"></span></p>
+</td>
+<td style=3D"padding:0cm; vertical-align:top">
+<p><span style=3D"font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,=
+Calibri,Helvetica,sans-serif; font-size:10pt; color:rgb(0,0,0)">&nbsp;</spa=
+n></p>
+</td>
+<td style=3D"padding:0cm; vertical-align:top">
+<p><span style=3D"font-family:&quot;Arial&quot;,sans-serif,serif,EmojiFont;=
+ font-size:10pt; color:rgb(0,0,0)"><b>Julien BONNEFOY</b></span><span style=
+=3D"font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Calibri,Helvet=
+ica,sans-serif; font-size:12pt; color:rgb(0,0,0)"><br>
+</span><span style=3D"font-family:&quot;Arial&quot;,sans-serif,serif,EmojiF=
+ont; font-size:10pt; color:rgb(0,0,0)">Visiteur m=C3=A9dical</span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:0cm; vertical-align:top">
+<table id=3D"x_tableSelected2" style=3D"width:150pt">
+<tbody>
+<tr>
+<td colspan=3D"2" style=3D"padding:0cm">
+<p><span style=3D"font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,=
+Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)"><br>
+</span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:0cm; vertical-align:top">
+<p><span style=3D"font-family:&quot;Arial&quot;,sans-serif,serif,EmojiFont;=
+ font-size:10pt; color:rgb(0,0,0)">7 Avenue Gallieni&nbsp;</span><span styl=
+e=3D"font-family:&quot;Arial&quot;,sans-serif,serif,EmojiFont; font-size:8p=
+t; color:rgb(0,0,0)"><br>
+</span><span style=3D"font-family:&quot;Arial&quot;,sans-serif,serif,EmojiF=
+ont; font-size:10pt; color:rgb(0,0,0)">94257&nbsp;Gentilly cedex&nbsp;- Fra=
+nce</span></p>
+</td>
+<td style=3D"padding:0cm; vertical-align:top"><span style=3D"font-family:Ap=
+tos,Aptos_EmbeddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; fo=
+nt-size:12pt; color:rgb(0,0,0)"><br>
+</span></td>
+</tr>
+<tr>
+<td style=3D"padding:0cm">
+<p><span style=3D"font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,=
+Calibri,Helvetica,sans-serif; font-size:10pt; color:rgb(0,0,0)">&nbsp;</spa=
+n><span style=3D"font-family:&quot;Arial&quot;,sans-serif,serif,EmojiFont; =
+font-size:10pt; color:blue"><a href=3D"https://protect-de.mimecast.com/s/g0=
+LECWPx21f5LMn7cK-Rqm?domain=3Dbiocodex.com" target=3D"_blank" class=3D"x_Co=
+ntentPasted0" rel=3D"noopener noreferrer" data-auth=3D"NotApplicable" data-=
+linkindex=3D"0" style=3D"margin-top:0px; margin-bottom:0px; color:blue">www=
+.biocodex.com</a></span></p>
+</td>
+<td style=3D"padding:0cm">
+<p><span style=3D"font-family:&quot;Arial&quot;,sans-serif,serif,EmojiFont;=
+ font-size:10pt; color:rgb(0,0,0)">&nbsp;</span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:0cm"></td>
+<td style=3D"padding:0cm"></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style=3D"padding:0cm; vertical-align:top">
+<p><span style=3D"font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,=
+Calibri,Helvetica,sans-serif; font-size:10pt; color:rgb(0,0,0)">&nbsp;</spa=
+n></p>
+</td>
+<td style=3D"padding:0cm; vertical-align:top">
+<table id=3D"x_tableSelected1" style=3D"width:165pt">
+<tbody>
+<tr>
+<td colspan=3D"2" style=3D"padding:0cm">
+<p><span style=3D"font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,=
+Calibri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)"><img alt=3D=
+"Outlook-f3mxhutg.png" style=3D"width:0.0104in; height:0.0416in; min-width:=
+auto; min-height:auto; margin-top:0px; margin-bottom:0px" data-outlook-trac=
+e=3D"F:2|T:2" src=3D"cid:06c3810e-e09e-4281-919c-071bd6dec625"></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:0cm; vertical-align:top">
+<p><span style=3D"font-family:&quot;Arial&quot;,sans-serif,serif,EmojiFont;=
+ font-size:10pt; color:rgb(0,0,0)">Tel :</span><span style=3D"font-family:&=
+quot;Arial&quot;,sans-serif,serif,EmojiFont; font-size:8pt; color:rgb(0,0,0=
+)"><br>
+<br>
+</span></p>
+</td>
+<td style=3D"padding:0cm; vertical-align:top">
+<p><span style=3D"font-family:&quot;Arial&quot;,sans-serif,serif,EmojiFont;=
+ font-size:10pt; color:rgb(0,0,0)">+33 7 50 64 31 44&nbsp;</span><span styl=
+e=3D"font-family:&quot;Arial&quot;,sans-serif,serif,EmojiFont; font-size:8p=
+t; color:rgb(0,0,0)"><br>
+<br>
+</span></p>
+</td>
+</tr>
+<tr>
+<td colspan=3D"2" style=3D"padding:0cm; vertical-align:top">
+<p><span style=3D"font-family:Arial,Helvetica,sans-serif; font-size:10pt; c=
+olor:rgb(0,0,0)"><a href=3D"mailto:j.bonnefoy@phardex.fr" title=3D"mailto:j=
+.bonnefoy@phardex.fr" style=3D"margin-top:0px; margin-bottom:0px">j.bonnefo=
+y@phardex.fr</a></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan=3D"3" style=3D"padding:0cm">
+<div align=3D"center">
+<hr align=3D"center" size=3D"2" style=3D"width:100%">
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td style=3D"padding:0cm; width:15pt">
+<p><span style=3D"font-family:Webdings,serif,EmojiFont; font-size:10pt; col=
+or:rgb(51,153,102)">=C3=BC</span></p>
+</td>
+<td style=3D"padding:0cm">
+<p><span style=3D"font-family:&quot;Arial&quot;,sans-serif,serif,EmojiFont;=
+ font-size:10pt; color:rgb(51,153,102)">Pensez
+<b>ENVIRONNEMENT</b>&nbsp;: N'imprimer que si n=C3=A9cessaire !</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"x_elementToProof" style=3D"font-family:Aptos,Aptos_EmbeddedFo=
+nt,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; color:=
+rgb(0,0,0)">
+<br>
+</div>
+<div id=3D"x_appendonsend"></div>
+<hr style=3D"display:inline-block; width:98%">
+<div id=3D"x_divRplyFwdMsg" dir=3D"ltr"><span style=3D"font-family:Calibri,=
+sans-serif; font-size:11pt; color:rgb(0,0,0)"><b>De :</b>&nbsp;Dr Anne Clar=
+et Tournier &lt;dr.anne.claret@gmail.com&gt;<br>
+<b>Envoy=C3=A9 :</b>&nbsp;jeudi 12 octobre 2023 18:12<br>
+<b>=C3=80 :</b>&nbsp;BONNEFOY Julien &lt;j.bonnefoy@phardex.fr&gt;<br>
+<b>Cc&nbsp;:</b>&nbsp;isabelle.n.laffont@gmail.com &lt;isabelle.n.laffont@g=
+mail.com&gt;<br>
+<b>Objet :</b>&nbsp;Re: Laboratoire BIOCODEX - VM</span>
+<div>&nbsp;</div>
+</div>
+<p style=3D"margin-top:0px; margin-bottom:0px"><span style=3D"font-family:&=
+quot;Times New Roman&quot;,serif; font-size:12pt; color:red">=E2=96=88</spa=
+n><span style=3D"font-family:&quot;Arial&quot;,sans-serif; font-size:12pt; =
+color:red">
+</span><span style=3D"font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontServ=
+ice,Calibri,Helvetica,sans-serif; font-size:12pt; color:black; background-c=
+olor:yellow"><b>Caution : External Email. Do not click links or open attach=
+ments unless you recognize the sender
+ and the content is safe.</b></span><span style=3D"font-family:Aptos,Aptos_=
+EmbeddedFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12=
+pt; color:rgb(0,0,0)"><br>
+<br>
+</span></p>
+<div style=3D"direction:ltr"><span style=3D"font-family:Aptos,Aptos_Embedde=
+dFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; col=
+or:rgb(0,0,0)">Oui sur le principe bien s=C3=BBr &nbsp;mais pouvez vous nou=
+s dire de quel traitement il s'agit ?</span></div>
+<div style=3D"direction:ltr"><span style=3D"font-family:Aptos,Aptos_Embedde=
+dFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; col=
+or:rgb(0,0,0)"><br>
+</span></div>
+<div style=3D"direction:ltr"><span style=3D"font-family:Aptos,Aptos_Embedde=
+dFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; col=
+or:rgb(0,0,0)"><br>
+</span></div>
+<p style=3D"direction:ltr; margin:0cm 0cm 0.0001pt"><span style=3D"font-fam=
+ily:arial,sans-serif; font-size:12pt; color:rgb(0,0,0)">-------------------=
+-------------</span></p>
+<p style=3D"direction:ltr; margin:0cm 0cm 0.0001pt"><span style=3D"font-fam=
+ily:arial,sans-serif; font-size:12pt; color:rgb(0,0,0)"><b>Dr Anne Claret-T=
+ournier</b></span></p>
+<p style=3D"direction:ltr; margin:0cm 0cm 0.0001pt"><span style=3D"font-fam=
+ily:arial,sans-serif; font-size:12pt; color:rgb(0,0,0)">Psychiatre</span></=
+p>
+<p style=3D"direction:ltr; margin:0cm 0cm 0.0001pt"><span style=3D"font-fam=
+ily:arial,sans-serif; font-size:12pt; color:rgb(0,0,0)">11 rue Vignon</span=
+></p>
+<p style=3D"direction:ltr; margin:0cm 0cm 0.0001pt"><span style=3D"font-fam=
+ily:arial,sans-serif; font-size:12pt; color:rgb(0,0,0)">75008 Paris</span><=
+/p>
+<div style=3D"direction:ltr"><span style=3D"font-family:Aptos,Aptos_Embedde=
+dFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; col=
+or:rgb(0,0,0)"><br>
+</span></div>
+<span style=3D"font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Cal=
+ibri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)"><br>
+</span>
+<div style=3D"direction:ltr"><span style=3D"font-family:Aptos,Aptos_Embedde=
+dFont,Aptos_MSFontService,Calibri,Helvetica,sans-serif; font-size:12pt; col=
+or:rgb(0,0,0)">Le&nbsp;jeu. 12 oct. 2023 =C3=A0&nbsp;14:57, BONNEFOY Julien=
+ &lt;<a href=3D"mailto:j.bonnefoy@phardex.fr" id=3D"OWA7ed7946c-7d79-7c3a-8=
+182-a18e98f4905c" class=3D"x_OWAAutoLink" data-loopstyle=3D"linkonly">j.bon=
+nefoy@phardex.fr</a>&gt;
+ a =C3=A9crit&nbsp;:</span></div>
+<blockquote style=3D"margin:0px 0px 0px 0.8ex; padding-left:1ex; border-lef=
+t:1px solid rgb(204,204,204)">
+<span style=3D"font-family:Aptos,Aptos_EmbeddedFont,Aptos_MSFontService,Cal=
+ibri,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">Bonjour Docteu=
+r Laffont,<br>
+Bonjour Docteur Claret<br>
+<br>
+Je suis d=C3=A9l=C3=A9gu=C3=A9 m=C3=A9dical pour le laboratoire BIOCODEX et=
+ je souhaitais prendre rendez-vous avec vous pour le d=C3=A9but d=E2=80=99a=
+nn=C3=A9e prochaine, car nous obtenons une extension d=E2=80=99 AMM dans un=
+ traitement des troubles du d=C3=A9ficit de l=E2=80=99attention/hyperactivi=
+t=C3=A9.<br>
+<br>
+Je n=E2=80=99ai pas plus de pr=C3=A9cisions pour le moment, car je n=E2=80=
+=99ai pas encore =C3=A9t=C3=A9 form=C3=A9=E2=80=A6<br>
+<br>
+Merci de me pr=C3=A9ciser si vous =C3=AAtes int=C3=A9ress=C3=A9 auquel cas,=
+ je serai ravi de vous rencontrer =C3=A0 partir de la deuxi=C3=A8me semaine=
+ de janvier 2024.<br>
+<br>
+Je vous souhaite une agr=C3=A9able journ=C3=A9e.<br>
+<br>
+Cordialement.<br>
+<br>
+Julien Bonnefoy<br>
+D=C3=A9l=C3=A9gu=C3=A9 m=C3=A9dical Paris<br>
+Laboratoire Biocodex<br>
+07.50.64.31.44<br>
+<br>
+Envoy=C3=A9 de mon iPhone<br>
+</span></blockquote>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</body>
+</html>
+
+--Apple-Mail-1C3A94A9-FB52-47A3-94E8-43BA5A5424CB
+Content-Type: image/png;
+	name=Outlook-ntnbv41h.png;
+	x-apple-part-url=a3b27704-ddbf-4dc8-95bf-a06ff81a84f7
+Content-Disposition: inline;
+	filename=Outlook-ntnbv41h.png
+Content-Transfer-Encoding: base64
+Content-Id: <a3b27704-ddbf-4dc8-95bf-a06ff81a84f7>
+
+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
+
+--Apple-Mail-1C3A94A9-FB52-47A3-94E8-43BA5A5424CB
+Content-Type: image/png;
+	name=Outlook-f3mxhutg.png;
+	x-apple-part-url=06c3810e-e09e-4281-919c-071bd6dec625
+Content-Disposition: inline;
+	filename=Outlook-f3mxhutg.png
+Content-Transfer-Encoding: base64
+Content-Id: <06c3810e-e09e-4281-919c-071bd6dec625>
+
+iVBORw0KGgoAAAANSUhEUgAAAAEAAAAECAYAAABP2FU6AAAADklEQVQIW2P4DwQMqAQAn3QP8dGa
+gh4AAAAASUVORK5CYII=
+
+--Apple-Mail-1C3A94A9-FB52-47A3-94E8-43BA5A5424CB--
+
+--Apple-Mail-2E44F3BF-B559-4780-8470-B25C654A7740--
+

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{%  block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/clock.css') }}" />
+{%  endblock head %}
+
+{%  block title %}{{ title }}{%  endblock title %}
+
+{% block content %}
+<div class="row">
+    <div class="col h-75">
+        <div id="clock-container" class="clock-container">
+            <div class="four-digits">
+                {% for d in range(4) %}
+                <div class="one-digit">
+                    {% for c in range(6) %}
+                    <div id = "clock--{{d}}{{c}}" class="clock">
+                        <div id="clockface--{{d}}{{c}}" class="clock-face">
+                            {% for m in range(60) %}
+                            <div class="tick-radius" data-minute="{{m}}">
+                                <div class="tickmark"></div>
+                            </div>
+                            {% endfor %}
+                            <div class="hand hoursHand"></div>
+                            <div class="hand minutesHand"></div>
+                            <div class="center-peg"></div>
+                        </div>
+                        <div id="label--{{d}}{{c}}" class="label" ></div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="col h-25">
+        <div id="trigger-container" class="row d-flex justify-content-center align-items-center p-0">
+            <div class="trigger trigger--left d-flex justify-content-center align-items-center p-0">HAPPY</div>
+            <div class="trigger trigger--right d-flex justify-content-center align-items-center p-0">NEUTRAL</div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+    {{ super() }}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.fitText.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/circleType.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/require.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/clock.js') }}"></script>
+{% endblock script %}

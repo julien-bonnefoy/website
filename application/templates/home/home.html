@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    {{ super() }}
+<div class="d-flex justify-content-center align-items-center container">
+    <div class="d-flex row inner justify-content-center">
+        <section class="d-flex container tiles">
+            <div class="d-flex row justify-content-center w-100 m-0 px-4">
+                <article class="style1 p-4">
+                    <span class="image">
+                        <img src="../../static/img/pic01.jpg" alt="" />
+                     </span>
+                    <a href="/dash/biocodex/calendar">
+                        <p style="fontFamily: Helvetica, sans-serif">SEE CAL</p>
+
+                        <div class="content">
+                            <p>sweet home</p>
+                        </div>
+                    </a>
+                </article>
+                <article class="style2 p-4">
+                    <span class="image">
+                        <img src="../../static/img/pic02.jpg" alt="" />
+                    </span>
+                    <a href="/dash/biocodex/table">
+                        <p style="fontFamily: Coolvetica, sans-serif"><b>LET'S SEAT</b></p>
+
+                        <div class="content">
+                            <p>around the Table</p>
+                        </div>
+                    </a>
+                </article>
+                <article class="style3 p-4">
+                    <span class="image">
+                        <img src="../../static/img/pic03.jpg" alt="" />
+                    </span>
+                    <a href="/dash/biocodex/tiles">
+                        <p style="fontFamily: Coolvetica, sans-serif">TIE TILES</p>
+                        <div class="content">
+                             <p>tiles tie</p>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </section>
+        <section class="d-flex container tiles">
+            <div class="d-flex row justify-content-center w-100 m-0 px-4">
+                    <article class="style4 p-4">
+                    <span class="image">
+                        <img src="../../static/img/pic04.jpg" alt="" />
+                    </span>
+                    <a href="/dash/biocodex/map">
+                        <p style="fontFamily: Helvetica, sans-serif">SHOW ME</p>
+                        <div class="content">
+                             <p>on a map</p>
+                        </div>
+                    </a>
+                </article>
+                <article class="style5 p-4">
+                    <span class="image">
+                        <img src="../../static/img/pic01.jpg" alt="" />
+                     </span>
+                    <a href="{{ url_for('clock_bp.clock') }}">
+                        <p style="fontFamily: Helvetica, sans-serif">IT'S TIME</p>
+
+                        <div class="content">
+                            <p>to be on time</p>
+                        </div>
+                    </a>
+                </article>
+                <article class="style6 p-4">
+                    <span class="image">
+                        <img src="../../static/img/pic03.jpg" alt="" />
+                    </span>
+                    <a href="{{ url_for('ocr_bp.ocr') }}">
+                        <p style="fontFamily: Helvetica, sans-serif">DO YOU<br>READ ME ?</p>
+                        <div class="content">
+                             <p>Now you see me</p>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock content %}

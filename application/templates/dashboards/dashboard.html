@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <base target="_parent">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css">
+{% endblock head %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+    {{ super() }}
+    <div class="row align-items-center justify-content-center m-0 h-100" style="width: 100%;" >
+        <iframe id='dash-frame' src={{ dash_url }} >
+        </iframe>
+    </div>
+{% endblock content %}
+
+{% block script %}
+    {{ super() }}
+
+    <script>
+        var hamburger = document.querySelector(".hamburger");
+        if (hamburger !== null) {
+            hamburger.addEventListener("click", () => {
+                document.querySelector(".hamburger--vortex").classList.toggle("collapsed");
+            });
+        }
+        var frame = document.getElementById('dash-frame')
+        if (frame !== null) {
+            alert('not null');
+            frame.contentDocument.getElementsByTagName('body')[0].style.visibility='visible';
+        } else {
+            alert('null');
+        }
+    </script>
+{% endblock script %}
+
+

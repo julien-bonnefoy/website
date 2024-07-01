@@ -1,0 +1,52 @@
+From f.pavade@phardex.fr Tue Feb 06 14:49:52 2024
+Received: from VI1PR07MB6462.eurprd07.prod.outlook.com (2603:10a6:800:140::20)
+ by AM7PR07MB6692.eurprd07.prod.outlook.com with HTTPS; Tue, 6 Feb 2024
+ 14:49:51 +0000
+Received: from DB7PR07MB5337.eurprd07.prod.outlook.com (2603:10a6:10:67::14)
+ by VI1PR07MB6462.eurprd07.prod.outlook.com (2603:10a6:800:140::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7249.36; Tue, 6 Feb
+ 2024 14:49:48 +0000
+Received: from DB7PR07MB5337.eurprd07.prod.outlook.com
+ ([fe80::f088:108a:d56d:b036]) by DB7PR07MB5337.eurprd07.prod.outlook.com
+ ([fe80::f088:108a:d56d:b036%7]) with mapi id 15.20.7249.035; Tue, 6 Feb 2024
+ 14:49:47 +0000
+From: PAVADE Fiona <f.pavade@phardex.fr>
+To: BONNEFOY Julien <j.bonnefoy@phardex.fr>
+Subject: =?utf-8?B?UsOpc2VhdSBEc28=?=
+Thread-Topic: =?utf-8?B?UsOpc2VhdSBEc28=?=
+Thread-Index: AQHaWQu6+K+fcyrGS0GNG1N2ClcXSw==
+Date: Tue, 6 Feb 2024 14:49:47 +0000
+Message-ID: <D5C460DD-D578-453D-8957-00760FED34F0@phardex.fr>
+Accept-Language: fr-FR, en-US
+Content-Language: fr-FR
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: DB7PR07MB5337.eurprd07.prod.outlook.com
+X-MS-Has-Attach:
+X-MS-Exchange-Organization-Network-Message-Id:
+	89ea2ad6-b412-47c9-1496-08dc2722dd85
+X-MS-Exchange-Organization-SCL: 1
+X-Message-Flag: Flag for follow up
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+x-ms-publictraffictype: Email
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(425001)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	G1eHTri4E+VPUoHcDIqChr56izIKGYg/4b6JOW8Jfght3rly+CSlJ8pAoN85U6e0YA9JLr1rGrTbFqbpPbvccpOYM7oZ3dkRt78499X7AbnN7ozHQ6n+gCm1foL11F3sFzQrxIRiBIiq326cIOBqtLybNDbQMN0PaAeIh2Y0mFcZCB9rVsPrbo8D7CMmFUzOAlbMqyPxisACz2UHq/CpDd07dRotOHI2gBvlzgQfkymV8w29WLKvNXlAeyUKeWneyBdETdHOPrA4xYXLQEx0hCIKK8BQqcaahNqtMtkRK/Uwd58fWBzVUGd2Bqf90ld+xjjyvoDYQfHAPfmtvjXhF1rEggdVGJOOPk8xXSwfU+ybr9tII3b2AZ5jus7yPX6Nn7Vr+WWnfxYXzBrf1D6psJ94qSUeygvs9SA34NwDOViom33jicf69Sv5Thg9YpMMVF7lBbRIYLxdUBmCFLvZ/fJbnTcj2YjzOud9kn7i7JU6ewf57IQXzXG36rvpxRuy4c5CIozjkLSEErtPeh1+vq+BWZCJSQjiGI7WHk3AlHbOvKUiCf5nNB0lEJ9UPwMKRk+ddDShJgZ2ZHPG7OAOoRdIJQPAmtyfXWkJS08VOMwdFJnqvF0v9We3oW9fzOW1O0biQIyhskI3Y/jKg2UK3YvkaoPMR4Q4CP66d7ALEPmx9Bp9Uj9KTM+sVHHZAe/QzP6pXMeG6NCSMke5TQ95Ug==
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <1BBF6036072E2B4B983ECB081C434B67@BIOCODEX1.onmicrosoft.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+
+Qm9uam91ciBKdWxpZW4gLCANCkrigJllc3DDqHJlIHF1ZSB0dSB2YXMgPw0KDQoNCkplIHN1aXMg
+RmlvbmEgbGEgRFNPIHF1aSBmYWl0IHBhcmlzIHN1ciB0b24gc2VjdGV1ciwgDQpKZSBtZSBwZXJt
+ZXRzIGRlIHTigJllbnZveWVyIHVuIHBldGl0IG1haWwgYWZpbiBxdWUgbm91cyBwdWlzc2lvbnMg
+w6ljaGFuZ2VyIGVuc2VtYmxlLCBjZSByZW5jb250cmVyIHN1ciBsZSB0ZXJyYWluIGF1dG91ciBk
+4oCZdW4gY2Fmw6kgDQoNCkplIHJlcHJlbmRzIGxlIHRlcnJhaW4gZGFucyBkZXV4IHNlbWFpbmVz
+IGFpbnNpIG5vdXMgcG91cnJpb25zIHPigJlhY2NvcmRlciBzdXIgdW4gam91ciBlbiBmb25jdGlv
+biBkZSB0ZXMgZGlzcG9uaWJpbGl0w6lzIA0KDQpO4oCZaMOpc2l0ZSBwYXMgw6AgbWUgY29udGFj
+dGVyIGTDqHMgcXVlIHR1IHBldXggYXUgMDYgNzUgNDcgODcgODEgDQoNCkJpZW4gw6AgdG9pIA0K
+QXUgcGxhaXNpciBkZSB0ZSByZXZvaXIgDQoNCkVudm95w6kgZGUgbW9uIGlQYWQ=
+

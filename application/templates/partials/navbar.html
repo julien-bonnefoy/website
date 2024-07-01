@@ -1,0 +1,85 @@
+<div class="container-fluid px-0" style="padding: 0 50px 0 50px;">
+
+    <div class="col-1"></div>
+
+    <div id="navbarCollapse" class="collapse navbar-collapse bg-dark">
+
+    {% if current_user and current_user.is_authenticated %}
+
+        <ul class="navbar-nav me-auto mb-0">
+            <li class="nav-item">
+                <a class="nav-link btn" href="{{ url_for('ocr_bp.ocr') }}" >O.C.R.</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn" href="{{ url_for('clock_bp.clock') }}" >CLOCK&nbsp;24</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn" href="/crossfilter" >CROSS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn" href="/iris" >IRIS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn dropdown-toggle" data-bs-toggle="dropdown" >BIOCODEX<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item">
+                        <a href="/dash/biocodex/tab-1" >TABLE</a>
+                    </li>
+                    <div class="divider"></div>
+                    <li class="nav-item">
+                        <a href="/dash/biocodex/tab-2" >MAP</a>
+                    </li>
+                    <div class="divider"></div>
+                    <li class="nav-item">
+                        <a href="/dash/biocodex" class="text-center">Biocodex</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+                <a class="btn btn-dark" href="/{{ current_user.username }}" style="font-size: 11px; font-weight: 900; color: #000080; text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; ">Logged&nbsp;in&nbsp;as&nbsp;{{ current_user.username }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-dark" href="{{ url_for('auth_bp.logout') }}"><i class="fa-solid fa-right-from-bracket"></i></a>
+            </li>
+        </ul>
+
+    {% elif url == 'login' %}
+
+        <ul class="navbar-nav me-auto mb-0"></ul>
+        <ul class="navbar-nav navbar-right mb-0">
+            <li class="nav-item">
+                <a class="nav-link navbar-text" href="{{ url_for('auth_bp.register') }}">Create account</a>
+            </li>
+        </ul>
+
+    {% elif url == "register" %}
+
+        <ul class="navbar-nav me-auto mb-0"></ul>
+        <ul class="navbar-nav navbar-right mb-0">
+            <li class="nav-item">
+                <a class="nav-link navbar-text" href="{{ url_for('auth_bp.login') }}">Sign in</a>
+            </li>
+        </ul>
+
+    {% else %}
+
+        <ul class="navbar-nav me-auto mb-0">
+            <li class="nav-item active">
+                <a class="nav-link navbar-text" href="{{ url_for('auth_bp.register') }}">Create account</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar-right mb-0">
+            <li class="nav-item">
+                <a class="nav-link navbar-text" href="{{ url_for('auth_bp.login') }}">Sign in</a>
+            </li>
+        </ul>
+
+    {% endif %}
+
+    </div>
+
+    <div class="col-1"></div>
+
+</div>
+

@@ -1,0 +1,210 @@
+From julien.bonnefoy1@orange.fr Wed Sep 20 03:53:14 2023
+Received: from PAVPR07MB9335.eurprd07.prod.outlook.com (2603:10a6:102:31a::8)
+ by AM7PR07MB6692.eurprd07.prod.outlook.com with HTTPS; Wed, 20 Sep 2023
+ 03:53:14 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=NaKcVgFkKwJbn9axgkRxNEd90BL7TiJII7oGtMWjBOhZ3VxQetd+0f6xLx8H2sqKv9CPIGwS/NEOHoAySE27EuusbIf5XtZqs0I2sAliswZ9MY2figwHhS8IaDt3YX9+gHy7ONAO1xYsg4fRfysF8kl2lhKTwgfPNLVRDel4XArPXxaTDyEtdk4YnDuIKfLK/gPuD8bNi9jGEhiFv8nmtJ6Lj0ropUUk1O9mDyNEipcjkPcGw4K+ZPJTUiktnafv0gMvPceQnAckIGs8SUoxy9+reVzBVlp4z10eFQIqlg8EWvt9DUTJp65fwu9Ke9cPlnB9GsPEFpkJM6BLRZpGRQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4/QaGk2xEtqVH7OHfpJ6jATzJJqT+yQt9j0YNUcODBM=;
+ b=HFhwTN7qffwBBhg8K1QlT43zfoC/O2W86QCAoVtFx1FNMIeLOzsQlWplfb0oGNCR4nNiCiDh/NZL7gFuXrnakJJqMAWxj6izioqsFIXLOU1e1z8V9pXJUZ2F4V8ZUHE6xiP1PUgcgVS715Dj8OrjFIhJedwhTbzgsm6ilURixTOU6utzJl5i3U/1uvamgyGrmUVTy8f/TSF5/Bfbe800eCNSRKMbrwEL4m24Om7MkkCtoqY0VQr84QgDhN2DY31c9qamDwqv6NqIyHr9szeRRLKTavEYLE1v34Z9Lwxj0uGALNLgc+MpjI/F5GtxOzuMniBYMp1vP/LqAARSpK5+FQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=neutral (sender ip is
+ 51.163.159.21) smtp.rcpttodomain=phardex.fr smtp.mailfrom=orange.fr;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=orange.fr;
+ dkim=fail (body hash did not verify) header.d=orange.fr; arc=pass (0 oda=0
+ ltdi=0 93)
+Received: from AS8PR04CA0077.eurprd04.prod.outlook.com (2603:10a6:20b:313::22)
+ by PAVPR07MB9335.eurprd07.prod.outlook.com (2603:10a6:102:31a::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.24; Wed, 20 Sep
+ 2023 03:53:12 +0000
+Received: from AM7EUR03FT062.eop-EUR03.prod.protection.outlook.com
+ (2603:10a6:20b:313:cafe::68) by AS8PR04CA0077.outlook.office365.com
+ (2603:10a6:20b:313::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6792.28 via Frontend
+ Transport; Wed, 20 Sep 2023 03:53:12 +0000
+Authentication-Results: spf=neutral (sender IP is 51.163.159.21)
+ smtp.mailfrom=orange.fr; dkim=fail (body hash did not verify)
+ header.d=orange.fr;dmarc=fail action=none
+ header.from=orange.fr;compauth=softpass reason=201
+Received-SPF: Neutral (protection.outlook.com: 51.163.159.21 is neither
+ permitted nor denied by domain of orange.fr)
+Received: from de-smtp-inbound-delivery-1.mimecast.com (51.163.159.21) by
+ AM7EUR03FT062.mail.protection.outlook.com (100.127.140.99) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6813.16 via Frontend Transport; Wed, 20 Sep 2023 03:53:11 +0000
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=dkim.mimecast.com; s=201903; t=1695181991;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 dkim-signature; bh=4/QaGk2xEtqVH7OHfpJ6jATzJJqT+yQt9j0YNUcODBM=;
+	b=Sa1keLmdtB+dSO9FmwFDYKAQeJmiPgQBij0OF3qCbWPWwMYv2XRprYRf30WcMqhr1QO9tQ
+	SxoyYe7MdXZqm3wAR5D6oxtaBocANLQBr2ISsHXwns9B9HaI6KfuTlxu1Ki/5+r2s4q3r4
+	23x/sOjN76n6OafjhtgHdjw4J/CL4AiMswE0ifdMELh6YyLTxhFYm1l4KLf0e99ub+pLWO
+	8++rTLgmQ8FAUuBcaJ9pfaNuz4Be2KqyeU3vkKb5H3PIDSOPA9sMjVjtBpR9NtEZDSkqEu
+	yM53aHFb6Bg5v8Pg7iZCKaM3vPYwubYnHEAz96iuPESzSesjBBKiK9KV/OPTwg==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1695181991; a=rsa-sha256;
+	cv=none;
+	b=bpoJQFj7iJI0K71f6JUmw1YHGmh1w/YIefwSeKtrqkP+r65EU3bUd6zI0trbdkFfP5DM+5
+	hAs6HtCoFgMd4Pzx3UTH2HGkPuErtE7HSBhFVFCAh7Q6HwL6Ntm48vEGF/ElMJcLT5OdXM
+	MSLJ8NkfnpXcSI5RB+NkPCiI3KoT7TTlF+hq/v9/d7NetMnbauNG8+EcVkYjnDkLlP3B8F
+	MWgu6NdPzBQsXhrHVUSKHao1nK5kcmzsZDq/caBw6O6gwTFtN4AC2Q1GZ4tcmhKvQP93lr
+	Jj7W75yIQ6dUdHZW0eFTt1Rm1xav0ek3nFH3Lrs01Omv0NgaChjXLuB0vrMoEA==
+ARC-Authentication-Results: i=1;
+	relay.mimecast.com;
+	dkim=pass header.d=orange.fr header.s=t20230301 header.b="GG6I/lfm";
+	dmarc=pass (policy=none) header.from=orange.fr;
+	spf=pass (relay.mimecast.com: domain of julien.bonnefoy1@orange.fr designates 80.12.242.17 as permitted sender) smtp.mailfrom=julien.bonnefoy1@orange.fr
+Received: from smtp.smtpout.orange.fr (smtp-17.smtpout.orange.fr
+ [80.12.242.17]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ de-mta-59-CTwuhr-LMC6UuBKc-SzcJA-1; Wed, 20 Sep 2023 05:53:08 +0200
+X-MC-Unique: CTwuhr-LMC6UuBKc-SzcJA-1
+Received: from [192.168.0.15] ([82.67.15.90])
+	by smtp.orange.fr with ESMTPA
+	id ioGxqS8YeUbViioGyqXo9W; Wed, 20 Sep 2023 05:53:08 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=orange.fr;
+	s=t20230301; t=1695181988;
+	bh=zLDVvWYRP21ShSz3ZQqc3wlWI53aksAO5IpfG2K5IMg=;
+	h=Date:To:From:Subject;
+	b=GG6I/lfmwKhZCcEXb/oYXb0RK5xihWO6AaC8YB1kk5psPV4xAHY86ha16mOIgc2EK
+	 t+oSAliUgLTh91/Ba9jCiP/RTVrm/M7MhUHloJSG8DsymH0JansENc+7pdaKfZUfsy
+	 F6n3CX1Amf6mVa+I5VQ8HpWUR8ieiaxTcmMsweroxalHXG+BD8zwuO/LfSj862bnhk
+	 87pLQXKipbwmTZGbOMLtQ+BY2PqCW+cvqbWBPmXeVxBAsJX8//6qgPoC16ThcyuE/G
+	 2+D5WkZ2geDATTmIETTe4btp87BfWCp4LuFhhOWGisRqbNTImYYGPeLhcKSFQ7qpqL
+	 ixkBJNJlJpnHg==
+X-ME-Helo: [192.168.0.15]
+X-ME-Auth: anVsaWVuLmJvbm5lZm95MUBvcmFuZ2UuZnI=
+X-ME-Date: Wed, 20 Sep 2023 05:53:08 +0200
+X-ME-IP: 82.67.15.90
+Message-ID: <823550a2-ffd4-44be-80f9-c543e9171f73@orange.fr>
+Date: Wed, 20 Sep 2023 05:53:07 +0200
+User-Agent: Mozilla Thunderbird
+To: BONNEFOY Julien <j.bonnefoy@phardex.fr>,
+ Orange <julien.bonnefoy1@orange.fr>
+From: JB <julien.bonnefoy1@orange.fr>
+Subject: link
+Authentication-Results-Original: relay.mimecast.com;	dkim=pass
+ header.d=orange.fr header.s=t20230301 header.b="GG6I/lfm";	dmarc=pass
+ (policy=none) header.from=orange.fr;	spf=pass (relay.mimecast.com: domain of
+ julien.bonnefoy1@orange.fr designates 80.12.242.17 as permitted sender)
+ smtp.mailfrom=julien.bonnefoy1@orange.fr
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Impersonation-Protect: Policy=Impersonation - VIP Header Display Name Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+X-Mimecast-Impersonation-Protect: Policy=New Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+Content-Type: multipart/alternative;
+	boundary="MCBoundary=_12309200553100121"
+Return-Path: julien.bonnefoy1@orange.fr
+X-MS-Exchange-Organization-ExpirationStartTime: 20 Sep 2023 03:53:11.6659
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 5de99b62-d3c8-44a8-4c52-08dbb98d1c23
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: d1197c46-2c75-438b-a7ef-16690d1f8b64:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AM7EUR03FT062:EE_|PAVPR07MB9335:EE_|AM7PR07MB6692:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AM7EUR03FT062.eop-EUR03.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 5de99b62-d3c8-44a8-4c52-08dbb98d1c23
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:51.163.159.21;CTRY:DE;LANG:fr;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:de-smtp-inbound-delivery-1.mimecast.com;PTR:de-pop.mimecast.com;CAT:NONE;SFS:(13230031)(451199024)(31686004)(33964004)(356005)(86362001)(7636003)(166002)(31696002)(36756003)(3480700007)(426003)(336012)(8676002)(2616005)(966005)(956004)(1096003)(110136005)(7116003)(5660300002)(26005)(43740500002)(220243001)(91840200004);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Sep 2023 03:53:11.5878
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5de99b62-d3c8-44a8-4c52-08dbb98d1c23
+X-MS-Exchange-CrossTenant-Id: d1197c46-2c75-438b-a7ef-16690d1f8b64
+X-MS-Exchange-CrossTenant-AuthSource:
+ AM7EUR03FT062.eop-EUR03.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR07MB9335
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.5698054
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6792.025
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?Ny90eU9hNmNWY05ObUJCKzVsa0lvMFZLV3pteWdyVjlKaUQ5SFVsZzFFV1BV?=
+ =?utf-8?B?YWkxaWdySXVJeExSUTVxK2pqc2FqS2RHMjJ1cGZxM0RTUkNpRWRkNkhhRmd2?=
+ =?utf-8?B?SVBSWDJKRUJ3NVM2MGNVQzdPMEtuczR6dUJGWEhoNDdnUlUxN0RpZTE1b2Jw?=
+ =?utf-8?B?UlRTSENTYi9Jbm1ucVlKU2VoOFNvRXFvK2JvNmZrNkJVZytBNWxZUTZGc0o4?=
+ =?utf-8?B?OXZzVUtTeXp3Z2FCaWNURi81RDhST25KM0Rqc0s0N05BRFBtajhiRmRCaVJ1?=
+ =?utf-8?B?Y3g3N3p1YU81TDNvOVg5ZlJYUFNvRW9ua3QzcXM5b3BWUHViVWh0Zk5kZHFB?=
+ =?utf-8?B?WXNoaklTanJ1Vkg4MVYrbmpTZzFBRWVvNUhMWWpWRjZjVG9QYStvSjhOTDhw?=
+ =?utf-8?B?cTJSeXl4MkdwL1ZyNEN5dnd1bnhWcmprWjVBaFRHMWRUb1ZmeUlPVmJUcGFQ?=
+ =?utf-8?B?SysxMTc4OHJBaVQxblp3emV1aExldEJvZ2hralZsRm01YWtjMGd2eTN3YWo5?=
+ =?utf-8?B?N3VPQ3VoYnFnVWFOd3VpWEVKQTFLbHJaTEY3bWJDTkdQOUg5UHZ2YjlMbm92?=
+ =?utf-8?B?bGo3Rm9LMTJjQ2NLVVhRaWFjL21OZXBiSHNTNEh1TWtJVko4MUZYbVc0TDZl?=
+ =?utf-8?B?TkYzMFlYaFNDZ3N0L2hQcEVpTDZDb0cxOHpGNVpxOTk5OVZHZmlrRTZlZEZh?=
+ =?utf-8?B?ZHd5dHFYZ29Lc0NnWnFjdkxxTitnTkVQNkE2endGSS96S2NySHVkVHhMcFBE?=
+ =?utf-8?B?SHNUWTkwMktoY1VURUJBUloxZ1hOV1U3Z0RIbUxUQ1dFcmdzTzBVbDNHeDha?=
+ =?utf-8?B?M3B1YktGYWlnY2pCbFlNRzVOL3dIQ3JHNUIrTGlTRWYzNFcwMk55SjcrQmwy?=
+ =?utf-8?B?djY1cWM0ek5kcGtwTnVMWWtZc2h4c2Ric21yczdrR0ZLQzlRQ013RzZTei9l?=
+ =?utf-8?B?S29HcEFnUFZ1b1M3MnQyM1VFaXpsK0NvallkeERQKzk4d1oyb2MzcTV3VFlZ?=
+ =?utf-8?B?VTE5ZmlLdkU2SS95M0FLYmNaYUgvSTZNVHFDZjlhcEJmeG1kRXcvVUsxSGV6?=
+ =?utf-8?B?azg2THZ0VWViMEZMejQ3ZncvcnArQi81ZDlOSEEvT0lncjgyOTNmazRvbElw?=
+ =?utf-8?B?YkozdTdScTBLaDhBSCtBODYxTTZiUjg4dnJ6ZUM1U1ZEaUNDNEVFL0ZqQ0p6?=
+ =?utf-8?B?ZGZVK0F0ZFR6RWI1TVRHTTQ5TTFhZnR2ZnQ3ZU44NXJrVk9pQ1ZkQ0hLbjh5?=
+ =?utf-8?B?TTBDVm9OYXFTdVE0QnVmejlOMXJvMTNMM2RMaEk0b0lpSmxuRHcvMklIOGVq?=
+ =?utf-8?B?dWF6bFc1enk4WU1iSXZabm5LVE05Kzg0ME45V3BVbVRWbXVJZGFXN2RoUHJk?=
+ =?utf-8?B?Y0s5MmlIblduTDM5cG9KUGkzeVZ0Umg4T3JDYTgvaEkzVUM2UFBCV2NUZ2hi?=
+ =?utf-8?B?Y1VCS1BVQnJtb0dEUDA0Wjl4djhGTDF0SmprcXQ3aHBMSVVYUThiQ3p6cVIv?=
+ =?utf-8?B?dmNuUkNpTGN3ZHpNVi9Sc3g2aE1mUU90Z3hybGIrUWE1eDd0aGw0TVVhdDB0?=
+ =?utf-8?B?TERSblc0RXFFT1hEUVgva2pSQzh2dGYveEttaU82eUs1cjZpRlF1WlhmbENk?=
+ =?utf-8?B?RklxODg3N2FMM2p3eTR2V0xEVTNUcVVybDFIN2xGUDhYd0NVMWlUL0Jkcitw?=
+ =?utf-8?B?aklSVHA2bWxpbnA2bVFwRnNmZEtnMFo1bzBueUpWb3NoVnlFYnIyTmw3ZlFT?=
+ =?utf-8?B?NElnQ3hXZWp4QjZWM1F0WnJVWXd2VUJOMGlTK0U4OUY5ZmhUVHZNRjF0V1c5?=
+ =?utf-8?B?OHBQZS9BMkcyNXRtOUtjS1VBQ2xWczhEZU5ONHJ5RGhtUCtjL0tuSEtCRk9X?=
+ =?utf-8?B?empFSUlKcXdoQnVTbG1hS2JMVzhsc0t6eUVJUXR4QkpPQ2RJNG9nMVVXMzlR?=
+ =?utf-8?B?TXRqcEZBZ29SSGZqRXpZeWdZRHhSMzN1WFdTdDlNaE1BNUlhYXJ6VEVxSXNh?=
+ =?utf-8?B?a01lVnlGMzVEdEVWTkxKUlpFSnhITkMwRmRwd2lFWXlKcVAraDNYM2lOdmdQ?=
+ =?utf-8?B?NE1VZE43SU5yek9OZjlSZVVLZ3dVWk5TZi9CRmFwNlJGb09mNzlIRlJYNlcv?=
+ =?utf-8?Q?2NtU=3D?=
+MIME-Version: 1.0
+
+--MCBoundary=_12309200553100121
+Content-Language: en-US
+Content-Type: text/plain; charset="utf-8"; format=flowed
+Content-Transfer-Encoding: quoted-printable
+
+=E2=96=88 Caution : External Email. Do not click links or open attachments =
+unless you recognize the sender and the content is safe.
+
+https://biocodexmap-0774d34edd43.herokuapp.com<https://protect-de.mimecast.=
+com/s/Wj7NCx6pQyUAgQnuvNoh9?domain=3Dbiocodexmap-0774d34edd43.herokuapp.com=
+>
+
+--MCBoundary=_12309200553100121
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</head>
+<body>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-family:&quot;Time=
+s New Roman&quot;,serif;=0A=
+color:red">=E2=96=88</span><span lang=3D"EN-US" style=3D"font-family:&quot;=
+Arial&quot;,sans-serif;=0A=
+color:red">
+</span><b><span lang=3D"EN-US" style=3D"color:black;background:yellow">Caut=
+ion : External Email. Do not click links or open attachments unless you rec=
+ognize the sender and the content is safe.</span></b><br>
+<br>
+</p>
+<div><a href=3D"https://protect-de.mimecast.com/s/Wj7NCx6pQyUAgQnuvNoh9?dom=
+ain=3Dbiocodexmap-0774d34edd43.herokuapp.com">https://biocodexmap-0774d34ed=
+d43.herokuapp.com</a><br>
+</div>
+</body>
+</html>
+
+--MCBoundary=_12309200553100121--
+

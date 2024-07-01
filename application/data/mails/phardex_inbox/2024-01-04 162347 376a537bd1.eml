@@ -1,0 +1,785 @@
+From avisage-ne-pas-repondre@chronopost.fr Thu Jan 04 16:23:47 2024
+Received: from DUZPR07MB9785.eurprd07.prod.outlook.com (2603:10a6:10:4ad::16)
+ by AM7PR07MB6692.eurprd07.prod.outlook.com with HTTPS; Thu, 4 Jan 2024
+ 16:23:47 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=QPABbnyuee3tzLoNbprxE5tWiIl9uz6guzgjOrbbI3eUEEFV4ij2jADTOoCDeGCZ6NFqwnc74b4L2Jk3PFmIErCqCcOsKrloUdgZQj3a1/UvVVhOcyGYynpcxB3aUrBJ+iFI/O7/9QxQtLrWzYYr84IV92l+K7vhiQw9ZJ5bgjaF6aAufqcv0rgPVET6Saj6iw42RCDRMKe6IjoYGDr2wOqgi9gnJC4LaEkPzwM99r5Fz0v/Y5Lxbb9E7oAK7+4JGVVMetTYWy2xkvUJG7NZs4pkjaZxD4ztyLEjUxPHKdQbAMETerKIpPj0qIY+SyBuPmsMVH46aOBr3DISoBH5og==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ksjBM8hWaJwPTJKJ54mu5E08X5Xe+eAiJp2ICblovVQ=;
+ b=PXOz910P3LrQxRYFU1Oh+5cKWFwtRov2fuAnktr+atYJOx+ODHCcjiTpF1ChwFsZGsuNRcTa0a5ggNlPpHrOrA7v2eIP3ZV4FNUcrsdptJjKppTYd6jA6ZRVr6wzmZCh56Tm7dYTbxolws+b1baVoNLi3daohR8tY/Od+Cb/kiQYtVDLtR9hdM5ZNxGYeQOAAoOdAQPeFEhYOAxlHZZSETD06Cpu+NeoRm8bWRwOz8mWbz/PwzfgW3C/z25lB28ADo4ngPsU46E0Er2qLsaHpfhSekYg0gzY6QCU0+Q9mwt1kJEYlbwdbchEXHFO7BwvjUVLNfxxHe4w75k8VpFRNA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 194.104.110.241) smtp.rcpttodomain=phardex.fr smtp.mailfrom=chronopost.fr;
+ dmarc=fail (p=reject sp=reject pct=100) action=oreject
+ header.from=chronopost.fr; dkim=fail (body hash did not verify)
+ header.d=chronopost.fr; arc=pass (0 oda=0 ltdi=0 93)
+Received: from DUZPR01CA0005.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:3c3::9) by DUZPR07MB9785.eurprd07.prod.outlook.com
+ (2603:10a6:10:4ad::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7159.14; Thu, 4 Jan
+ 2024 16:23:44 +0000
+Received: from DU6PEPF0000952A.eurprd02.prod.outlook.com
+ (2603:10a6:10:3c3:cafe::d3) by DUZPR01CA0005.outlook.office365.com
+ (2603:10a6:10:3c3::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7159.15 via Frontend
+ Transport; Thu, 4 Jan 2024 16:23:44 +0000
+Authentication-Results: spf=softfail (sender IP is 194.104.110.241)
+ smtp.mailfrom=chronopost.fr; dkim=fail (body hash did not verify)
+ header.d=chronopost.fr;dmarc=fail action=oreject
+ header.from=chronopost.fr;compauth=none reason=451
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ chronopost.fr discourages use of 194.104.110.241 as permitted sender)
+Received: from de-smtp-inbound-delivery-1.mimecast.com (194.104.110.241) by
+ DU6PEPF0000952A.mail.protection.outlook.com (10.167.8.11) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7159.9 via Frontend Transport; Thu, 4 Jan 2024 16:23:44 +0000
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=dkim.mimecast.com; s=201903; t=1704385424;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:dkim-signature;
+	bh=ksjBM8hWaJwPTJKJ54mu5E08X5Xe+eAiJp2ICblovVQ=;
+	b=fvgrgGgIa2/cjBWVVnUviHhsRl/Kh9FfZdVCtaKMqAaX2Qu62rnYyfOLjJXrmw+htgPoSP
+	r19J4pa4YRmKE+yURQdFxKPmS7OsJKMzil8Y+SRa6jovICU1/wuaVPqCgACStHmeK3G7GN
+	GGTgJxqJChJr+a5u61mZOt0g/jIELY9lGZ6okGsvGmFF942ewRzGVEviuDL9fmRnE2Lloa
+	mKKeQyOkU6uj34nKGpkWSSufN4UN+mwzwYs/LIc8FgI4Fok6uJd+IGpmQIYazTVyAaNH1R
+	YfAqBGTPI8BzPStgw9pY0lYma5qDfn987xaO9WchH/c/zOeSFQGELQae7hbf3A==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1704385424; a=rsa-sha256;
+	cv=none;
+	b=V6NolqUjdc3bEKw9G/4Ss7y8hKppM+KrsVKv/KJnd6d3/G5nrCdbhzQE5q84kxeWOaIjXM
+	boyluTFUSmITCtc3pUi2ELiMq5V87VmR4PBqtG5bcWxdn4TkCEpZLbx8lhjrr4Q7Doff+e
+	yhZKWr1REh9A+4kH1wKvIHU791cYEn5yeUTYwR4xsBKt2SJiE6NXi6DG1X3u5zjbdfmu9f
+	sn7o0NGr6pR8YCJU6baSJfS31YRROQGsF7fTX8CyfW37p7RfGsO1kFsbmFpX94YpjBWmrW
+	9xQA4ZxRvvcRiVzcDN3RDaOQHqzBFMMIshFpCL8SwnS1LSD4YXm6xoNVso4XPQ==
+ARC-Authentication-Results: i=1;
+	relay.mimecast.com;
+	dkim=pass header.d=chronopost.fr header.s=dkim2 header.b=jYj2ijmv;
+	dmarc=pass (policy=reject) header.from=chronopost.fr;
+	spf=pass (relay.mimecast.com: domain of avisage-ne-pas-repondre@chronopost.fr designates 213.41.95.26 as permitted sender) smtp.mailfrom=avisage-ne-pas-repondre@chronopost.fr
+Received: from proxysmtp1.chronopost.fr (proxysmtp2.chronopost.fr
+ [213.41.95.26]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ de-mta-24-3eP7kdo2N8K76EaxT_Vr-A-1; Thu, 04 Jan 2024 17:23:41 +0100
+X-MC-Unique: 3eP7kdo2N8K76EaxT_Vr-A-1
+DKIM-Filter: OpenDKIM Filter v2.11.0 proxysmtp1.chronopost.fr 3B7D1402690
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chronopost.fr;
+	s=dkim2; t=1704385422;
+	bh=mq1c6BJiZwCLKIiq6knLUBHmsgC7zEicgBuOxuIvhkQ=;
+	h=Date:From:To:Subject:From;
+	b=jYj2ijmv2Ts0ogxW1WFPlAFpq6yDVNiGB8z1JzuLptCTtDB5btzebb6fS6FSMr8DJ
+	 DhE2u0zWVb9H0ThdHMWFYzVrLCcjvu7bIVJzCxWjj+yp93sq3tDYHR1cKvf309hQBT
+	 rt1if1oFsWwCBFWFGlCR0oE/E+I424G2/jaT3FKA=
+Date: Thu, 4 Jan 2024 17:23:41 +0100 (CET)
+From: Chronopost <avisage-ne-pas-repondre@chronopost.fr>
+To: j.bonnefoy@phardex.fr
+Message-ID: <280238549.2623174.1704385421510.JavaMail.tibco@lyn1e227.tlt>
+Subject: Votre colis  est en chemin XW671075547JB
+Authentication-Results-Original: relay.mimecast.com;	dkim=pass
+ header.d=chronopost.fr header.s=dkim2 header.b=jYj2ijmv;	dmarc=pass
+ (policy=reject) header.from=chronopost.fr;	spf=pass (relay.mimecast.com:
+ domain of avisage-ne-pas-repondre@chronopost.fr designates 213.41.95.26 as
+ permitted sender) smtp.mailfrom=avisage-ne-pas-repondre@chronopost.fr
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Impersonation-Protect: Policy=Impersonation - VIP Header Display Name Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+X-Mimecast-Impersonation-Protect: Policy=New Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+content-type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Return-Path: avisage-ne-pas-repondre@chronopost.fr
+X-MS-Exchange-Organization-ExpirationStartTime: 04 Jan 2024 16:23:44.4413
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ d7c72968-3c8a-4e3f-0226-08dc0d41858d
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: d1197c46-2c75-438b-a7ef-16690d1f8b64:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ DU6PEPF0000952A:EE_|DUZPR07MB9785:EE_|AM7PR07MB6692:EE_
+X-MS-Exchange-Organization-AuthSource:
+ DU6PEPF0000952A.eurprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: d7c72968-3c8a-4e3f-0226-08dc0d41858d
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:194.104.110.241;CTRY:DE;LANG:fr;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:de-smtp-inbound-delivery-1.mimecast.com;PTR:de-smtp-delivery-1.mimecast.com;CAT:NONE;SFS:(13230031)(230173577357003)(230922051799003)(230273577357003)(451199024)(1690799017)(14302899009)(47000500020)(36756003)(86362001)(76236004)(15974865002)(7636003)(166002)(356005)(58800400005)(6916009)(9686003)(26005)(336012)(22186003)(956004)(34756004)(19627405001)(5660300002)(1096003)(8676002)(83380400001)(76899018);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jan 2024 16:23:44.3476
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d7c72968-3c8a-4e3f-0226-08dc0d41858d
+X-MS-Exchange-CrossTenant-Id: d1197c46-2c75-438b-a7ef-16690d1f8b64
+X-MS-Exchange-CrossTenant-AuthSource:
+ DU6PEPF0000952A.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR07MB9785
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.0066222
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7159.005
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?MFl6Sml6dXZSbFVVZnJyaGtNVkpWRHRIOXpZeElJTExvVGljMmxJNE03QlIz?=
+ =?utf-8?B?L0pFQnU0MHY2NkZJU3FyUnoyVWt0TzBwT1FPcExtZktuTHZncTJiYjV5N0RB?=
+ =?utf-8?B?bVBTT29zMXhMQndmcVdTYTB3SFFzZUZ3enpvSHZTMUZ3MXU2MTVMZG5vVElS?=
+ =?utf-8?B?L1QxTTJSbWNLSnJBazRXR21XOWxGbVRvYThoNmdiTjVMVExYZ0x0bWZmVFBL?=
+ =?utf-8?B?Y25WbEYrTjFpL0pscWxnZ1E3bEVkSXBTRHF0N3BzT0UvTk9Ybkl2TnEyQXdi?=
+ =?utf-8?B?cWxXS3lHRFdxNDBxMEFuc3FGc0xmQ2tqcldnR2FXMitYY3BEWmpxVlVMbXpI?=
+ =?utf-8?B?SE0yVkNFMnFsRjI0OXZ3emJsN1JZL2czV2lQbzZlNndkNWV2S2VnOFVSVUJ4?=
+ =?utf-8?B?QWZSOXRabHFCQnNzdkI3dCtOL1ZZSXpwRWRSRXpZaHo3SVBCVXJNaUd2Uzkv?=
+ =?utf-8?B?RkFlWXEvcmptWEpDM2JDb1YvQzhlMEp5dk1xLy80c0hVNDB2TGhHZVJPWWZU?=
+ =?utf-8?B?M1ZXYVFiOHlRMEF2dlNyZTNUdWdMVi9nbGJ0QWJLaCtVOWJacHd5T0djU2Za?=
+ =?utf-8?B?S3QrY2dxYllrdlhxWGUvVXhTekIvZ1ZDZUFSd0tTcTRCUzBPbWZXcFJzNGRM?=
+ =?utf-8?B?SzdjaGVlRFdpby9lUXVaRFJtTWd6NE9wUlBoYTI1K1lwMzQ4T1BHbkk0UFVU?=
+ =?utf-8?B?MkI3Z2lGZWZXbFpvYnBiQWR3VW4rL1NvOW56VFdWS0RhczMyeG9vVU1NMzhE?=
+ =?utf-8?B?N3dUdVdwOFUwSHBmVU16anVzWlM4Wk9mcy9qNmpDMVo5VHZ1QVN0L1pLWG9F?=
+ =?utf-8?B?RDBwcjRWbEllN2l2aEp2SmRrSCtqUEVya05OUjV4Z1RWblpUMlB5MlQ2Q2pZ?=
+ =?utf-8?B?K0RpNFBFRFc3SGFwdmZLbW9jc0t3MFp2aTd6QnZMNnhWbFJqcXBlUkFjT1ps?=
+ =?utf-8?B?VzFDMDNVNTV2QzVzaUNiQ3UrYjNNaTl1SUNtNDByOVdmMytpUk85Vnl4RUwz?=
+ =?utf-8?B?N2ZOY29jc0dSN2paL2RCaHBCVWtSUUpvZS9ET243c2w1TkRkOWIvOG5ERHZx?=
+ =?utf-8?B?WHJkNXhvUzRWUEd3WUpwMFovMVZycTl1ajVrZkJkR2lNTk9xUlVuYWlhb0h3?=
+ =?utf-8?B?d0U2aFdUUllWdG9IaHZQSmR1ZVhWMjJhTCtqWW5YdEFhYTYrME4yeWpmSitK?=
+ =?utf-8?B?am5MQ21mOXlyMEVOMlF2cmpId0QwQnNlNzNFSm02dXRUMkpQRUVjcWo0b3ZB?=
+ =?utf-8?B?M0phSlJnSG40SDNIZms1S05MSm1yU01qQ2w1ait3TnFLS0gwNTI4VGJBaVFh?=
+ =?utf-8?B?b01QU1lwbEhiMVJWdTN4enpMdXlWTERGSFJPa2dUcXpUUFV3Z0RiWFlYTWZO?=
+ =?utf-8?B?MTR3NUlZZTBHRjJzMWtyWWxxc2djT2wyaERXZnlmWGFzSzdINDFsSVFtQUU1?=
+ =?utf-8?B?L0pwUFZoOGlJQmdtZk1qbkFIL0R1SDI0YzNweTYyVEpoSCtKZzZrZWlicWVM?=
+ =?utf-8?B?Vm9GdzNHeHVMcTlySkRGUnJyck9wVzZoNHFwdzlLNzlxRVE5VlJ4ZlFFbGp1?=
+ =?utf-8?B?K25YWmdMaWtGdVJtVXVJcG52c1lKZlFSVnJaR1djWGtnMzRqbWhCdjYyWjVM?=
+ =?utf-8?B?WHF1b1U4cGt1SnIxM0ppR1lPci9BenBSa0l4dWpUSFo2ak1oMEdJWGFoYUhv?=
+ =?utf-8?B?UGdrdFlhMEFocHhzK3U0b3RQdkhzS2NOd2UrQkRxbS95Y2hvMjd4dVpmT284?=
+ =?utf-8?B?TlpZRld2RUFmRWpuYWtWRkxhekkxT0VacTFVMFV5RlFmR1gwMVA2WkZnTk9D?=
+ =?utf-8?B?bk12cFY1NThiODRWa21RYVRDTXVEMHNLenFoVUkzV1lNMGYxVEJNQXd6RUgz?=
+ =?utf-8?B?ZWIrOEYrWitIcjgzUUw0UElEcE5SMDB1OWQ1dGo1UDY2dFR2SFRZOGJ5bDk1?=
+ =?utf-8?B?N0tuVUErOFhwTDdoSUZ3Qm8zOXkzamhoR0dIeGFRd1NGdURaL2lqMlJvY04z?=
+ =?utf-8?B?VnVqQlZCQ0x0eGdTa09aUUttNmszR1JldDIvbjJlZlIyUnBqVEwyVURJQ3Qx?=
+ =?utf-8?B?Y0FCL2JJT3BuQmRwVHVVQ1Rqam4za0lsVDBkMm1NK21NSnMxMEd6SEtsZ0FB?=
+ =?utf-8?B?MFQxZ0srWU5IMndnV1BiejRmSTdlMWpvSHJXUEwyUjhETGN3dXNvZXc3eDM2?=
+ =?utf-8?B?eENkU0R5NjRFdFR4eTU5NTNvTFk5Q2ZhdUtCaUZFTlhaNXUrYlFtT1hWZVNi?=
+ =?utf-8?B?K0J4cFBlNmlhMFc1UWw4cXBXWUkwUUtjL2ZlODFBeXlLQmpYNmlIbVBsdXBF?=
+ =?utf-8?B?T0FXMGdOeHR1SzBRNnBCOGo2OUtuSHhOV252anRQWElhd3hwM2g4NXRPZnhj?=
+ =?utf-8?B?MkoyQkd6TTdyVURCM3gzMmFhNUphWWRwZ0lwbVoyQnVjb09mYTFWMlh2VjJx?=
+ =?utf-8?B?QU9qTmozYmJvQTFFb05ZRlVpTENCVTliVDg0ekJhTzFVeUJQRlVtZElZYkZy?=
+ =?utf-8?B?dERadnhwVzhKVVozWkl6VXVrVjk4Q1pLQW51YWRiK3U5Y24zK0VqTVRuRUNN?=
+ =?utf-8?B?cmFSSE92M25nMitEaHd5bUxCNXNNVUF0cjFUa24rRzZDeXBJa1lsM0VrUE9L?=
+ =?utf-8?B?RDROR0wyYnZucFV4d3libHNJUERKZjM5Z05JWCtFNUJDc2hLWXBFTnhrbnpU?=
+ =?utf-8?B?RWdjZk5QVzNUUXJxSFd0NnBjYlNhVmkyU1E9PQ==?=
+MIME-Version: 1.0
+
+<html xmlns:soapenv=3D"http://schemas.xmlsoap.org/soap/envelope/" xmlns:fo=
+=3D"http://www.w3.org/1999/XSL/Format" xmlns:msxsl=3D"urn:schemas-microsoft=
+-com:xslt"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta content=3D"width=3Ddevice-width, initial-scale=3D1" name=3D"viewport"=
+>
+<style>
+		@media screen and (max-width: 600px) {
+			img.logo {
+				display: none;
+			}
+		}
+			.column {
+			  width: 48%;
+			  padding: 5px;
+			}
+			.left{
+				float:left;
+				}
+			.right{
+			float:right;
+			}
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+			.text-block {
+			clear: both;
+			}
+		.main-div {
+		max-width:600px;
+		margin: auto;
+		}a:hover=20
+				{
+				background-color: #E1F3FB;
+				}
+			=09
+		</style>
+</head>
+<body>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-family:&quot;Time=
+s New Roman&quot;,serif;=0A=
+color:red">=E2=96=88</span><span lang=3D"EN-US" style=3D"font-family:&quot;=
+Arial&quot;,sans-serif;=0A=
+color:red">
+</span><b><span lang=3D"EN-US" style=3D"color:black;background:yellow">Caut=
+ion : External Email. Do not click links or open attachments unless you rec=
+ognize the sender and the content is safe.</span></b><br>
+<br>
+</p>
+<div>
+<table id=3D"mcpreviewzzyygg" style=3D"display: none; mso-hide: all; width:=
+ 0px; height: 0px; max-width: 0px; max-height: 0px; font-size: 0px; line-he=
+ight: 0px; color: white; text-decoration: none;">
+<tbody>
+<tr>
+<td>Bonjour, Votre colis XW671075547JB est en chemin. La livraison est pr=
+=EF=BF=BDvue le vendredi 05 janvier.Vous serez absent ? Agissez sur votre l=
+ivraison avant minuit.Choisir un lieu s=EF=BF=BDr ou compl=EF=BF=BDter mon =
+adresseLivrer chez mon voisinModifier la date de livraisonChoisir
+ un point de proximi&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C</td>
+</tr>
+</tbody>
+</table>
+<table id=3D"mcalertwrapperzzyygg" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+<tbody>
+<tr>
+<td><a href=3D"https://protect-de.mimecast.com/s/nI2PC79ElMHAGvDZu8zbHU?dom=
+ain=3Dde.report.cybergraph.mimecast.com"><img id=3D"mcalertzzyygg" src=3D"h=
+ttps://alert-eu-central-1.api.getmessagecontrol.com/onprem_security_warning=
+_fetch?r=3D1&amp;dep=3DdXu4qnxCZtr5ywCrHBjvGQ%3D%3D%2BOLu%2FB%2Fs4PcVaQWdKH=
+1x08kHV9LhLeN05cJxSc0xKG14wEkwuus2ayBKHIbDyp97l9r3KUsctKRsYlsWWz7nC74y4cOA7=
+KGdrZwPEUcM9zwj2y5TGDAtJTL1vUqMipMCrxK4rTcfhSxsR%2FFQ%2FG3%2BnEW745Fd0kQRKL=
+%2BwlOH3ElhXiCxk0Ikkf9qzVa80wCXZxKEVnahM%2BF9oE%2FNUEyTZqR%2B6lZOv3Wf6wd%2F=
+%2FRdgRGwUKLZRE4AOCP7YQSmdNDuV2zfc%2FwAf92LxCOseaq7ysUO%2FNuMEQryg0FYn3iwW%=
+2FZ7hxczNmt2FsvBqR%2BrimNQAj0p5iIQAK6aW6%2FL3zaGcTve%2F7zojG0cCj%2FbjnpRXSa=
+O%2FyXcNZjz0a%2Bhv%2BECmfWR9lmqukGxehPFlFkOmmrWZNJQLZmql0OX4iqcR77gySh2670A=
+XurMyx2VZd4QAuh5jtiZIlu7NbWkAJNq1PAZu1957TD4ffA2hO4lV2iFpalN7XSpFxbMKmXCxJE=
+B5%2F9%2FcO40uH3UxRpW6qJzs8Mu5QDyFz7dScfRAaaDzAU9Zri%2BRyXPeB9ocoBUe%2FBZu6=
+Y9itoQgoa3cw53U%2F3pBXSlEvBEUOFS%2B6QNEllzJWsovZSTXQAYoI8ovHscO%2B%2BGBigch=
+X9NTXE1IDhA5MQI3wEi3tD7zy6AT6hH9pLzLqNRGo%2Fp781adHCPWLm8UEdWxQ4bx73D3Iwvsy=
+UHESQY98XPFVTdvB9b%2FbX%2FlpoLDBvYT%2F%2F%2B9megeBaf83Iv9AdpW%2BkTlrJSpbOff=
+vs1HfIzE2ysLAQ0qjXzqJKIWQsWzwxwS960QIU5WtriFIV%2BVBJ8BnTFzv" style=3D"displ=
+ay: block; border: 0px; border-style: none;" border=3D"0"></a></td>
+</tr>
+</tbody>
+</table>
+<div class=3D"main-div" style=3D"font-size:14px; font-family :Arial ; color=
+ :#434343 ;">
+<div>
+<table border=3D"0" cellspacing=3D"0" width=3D"100%" cellpadding=3D"0">
+<tbody>
+<tr>
+<td align=3D"left"><img src=3D"https://eu-central-1.api.getmessagecontrol.c=
+om/onprem_image_fetch?dep=3Dg3vdZYJrsDpgvmquotBMZA%3D%3DN6QHKDCy8EjtG5aFW2o=
+TPO6h8cHYkiVq3B%2BROX74efqn6D0oLK9ljBr9VT1FUPAjlHFp%2BqOcOo%2BjVAxE4Cv8rVzo=
+G5I3IIEp0ICKPjnF786gIcwSizQCdu9P3UoIGs%2FP86L9PorMwAhH3d3hVX8cD%2BrBU7rlJi1=
+2djkdtA%2FoCtq5mDQtCP2xPut0e4k5ehbMI4AHpClMUF4th21l%2Fjipo6xVztxpTRJwGUgMvY=
+fwyqkbFVdy1UBXTZsWGIe8Pz0i808M6R%2FeqVKMVd9PRN%2FdVE5yPskHLyPHKjdq322NsKNKM=
+Nh3KVoXEgAuNWUL51LDoA%2FD3Su93N%2Bm2B6UZemjf06ZWUQl1DGWRV5CysJ3tlzvIFRd2XKa=
+WwEaEmDuG%2F19y5w9G66Jz0KZEjascByqJDzxSjx30ZWy3gMIhAnfo5Bvxi3I7Hr1FyLlofRFn=
+LHL6AWYPrvGus9FQYpOfDaYMS4hi%2F7A0REq0wUJ71wpfGBaRKZTOifpPmw1Iz9SEguEjrF0Iu=
+DUN8807N2sj0jtfGRP%2FhxIZ1dww0AWAuoG2ouQMbLAHfnhPSxfHJlrHwnlEFW%2FDHkQb8m4l=
+r%2BdTr6lTw%3D%3D" alt=3D"Le logo Chronopost"></td>
+<td align=3D"right"><img src=3D"https://eu-central-1.api.getmessagecontrol.=
+com/onprem_image_fetch?dep=3DvrLZNW8ksFTFA6YPap0iwQ%3D%3DYsHgnX8mWTTBSh4qsh=
+IXyU%2FTUGHrSbqBEHZMWqGyTBChZje6fmZRv%2FkGyyNQ9A3Kf4BmKvEbNQuPoh1OQiae1SyWi=
+WzLfABcPY7r7VxU0BrkxbcuOQB1%2F5YiHF8bgCnVzHxn4zjNFdBxNrJ%2B9ztuF4KpObU54%2B=
+AqtbZtS17%2B62EwegtNCrz7GR1vYHs5aWKKukRinHxwgc6vJ4%2F%2FmB5nutQuFPnYt6GfCmR=
+5trmYHfvH%2BjTtQHVnU0UxQ%2BUcMrxdrRU6jzN2lD0l7D36NGzRPYB%2BA1Oj9bGsOJdtcRDQ=
+ETfIx9eYZElB7vU%2Bv7w85aMLu1Oj4w7iUwQCTwmAXBDyhj0eiWQqHksGEwSbskDrxpMqrPxuG=
+v5jVLPeU4ChKxx9i8hzfT9Iqtk4Vb3UBi%2BdHzPJmrTvxO2WAN08yx6%2BJ3XddfC0QqX11zXy=
+6TCQxED%2FrKLJbUCKcMfaQiX%2FF1%2FxxuPGrmzSJXnVdjP5KZ1AvYWDx7YdanQGwrLSBtyXa=
+2i0qTM8HmLkiVFurdUkLpM45ZnWveBfdE6d6nV2OfTbExMdvJwzbgjB71ttsSzEgwA%2B" alt=
+=3D"Le logo Predict"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<img class=3D"logo" src=3D"https://eu-central-1.api.getmessagecontrol.com/o=
+nprem_image_fetch?dep=3Dfqi4iTec2uScnQm%2BcYsFLQ%3D%3Dzo9KuoTNK75awC4ljK4gm=
+sCwx52E1qrtaNP5yn78t16N%2FLzuNzAD1V063K14N9I7LrSQ83fchqBVRKPuEDzr8dVHPUl3fX=
+p3f%2FiLlHmgJ8d5oaEzbQK7e46mAhZ49XLk7Cvx%2B75aHZLn2fOfK2lWmM9bfBxnjjpc0Si%2=
+BQQ7gVtIwFV6HSo9iHTBfPV%2BsgzS19s52BB%2FPsw6XNRn2tv55iNyz09adbgaqpIp%2BGh1c=
+thRNqfiE%2FrI2v6m3FiQUFnRB3w29IzVuN77Z%2BPvRx%2B%2BfxWZ18YZu1khEbd0%2FeM%2B=
+nfMSwpDVyJzlNKpX%2B%2Bglk7B4SKKx7u9gCCxY2dzllW4OMzYJgK41wRFyatAPY%2BMYSOJag=
+OiylpUQLEA%2Fty5m7le7Zzk0ZkyP4FWNTmwxsfp5LaSXr6lZAQ3urw6xdiZ2qU%2FEDIeL%2Ft=
+85yw7gLzMlJKDZsgUOnkCz1tqGJVmr9sRej24aZDfri2k2nAGYEh0Bw3gXTw8UTQx9t3iSiLlUz=
+cqrlVdEnZRNfdoLL5TInBEH5Gktxp4YFf%2FwKcfHCAfoCDDwKIOv%2B9K53HCxvGGjxRj6r" a=
+lt=3D"La banni=EF=BF=BDre du statut de votre colis" width=3D"600px"><a targ=
+et=3D"_blank" href=3D"https://protect-de.mimecast.com/s/5hYxC83Gmgh6NloYu1P=
+1p0?domain=3Dchronopost.fr"><img class=3D"logo" src=3D"https://eu-central-1=
+.api.getmessagecontrol.com/onprem_image_fetch?dep=3D6Ua0T1MB3c8%2FOo9XMZtmC=
+w%3D%3DH6aD8%2FUy9HAgjDfTZoWlp7hIShYcn5EyuLlRZj1RjLIlkQYR%2BpwigzmaNi0KHot6=
+NR7Z2MYTEVBJ4%2BRVmfZs3mbPo%2FG9YNULpTket58%2BbUAZjXE8UAdVXTlNfvrduwxLo0MEm=
+y2zdpqTiDqP%2FD12c9PGUcByLSl1nvf5JFbtA9grzUuoZTKyFZFm4%2BqbQ%2FN6h6QzkCzx8Z=
+3hJWLwHJStQMCKxx5U5nn%2BPbeL5ax849%2FjByPuhwkR19CRbGoTSjrZBTKgcW6MWcrLkUPCH=
+YsUZwrTwRZ8VbmrzY0qxXVA4p30%2FECMjdoN%2BxiDCTu2fjOR2pFS984Os%2BcZOQ%2FPE7ca=
+e8jt1sn9rLORAWyHh6Zt5Qzr18BA%2F1LBqWAr8fzdq62zkROMnbJZzaNQ8S50WQOs5pHLCVMO5=
+zCszAzOeN6uEQ7jY8%2Ft%2ByhsLfX3cbASE%2FZWkZNdSvQz%2FPr5kepKspil8vxgtQfczXvL=
+PgTjHi7Fv%2FktnK2sMBNGcx9NQSTxYN6EAmaLe%2FW7YzJKaJ3NH7ANWiHJtd4uUXA2s%2BB3A=
+eIOrWDbL35LWLu688qAOr3bVFwuSXplKceOihzjCEjbZpbxsg%3D%3D" width=3D"600px"></=
+a><img height=3D"1" src=3D"https://eu-central-1.api.getmessagecontrol.com/o=
+nprem_image_fetch?dep=3DRU01nhtetVafAtCKHfTaKw%3D%3Ddqq3V1JJjRP0Xd5C4QSaEAj=
+GTF4ZaV3LAvKQ6K9RCYvs%2FK98LCFTiLhBUN1kQu1Zay0FjIoQbXwL7vKU8jjUz54y0V0Kk5Au=
+emon13xiH1iNzuih9cI5TNWXqViFH43oSZ9wsZl39MCg9Dl0XEDsPgUFdVRRQn3rYND9BM6tiYw=
+cs%2FiNDS7Qw1JwqeGe7fJ6HPghQ2ZLYPHvatPvi%2BsV34o6L7wWYMN1wzYGLoroLvIq0YkYLS=
+y6CPfUNZPmTrdqOrgHeUdxNxXqgGH%2F4sEQJ1AQq3epWZsJnGEAiuDIVqc%2F6h%2Bh780bVSQ=
+sP%2B1AzzRGNaJ%2B%2FNUt95HJd6reW8sxYewIKv8VNsvd0MKiajXTJ4WB0lVrp%2F908vb%2B=
+DEVWfldGjyWlLpjmg5gI6iXDcLv3IynIJafXhbsUZHmhPcVUXZhZxOTG16JMKsvpmg6%2B9hEV9=
+Xecs8wfUPcM%2FlwK2AnKySjRQVv0jBDiz8yBDkXk6ldWH3qvQWC0gV%2BaggqJQEZEW7B41pP0=
+Lk2X0tJS3nWUPVV1bFGAvOliPy%2FZyStP5rLjJ4eOti2B%2B2l52%2FGRkx1XqZxZOM6kcqKNv=
+p0MdKnkvNQkUxRPehYD8pLea%2B9XkXYhVCAlB22UTDwxXIf94kmj%2Bp7ppdeet50QeLv8STds=
+qUGjI%2FYpTcclhH4Rq2vo8v33x7k0EMu6fOmJQrFJacZZJBECRs8R%2F%2BPAtOzra8hPDQ%3D=
+%3D" alt=3D"" width=3D"1">
+<div class=3D"text-block"></div>
+<p>Bonjour, <br>
+<br>
+Votre colis <strong>XW671075547JB</strong> est en chemin. </p>
+<p>La livraison est pr=EF=BF=BDvue le <strong>vendredi 05 janvier</strong>.=
+</p>
+<br>
+<strong>
+<p>Vous serez absent ? <a href=3D"https://protect-de.mimecast.com/s/kxX-C99=
+JnjHk4vG2c3WUQ1?domain=3Dchronopost.fr">
+<u>Agissez sur votre livraison avant minuit.</u></a></p>
+</strong><!--[if mso]><a href=3D"https://protect-de.mimecast.com/s/XTDnC08w=
+4MSGNK1mcWb0MS?domain=3Dchronopost.fr"><u>Choisir un lieu s=EF=BF=BDr ou co=
+mpl=EF=BF=BDter mon adresse</u></a><br/><a href=3D"https://protect-de.mimec=
+ast.com/s/UbNtCgpRvySAErMGuEoY9j?domain=3Dchronopost.fr"><u>Livrer chez mon=
+ voisin</u></a><br/><a href=3D"https://protect-de.mimecast.com/s/2m0RCjYXyB=
+tno2WRSnLacE?domain=3Dchronopost.fr"><u>Modifier la date de livraison</u></=
+a><br/><a href=3D"https://protect-de.mimecast.com/s/8BmZCk2YzgHO27x5Ikxkkd?=
+domain=3Dchronopost.fr"><u>Choisir un point de proximit=EF=BF=BD</u></a><br=
+/><![endif]--><![if !mso]>
+<table align=3D"center" border=3D"0" cellspacing=3D"0" width=3D"100%" cellp=
+adding=3D"0">
+<tbody>
+<tr>
+<td>
+<table border=3D"0" cellspacing=3D"10" width=3D"100%" cellpadding=3D"0">
+<tbody>
+<tr>
+<td style=3D"border: 2px solid #e6e7e8;font-size:14px;" width=3D"100%"><a t=
+arget=3D"_blank" style=3D"font-family: Arial; color: #000000;text-decoratio=
+n: none; padding: 5px 0%; display: inline-block; width:100%;touch-action:ma=
+nipulation; cursor:pointer; white-space:nowrap; line-height:1.42857143; -we=
+bkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-se=
+lect:none;" href=3D"https://protect-de.mimecast.com/s/XTDnC08w4MSGNK1mcWb0M=
+S?domain=3Dchronopost.fr">
+<table>
+<tbody>
+<tr>
+<td align=3D"center" width=3D"33%"><img src=3D"https://eu-central-1.api.get=
+messagecontrol.com/onprem_image_fetch?dep=3DA9foyrw8SMniWZJtE44WQQ%3D%3Dxk9=
+%2BB%2FMNknZ3Oq%2BavpcanscOChLxsXIbjEiXgpwbvRh3AB%2FfK%2FncL%2FU3FJWcDh11EU=
+x50%2Fs6zquC42oum9tH1NmynAk1bdOqLt2gXnWaCAbWYuv0Q%2FIVuwcBRMnjeo4iit637EZ%2=
+Fj5b64JpUCsYMfRFzDM72mofGmUFdIcnL4GYELpm8sQXdJTEPrnJjcCUISJ8dXveB3Ya%2BFPMb=
+LoGwA1og6MBEyciwMV0vvscE%2F252nV9zu9ZXowC4LQu17cWmOs1OtuF3c9ZDjPDi9ulfbww8E=
+p4q9o5RA3jMikEWmgoODz%2B4%2FsK%2F1AQKHAZ%2BhVT%2FCz9Ic5SMhkTIGnBrD1Bj3X3X5g=
+WUQsmIzwHCwM3txdvGIlpHVb5%2BA1nqSktGmcDz%2BXBn3s6QD%2BtB3%2F%2B7ibIJry1aQgJ=
+eAbmXX26i873cVpEJPA5%2BpO2a2l2Lv10r4vmFB2HffOL57t2wC5a0OMjD9NF4h4Qo1jivTisc=
+xv%2FwK0LSJsWzcidKMaNrBJURbYB%2BQqPvO73%2Fm8y2WeigONrDF5uaWEES%2Fdm%2F9DiEZ=
+d5AJmZ%2FFTPlxiEK7XX8hjaur%2FqZ" alt=3D" "></td>
+<td></td>
+<td style=3D"font-family: Arial; color: #000000;font-size:16px;padding-righ=
+t:10" width=3D"67%">
+Choisir un lieu s=EF=BF=BDr ou compl=EF=BF=BDter mon adresse</td>
+</tr>
+</tbody>
+</table>
+</a></td>
+</tr>
+<tr>
+<td style=3D"border: 2px solid #e6e7e8;font-size:14px;" width=3D"100%"><a t=
+arget=3D"_blank" style=3D"font-family: Arial; color: #000000;text-decoratio=
+n: none; padding: 5px 0%; display: inline-block; width:100%;touch-action:ma=
+nipulation; cursor:pointer; white-space:nowrap; line-height:1.42857143; -we=
+bkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-se=
+lect:none;" href=3D"https://protect-de.mimecast.com/s/UbNtCgpRvySAErMGuEoY9=
+j?domain=3Dchronopost.fr">
+<table>
+<tbody>
+<tr>
+<td align=3D"center" width=3D"33%"><img src=3D"https://eu-central-1.api.get=
+messagecontrol.com/onprem_image_fetch?dep=3Dj8tabed%2FLUCjtYqhYVxLJg%3D%3Dh=
+dAVil3q5dXiXCdOANR2sitdYpYxXgxjv%2BwXg5iHXsQPfxK6AZmDtPgR%2BZjhdUSkoxIIxgbs=
+6nFjwZuClJNZVb%2B241hTOQdczH4efDPjIafxpCk%2BCDwLNvepgtVrBHjmh3MyA%2FGQNituC=
+58PwG3D9VbB1VnW%2FPa7FAmFx4%2BwvLtloam4ngxePMv0VL3EqcuqwrdvX7dc43vloAYVQs8m=
+06Yn0%2FzZpCZM2RE7YEU9s3%2FoQXcBk%2BTHzNPsXhhzu0a7gsVa4rzGbRbrGKXW6bALxWcg%=
+2BuMtAauslUI9XtTYpGJBfAQGRG23hETtYE4giKVCOD%2BXsBrP6pgJLPOCOLLY00I79lVSzEWa=
+yHpp3k0TOcI5dk0aCys733Ig1EmAo9%2FCLS60%2FjnpfFeTujwdQ%2F%2BuIt8Ycnzz0kW5GXR=
+KLfqYNouVRq2ZeLW7h1OnfIgDPWHg1mxAMNHeqdzwP%2FKZx9uziWU9HqioqnqDmX%2ByVcdz5x=
+ZXgBpRJjNdCtZm0buISESdEnU56RAISx096oEmdK5%2BzR5svh7pbryz6NV%2B5KhPc%2BrHEaw=
+%2BplAnQRzQgdIqCtIa" alt=3D" "></td>
+<td></td>
+<td style=3D"font-family: Arial; color: #000000;font-size:16px;padding-righ=
+t:10" width=3D"67%">
+Livrer chez mon voisin</td>
+</tr>
+</tbody>
+</table>
+</a></td>
+</tr>
+<tr>
+<td style=3D"border: 2px solid #e6e7e8;font-size:14px;" width=3D"100%"><a t=
+arget=3D"_blank" style=3D"font-family: Arial; color: #000000;text-decoratio=
+n: none; padding: 5px 0%; display: inline-block; width:100%;touch-action:ma=
+nipulation; cursor:pointer; white-space:nowrap; line-height:1.42857143; -we=
+bkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-se=
+lect:none;" href=3D"https://protect-de.mimecast.com/s/2m0RCjYXyBtno2WRSnLac=
+E?domain=3Dchronopost.fr">
+<table>
+<tbody>
+<tr>
+<td align=3D"center" width=3D"33%"><img src=3D"https://eu-central-1.api.get=
+messagecontrol.com/onprem_image_fetch?dep=3Ds2s2RLm6IUkuQMIUbYQL9w%3D%3DXvM=
+juW653l5gyVMTtYbB0DolHrnlyDjXsUf8ya8ZbtxVChEsBTYyAJRqkAVK8WAzCjLTXn5Vqj41jY=
+3dYYBxvE8XqogWrE%2F0DKtDp4RsbRMENXa2J19G1Oz%2BdG8UkXfDeez%2FyV563fyWahOcbtc=
+BOHz%2FsvbtHslvoMtRWnvWmBuJ5acF%2FYXQXsIP0Mt4uD2LL1fwcuVNoSnOUjELVv0bTiHsgk=
+XTUt5FAQqDs4ffaV%2Bf0RILUlck7nW9BkPMLE1OuAYbFNKrgsC%2BzxaRd0X4GI2FVwOsC1VVR=
+WhgK9V5kbJvH2AqHYiNya5cQeqe0VwptQfphtYDRrul8i6gT4zRHfRYoM0xQueCP0I5puDsal2J=
+e%2FFxhAvr%2BywkOOPLEcvqXXR8UXNWW43HApP9VSablpTh%2FQJd1OgeogcMlxQzumARO2H2v=
+i3j2G4RNOD%2F5e0OPfqxD7j6tfwObb5cq0cEi%2B4BI0cNOVFN71xYg3kvDYz5cf5zc6zSsbZx=
+6RdfqQSQOtt8ZY570Juu9fMAGxtRJ8IXxbYBOTipvdErQa76K7s%3D" alt=3D" "></td>
+<td></td>
+<td style=3D"font-family: Arial; color: #000000;font-size:16px;padding-righ=
+t:10" width=3D"67%">
+Modifier la date de livraison</td>
+</tr>
+</tbody>
+</table>
+</a></td>
+</tr>
+<tr>
+<td style=3D"border: 2px solid #e6e7e8;font-size:14px;" width=3D"100%"><a t=
+arget=3D"_blank" style=3D"font-family: Arial; color: #000000;text-decoratio=
+n: none; padding: 5px 0%; display: inline-block; width:100%;touch-action:ma=
+nipulation; cursor:pointer; white-space:nowrap; line-height:1.42857143; -we=
+bkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-se=
+lect:none;" href=3D"https://protect-de.mimecast.com/s/8BmZCk2YzgHO27x5Ikxkk=
+d?domain=3Dchronopost.fr">
+<table>
+<tbody>
+<tr>
+<td align=3D"center" width=3D"33%"><img src=3D"https://eu-central-1.api.get=
+messagecontrol.com/onprem_image_fetch?dep=3Dj0GrCVA0L0ooX1BCH0CMaA%3D%3DYy2=
+7BUh3qnETi12Lkthby2jxkPQyavwNaW8nL6vXLUkBZnfVy6x9yhnzanC3ZoO7mKXUFEsU%2F0De=
+IQ%2FoyQ2g1%2B0WJNE0CZJkXyLhKX22WL47cSVvZROGnO%2FgtT1oqlcn4MOH4%2FTflP6CZlj=
+z5YDqGp%2B2QH2yLQG7sgCcOsS08DOAV67ndiZTIAfWqy%2FwFFgbAEaftg3SGYsFF7c6UzLOtG=
+I597ehghCyX8Kz2lgGVa1CNxAfMNiLfkEymFo%2Fq4vboTaqkCjgKq74Cn9fOKCCtFbzdDnCABA=
+sqWAs3hDCy6u9zxISHHDuDT1axGNpePFPcNEaYr8goz0CEVyhyv4ey07b1qtZvfUAcYQDZ%2FjQ=
+r4U39YandFN4%2BT426u96xcsUdCq3Gln8ezWplmeJrU5JoinSaeoObCAOvrKANn9zTWo6UvE71=
+Ee6CiaAa2UYVUFEI1WHpxVApAytNpDjAkw3ssVhKz5%2BUJUYtJJc0bXf4vRcYh9uz3EQ4Ll0Z4=
+pdJwmJE1eH%2BXLqwVjNBcOTHwmzoVf4GG9OslE2WsAdLpF%2FY4E%3D" alt=3D" "></td>
+<td></td>
+<td style=3D"font-family: Arial; color: #000000;font-size:16px;padding-righ=
+t:10" width=3D"67%">
+Choisir un point de proximit=EF=BF=BD</td>
+</tr>
+</tbody>
+</table>
+</a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<![endif]><br>
+<table border=3D"0" style=3D"font-family: Arial; color: #000000;font-size:1=
+4px;" cellspacing=3D"0" width=3D"100%" cellpadding=3D"10">
+<tbody>
+<tr>
+<td bgcolor=3D"#e6e7e8"><strong>Adresse de livraison</strong></td>
+</tr>
+</tbody>
+</table>
+<table bgcolor=3D"#f4f4f4" border=3D"0" cellspacing=3D"0" width=3D"100%" ce=
+llpadding=3D"0">
+<tbody>
+<tr>
+<td style=3D"padding: 14px;font-family: Arial; color: #000000;font-size:14p=
+x;" valign=3D"top">
+LABORATOIRE BIOCODEX<br>
+BONNEFOY JULIEN<br>
+35 RUE MARCEL BONTEMPS<br>
+92100 BOULOGNE BILLANCOURT<br>
+</td>
+</tr>
+</tbody>
+</table>
+<p>En cas d'absence, votre colis sera mis =EF=BF=BD disposition dans le poi=
+nt de proximit=EF=BF=BD le plus proche ou en agence Chronopost. Dans ce cas=
+, vous en serez inform=EF=BF=BD.</p>
+<br>
+Retrouvez le suivi de colis en <a href=3D"https://protect-de.mimecast.com/s=
+/YGbQClRZA0f2RyQXtgEeVM?domain=3Dchronopost.fr">
+<u>cliquant ici.</u></a><br>
+<br>
+<p>Une question ? <br>
+Consulter <a href=3D"https://protect-de.mimecast.com/s/m11hCmq1BkUjyZOWc4n8=
+EK?domain=3Dchronopost.fr">
+<u>notre aide</u></a> en ligne <br>
+<br>
+</p>
+<p>A bient=EF=BF=BDt.</p>
+<table border=3D"0" cellspacing=3D"0" width=3D"100%" cellpadding=3D"0">
+<tbody>
+<tr>
+<td align=3D"left"><img src=3D"https://eu-central-1.api.getmessagecontrol.c=
+om/onprem_image_fetch?dep=3D68DtUVQl6DayrNbZ1SCS3A%3D%3DUPvTa3%2BaEwkFXyY17=
+uUwPrSu2WM9YO2h8IJ2%2FAKyuZPpP4R3PZ%2FymJ9LlCMTGGFTwpRBEXEHed21KWHDCee0xjOd=
+l82wS4mevuyCTncuUIYjWngvYgeFkzWETn6oJxFY7MVyN15JuYMxBX1IOrukhjJVbZU%2BZE6Rn=
+RQR6QfeFqrYn%2BHHOtiQQhGRGmzT7nTmWm8v2TIqNBUQCPzj2nUJruUX4FbnILIKWe6%2BCRxZ=
+gOFzUgvmH1oRRbvipMdWp7F9qDjedXp9xCWpi8uGyE8uZ8ECiFtUty29Y2yeZ0SBFHlMc9n94Sf=
+o4NkbQhrwhvJJL7UF4zVQvHpmimZSCWMXaEYw04iZZbsGgk0tvkM3v28gMuDDhUl6uj6VtOB2NE=
+T%2Bm0CuO6r7h7rHy2TpSjp9jYnCyb%2BlYAk2IhGigq4jXiy8b2IDDDdqmpfJ1rEOeSESzZWaG=
+yseHwtc%2BDnRHlpR8bZI%2FGuZJRINYhppjDgFDbjKHDy%2FpjNp8M2XJooR1bvci5J7uCtqSl=
+523ECJRZLloUxeB8D0mzWIh6LPGW%2B7qO4mkRzVd6DiWiooHlxDTDrQ" alt=3D"Le logo DP=
+D"></td>
+<td align=3D"right"><img src=3D"https://eu-central-1.api.getmessagecontrol.=
+com/onprem_image_fetch?dep=3DjHSGJeisxMjham4ntEbr1A%3D%3DnK01WZDwi1Oyf6aNfb=
+EaN2Wz8PUzYtRXjvGl0z172sxn7rGF7vAjimpUBTH4uMDm2Y0mZdzngfhNzY2Wqp6JT50WGhQCw=
+5%2BNEmKvUSkfFmnp5GJmhHo9wtXwgPyE5cGRyO1tDblQURkNck0eGIExm8t4RCyiuOztDVHfaq=
+pNzvs3IZXv5Y8UCjJK16TcYJcD97Xk4YVJVXNijdMuTQAClidf5scr8iA%2BnBymFps7iC3GBRm=
+mTRHroR0t4rVnubobQDIcAcQeYlPQcBbv2RhX27Eus8KA1acRYRUkM%2F31LkdlFM9opQPD6oRX=
+HrQVP9U8I2zxXjj2paBsT%2F5EHJg64Za0bxugnkt5BM9EXXqWfRsDhKr9%2FMLQjnPnNJ7r53z=
+7V5LSQrhU5JiYSfN5BWD06dEA56AmjyEa4m3fshAPra0Bem%2FzhntdO%2FEzMnmiUsz%2FybWn=
+cq9S35CK2ByMUNDofGdl6RSI93S462aDfktMQg2grpM6PQu5TNzM1kkX1DZJpnJyjnCyiWHC4tD=
+C8%2BlFX6swqII7GMBj8WDotM5R4i6GLSvSAF9Hhoz4oGZrS6U%2BBv7Ucr2Xf5l3%2BC2SQK%2=
+BS%2Fg%3D%3D" alt=3D"Le logo Chronopost"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<p style=3D"font-size:11px; font-family :Arial ;">Cet e-mail est envoy=EF=
+=BF=BD de fa=EF=BF=BDon automatique. Il n'est donc pas possible d'y r=EF=BF=
+=BDpondre en retour.<br>
+Si vous souhaitez vous d=EF=BF=BDsabonner, <a href=3D"https://protect-de.mi=
+mecast.com/s/l34PCnR2Dlf79z8muPHEnN?domain=3Dchronopost.fr">
+<u>cliquez ici</u></a></p>
+<p style=3D"font-size:9px; font-family :Arial ; color :grey ;">=EF=BF=BD Ch=
+ronopost 2023 - Chronopost SAS capital de 32 632 000 =E2=82=AC, 3 Boulevard=
+ Romain Rolland 75014 Paris -- RCS Paris 383 960 135 Vos donn=EF=BF=BDes on=
+t =EF=BF=BDt=EF=BF=BD transmises =EF=BF=BD Chronopost par l'exp=EF=BF=BDdit=
+eur de votre colis,
+ uniquement afin de vous informer sur la livraison de votre colis. Elles se=
+ront conserv=EF=BF=BDes pendant 18 mois puis archiv=EF=BF=BDes pour une dur=
+=EF=BF=BDe maximale de 3 ans. Conform=EF=BF=BDment =EF=BF=BD la r=EF=BF=BDg=
+lementation applicable en mati=EF=BF=BDre de donn=EF=BF=BDes =EF=BF=BD cara=
+ct=EF=BF=BDre personnel, vous disposez
+ d'un droit d'acc=EF=BF=BDs, de rectification et d'opposition de vos donn=
+=EF=BF=BDes =EF=BF=BD caract=EF=BF=BDre personnel pour motifs l=EF=BF=BDgit=
+imes, ainsi qu'un droit =EF=BF=BD la limitation du traitement, que vous pou=
+vez exercer via le formulaire sur
+<a href=3D"https://protect-de.mimecast.com/s/w13mCoZ3EmHr2MOvTErAFp?domain=
+=3Dchronopost.fr">
+www.chronopost.fr/fr/exercice-des-droits-sur-les-donnees-personnelles</a> o=
+u par courrier =EF=BF=BD l'adresse : Chronopost SAS - D=EF=BF=BDl=EF=BF=BDg=
+u=EF=BF=BD =EF=BF=BD la protection des donn=EF=BF=BDes - 3 Boulevard Romain=
+ Rolland, 75014 Paris en indiquant vos nom, pr=EF=BF=BDnom, adresse postale=
+. Toute demande
+ relative =EF=BF=BD l'ex=EF=BF=BDcution de la prestation de transport doit =
+=EF=BF=BDtre adress=EF=BF=BDe au Service Client.
+<br>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

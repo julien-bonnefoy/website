@@ -1,0 +1,146 @@
+
+<div style="background-color: rgb(255, 255, 255); opacity: 1; width: 85%; transform: translate(-50%, -50%);" class="flip-card-front px-0 card">
+  <span id="{&quot;index&quot;:{{ row["id"] }},&quot;type&quot;:&quot;uga-badge-front&quot;}" class="uga-badge position-absolute top-0 start-100  bg-white badge bg-secondary">{{ row['uga'] }}</span>
+  <span style="background-color: rgb(0, 128, 255);" id="{&quot;index&quot;:{{ row["id"] }},&quot;type&quot;:&quot;spe-badge-front&quot;}" class="spe-badge my-1 position-absolute top-0 start-0 badge text-white">{{ row['spe1'] }}</span>
+  <span style="font-size: 13px; transform: translate(-50%, -50%);" id="cib-badge-front" class="position-absolute top-100 start-100 bg-secondary badge bg-secondary">{{ row['c24c1'] }}<span class="visually-hidden"></span>
+  </span>
+
+  <div class="p-3 card-header">
+    <button id="btn-{{ row["id"] }}" class="btn btn-warning btn-sm d-block fw-bold w-100 mb-2">
+      <pre class="pb-0 mb-0" style="font-size: 14px; text-decoration: none;">{{ row['nom'] }} {{ row['pre'] }}</pre>
+    </button>
+    <div class="d-flex justify-content-center">
+      <div class="border-3 border-info col-3 form-floating">
+        <input class="pt-3 fw-bolder bg-light form-control-sm form-control" disabled="" form="form-{{ row["id"] }}" name="pot" step="any" value={{ row["pot"] }}>
+        <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">POTENTIEL</label>
+      </div>
+      <div class="border-3 border-info col-3 form-floating">
+        <input class="pt-3 fw-bolder bg-light form-control-sm form-control" id="pvm-input" disabled="" step="any" value={{ row["pvm"] }}>
+        <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">PVM</label>
+      </div>
+      <div class="border-3 border-info col-3 form-floating">
+        <input class="pt-3 fw-bolder bg-light form-control-sm form-control" id="nv22-input" disabled="" step="any" value={{ row["nv22"] }}>
+        <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">NV 2022</label>
+      </div>
+    </div>
+    <span class="d-none" style="z-index: 3;">
+      <img id="{&quot;index&quot;:{{ row["id"] }},&quot;type&quot;:&quot;card-shield&quot;}" class="shield" height="25" src="/dash/biocodex/assets/img/shield_125.png" style="transform: translateX(-50%);" width="25">
+    </span>
+  </div>
+  <form id="form-{{ row["id"] }}" action="/dash/biocodex/pds/{{ row["id"] }}" method="post">
+    <div class="card-body hide" id="{&quot;index&quot;:{{ row["id"] }},&quot;type&quot;:&quot;card-body&quot;}" style="flex: 0 1 auto;">
+      <div class="d-flex">
+        <div class="border-3 border-info col-12 px-0 form-floating">
+          <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="adr" step="any" value="{{ row["adr"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">ADRESSE</label>
+        </div>
+      </div>
+      <div class="d-flex">
+        <span style="background-color: rgb(255, 255, 255); opacity: 0.5; color: rgb(0, 0, 128);" class="badge">
+          <input class="text-bold my-2 col-5 form-control-sm form-control" style="font-size: 10px;" form="form-{{ row["id"] }}" name="tel" step="any" value="{{ row["tel"] }}">
+        </span>
+        <div class="border-3 border-info col-3 px-0 form-floating">
+          <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="cp" step="any" value="{{ row["cp"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">CP</label>
+        </div>
+        <div class="border-3 border-info col-4 px-0 form-floating">
+          <input class="pt-3 form-control-sm form-control" style="font-size: 11px; overflow-x: hidden;"  form="form-{{ row["id"] }}" name="ville" step="any" value="{{ row["vil"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">VILLE</label>
+        </div>
+      </div>
+      <div  class="d-flex">
+        <div class="border-3 border-info col-4 px-0 form-floating">
+          <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="rec" step="any" value="{{ row["rec"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">REÇOIT ?</label>
+        </div>
+        <div class="border-3 border-info col-4 px-0 form-floating">
+          <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="mode" step="any" value="{{ row["mode"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">MODE</label>
+        </div>
+        <div class="border-3 border-info col-4 px-0 form-floating">
+          <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="pk" step="any" value="{{ row["pk"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">IF NOT, WHY?</label>
+        </div>
+      </div>
+      <div class="d-flex">
+        <div class="border-3 border-info col-12 px-0 form-floating">
+          <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="com" step="any" value="{{ row["com"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">COMMENT.</label>
+        </div>
+      </div>
+    </div>
+    <div class="p-3 card-footer small">
+
+      <div class="d-flex">
+        <div class="ms-auto w-50 form-floating">
+          <input class="pt-4 form-control-sm form-control" form="form-{{ row["id"] }}" name="ddv" step="any" value="{{ row["ddv"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">DDV</label>
+        </div>
+        <div class="w-50 form-floating">
+          <input class="pt-4 form-control-sm form-control" form="form-{{ row["id"] }}" name="rdv" step="any" value="{{ row["rdv"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">DPV</label>
+        </div>
+      </div>
+    </div>
+      <span class="">
+        <img id="{&quot;index&quot;:{{ row["id"] }},&quot;type&quot;:&quot;blue-arrow-btn-front&quot;}" class="arrow top-100 start-0" height="25" src="/dash/biocodex/assets/img/blue_turn.png" style="position: absolute; z-index: 1; transform: translate(-25%, -50%);" width="25">
+      </span>
+    <div id="planning"class="d-none">
+        <div class="row">
+            <div class="col-4 col"></div>
+            <div class="col-4 col">
+                MATIN
+            </div>
+            <div class="col-4 col">
+                A.M.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 col">LUNDI</div>
+            <div class="col-4 col">
+                <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="lun_mat" step="any" value={{ row['lun_mat'] }}>
+            </div>
+            <div class="col-4 col">
+                <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="lun_am" step="any" value={{ row['lun_am'] }}>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-4 col">MARDI</div>
+            <div class="col-4 col">
+                <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="mar_mat" step="any" value={{ row['mar_mat'] }}>
+            </div>
+            <div class="col-4 col">
+                <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="mar_am" step="any" value={{ row['mar_am'] }}>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 col">MERCREDI</div>
+            <div class="col-4 col">
+                <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="mer_mat" step="any" value={{ row['mer_mat'] }}>
+            </div>
+            <div class="col-4 col">
+                <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="mer_am" step="any" value={{ row['mer_am'] }}>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 col">JEUDI</div>
+            <div class="col-4 col">
+                <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="jeu_mat" step="any" value={{ row['jeu_mat'] }}>
+            </div>
+            <div class="col-4 col">
+                <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="jeu_am" step="any" value={{ row['jeu_am'] }}>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 col">VENDREDI</div>
+            <div class="col-4 col">
+                <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="ven_mat" step="any" value={{ row['ven_mat'] }}>
+            </div>
+            <div class="col-4 col">
+                <input class="pt-3 form-control-sm form-control" form="form-{{ row["id"] }}" name="ven_am" step="any" value={{ row['ven_am'] }}>
+            </div>
+        </div>
+      </div>
+    <input type="submit" form="form-{{ row["id"] }}" class="btn btn-sm mx-auto form-control" id="sub-{{ row["id"] }}" style="display: block;" step="any" value="SAVE &amp; CLOSE"
+  </form>
+</div>

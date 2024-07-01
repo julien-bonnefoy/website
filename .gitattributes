@@ -1,0 +1,6 @@
+/home/julien/website/application/data/csv/ps-infospratiques.csv filter=lfs diff=lfs merge=lfs -text
+/home/julien/website/application/data/mails/phardex_inbox.mbox filter=lfs diff=lfs merge=lfs -text
+/home/julien/website/notebooks/cache/bcf5117ec992c4151469bbda573f0a5f3af02cc4.json filter=lfs diff=lfs merge=lfs -text
+*.csv filter=lfs diff=lfs merge=lfs -text
+*.mbox filter=lfs diff=lfs merge=lfs -text
+*.json filter=lfs diff=lfs merge=lfs -text

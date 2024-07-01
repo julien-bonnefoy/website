@@ -1,0 +1,613 @@
+From dse@eumail.docusign.net Fri Dec 15 09:36:00 2023
+Received: from DU2PR07MB8363.eurprd07.prod.outlook.com (2603:10a6:10:2f2::11)
+ by AM7PR07MB6692.eurprd07.prod.outlook.com with HTTPS; Fri, 15 Dec 2023
+ 09:35:59 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=TeloEG6FwHcIh8gBXskA591rIUraze/O6uWeLJLWrg6kb5WRe6sm3lcqgzxV0knACB5rJmLV/Hv03rKfeV2uZIWHrukJHodKHzJBwdZNshOmiIzsvrL0jWAjvjmIH++XXuE7ucvaF1UwlV6MoaV2XZhChLIqUStA2hlIdsL5G9QaD+dxZ/sMXWy3rVaLe/QezUI3A8b276OZZowISfC8I2k5m9cFEbwciBCDfE/irP04TBygIbL9gUoJHW0wjYkrwS9xauu7TwG7AIhqRazOlrd6LBpeKBYFwmWhEjNTl1Gm3b2L8bLuVvMU265RjsOEpTKfA3WrWPeFF5Sv/3jvcg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EiS1ZpJleZ9X/hSqr/ZRyHP19ffFbjKZ9W6ILZneifo=;
+ b=H4J00cglPe+QFkDeEsafaLMPS2VvlM9AqVBzClpevDKxNq5GQa7skGomd22cgsfmEEhfOlu5AJ3IEpxprkgQH3vse1I0ZC9lJv1w6LBcI+PCpdZm4pT2blusITyj1FaTtfNt8uzkx5KxHcECgAvqSmXpakOxLi9eywbYNu254dycCC7+0wUOVMBtHSsyk9c3cjokqvtgonbdFH97NU1c1o4mQ8nJcUnt3u3XxJbo9h4MSjPX7po2hqagg47sGc3NCOTk59DfgO/izZlqGE8Zr56uhpJeOk+ccSWw2Dy4x1rL67jZVWXjSSOmr3XhHjdingLsZ/56YmKN4uOBOznVTQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
+ 194.104.108.241) smtp.rcpttodomain=phardex.fr
+ smtp.mailfrom=eumail.docusign.net; dmarc=fail (p=reject sp=reject pct=100)
+ action=oreject header.from=eumail.docusign.net; dkim=fail (body hash did not
+ verify) header.d=eumail.docusign.net; arc=pass (0 oda=0 ltdi=0 93)
+Received: from AS9PR05CA0170.eurprd05.prod.outlook.com (2603:10a6:20b:496::31)
+ by DU2PR07MB8363.eurprd07.prod.outlook.com (2603:10a6:10:2f2::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7091.31; Fri, 15 Dec
+ 2023 09:35:57 +0000
+Received: from AMS0EPF00000198.eurprd05.prod.outlook.com
+ (2603:10a6:20b:496:cafe::b) by AS9PR05CA0170.outlook.office365.com
+ (2603:10a6:20b:496::31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7091.28 via Frontend
+ Transport; Fri, 15 Dec 2023 09:35:57 +0000
+Authentication-Results: spf=fail (sender IP is 194.104.108.241)
+ smtp.mailfrom=eumail.docusign.net; dkim=fail (body hash did not verify)
+ header.d=eumail.docusign.net;dmarc=fail action=oreject
+ header.from=eumail.docusign.net;compauth=none reason=451
+Received-SPF: Fail (protection.outlook.com: domain of eumail.docusign.net does
+ not designate 194.104.108.241 as permitted sender)
+ receiver=protection.outlook.com; client-ip=194.104.108.241;
+ helo=de-smtp-inbound-delivery-1.mimecast.com;
+Received: from de-smtp-inbound-delivery-1.mimecast.com (194.104.108.241) by
+ AMS0EPF00000198.mail.protection.outlook.com (10.167.16.244) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7091.26 via Frontend Transport; Fri, 15 Dec 2023 09:35:57 +0000
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=dkim.mimecast.com; s=201903; t=1702632957;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:mime-version:mime-version:
+	 content-type:content-type:dkim-signature;
+	bh=EiS1ZpJleZ9X/hSqr/ZRyHP19ffFbjKZ9W6ILZneifo=;
+	b=Sp1rI6oUWU65ptW97MJYYvEB1XCwHoMc6z031QryKgjN6XSZLGuSrBRVjDDhCKRlbYMpvw
+	eainv6NmYKQBQN2yBynbimLEmBYlhxUBVOz4giDcQ96irF+HqLejMRdoSUupMTfxmOTLuH
+	mNAVcsyjbYUlnPQ2Fz0OIG2YI1JygSQvnKp5TJPxjttKt9KwQSFnxl6bamKAGuzh39NjD+
+	W0l6zf+x8ud/g0QPbgSnRTWFJK8R+byx8EDU7WBHPIKRlNDIzzmaePmwoD3guIv4qr2Pa/
+	kdJsrIUaK6lYKAjuYSeJHEmjwfZLyhMc5P+1h5L3jGOIZTtW/UcsnJKWeRBJhQ==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1702632957; a=rsa-sha256;
+	cv=none;
+	b=grWeHzQ5GrC8wG3igeHqaanrarRlMSnSN84WviOSxlemQiULQQJeU+kye0KtdRfa5rmvL1
+	5gz4CN81Rw+4owS5pTGBW0Xh6lW9PpW1pSeoL8XORjBz0nUG3yQVUCe4xtEYgTqrl5S/Xh
+	nFxN+nIyKv2WG7WfSEbOq3iYBR7yQtu8ZAwlJ+4Lkp0ZMOKNm+fwvjsXHeax5HYMsGm5lp
+	t5aGnKCoHrmpzsGB3bLkQxxEQHRUzKfP/wAjnZMohrnjO8qGIen/mjRuaZuFJ7IeHUau1/
+	YE3sT6HmtjpWErRXMtCAZdk+fRx0MzQ1ujmR0OLh5queFx4xt2Y8lB8twdwpRQ==
+ARC-Authentication-Results: i=1;
+	relay.mimecast.com;
+	dkim=pass header.d=eumail.docusign.net header.s=mail1 header.b=i53LSJgA;
+	dmarc=pass (policy=reject) header.from=docusign.net;
+	spf=pass (relay.mimecast.com: domain of dse@eumail.docusign.net designates 192.103.123.8 as permitted sender) smtp.mailfrom=dse@eumail.docusign.net
+Received: from mailfr.eumail.docusign.net (mailfr.eumail.docusign.net
+ [192.103.123.8]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ de-mta-7-mWQ_7jMRPOuOZK0qwR20hg-1; Fri, 15 Dec 2023 10:35:54 +0100
+X-MC-Unique: mWQ_7jMRPOuOZK0qwR20hg-1
+Received: from FR1FE39.euad.docusign.net (unknown [10.111.40.7])
+	by mailfr.eumail.docusign.net (Postfix) with ESMTP id 303FB8069E
+	for <j.bonnefoy@phardex.fr>; Fri, 15 Dec 2023 09:35:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=eumail.docusign.net;
+	s=mail1; t=1702632954;
+	bh=SMJDrBSoCpZgOd4Z45SJGmtaIeTjaUDFpDkUxjjDvEs=; h=From;
+	b=i53LSJgAZfHcpL4dCe3mrea2X7uurAp/TqJgv9DeRYv857TT17QmE0ml9OLHkkGjK
+	 9n2kUrGmpd4FdVop0UhUqABntyesGZOhLzxJ9wWTVcYjRBjQ1EunJWTtwZdeLybvQO
+	 af+7IBqxjq/82e4bwby/wiNZAH9jfT2Gav3Pyb7A7mbc2xRQKttrJoD/nzJZ4IdJ1W
+	 qAdkc5qYR/U6angZOeErcifMr1xczTiKv+cvmGwNvt30PaOktfrnk0dlm+dzwY58o3
+	 sMeygBM25mO6xBlFKSPgK/trmzCnNO6M1ApiWxKRAIaEfj2t1fBFJQ91kKWjCy9vN1
+	 wLQPa9BpPW2Jw==
+Received: from eumail.docusign.net ([127.0.0.1]) by FR1FE39.euad.docusign.net with Microsoft SMTPSVC(10.0.17763.1697);
+	 Fri, 15 Dec 2023 01:35:54 -0800
+Sender: DocuSign EU System  <dse@eumail.docusign.net>
+Reply-To: "DOCUSIGN APH"  <docusign_aph@biocodex.fr>
+From: "DOCUSIGN APH via DocuSign" <dse@eumail.docusign.net>
+To: "BONNEFOY Julien" <j.bonnefoy@phardex.fr>
+Message-ID: <c592864e45c24725bcae5b1e09df8f2b@eumail.docusign.net>
+Date: Fri, 15 Dec 2023 01:35:54 -0800
+Subject: =?utf-8?B?Q29tcGzDqXTDqWUgOiBNZXJjaSBkZSBzaWduZXIgbCdhdHRlc3RhdGlvbiBkZSBmb3I=?=
+	=?utf-8?B?bWF0aW9uIEVOUjE1ODFfYV9Gb3JtYXRpb24gTUVESUtJTkVULTA4LTEyLTIzLmRvY3g=?=
+X-OriginalArrivalTime: 15 Dec 2023 09:35:54.0186 (UTC) FILETIME=[196A5AA0:01DA2F3A]
+Authentication-Results-Original: relay.mimecast.com;	dkim=pass
+ header.d=eumail.docusign.net header.s=mail1 header.b=i53LSJgA;	dmarc=pass
+ (policy=reject) header.from=docusign.net;	spf=pass (relay.mimecast.com:
+ domain of dse@eumail.docusign.net designates 192.103.123.8 as permitted
+ sender) smtp.mailfrom=dse@eumail.docusign.net
+X-Mimecast-Spam-Score: -99
+X-Mimecast-Impersonation-Protect: Policy=Impersonation - VIP Header Display Name Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+X-Mimecast-Impersonation-Protect: Policy=New Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+Content-Type: multipart/alternative; 
+	boundary="----=_NextPart_196A7C6B_FB1B_448C_934F_6FED3690FAE2"
+Return-Path: dse@eumail.docusign.net
+X-MS-Exchange-Organization-ExpirationStartTime: 15 Dec 2023 09:35:57.5272
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ d43d3bcc-6394-488e-3210-08dbfd513ddf
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: d1197c46-2c75-438b-a7ef-16690d1f8b64:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AMS0EPF00000198:EE_|DU2PR07MB8363:EE_|AM7PR07MB6692:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AMS0EPF00000198.eurprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: d43d3bcc-6394-488e-3210-08dbfd513ddf
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:194.104.108.241;CTRY:DE;LANG:fr;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:de-smtp-inbound-delivery-1.mimecast.com;PTR:de-smtp-delivery-1.mimecast.com;CAT:NONE;SFS:(13230031)(47650400002)(230922051799003)(230273577357003)(230173577357003)(451199024)(14302899009)(1690799017)(20402899009)(47000500020)(22186003)(34756004)(1096003)(5660300002)(95266004)(7696005)(7846003)(24736004)(33964004)(108616005)(58800400005)(6916009)(966005)(19627405001)(356005)(166002)(7636003)(224303003)(55016003)(86362001)(2616005)(7126003)(26005)(336012)(83380400001);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Dec 2023 09:35:57.3241
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d43d3bcc-6394-488e-3210-08dbfd513ddf
+X-MS-Exchange-CrossTenant-Id: d1197c46-2c75-438b-a7ef-16690d1f8b64
+X-MS-Exchange-CrossTenant-AuthSource:
+ AMS0EPF00000198.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR07MB8363
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.5414078
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7091.030
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?VXZLWUJnUi9qNUhwOSt5WWs5WTc0eHVVZDQzNW5CUTk0dHdQWHg3S01IRkFx?=
+ =?utf-8?B?SEZZUTZWL0ptczUvaUJmdW9XQXpjblNtS2RacFM0bStOeXNJTW9abENzaFZV?=
+ =?utf-8?B?OGs2VlpYZEZBK25BcG44RTR5cExyQjAxK1RVNFdDVUU4RmsvZnk5ZFc3RlBQ?=
+ =?utf-8?B?bkdPTmtib1dkMHlpeFkwWmV4eTF4cXVJdGxDUjNCWjAzdzFFU0RQZzVQUE1T?=
+ =?utf-8?B?bzFodHBjUVczWWlTbDZpSVh5dkc4Wml3ckplU21KdFN4eXJNQUYrUXJoYktz?=
+ =?utf-8?B?TDI3bFgzWlBLSXNlcVlWa1JBTkpYV0o3L2dvcnBPcG9tWWNaYmc0dTZaQk8r?=
+ =?utf-8?B?Wmp1cTd4OVV5TGJKVWw0R25IdEFzdEh6SWgwSmJMNURHeWpFMm5Nek11Y0Z1?=
+ =?utf-8?B?VE1zV3FLblpoYkxSMVgzb3hsZHdTL1FBeVJWUlltbTdCMWh5YjgvUGtUUFFu?=
+ =?utf-8?B?VFhnSjhzS2FrcWRMLzUveTlDNzVkY28rcUVVcmdYdERuUGE4SnV3MWdoYW1B?=
+ =?utf-8?B?eTI1VlZCc3RrQmRudUtnU01OZExraXpZV1FXWFNGT3hobWRGbk5uL29UVGE0?=
+ =?utf-8?B?RTRiRFcvTXB4aEx1MjdTaXlkSE1lbGtpV2VaSU0xcmp1M1VkSWs3Nld3YUpN?=
+ =?utf-8?B?K3czT2pyc1BvQUtuTitCdkVtalZpK0lWMGVPNURCZytaSDdFWFFvZUExeURz?=
+ =?utf-8?B?cG5ScllNdmtWdDhiWng4RmtYSFd1QVRKVGpzSlhKVXp2ZGtZdGVzOVAyc1R4?=
+ =?utf-8?B?YnFWTU5VRlJZUkVsMTRseGdCcVBIZndFOHNENnVyYVBIYXdBNHZ5N1dYa2Q5?=
+ =?utf-8?B?SVdqeDh6a3F6eHBEZHBzVmo1RmdyNkplblJOUE5KbmZmWGg0eWxGalJvN2hB?=
+ =?utf-8?B?QXZvamo5QnhZMU44VzFTUUFzYWNEa3NUUUFUVENwclliaGQ5Z01RTElaNmdp?=
+ =?utf-8?B?bXAzTy9FU3lqUWtTeTE0UnhHSnlMcEs5c2VSWDFWQmd6Y3JTUi9ZL1VvRXVa?=
+ =?utf-8?B?OVdYaEtoK3NWeXNtVXowbC8vT2hNSEdpcEFMd081bjEyZ1E2TjhTSENjTllx?=
+ =?utf-8?B?VlVPSlJ0a2JZMk41QXg2T3krdU9hRGRsM1FZMzFzOXBCRFR0ajJSSmtweDZX?=
+ =?utf-8?B?QUN0RFVTWTlsdE1HQWdLc2lra0xpeEJodFNmcWpRY1gyRTlEV1Y0a0VxZTVs?=
+ =?utf-8?B?WFVXUStqYkxkcUZpYjNVdDFoZW5YWmJoMkxGZmVIVlp5bG9xMkFLYTYzUlMw?=
+ =?utf-8?B?VERaanc4bDh6dlhyRjZIVUdxZEpZZjVaZGxNSU1tcllLS0xiSnFkV3ljcHpV?=
+ =?utf-8?B?dkptOGFOQmVKWFFYZG1odGVvMVRKTWJWYU5BUjdGWjJHWUMwZHJ6QjhjVFhj?=
+ =?utf-8?B?dFNyUHB5YjZNZm9Qa2pDZUl2MEpucVRPSzkxcFZGZFBBUVJTQ0YxUzY2d01D?=
+ =?utf-8?B?dlBwWUdrR2pVb2xyaFpwUTdhU3U5QmNJaUcxNWVoVTlERXpoNUtHNzRudXNX?=
+ =?utf-8?B?bUxET2pQK21pbExVaVpJd0JXVDJkemozMVBhaUpLcmQ3Nmp4d25NenhZTDN2?=
+ =?utf-8?B?bEVJMW5TNU1Kd1JoSnhiV2dCL2I2SVlHQXd1cTBycnRETE1vSk44VzFvY3Zn?=
+ =?utf-8?B?cS80TDFsbkVraDczRXZZN28rc1l5dDdza09kMmFPODdnSmNzaDJNZDN4UStD?=
+ =?utf-8?B?Y3NrU3FGL2MySkVXY2pmODRVY2w1bXpML2hRNWh5RVJ4NlNrR21XZmtOeXpO?=
+ =?utf-8?B?aVNydFVCWEg1L0xtcXlmL2NLOEZNa0FhT0d4NW5taVBqN0pEeXMvUkNBSUQ0?=
+ =?utf-8?B?Mlp4NnJzN2MzTUFudVlwcGdVUFBPMEhhRGk4OUcweHFrb25ybDdoaHdjWlg4?=
+ =?utf-8?B?cGp4QzZocnN2YlRIYzZXNm91WFRraDBqRkRlb0xvZTYwWmx6TWtlUkdVRS8r?=
+ =?utf-8?B?cm9QeG14TkRoeEYzejJPeDlnenR4elBWRDJlWWNWVnlqWmQ3TTE0WVhOcnl1?=
+ =?utf-8?B?OHdwdmJ2dkdKNG5BeU0ybTM2NmRnZVZBOXIwaXk5bUxUUmhSZlZqUFNQcDVz?=
+ =?utf-8?B?NWxqajRiTUI1RmdCSjdJNEc0Vzk2L2lqUkcwSklxbnhxR1hrZXJPZzJ1WnNy?=
+ =?utf-8?B?dnN5eXJOR0dIUUl0bGg0ZFBJNkROV3ZRQ1FlbFhwMi9EdXlkOHpiekZybmdV?=
+ =?utf-8?B?MnZJWk9DRVY4b3FySXF1ZXNKeXFwL3h4MnlvZ1UxbWppd3NPa1h1bGZFaGpQ?=
+ =?utf-8?B?RWM3L1RJSnZsOW0yVStERUVkNmFiQmh5aktOc3E1bUZJZmdKYUhHcWN1eXU2?=
+ =?utf-8?B?cUQ5RWpMQlIzazBJTnFPaEJpSm8xZnV0Wjg3RGY0d2U0YVdrQlU0MUwzRDE0?=
+ =?utf-8?B?dmMxTTlLU3E3dFpySzFnTUhUR1hQNkdaczNHb1ZYN1J0L2pFZlBodXJYcjBr?=
+ =?utf-8?B?am5KTWJsM0sxNllNWHYxTXl0cEVGY3BpSStTeS9INllLNlluUTdoL1pMc2lG?=
+ =?utf-8?B?OHdXWkdNbFB1WDFRSW1ERU43eXk1b3FtaVM1MmRLbXl5Si92ZTdCNVdzVXlu?=
+ =?utf-8?B?cndOTUpmWFhmVzlkL3Y4T3RXeHA1OGNlK2Vaa0NYTGJPdXBocU9Jd2tuMERu?=
+ =?utf-8?B?cE5HM09pSGpqV2NaZWRIdGREeHY3eXE0d2NGTE5vT2YxVjlEdEsrN2ZDaUdQ?=
+ =?utf-8?Q?Nz31?=
+MIME-Version: 1.0
+
+------=_NextPart_196A7C6B_FB1B_448C_934F_6FED3690FAE2
+Content-type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Bonjour BONNEFOY Julien,   =20
+
+Toutes les parties ont compl=C3=A9t=C3=A9 =C2=AB=C2=A0Merci de signer l'att=
+estation de formation ENR1581_a_Formation MEDIKINET-08-12-23.docx=C2=A0=C2=
+=BB.
+   =20
+    Bonjour,=20
+Suite =C3=A0 la formation sur MEDIKINET et =C3=A0 la validation des quizz, =
+je vous remercie de signer le document suivant avant le 18/12/2023.
+Bien cordialement,
+L'Equipe Conformit=C3=A9 Ethique et D=C3=A9ontologique
+
+https://protect-de.mimecast.com/s/k317Cx6pQyU1MZDmc8B7x-?domain=3Deu.docusi=
+gn.net
+
+Si rien ne se produit lorsque vous cliquez sur le lien, s=C3=A9lectionnez l=
+=E2=80=99URL compl=C3=A8te et collez-la dans la barre d=E2=80=99adresse de =
+votre navigateur.
+
+Ce message vous a =C3=A9t=C3=A9 envoy=C3=A9 par DOCUSIGN APH, qui utilise l=
+e service de signature =C3=A9lectronique DocuSign. Si vous ne souhaitez plu=
+s recevoir d=E2=80=99e=E2=80=91mails de cet exp=C3=A9diteur, contactez=E2=
+=80=91le pour le lui signaler.
+
+Ne partagez pas cet e=E2=80=91mail
+Cet e=E2=80=91mail contient un lien s=C3=A9curis=C3=A9 vers DocuSign. Ne pa=
+rtagez pas cet e=E2=80=91mail, le lien qu=E2=80=99il contient ni le code d=
+=E2=80=99acc=C3=A8s avec d=E2=80=99autres personnes.
+
+Des questions sur le document=C2=A0?
+Si vous devez modifier le document ou si vous avez des questions sur son co=
+ntenu, veuillez contacter directement l=E2=80=99exp=C3=A9diteur par e=E2=80=
+=91mail.
+
+Ne plus recevoir cet e=E2=80=91mail
+Signaler cet e=E2=80=91mail https://protect-de.mimecast.com/s/OG60CywqRzSrX=
+YK6CMLB64?domain=3Dprotect.docusign.net
+Refuser de signer=20
+G=C3=A9rer vos notifications=20
+
+Si vous rencontrez des probl=C3=A8mes pour signer le document, veuillez vis=
+iter la page d=E2=80=99aide de l=E2=80=99Espace Signer sur notre Centre d=
+=E2=80=99assistance.
+https://protect-de.mimecast.com/s/PVdbCz6r0AUMgKE8FgntAp?domain=3Dsupport.d=
+ocusign.com
+
+------=_NextPart_196A7C6B_FB1B_448C_934F_6FED3690FAE2
+Content-type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<html lang=3D"en"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><m=
+eta name=3D"viewport" content=3D"initial-scale=3D1.0"><meta name=3D"format-=
+detection" content=3D"telephone=3Dno"><title>RecipientEnvelopeComplete</tit=
+le></head><body style=3D"background-color:#EAEAEA;padding:2%;font-family:He=
+lvetica,Arial,Sans Serif;"><table id=3D"mcpreviewzzyygg" style=3D"display: =
+none; mso-hide: all; width: 0px; height: 0px; max-width: 0px; max-height: 0=
+px; font-size: 0px; line-height: 0px; color: white; text-decoration: none;"=
+><tr><td>Votre document a =C3=A9t=C3=A9 sign=C3=A9 AFFICHER LE DOCUMENT COM=
+PL=C3=89T=C3=89 DOCUSIGN APH docusign_aph@biocodex.frToutes les parties ont=
+ compl=C3=A9t=C3=A9 =C2=AB Merci de signer l'attestation de formation ENR15=
+81_a_Formation MEDIKINET-08-12-23.docx =C2=BB.Bonjour, Suite =C3=A0 la form=
+ation sur MEDIKINET et =C3=A0 la validation &nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&=
+nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C</td></tr></table><table id=3D"=
+mcalertwrapperzzyygg" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr>=
+<td><a href=3D"https://protect-de.mimecast.com/s/5-SMCA6RyrUN6jBrUYpqcZ?dom=
+ain=3Dde.report.cybergraph.mimecast.com"><img id=3D"mcalertzzyygg" src=3D"h=
+ttps://alert-eu-central-1.api.getmessagecontrol.com/onprem_security_warning=
+_fetch?r=3D1&amp;dep=3DO97HHXj8XP1n%2F1w%2FgH4NIA%3D%3DuE%2BpKQ5OvU00S988Ns=
+HLy%2F%2BxlpekxclHNK7LmuhuPyP4U5CWdyMnbuEG%2BUVjLh9cC%2Fz6JwTUKmDHWIU9Z0tjK=
+KBsGx%2B4kNGpejhN0hkeI1rceyRILFbP3av2tSDzklYk90Z8vvjB1MPAYH0yG0bbmYYt3d%2FR=
+6Dq6PPHWad9QVVGlXj2LNJxsBZM%2FLat9n1CUufIyYb8y0GsfRnqXgYkfSOCIQGiqlBlWXJmmf=
+JGkfYkl%2FWhlzzz42ByUrs5zOmr9YaqA67S0An5BkUUfAIAm%2BgkPfyrh%2BX2cBCsmsEeBVV=
+eue2sWt8oRAPbTUctled1u9OuxJ9ld377ZJxCgornsjifGUEvP%2B8IP3NzIsRRS%2ByYDPqLiT=
+k%2FCzBcH7FvL1f0z9%2FdEpq9VvHd1ok3SlllPQ29I5ZvYkpdSalsfkR%2F0VM7UbjCIZoHtEp=
+fsEpTxgqZ5f930AbV1iN1JwX71KZdo0srnC%2F6QhH01BLgKubnAriqEHgSLQ%2Fo5peE6pds07=
+4OSJ74%2B7KIVPPGdF0a5I%2BascUnj%2BvR099VIoQKoH03sHxNrpCptfAwca5iSa191rZCRLr=
+vebWLA7xq9JuGxVpvQL3tm4kvFKTTtTA8xU7cJA3LPP%2FGXfTn11R3DD79d1mXNvLoekMHm4og=
+6p0k3b7XSIHzyOKqd0tWofb%2Bnwt2GvW8WjdpvMzK68x6gAztEh2JBN9EW%2F9iJdXL9W38rxI=
+BWd2%2Bizn9XygN3qMfFuVSA9KWF1eg1pZ7YNxv2MDOn30xlk8BROmfmaZNJYSqJLbHOTJScEfj=
+rSY9cEhkC0STO%2BtvHy9qo7rJT08MXahnN8aLHzpow6qKUFILIZG%2B2fHTRpHlAzCnmmIte1t=
+rBe5XQjttyZ2bHyuQnahDoXTwM38gFURbo701yuyC47LjgQMIvOjygkwNWFAtwexz5RrC5Jqc%3=
+D" style=3D"display: block; border: 0px; border-style: none;" border=3D"0">=
+</a></td></tr></table><table role=3D"presentation" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" align=3D"center" width=3D"100%" dir=3D""><tr><td><=
+/td><td width=3D"640"><table role=3D"presentation" style=3D"mso-table-lspac=
+e:0pt;mso-table-rspace:0pt;border-collapse:collapse;background-color:#fffff=
+f;max-width:640px;"><tr><td style=3D"padding:10px 24px;"><img style=3D"bord=
+er:none;" width=3D"" src=3D"https://eu-central-1.api.getmessagecontrol.com/=
+onprem_image_fetch?dep=3DcfL5ksM6FnsqpHhSHNcU8w%3D%3DdN4ll8h%2FfqoSU%2BFiqU=
+X7mWYUOk80cROlGujl%2BflfNKUUed13GoBwSBwmNRIPCaXUg%2BWS91eZ1SaOgHWeNJc0SWZef=
+DU48YfD9YukU1feBW2sObwTzFOtQTSL4CCy%2FjhOsxot87uY0mTK3pT%2BhN0ymNCGC3FqTU8s=
+KvRf8boC6eBcnt0RBbb1hsc6QZrLZZcj2NqJzQlR7UWERH%2Be%2BRmXEPEp1kYNYZvvcF7%2Bg=
+C3vyQsXQ8rhRi3XZ%2BlrOkWEi2foXX0CKS7Jg4sRIqk8XUa%2BFmEXqPCSA4Bc4z7oZ8xjET7M=
+fL4F7nFd45yoQE8O4jSYxZvO4qyIWa7Eu7RjjOzIRFqFxZ4TSNkRp1QhI59vpWuNMN3XkD%2FqY=
+zNwrD6vyaoGZ2rWsTFNoLwy8dfVOWlVjp9xF1%2FrKayfxDgHpMiOtFK%2FLQEVwXnELSCMrzbC=
+tJnimZA%2B8vE4aaenXefl%2BStSiL0A3Wz7TN2JlAJyIBgqyII%3D" alt=3D""></td></tr>=
+<tr><td style=3D"padding:0px 24px 30px 24px;"><table role=3D"presentation" =
+border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" align=3D"ce=
+nter" style=3D"background-color:#b51f8d;color:#ffffff;"><tr><td style=3D"pa=
+dding:28px 10px 36px 10px;border-radius:2px;background-color:#b51f8d;color:=
+#ffffff;font-size:16px;font-family:Helvetica,Arial,Sans Serif;width:100%;te=
+xt-align:center;" align=3D"center"><img width=3D"75" height=3D"75" src=3D"h=
+ttps://eu-central-1.api.getmessagecontrol.com/onprem_image_fetch?dep=3DXaUx=
+qMSBL5Lnk9fB1YFYQg%3D%3Dy%2FnAX0vGLzv3%2BWcyVfAcSg22oRa4pbjk%2B%2BuQoGoQvDl=
+Ww8w3IAqeqes9BSIvfQF4VhzpJC90khSn969jB7M11fnNMZBYbt7LtX57yt5coD7HZ%2BqQB9Ri=
+%2F%2FREPFUzhCnTtk7CoHmbk4UzTa%2Fo%2B1VUCfTK47myYHWVdfg4Z9K01hQ7STmV2esi95Q=
+IHKgN4jD1r4pfpGtCPVs7vpLRhDuGwwK1%2F2gxNGUKJEJtiXJsWcVJJkkLbeJ7DIOoueuCfV0A=
+5VIZQBxJ8ECTgGzUz%2FwQdwS9FUhkfzllXRktFKOJ4nCv0m%2F4rKC7%2FWhxUj%2BNvJNquGu=
+kE0dtsEY6%2FwGjFETbFKdy%2BV21jPcgCylIO%2FySdX2AKJb6vdSt0aLXd1hEOulbGbvkO3iL=
+DhbhgQhfEUOWzB%2FX%2BwD6sSNYjNTl%2FFUW5HE%3D" style=3D"width:75px;height:75=
+px;" alt=3D""><table role=3D"presentation" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0" width=3D"100%"><tr><td style=3D"padding-top:24px;font-size=
+:16px;font-family:Helvetica,Arial,Sans Serif;border:none;text-align:center;=
+color:#ffffff" align=3D"center"> Votre document a =C3=A9t=C3=A9 sign=C3=A9 =
+</td></tr></table><table role=3D"presentation" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0" width=3D"100%"><tr><td align=3D"center" style=3D"paddi=
+ng-top:30px;"><div><table cellspacing=3D"0" cellpadding=3D"0"><tr><td align=
+=3D"center" height=3D"44" style=3D"font-size:14px;color:#ffffff;background-=
+color:#b51f8d;font-family:Helvetica,Arial,Sans Serif;font-weight:bold;text-=
+align:center;text-decoration:none;;border-radius:2px;border: 1px solid #fff=
+fff;background-color:#b51f8d;height:100%;display:block;"><a href=3D"https:/=
+/protect-de.mimecast.com/s/k317Cx6pQyU1MZDmc8B7x-?domain=3Deu.docusign.net"=
+ style=3D"padding:0px 12px;;font-size:14px;color:#ffffff;background-color:#=
+b51f8d;font-family:Helvetica,Arial,Sans Serif;font-weight:bold;text-align:c=
+enter;text-decoration:none;;display:inline-block"><span style=3D"line-heigh=
+t:44px;"><!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--> AFFI=
+CHER LE DOCUMENT COMPL=C3=89T=C3=89 <!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;<![endif]--></span></a></td></tr></table></div></td></tr></table>=
+</td></tr></table></td></tr><tr><td style=3D"padding:0px 24px 24px 24px;col=
+or:#000000;font-size:16px;font-family:Helvetica,Arial,Sans Serif;background=
+-color:white;"><table role=3D"presentation" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0"><tr><td style=3D"padding-bottom:20px;"><div style=3D"font=
+-family:Helvetica,Arial,Sans Serif;font-weight:bold;line-height:18px;font-s=
+ize:15px;color:#333333;"> DOCUSIGN APH </div><div style=3D"font-family:Helv=
+etica,Arial,Sans Serif;line-height:18px;font-size:15px;color:#666666;">docu=
+sign_aph@biocodex.fr</div></td></tr></table><p style=3D"font-size:15px;colo=
+r:#333333;font-family:Helvetica,Arial,Sans Serif;line-height:20px;">Toutes =
+les parties ont compl=C3=A9t=C3=A9 =C2=AB Merci de signer l'attestation de =
+formation ENR1581_a_Formation MEDIKINET-08-12-23.docx =C2=BB.</p><p style=
+=3D"font-size:15px;color:#333333;font-family:Helvetica,Arial,Sans Serif;lin=
+e-height:20px;">Bonjour, <br> Suite =C3=A0 la formation sur MEDIKINET et =
+=C3=A0 la validation des quizz, je vous remercie de signer le document suiv=
+ant avant le 18/12/2023.<br> Bien cordialement,<br> L'Equipe Conformit=C3=
+=A9 Ethique et D=C3=A9ontologique</p></td></tr><tr><td style=3D"padding:0px=
+ 24px 12px 24px;background-color:#ffffff;font-family:Helvetica,Arial,Sans S=
+erif;font-size:11px;color:#666666;"><table border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0"><tbody><tr><td valign=3D"top" style=3D"font-family: Helvet=
+ica,Arial,Sans Serif; font-size: 11px; color: #666666; vertical-align: top;=
+"><div style=3D"font-family:Helvetica,Arial,Sans Serif; font-size:11px; col=
+or:#666666; padding: 2px 5px 0 0;">Technologie&nbsp;</div></td><td><img src=
+=3D"https://eu-central-1.api.getmessagecontrol.com/onprem_image_fetch?dep=
+=3Du%2BD%2FlJKas4HiZm6btUVoVQ%3D%3Dfpv%2FeMt%2B1%2BQXw%2BkkcKogLoVXeKEsKWxN=
+O7FwzNf0t2jJlfCfrl%2BvHHjZLc2l%2FAMMClg2d5PgZUYg1Rl8NgyINC7mEv9KiplmvLED5L0=
+BM6yw9L%2FNI%2B8sJE%2FLe%2FWzxQcOcsjXMcAPkC7KCF5Gfl8IXbndM7uavgcNcXVFdFx7sy=
+ZI0txhGAlt%2FuE%2FABTlc62g%2F4qyJqEWlelfpatRw47imFXSsXtUH3r7lG0Tc3UmOCPreft=
+T3hLIwBwaF2l12aIfKR6jZZ1Xry4R9H%2BHuaAkKLezrJr3%2F2YeizsHiVyIzMVBMCwVHtLJWd=
+uxHkzezEOzPCdR6gpHitFBlYbMIbe6wpYqd4HB4ft2hnWOdzp2wrlPWSNn6GEQmMZ1a56%2BPzu=
+w8cxxDPJ4wXV9ZwdQUCaJk1Mj%2BPAXb6iFzZS9x1p24Xfc7%2FbXQspPOuJkHJ90QJ7CmZMq87=
+wMLSKMIL7ZbuWM%2FQ%3D%3D" height=3D"19" alt=3D"DocuSign" style=3D"border:no=
+ne;"></td></tr></tbody></table></td></tr><tr><td style=3D"padding:30px 24px=
+ 45px 24px;background-color:#EAEAEA;"><p style=3D"margin-bottom:1em;font-fa=
+mily:Helvetica,Arial,Sans Serif;font-size:13px;color:#666666;line-height:18=
+px;"><b aria-level=3D"3" role=3D"heading">Ne partagez pas cet e=E2=80=91mai=
+l</b><br> Cet e=E2=80=91mail contient un lien s=C3=A9curis=C3=A9 vers DocuS=
+ign. Ne partagez pas cet e=E2=80=91mail, le lien qu=E2=80=99il contient ni =
+le code d=E2=80=99acc=C3=A8s avec d=E2=80=99autres personnes.<br></p><p sty=
+le=3D"margin-bottom:1em;font-family:Helvetica,Arial,Sans Serif;font-size:13=
+px;color:#666666;line-height:18px;"><b aria-level=3D"3" role=3D"heading">Au=
+tre moyen de signer</b><br> Visitez DocuSign.fr, cliquez sur =C2=AB Acc=C3=
+=A8s aux documents =C2=BB et saisissez le code de s=C3=A9curit=C3=A9 :<br> =
+7F776F58BBB7471884EFA27787EA26294 </p><p style=3D"margin-bottom:1em;font-fa=
+mily:Helvetica,Arial,Sans Serif;font-size:13px;color:#666666;line-height:18=
+px;"><b aria-level=3D"3" role=3D"heading">En savoir plus sur DocuSign</b><b=
+r> Signez des documents =C3=A9lectroniquement en quelques minutes. C=E2=80=
+=99est s=C3=A9curitaire et juridiquement contraignant. Que vous soyez dans =
+un bureau, =C3=A0 la maison, sur la route, ou m=C3=AAme de l=E2=80=99autre =
+c=C3=B4t=C3=A9 de la plan=C3=A8te, DocuSign vous offre une solution fiable =
+pour la gestion de transactions num=C3=A9riques. </p><p style=3D"margin-bot=
+tom:1em;font-family:Helvetica,Arial,Sans Serif;font-size:13px;color:#666666=
+;line-height:18px;"><b aria-level=3D"3" role=3D"heading">Des questions sur =
+le document ?</b><br> Si vous devez modifier le document ou si vous avez de=
+s questions sur son contenu, veuillez contacter directement l=E2=80=99exp=
+=C3=A9diteur par e=E2=80=91mail.<br><br><b aria-level=3D"3" role=3D"heading=
+">Ne plus recevoir cet e=E2=80=91mail</b><br><a href=3D"https://protect-de.=
+mimecast.com/s/OG60CywqRzSrXYK6CMLB64?domain=3Dprotect.docusign.net" style=
+=3D"color:#2463d1;">Signaler cet e=E2=80=91mail</a> ou en savoir plus sur <=
+a href=3D"https://protect-de.mimecast.com/s/DnA7CBrVzvH76v0PIWac9u?domain=
+=3Dsupport.docusign.com" style=3D"color:#2463d1;">Refuser de signer</a> et =
+<a href=3D"https://protect-de.mimecast.com/s/jAHgCDqXBxU5vXwjukWopZ?domain=
+=3Dsupport.docusign.com" style=3D"color:#2463d1;">G=C3=A9rer vos notificati=
+ons</a>.<br><br> Si vous rencontrez des probl=C3=A8mes pour signer le docum=
+ent, veuillez visiter la page <a href=3D"https://protect-de.mimecast.com/s/=
+OpKqCEqYDyU39BO1FBHKMk?domain=3Dsupport.docusign.com" style=3D"color:#2463d=
+1;">Aide avec le processus de signature</a> sur notre <a href=3D"https://pr=
+otect-de.mimecast.com/s/xDyOCGR1GAf1YwEWcYObpV?domain=3Dsupport.docusign.co=
+m" style=3D"color:#2463d1;">Centre d=E2=80=99assistance</a>.<br><br></p><p =
+style=3D"margin-bottom:1em;font-family:Helvetica,Arial,Sans Serif;font-size=
+:13px;color:#666666;line-height:18px;"><a href=3D"https://protect-de.mimeca=
+st.com/s/s_BiCJ84L1SqrxlpIknvto?domain=3Ddocusign.fr" style=3D"color:#2463d=
+1;"><img style=3D"margin-right:7px;border:none;vertical-align:middle;" widt=
+h=3D"18" height=3D"18" src=3D"https://eu-central-1.api.getmessagecontrol.co=
+m/onprem_image_fetch?dep=3DJrVYgqBY%2FRNhAGerIiOX2Q%3D%3Dh9lN6SQwXu%2B2IxA4=
+clx4gr55h814kcgXASNtFV2Omc%2FbLQWVfWrJuIwnZ6UgBUJOprvn7Uh3X6li8Z82VE995YAoN=
+nwmZm9JbVkHv1Ml0xXg0r2iGfBqGzSoynf1gk78lJDxOznwgHTltuJn9BqgPo70MCHvq8g4dv9R=
+ITugRQtg4yVxmr2dTMSvvdeaT2Bu14jYXWCmQ5Kg2DmFEmSXD6DjHd%2FiejCRbdpLdN%2FDwX2=
+6ocC45UfbGpmjEAKctRA47KlUO2%2B7cCRayHpvC7oGRsXuHZS94zn8yM%2FRBjVuF6X290CSsb=
+VyDzNJiB5J6bjZDUDLxF6xHTzPly%2FoL2PgAAqCHvtF5532HP5RwhI2rZ%2BFWiFaxQreOQCSa=
+Ehpc2vxw3ek3jgX57o5hVk3AZlwpkgxwQG8vGLMFE5zr%2BpjRoyCOElFf1Q8U0S1na0ckzPaVt=
+zPojNR5gWhlRN%2BMwVYOg%3D%3D" alt=3D"">T=C3=A9l=C3=A9charger l=E2=80=99appl=
+ication DocuSign </a></p><p style=3D"margin-bottom:1em;font-family:Helvetic=
+a,Arial,Sans Serif;font-size:13px;color:#666666;line-height:18px;font-size:=
+10px;line-height:14px;">Ce message vous a =C3=A9t=C3=A9 envoy=C3=A9 par DOC=
+USIGN APH, qui utilise le service de signature =C3=A9lectronique DocuSign. =
+Si vous ne souhaitez plus recevoir d=E2=80=99e=E2=80=91mails de cet exp=C3=
+=A9diteur, contactez=E2=80=91le pour le lui signaler.</p></td></tr></table>=
+</td><td></td></tr></table><span itemscope=3D"" itemtype=3D"http://schema.o=
+rg/EmailMessage"><meta itemprop=3D"text" content=3D"DOCUSIGN APH vous a env=
+oy=C3=A9 un document =C3=A0 examiner et =C3=A0 signer."><span itemscope=3D"=
+" itemprop=3D"about" itemtype=3D"http://schema.org/CreativeWork"><span item=
+scope=3D"" itemprop=3D"action" itemtype=3D"http://schema.org/ViewAction"><m=
+eta itemprop=3D"url" content=3D"https://eu.docusign.net/Member/EmailStart.a=
+spx?a=3D7f776f58-bbb7-4718-84ef-a27787ea2629&amp;r=3D7974afde-eb2a-4852-96c=
+3-2203f307d0fe"><meta itemprop=3D"name" content=3D"Afficher les documents">=
+</span></span></span></body></html>
+
+------=_NextPart_196A7C6B_FB1B_448C_934F_6FED3690FAE2--
+

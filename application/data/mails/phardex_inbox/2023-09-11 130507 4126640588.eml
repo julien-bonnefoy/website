@@ -1,0 +1,752 @@
+From biolearning@biocodex.com Mon Sep 11 13:05:07 2023
+Received: from AM9PR07MB7859.eurprd07.prod.outlook.com (2603:10a6:20b:302::14)
+ by AM7PR07MB6692.eurprd07.prod.outlook.com with HTTPS; Mon, 11 Sep 2023
+ 13:05:07 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=IklhMH3URatLqk1xvZOA9R4J3bwpj9AhSVSeaQm/ss2kG6TdKBafQ6SR0xUYS3ewn/hxdyw7IyrlFKRdv01ldqUD+4rWdMnvia8FWoBgZCKBXuvwTz/T0nALdFiZISa1vvOFiZ4V79LhoZSawu5BfHUzJXj9DnKAMj3E+FmW0PcO+elGj0sXWLgAl/cPgErjmw/pFMfsRz1UXTEjSqNTlVue6ESu2b5soMnqUVLaplMrPNNw13rV/hzcjL14k9Z9EYq0yeicWWmLHzFPP2dZ4u6OAmKCJ9738KdL3M4qigN2amYu0IqFigZoEiZPnwGx714VXBSa+trUYmzC4jEqVA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JzmHLQ3rGfl7KpoXj4mPDFrj1pbkjL3eaOSl+/zk7Q4=;
+ b=NUPeOlWvEsp4c2WtG+cgIfDUpUNe+eN/XF99eH9OsHzAyZy3cbeserfvpdPYG3v64bokcQuYjgP3pnPSgd9KNUH+W3ShYcyKd14t1NgN8dk/KacmE45mAAKQ/SHbrGRBAjXzEbhWdLZmwKBNvE0o/DjT2FoyNihHNlR3uPMHZ8m7jF8mF6L20epszjarjTr9ofNJ0CHT5NPxdt3CjurgoUeflYlmvIoCgaD9kzE0cRlbRbSrvaJsI+XJUKBHvCLYiYzydJwu0palI0gJV0W5ji6myyupA+XTxdDeBsUXJZd47/PL9BFYjZpXKkRFtrB/Zc8rNVBip5X4wu8/wTolwg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
+ 51.163.158.241) smtp.rcpttodomain=phardex.fr
+ smtp.mailfrom=eu-west-1.amazonses.com; dmarc=fail (p=reject sp=reject
+ pct=100) action=oreject header.from=biocodex.com; dkim=fail (body hash did
+ not verify) header.d=biocodex.com; dkim=fail (body hash did not verify)
+ header.d=amazonses.com; arc=pass (0 oda=0 ltdi=0 93)
+Received: from DU7PR01CA0001.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:50f::16) by AM9PR07MB7859.eurprd07.prod.outlook.com
+ (2603:10a6:20b:302::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6768.35; Mon, 11 Sep
+ 2023 13:05:05 +0000
+Received: from DBAEUR03FT032.eop-EUR03.prod.protection.outlook.com
+ (2603:10a6:10:50f:cafe::26) by DU7PR01CA0001.outlook.office365.com
+ (2603:10a6:10:50f::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6768.35 via Frontend
+ Transport; Mon, 11 Sep 2023 13:05:05 +0000
+Authentication-Results: spf=fail (sender IP is 51.163.158.241)
+ smtp.mailfrom=eu-west-1.amazonses.com; dkim=fail (body hash did not verify)
+ header.d=biocodex.com;dmarc=fail action=oreject
+ header.from=biocodex.com;compauth=none reason=451
+Received-SPF: Fail (protection.outlook.com: domain of eu-west-1.amazonses.com
+ does not designate 51.163.158.241 as permitted sender)
+ receiver=protection.outlook.com; client-ip=51.163.158.241;
+ helo=de-smtp-1.mimecast.com;
+Received: from de-smtp-1.mimecast.com (51.163.158.241) by
+ DBAEUR03FT032.mail.protection.outlook.com (100.127.142.185) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6792.16 via Frontend Transport; Mon, 11 Sep 2023 13:05:05 +0000
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=dkim.mimecast.com; s=201903; t=1694437504;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 dkim-signature; bh=JzmHLQ3rGfl7KpoXj4mPDFrj1pbkjL3eaOSl+/zk7Q4=;
+	b=KOcOHOv2bkoptOIgYeJoyYZI1wsFJxSYRMGvl6MKJa5cmVm8uiNxH9En9HosrHjthPmQn7
+	XxWDMyl2E7Ef85zKf2Fhz2w1gxDhik+FPs62pMdvmoLJQVVd/56Uj6gF8KVG5M4yw/wNdD
+	GwEO/yTLkOu0MrbZ9R0LFZOyboFD6+vhinat5zpJHTCBHWcAPsrrBH+igEjOQxO/0KZ7RO
+	THsmzblziGNEr6LAPpiq3bwT50RQuBDdNb/2KaFDumHv1UIXVBpm6v/jFNEUeM9Di3jVId
+	kZthH71F1+NEFyChXpQWkP2K2MVOOnKIQYGpsyUxZ+CYfCBPtyfQMXIKtNgsJQ==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1694437504; a=rsa-sha256;
+	cv=none;
+	b=hbBug0RV76w1MM0h0bEicHwW+U67WZNyyDwU7z25FeXWulmYcuhVOPnHzQk1m9j5BVOaNO
+	PeozQetbXwvA5roulkVW+AdAbp3pWEzjrWIJpMDIeRb/87td4kCeLOtXWrxSW5avlZJ+QH
+	T90UPcKAuJK3VONixfFwRXefm7nLspTauTlRPOIn3Rnu3Vp48O3/jU/e1wQA/LvlNE900K
+	CkVAd5M88be7OKfasQ/nHWCwOcozi+r3gd297T0vW0qMzjRmSp38Go4Pt7PvDsrYMwu8ke
+	+3AqsWbxoStT1ZLGJECSlb7JIm0rky6USJ8P2VkYAIKYoobamqzhqk9FENXM0Q==
+ARC-Authentication-Results: i=1;
+	relay.mimecast.com;
+	dkim=pass header.d=biocodex.com header.s=tvtrev4gnxwyeqtuszkvlgsqodwky4ki header.b=KbcYEa5p;
+	dkim=pass header.d=amazonses.com header.s=shh3fegwg5fppqsuzphvschd53n6ihuv header.b=GFw7VscI;
+	dmarc=pass (policy=reject) header.from=biocodex.com;
+	spf=pass (relay.mimecast.com: domain of 0102018a84580507-2bc4e962-9d63-4e37-a640-3f8d90d038ab-000000@eu-west-1.amazonses.com designates 54.240.3.24 as permitted sender) smtp.mailfrom=0102018a84580507-2bc4e962-9d63-4e37-a640-3f8d90d038ab-000000@eu-west-1.amazonses.com
+Received: from a3-24.smtp-out.eu-west-1.amazonses.com
+ (a3-24.smtp-out.eu-west-1.amazonses.com [54.240.3.24]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ de-mta-29-klnE5bLRPHao08zJUyILWw-1; Mon, 11 Sep 2023 15:04:47 +0200
+X-MC-Unique: klnE5bLRPHao08zJUyILWw-1
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=tvtrev4gnxwyeqtuszkvlgsqodwky4ki; d=biocodex.com; t=1694437475;
+	h=From:To:Subject:MIME-Version:Content-Type:Message-ID:Date;
+	bh=0FWhYMp+opchWhD1t7ygDkKp4M+CzB3qJQgJJDhpm7g=;
+	b=KbcYEa5pZgkViitQDYUj1vvAdCQBHiU9YPZ+mq4hJPhaa2zealrzKpM1rIzHxbpe
+	Yz4Xxt5hT4XWk7KlV8HOEdKCWylW1MmTW3xrBrPZEJXv+v8dBFr94xOmB15KYriTpa3
+	yKcNMFH08ChehOEUEDe7n6eF/csw2tXplZ7Yhskw=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=shh3fegwg5fppqsuzphvschd53n6ihuv; d=amazonses.com; t=1694437475;
+	h=From:To:Subject:MIME-Version:Content-Type:Message-ID:Date:Feedback-ID;
+	bh=0FWhYMp+opchWhD1t7ygDkKp4M+CzB3qJQgJJDhpm7g=;
+	b=GFw7VscIfc2eJP558zyNLIiSEOC3BJJ5DABZr3U1XRNgIP0wbBp/DZBMaot5ETUV
+	iyiFq0oD3iACTOSfnCMek3YH0R3iaZw579N4F/gUCjtJ9oYY07jgz8qTHs6GG3U0dY/
+	Srl7qbLxr0hzY1LzV9QyggAWddHkdt9hpy+DhsFY=
+From: =?utf-8?B?QklPQ09ERVg=?= <biolearning@biocodex.com>
+To: j.bonnefoy@phardex.fr
+Subject: =?utf-8?Q?Vous_=C3=AAtes_inscrit_=C3=A0_une_nouvelle_for?=
+ =?utf-8?Q?mation_Formation_GESTARELLE_FERTILITE?=
+Message-ID: <0102018a84580507-2bc4e962-9d63-4e37-a640-3f8d90d038ab-000000@eu-west-1.amazonses.com>
+Date: Mon, 11 Sep 2023 13:04:35 +0000
+Feedback-ID: 1.eu-west-1.6FsIicYPhWptEFntNvxq1/Q/KMfg45mLA263qAm3SOk=:AmazonSES
+X-SES-Outgoing: 2023.09.11-54.240.3.24
+Authentication-Results-Original: relay.mimecast.com;	dkim=pass
+ header.d=biocodex.com header.s=tvtrev4gnxwyeqtuszkvlgsqodwky4ki
+ header.b=KbcYEa5p;	dkim=pass header.d=amazonses.com
+ header.s=shh3fegwg5fppqsuzphvschd53n6ihuv header.b=GFw7VscI;	dmarc=pass
+ (policy=reject) header.from=biocodex.com;	spf=pass (relay.mimecast.com:
+ domain of
+ 0102018a84580507-2bc4e962-9d63-4e37-a640-3f8d90d038ab-000000@eu-west-1.amazonses.com
+ designates 54.240.3.24 as permitted sender)
+ smtp.mailfrom=0102018a84580507-2bc4e962-9d63-4e37-a640-3f8d90d038ab-000000@eu-west-1.amazonses.com
+X-Mimecast-Spam-Score: 2
+X-Mimecast-Impersonation-Protect: Policy=Impersonation - VIP Header Display Name Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+X-Mimecast-Impersonation-Protect: Policy=New Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_519206_1008977074.1694437475595"
+Return-Path:
+ 0102018a84580507-2bc4e962-9d63-4e37-a640-3f8d90d038ab-000000@eu-west-1.amazonses.com
+X-MS-Exchange-Organization-ExpirationStartTime: 11 Sep 2023 13:05:05.2628
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ ecf13918-ffb6-40da-7258-08dbb2c7b7a9
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: d1197c46-2c75-438b-a7ef-16690d1f8b64:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ DBAEUR03FT032:EE_|AM9PR07MB7859:EE_|AM7PR07MB6692:EE_
+X-MS-Exchange-Organization-AuthSource:
+ DBAEUR03FT032.eop-EUR03.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: ecf13918-ffb6-40da-7258-08dbb2c7b7a9
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:51.163.158.241;CTRY:DE;LANG:fr;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:de-smtp-1.mimecast.com;PTR:de-smtp-delivery-1.mimecast.com;CAT:NONE;SFS:(13230031)(451199024)(1690799017)(19627405001)(6916009)(26005)(336012)(42882007)(1096003)(34756004)(5660300002)(6666004)(33964004)(7696005)(9686003)(224303003)(956004)(71280400001)(7636003)(83170400001)(166002)(356005);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Sep 2023 13:05:05.1378
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ecf13918-ffb6-40da-7258-08dbb2c7b7a9
+X-MS-Exchange-CrossTenant-Id: d1197c46-2c75-438b-a7ef-16690d1f8b64
+X-MS-Exchange-CrossTenant-AuthSource:
+ DBAEUR03FT032.eop-EUR03.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR07MB7859
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.2915053
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6768.024
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?UDUrUzUxUUJiNndFdnUvS0pMNVNMa2NwTnpOQXFETEp1VjdJWjc0WTV5M0Vn?=
+ =?utf-8?B?V251b2NEK3AyMHBPcVU4UG16NnE4MDJGVWZPMnVMWld1QlIxSTFMRXAwUnF1?=
+ =?utf-8?B?aFR5c1o3TDBVQnBHSUVOcGkzWlU1Nk1WT1lvUGxvOVZSdnNsN2xDVk1IcTg1?=
+ =?utf-8?B?YlJDQk82a2I2eHVPWXJ0MlFScHZZWThhbE9MU3J0ZzdZbG9DTlErcS9JaGJh?=
+ =?utf-8?B?aDZXQU5YNmJISndxWVFyK3RpMmJFeURKcHNyUG9PekowZS9wT2lVQjVXRzJl?=
+ =?utf-8?B?WmxndVFtTU5wQW4zS1pBaFl6N1RsVVViNzhxWWZQc1hBdU1nZHF6cFlpcmRz?=
+ =?utf-8?B?dEd0TDJCNmdWVWI3MlFZY0owdXZYNEVLSTJwdkg3d1dCRHZBMy9qZ1VCb0Fp?=
+ =?utf-8?B?YzF6YmpXVzdwTVdFLzJPRUo4SUZLbWZMMEVBMEo4RzkrTFhoQzl4TkFsaEJQ?=
+ =?utf-8?B?LzNrL1AybDFzdmJZSUlhU001Y2pobXhOSUFmWnFQK1IvVTB3WU10Y2w4cVpE?=
+ =?utf-8?B?c0wvcHcyZXlYMHRaYTJ0bm9uVTBYamVpbG9RYXFnQnJyWVhEWEtEaEZ5RU5Z?=
+ =?utf-8?B?eThNN3VsbEFHbHFzdS9Qb2ZMeUlOTzNaeExYM0s1VThxbHF1dHhrS1RwS1Z3?=
+ =?utf-8?B?VUozR0pNaEY2Z1V5R1poemZ5cndsOXQ2OFR4SFhER0pETnpKalh5eTFlWHJS?=
+ =?utf-8?B?VjJtNm53VnlYTFZwb2g3dElkdTVZV2RPRVZQZUpvdkVzMVZIWTR1K21hNXlr?=
+ =?utf-8?B?YlMrWkpram00bG8yZERXUXE3ZnhyaEdSTkVYejR3clB0dE5mZGFjWDZHdlRY?=
+ =?utf-8?B?V1EzMUF4ZXRGNG9vNkpvaXZlUjhpNGQzUFUwNFJpSTJZY2N4bmYwbUpkQndk?=
+ =?utf-8?B?SlZRT2U0RENpZ21SeUFMNEFrS3pMaE5KeUE0WVdQbVppNlhteElLbitUWitL?=
+ =?utf-8?B?NmtsM0MwbEQ3aDd0Q1dlZnlndzdaRExHWkNCa0ZaWjZDZzFDNlVZRG0vTkEz?=
+ =?utf-8?B?OHJBYW1oOVZNbExnUlNQR25YclRDcXAxMTNJaU1LTTVTVzV5bmRUYWNycFB6?=
+ =?utf-8?B?YWs4alZOQ1Bjc2hhMjBucVRlL0pvaGJ1b0NrUTE3MHRVbFIwaHg1ZDlvQWRT?=
+ =?utf-8?B?QnlQanhXOGVUNEhxbDE1SGhqYi8rL1hXdzBRc0lJeWJJNW5CWFpCQjU4cDJW?=
+ =?utf-8?B?Q3FVMXNQRFhjZjhnUUt3NzVKTytXY21nbzliaWhNdFFxYnRHR1Znbk9NOUU5?=
+ =?utf-8?B?Mkl6cEVoYVFQN0FtMTQ5OXd4eVRHaGY5V2NYSS9qWG9hem5XME5BWDlaR25y?=
+ =?utf-8?B?bHNDNy9BN1pXUHA3UXRoSk1FbVROQmE1RUR4YzFkdVJoWW9GeXRKeE9KVzZS?=
+ =?utf-8?B?dTdoTGljOGs4QjJ1UHpJek9xMHVLNmJHeFc0NzdwUkhQYUhPNVdkd2lQSVJL?=
+ =?utf-8?B?cE9RRGQ5ZGk1YndCTVNxZEVnZm9CNU0rVTBxT3Z2KzVSNFd1ZGVnOFdmQVlp?=
+ =?utf-8?B?OVp1Q1loeHVlKzk4d3gzRDlVVVRnY285dmZRNWErWnZ2QThvSGFMdU80Zy9o?=
+ =?utf-8?B?eklwN1p0bVk3VHFicURwa214c2xRZE1YM3Y5QVBHZ3JtNDBvd0YxV1VZYnJH?=
+ =?utf-8?B?N2J5N0ZCQS85V3RjSllLUTEyRHhaYjJRbHFiUUNtS3BheC9jeTVxNzIwWGJK?=
+ =?utf-8?B?ZUZYTGNqcUNtMy8wZkNpSVpSZGVMcy9SVlRHRThQczNjMnp5Z1RmU3VHZHhM?=
+ =?utf-8?B?NXZSdUIxMlRQRXRtUWg4aGhyWGJhM3QreThMVGpLeGVUR3VPL3IxNHR3RDkz?=
+ =?utf-8?B?N0JXZWN2ajVNRGMrQnIxS1pLWEw5cVp4TjV3dXo2UTA5UWx1emZBQkY4OCtL?=
+ =?utf-8?B?T3ZCSm1LdDB5SGZQYnRYM0hXc004SCtkNXpEZUhicG5mQnBWenFNVjl1RXRr?=
+ =?utf-8?B?enZEWHREL245RkRjRC9NeXVXemo5VG11TDEyVHdFSG5wMjNVRzBRcGxKdTRa?=
+ =?utf-8?B?VFNKL1VUQ0dZQXByOFZsMXhNcG1HMWNCL2ZOc2NoWGJqVUhBeWNVQTlCajJX?=
+ =?utf-8?B?NVB1N1AzSUYyZ1hpeE1yOWp0blhJUlNLdUtSMUJWLzJZdXAra3luN01YU1lt?=
+ =?utf-8?Q?DXvsUwi0oW7lBpO8sQrkjVt9L?=
+MIME-Version: 1.0
+
+------=_Part_519206_1008977074.1694437475595
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+
+
+
+
+
+   =20
+       =20
+           =20
+           =20
+               =20
+                   =20
+                       =20
+                           =20
+                               =20
+                                   =20
+                                   =20
+                                       =20
+                                           =20
+                                               =20
+                                               =20
+                                           =20
+                                       =20
+                                   =20
+                                   =20
+                               =20
+                           =20
+                       =20
+                   =20
+               =20
+           =20
+           =20
+           =20
+               =20
+                   =20
+                       =20
+                           =20
+                               =20
+                                   =20
+                                       =20
+                                           =20
+                                       =20
+                                       =20
+                                           =20
+                                               =20
+                                                   =20
+                                                   =20
+                                                        Vous &ecirc;tes ins=
+crit &agrave; la formation Formation GESTARELLE FERTILITE Cliquez ici pour =
+acc&eacute;der au cours de formation maintenant !
+                                                   =20
+                                                   =20
+                                                   =20
+                                                       =20
+                                                   =20
+
+                                                   =20
+                                                                           =
+                                                                           =
+         =20
+                                                       =20
+                                                           =20
+                                                               =20
+                                                                   =20
+                                                                       =20
+
+                                                                       =20
+                                                                   =20
+                                                               =20
+                                                           =20
+                                                       =20
+                                                       =20
+
+                                                       =20
+                                                           =20
+                                                       =20
+
+                                                       =20
+                                                           =20
+                                                                           =
+                                                        =20
+                                                                       =20
+                                                                   =20
+                                                                           =
+                                                =20
+                                                       =20
+                                                                           =
+                            =20
+                                               =20
+                                           =20
+                                       =20
+                                       =20
+                                           =20
+                                       =20
+                                   =20
+                               =20
+                           =20
+                       =20
+                   =20
+               =20
+               =20
+                   =20
+               =20
+           =20
+       =20
+   =20
+
+
+
+
+------=_Part_519206_1008977074.1694437475595
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xml=
+ns=3D"http://www.w3.org/1999/xhtml" class=3D"mc-html___"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+    <!--[if !mso]><!-->
+    <meta http-equiv=3D"x-ua-compatible" content=3D"IE=3Dedge">
+    <!--<![endif]-->
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0">
+    <title class=3D"mc-title___"></title>
+    <style type=3D"text/css">
+        html.mc-html___ {
+            width: 100%;
+        }
+
+        body.mc-body___ {
+            -webkit-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            font-family: 'Open Sans', Arial, Sans-serif !important;
+        }
+
+        table.mc-table___ {
+            border-spacing: 0;
+            table-layout: fixed;
+            margin: 0 auto;
+        }
+
+        .main-table.mc-table___ {
+            width: 690px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .table-full.mc-full___ {
+            width: 100%;
+        }
+
+        .company-logo.mc-logo___ {
+            display: block;
+            line-height: 0px;
+            font-size: 0px;
+            border: 0px;
+            margin-bottom: 10px;
+            max-height: 80px;
+            max-width: 200px;
+        }
+
+        .contact-logo.mc-logo___ {
+            text-decoration: none;
+            margin-left: 2px;
+            margin-right: 2px;
+            cursor: pointer;
+        }
+
+        .title.mc-title___ {
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        .text.mc-text___ {
+        }
+
+        .link.mc-link___ {
+            color: #990077 !important;
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
+    </head>
+<body class=3D"mc-body___"><table id=3D"mcpreviewzzyygg" style=3D"display: =
+none; mso-hide: all; width: 0px; height: 0px; max-width: 0px; max-height: 0=
+px; font-size: 0px; line-height: 0px; color: white; text-decoration: none;"=
+ class=3D"mc-table___"><tr><td>Vous =C3=AAtes inscrit =C3=A0 la formation F=
+ormation GESTARELLE FERTILITE Cliquez ici pour acc=C3=A9der au cours de for=
+mation maintenant !&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C</td></tr></table><table id=3D"mcalertwrapperzzyygg" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"mc-table___"><tr><=
+td><a href=3D"https://protect-de.mimecast.com/s/YSb4C6WDkMfkYRzUpXUAn?domai=
+n=3Dde.report.cybergraph.mimecast.com"><img id=3D"mcalertzzyygg" src=3D"htt=
+ps://alert-eu-central-1.api.getmessagecontrol.com/onprem_security_warning_f=
+etch?r=3D1&amp;dep=3DyxZf7%2FIjsotlpsKP1J7sRg%3D%3DtFmxHvL5Y%2FlKj6o1oXKye5=
+6m2RXzXh3S2yD2gJthOOFta1uW%2BBm3mkdCeXlL0orNtUk5iKryZAt0SsAG9HFvfVQRfg06dnI=
+s0sp33wwCYQEzo3V7xWfqdLFlKADLJYzV4DANnu6rh46CVFp5TM6WqWolQ9Eqmg5QCtrpWC2QO5=
+z2anEivvp9hbU9kOaefrRJtL2JrI1SJTPWGkW45sTKa7dvs9mOIXkEu5u3jMU0BD281hSQjXIEO=
+j6oE6HT%2Bx%2BvkVedv%2FsBivuF6GawH6SH4ZWMZN6mAgPnFELA1i%2B19xrRz6iCu2eyI1hF=
+qKuehZJwVT7XHDiIIrqafOyyiFheoHsgnm%2BYwV5CeVAz9E7%2FdcW8i5X9SaQcTSWRaeIJ1X%=
+2BkMLI%2BsbxrMZAS53vzNyLYrE8nn%2BCr0%2BvY3gp98GQ4JWhWBtqQaKWKZkyVM3YwdD1uVh=
+GoQhvwp2Vp2hunk17fHB%2BwGD4cAcYofATo8kTZxVZe6mt2%2BqrSGRgmfmpryxkwIZXeDwrc5=
+n5NzsjkcuHssDiElIsK4El9pEgnUepPviaALh%2BmdLJBgBIO2HhEbn4w%2FvFqhX9kKmSm6l96=
+9v87aWrNd0BdRRKuKmGj9mYqZvEiCZ4VsNXq%2Fevl8Ok9Ry3lY64JOVCIy9XTWAqKuYDBBkXmh=
+O4UBOq%2BB%2BJouvzr9GFNyHjovMC513i%2BXbo2QsbilviK04cJiHX03jOKsuIynRiSbEVQhB=
+hw7dhFYbK8wvI%3D" style=3D"display: block; border: 0px; border-style: none;=
+" border=3D"0"></a></td></tr></table>
+<table class=3D"main-table mc-table___ mc-table___">
+    <tr>
+        <td>
+            <!--Header-->
+            <table class=3D"table-full mc-table___ mc-table___ mc-table___ =
+mc-table___ mc-table___ mc-table___ mc-table___ mc-table___ mc-table___ mc-=
+table___" align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+>
+                <tr>
+                    <td align=3D"center" bgcolor=3D"#FFFFFF">
+                        <table class=3D"table-full mc-table___ mc-table___ =
+mc-table___ mc-table___ mc-table___ mc-table___ mc-table___ mc-table___ mc-=
+table___ mc-table___" style=3D"margin-top:5px;border-bottom:2px solid #9900=
+77;" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+                            <tr>
+                                <td>
+                                    <!--Company logo-->
+                                    <table border=3D"0" align=3D"left" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"mc-table___">
+                                        <tr>
+                                            <td align=3D"center" style=3D"l=
+ine-height:0px;">
+                                                <!-- Style inline because s=
+ome mail clients do not like class-->
+                                                <img class=3D"company-logo"=
+ src=3D"https://eu-central-1.api.getmessagecontrol.com/onprem_image_fetch?d=
+ep=3DmV4RAjGBmFrDnaO1Zll%2Beg%3D%3DPVcmeAVlIFIVmgwBQzau9LIQr%2BwlNx6rGe5W0A=
+qOkc0p7wAmWHfXCJglsHC1BaENKALpVEv%2B9sjx55Yhsqs7hxVBnBFifXg6gyZYRWOWDPeLxll=
+fGlEd4vcMMK2C%2F4zAyLpNzUXLZM5sp4Qb3iN1aIYlPtE1mBVw%2Fd4c1ym%2BGk8rH1DLbE1D=
+DYBlOng5Men3JFEsRlzYHxilCCOaKKNM5VJtbGA%2BSFEUXVm9xXHQN2xOjZOHgU5NSWD6E3KnH=
+cE7nWzpZv%2BBBEu0D0Imntx6XYXFlumziTrIxhG4%2FqVl9QYUoP4Fw3WaX2cjGPS7KMAYGK3d=
+eLO4nbi4MDWzbtlIc3pfVqRqtMfYvNcxI1%2F7psA9tiXHH9znN9wctQmfHJWBj7fNV4XgRphb8=
+0s2RZi%2BkxKS%2FZcataeJ3Bpq5KtRQ0B9VGMvSAmuVSTFxZmmprR3LrmcyH%2F%2Bz7nZ7Gpx=
+ZMb3W%2BxC3i%2FK8T2L1vYSoKdwtUXL3r7hKffZzIFPSjiMOERWlRBC1TNCUgpno4XV2q2cyhH=
+Q4qsxr3aLKpG9DM92cMLP8bUxaJ80xmjYkwNjtAUQceJh%2F8ev8yTv7MsadZsEMwgf%2BJc64w=
+0mcJk3j%2FZQtguWXMYgX%2FiVBwssGBmkFd8FK1gFE4wKTwn5RbJGx%2BQJX0XrWbPVnegzI%2=
+BPm5YIoiKL7CphaSV%2FLwJElBrmlgNSR" height=3D"80">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!--!Company logo-->
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <!--!Header-->
+            <table class=3D"table-full mc-table___ mc-table___ mc-table___ =
+mc-table___ mc-table___ mc-table___ mc-table___ mc-table___ mc-table___ mc-=
+table___" align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+>
+                <tr>
+                    <td align=3D"center">
+                        <table bgcolor=3D"#FFFFFF" style=3D"border-radius:5=
+px;border:1px solid #ffffff;" align=3D"center" class=3D"table-inner mc-tabl=
+e___ mc-table___" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+                            <tr>
+                                <td>
+                                    <table class=3D"table-full mc-table___ =
+mc-table___ mc-table___ mc-table___ mc-table___ mc-table___ mc-table___ mc-=
+table___ mc-table___ mc-table___" dir=3D"rtl" border=3D"0" align=3D"center"=
+ cellpadding=3D"0" cellspacing=3D"0">
+                                        <tr>
+                                            <td height=3D"25"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table dir=3D"ltr" align=3D=
+"left" border=3D"0" class=3D"table-full mc-table___ mc-table___ mc-table___=
+ mc-table___ mc-table___ mc-table___ mc-table___ mc-table___ mc-table___ mc=
+-table___" cellspacing=3D"0" cellpadding=3D"0">
+                                                    <!-- Content -->
+                                                    <tr>
+                                                        <td><div class=3D"t=
+itle">Vous =C3=AAtes inscrit =C3=A0 la formation <strong>Formation GESTAREL=
+LE FERTILITE</strong> </div><p><br></p><div class=3D"text"><br><a class=3D"=
+link" href=3D"https://protect-de.mimecast.com/s/FdkBC79ElMHM1rlHWHPO1?domai=
+n=3Dlearning.biocodex.com">Cliquez ici</a> pour acc=C3=A9der au cours de fo=
+rmation maintenant !</div></td>
+                                                    </tr>
+                                                    <!-- !Content -->
+                                                    <tr>
+                                                        <td height=3D"25"><=
+/td>
+                                                    </tr>
+
+                                                    <!-- Contacts -->
+                                                                           =
+                                                                           =
+          <!-- Dot -->
+                                                        <tr>
+                                                            <td align=3D"ce=
+nter">
+                                                                <table bord=
+er=3D"0" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" class=3D"mc-t=
+able___">
+                                                                    <tr>
+                                                                        <td=
+ bgcolor=3D"#990077" width=3D"5" height=3D"5" style=3D"border-radius:10px;l=
+ine-height:0px;font-size:0px;">
+
+                                                                        </t=
+d>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <!-- !Dot-->
+
+                                                        <tr>
+                                                            <td height=3D"2=
+5"></td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td align=3D"ce=
+nter">
+                                                                           =
+                                                         <a href=3D"https:/=
+/protect-de.mimecast.com/s/1d3lC83Gmgh3pm1U2TZMn?domain=3Dlinkedin.com" tar=
+get=3D"_blank" class=3D"contact-logo">
+                                                                        <im=
+g src=3D"https://eu-central-1.api.getmessagecontrol.com/onprem_image_fetch?=
+dep=3DY8ZO5DCoz8edIXaa6taU5g%3D%3Di67hrjCQc8FfejwKGI5cgGXViYZ9oF7dPn1L33wKh=
+JMOLennBSRL57HbKP3SrNsUdgNBMWPVKNo0c4iRCdTxs5njbClaWo3Lo8O3YhaI9dz7VC98Csma=
+POCyzFJhPZGkhsdLz3HdkhS5wylvBw%2FuS46pEE%2FmntESS0YYdZLm9dUCPyEJGO5%2FztBNF=
+RAqeCFWhvSs5fO4Gw55sJIBxdHFHM5nIUTEp1zENVjnzak1PpatAQQpC81Am%2B%2FI8y8gARP8=
+McD6R8B7dxiT290slbHa%2FJ9B%2BDBrv1AeidcC9nIXLlQ%2BdYOFiCNcyva0kcQRQZMUTuGp%=
+2Fh5dT6G6iernIiPooCOsVPFilUzcCKPe1BrzQ3A5wIjtL0MNR9BJ2kX68FLrzaZC0NIkIZ2spe=
+jW7JaS%2FZHhkmWs3CU%2BL%2FEdWhrilH4%3D" height=3D"24" width=3D"24">
+                                                                    </a>
+                                                                           =
+                                                 </td>
+                                                        </tr>
+                                                                           =
+                             <!-- !Contacts -->
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height=3D"25"></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td height=3D"25"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+
+------=_Part_519206_1008977074.1694437475595--
+

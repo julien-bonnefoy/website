@@ -1,0 +1,99 @@
+<div style="height: 475px;" class="justify-content-center row">
+    {{ modal }}
+    <div style="background-color: rgb(255, 255, 255); opacity: 1; width: 300px;" class="flip-card-front px-0 card">
+    <form id="{'index':{{ index }},'type':'form'}" action="/dash/biocodex/post/{{ index }}" method="post" novalidate="">
+    {{ form.hidden_tag() }}
+    <span id="{'index':{{ index }},'type': 'uga-badge-front'}" class="uga-badge position-absolute top-0 start-100  bg-white badge bg-secondary">{{ form.uga.data }}</span>
+    <span style="background-color: rgb(170, 170, 170);" id="{'index':{{ index }},'type':'spe-badge-front'}" class="spe-badge my-1 position-absolute top-0 start-0 badge text-white">{{ form.spe.data }}</span>
+    <span style="font-size: 13px; transform: translate(-50%, -50%);" id="{'index':{{ index }},'type':'cib-badge-front'}" class="position-absolute top-100 start-100 bg-secondary badge bg-secondary">{{ form.cib.data }} <span class="visually-hidden"></span>
+    </span>
+    <span class="d-none">
+      <img id="{'index':{{ index }},'type':'blue-arrow-btn-front'}" class="arrow top-100 start-0" height="25" src="assets/img/blue_turn.png" style="position: absolute; z-index: 1; transform: translate(-25%, -50%);" width="25">
+    </span>
+    <div class="p-3 card-header">
+      <a href="/dash/biocodex/pds/{{ index }}">
+        <button id="btn-{{ index }}" class="btn btn-danger btn-sm d-block fw-bold w-100 mb-2">
+          <pre class="pb-0 mb-0" style="font-size: 14px; text-decoration: none;">{{ form.nom.data }} {{ form.prenom.data }}</pre>
+        </button>
+      </a>
+      <div class="d-flex">
+        <div class="border-3 border-info col-3 form-floating">
+          <input class="pt-3 fw-bolder bg-light form-control-sm form-control" id="pot-input" disabled="" step="any" value={{ form.pot.data }}>
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">POTENTIEL</label>
+        </div>
+        <div class="border-3 border-info col-3 form-floating">
+          <input class="pt-3 fw-bolder bg-light form-control-sm form-control" id="pvm-input" disabled="" step="any" value={{ form.pvm.data }}>
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">PVM</label>
+        </div>
+        <div class="border-3 border-info col-3 form-floating">
+          <input class="pt-3 fw-bolder bg-light form-control-sm form-control" id="nv22-input" disabled="" step="any" value={{ form.nv22.data }}>
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">NV 2022</label>
+        </div>
+        <div class="border-3 border-info col-3 form-floating">
+          <input class="pt-3 fw-bolder bg-light form-control-sm form-control" id="dec-input" disabled="" step="any" value={{ form.dec.data }}>
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">DÉCILE</label>
+        </div>
+      </div>
+      <span class="d-none" style="z-index: 3;">
+        <img id="{'index':{{ index }},'type':'card-shield'}" class="shield" height="25" src="assets/img/shield_125.png" style="transform: translateX(-50%);" width="25">
+      </span>
+    </div>
+
+      <div class="card-body" id="{'index':{{ index }},'type':'card-body'}" style="flex: 0 1 auto;">
+        <div class="d-flex">
+          <div class="border-3 border-info col-12 px-0 form-floating">
+            <input class="pt-3 form-control-sm form-control" id="adr-input" step="any" value={{ form.adr.data }}>
+            <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">ADRESSE</label>
+          </div>
+        </div>
+        <div class="d-flex">
+          <span style="background-color: rgb(255, 255, 255); opacity: 0.5; color: rgb(0, 0, 128);" class="badge">
+            <input class="text-bold my-2 col-5 form-control-sm form-control" id="tel-input" style="font-size: 10px;" step="any" value={{ form.tel.data }}>
+          </span>
+          <div class="border-3 border-info col-3 px-0 form-floating">
+            <input class="pt-3 form-control-sm form-control" id="cp-input" step="any" value={{ form.cp.data }}>
+            <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">CP</label>
+          </div>
+          <div class="border-3 border-info col-4 px-0 form-floating">
+            <input class="pt-3 form-control-sm form-control" id="ville-input" style="font-size: 11px; overflow-x: hidden;" step="any" value={{ form.ville.data }}>
+            <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">VILLE</label>
+          </div>
+        </div>
+        <br>
+        <div class="d-flex">
+          <div class="border-3 border-info col-4 px-0 form-floating">
+            <input class="pt-3 form-control-sm form-control" id="rec-input" step="any" value={{ form.rec.data }}>
+            <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">REÇOIT ?</label>
+          </div>
+          <div class="border-3 border-info col-4 px-0 form-floating">
+            <input class="pt-3 form-control-sm form-control" id="mode-input" step="any" value={{ form.mode.data }}>
+            <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">MODE</label>
+          </div>
+          <div class="border-3 border-info col-4 px-0 form-floating">
+            <input class="pt-3 form-control-sm form-control" id="pk-input" step="any" value={{ form.pk.data }}>
+            <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">IF NOT, WHY?</label>
+          </div>
+        </div>
+        <div class="d-flex">
+          <div class="border-3 border-info col-12 px-0 form-floating">
+            <input class="pt-3 form-control-sm form-control" id="com-input" step="any" value={{ form.com.data }}>
+            <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">COMMENT.</label>
+          </div>
+        </div>
+      </div>
+      <div class="p-3 card-footer">
+        <div class="d-flex">
+          <div class="ms-auto w-50 form-floating">
+            <input class="pt-4 form-control-sm form-control" id="ddv-input" step="any" value={{ form.ddv.data }}>
+            <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">DDV</label>
+          </div>
+          <div class="w-50 form-floating">
+            <input class="pt-4 form-control-sm form-control" id="dpv-input" step="any" value={{ form.dpv.data }}>
+            <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">DPV</label>
+          </div>
+        </div>
+      </div>
+      <input type="submit" class="btn btn-xl mx-auto form-control" id="{'index':{{ index }},'type':'submit'}" style="display: block;" step="any" value="SAVE &amp; CLOSE">
+    </form>
+  </div>
+</div>

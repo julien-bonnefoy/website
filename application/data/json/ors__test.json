@@ -1,0 +1,116 @@
+{
+    "bbox": [
+        80.216947,
+        6.019963,
+        80.244263,
+        6.03757
+    ],
+    "metadata": {
+        "attribution": "openrouteservice.org | OpenStreetMap contributors",
+        "engine": {
+            "build_date": "2024-06-05T10:07:23Z",
+            "graph_date": "2024-06-24T15:11:03Z",
+            "version": "8.1.0"
+        },
+        "query": {
+            "coordinates": [
+                [
+                    80.21787585263182,
+                    6.025423265401452
+                ],
+                [
+                    80.23929481745174,
+                    6.019639381180123
+                ]
+            ],
+            "format": "json",
+            "profile": "driving-car"
+        },
+        "service": "routing",
+        "timestamp": 1719478844192
+    },
+    "routes": [
+        {
+            "bbox": [
+                80.216947,
+                6.019963,
+                80.244263,
+                6.03757
+            ],
+            "geometry": "ekxc@gtrhNSFIJe@bA]b@i@f@_@VcAb@w@NyAPq@@}AAUR?FKJK?KI_@UmAQaAOa@?i@JCBOBMGACw@cAUSqAqAoAyAsAkB{AoBwAsBe@u@gA_CyAoD{@eCk@qBe@kBg@{DGs@E{EE_BESIY]]c@[EIEW@UHo@`@yB@IXiApAaEHS`AiBxAmCt@uAPc@Zo@Zu@@CBGNm@N{@Fq@BS@QHk@Ji@^cA^aAlAwC^aAn@eChAaKHa@Rm@Vi@n@cAx@}@dB{A|@aAdA_AlA}@l@c@PWROl@e@\\WjAeAr@q@JIl@s@jBcCb@e@ZUXO^Y~@m@`Ag@`Ag@pAy@NP?Xw@nBCN@JJDtAXNAJEFIBORWLGNGXJx@vAL`AFNTTbAf@l@\\dAXdDf@^Bf@DrDt@nBPrAD`CJ~BVl@?",
+            "segments": [
+                {
+                    "distance": 5172.5,
+                    "duration": 654.7,
+                    "steps": [
+                        {
+                            "distance": 366.4,
+                            "duration": 87.9,
+                            "instruction": "Head north on Baladaksha Mawatha, B037",
+                            "name": "Baladaksha Mawatha, B037",
+                            "type": 11,
+                            "way_points": [
+                                0,
+                                12
+                            ]
+                        },
+                        {
+                            "distance": 175.7,
+                            "duration": 27.7,
+                            "exit_number": 2,
+                            "instruction": "Enter the roundabout and take the 2nd exit onto Custom Road",
+                            "name": "Custom Road",
+                            "type": 7,
+                            "way_points": [
+                                12,
+                                21
+                            ]
+                        },
+                        {
+                            "distance": 3608.6,
+                            "duration": 293.9,
+                            "exit_number": 2,
+                            "instruction": "Enter the roundabout and take the 2nd exit onto Colombo-Matara Road, AA002",
+                            "name": "Colombo-Matara Road, AA002",
+                            "type": 7,
+                            "way_points": [
+                                21,
+                                103
+                            ]
+                        },
+                        {
+                            "distance": 1021.8,
+                            "duration": 245.2,
+                            "instruction": "Turn right onto Rumassala Road",
+                            "name": "Rumassala Road",
+                            "type": 1,
+                            "way_points": [
+                                103,
+                                134
+                            ]
+                        },
+                        {
+                            "distance": 0.0,
+                            "duration": 0.0,
+                            "instruction": "Arrive at Rumassala Road, on the right",
+                            "name": "-",
+                            "type": 10,
+                            "way_points": [
+                                134,
+                                134
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "summary": {
+                "distance": 5172.5,
+                "duration": 654.7
+            },
+            "way_points": [
+                0,
+                134
+            ]
+        }
+    ]
+}

@@ -1,0 +1,248 @@
+:root {
+  --view: 66vw;
+  --four-digits-x: var(--view);
+  --one-digit-x: calc(var(--four-digits-x) / 4 );
+  --clock-dia: calc(var(--one-digit-x) / 2.1);
+  --clock-rad: calc(var(--clock-dia) / 2);
+  --four-digits-y: calc(var(--clock-dia) * 3.3);
+  --one-digit-y: var(--four-digits-y);
+  --hand-x: var(--clock-rad);
+  --hand-y: calc(var(--clock-rad) / 10);
+  --center-peg-radius: calc(var(--clock-rad) / 10);
+  --tickmarkwidth: 33%;
+  --boldwidth: 2;
+  --tickwidth: 2%;
+  --tickheight: 50%;
+  --labelheight: calc(var(--clock-dia) / 10);
+}
+
+body {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 99vh;
+  width: 99vw;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.clock-container {
+  position: relative;
+  width: 100vw; /* makes layout responsive for mobile*/
+  height: 66vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  text-align: center;
+  padding-left: 0;
+  color: #000;
+}
+
+.four-digits {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.one-digit {
+  width: var(--one-digit-x);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.clock-face {
+  --local-hours: var(--local-hours);
+  --local-minutes: var(--local-minutes);
+  --special-hours: var(--special-hours);
+  --special-minutes: var(--special-minutes);
+  --seconds-deg:  var(--seconds-deg);
+  width: var(--clock-dia);
+  height: var(--clock-dia);
+  border-radius: 50%;
+  float: left;
+  position: relative;
+  padding: 0;
+  transition: all 2s;
+}
+
+.clock:nth-of-type(2n+1) {
+  clear: left;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--clock-dia);
+  height: calc(var(--clock-dia) / 5);
+  padding-left: 0;
+  color: #000;
+  opacity: 0;
+  transition: all 5s;
+}
+
+.hand {
+  border-radius:  50% 100% 100% 50% / 10% 100% 100% 10%;
+  position: absolute;
+  left: 50%;
+  opacity: 0;
+  transition: all 2s;
+}
+
+.hoursHand {
+  width: calc(var(--hand-x) * 0.65);
+  height: var(--hand-y);
+  background-color: #000;
+  top: calc(50% - (var(--hand-y)/2));
+  transform-origin: left center;
+  transform: rotate(var(--local-hours));
+}
+
+.minutesHand {
+  width: calc(var(--hand-x) * 0.85);
+  height: var(--hand-y);
+  background-color: #000;
+  top: calc(50% - (var(--hand-y)/2));
+  transform-origin: left center;
+  transform: rotate(var(--local-minutes));
+}
+
+.secondsHand {
+  width: calc(var(--hand-x) * 0.85 );
+  height: calc(var(--hand-y)/2);
+  background-color: red;
+  top: calc(50% - (var(--hand-y)/2));
+  transform-origin: left center;
+  transform: rotate(var(--seconds-deg));
+}
+
+.trigger {
+  position: relative;
+  bottom: 0;
+  width: 25%;
+  height: 10vh;
+  cursor: help;
+  color: black;
+}
+
+.trigger--left {
+  left: 0;
+}
+
+.trigger--right {
+  right: 0;
+}
+
+.digital-time {
+  display: block;
+}
+
+.tick-radius {
+  width: var(--tickwidth);
+  height: var(--tickheight);
+  position: absolute;
+  left: calc(50% - var(--tickwidth) / 2);
+  transform-origin: 50% 100%;
+  transition: all 5s;
+  opacity: 0;
+}
+
+.tickmark {
+  width: 50%;
+  height: 8%;
+  background-color: #000;
+}
+
+.bold .tickmark {
+  width: calc(var(--tickmarkwidth) * var(--boldwidth));
+  height: 16%;
+  background-color: #ff0000;
+}
+
+.center-peg {
+  padding: calc(var(--center-peg-radius));
+  background: #aaa;
+  position: absolute;
+  top: calc(50% - var(--center-peg-radius));
+  left: calc(50% - var(--center-peg-radius));
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 2s;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --view: 280px;
+    --four-digits-x: var(--view);
+    --one-digit-x: calc(var(--four-digits-x) / 4 );
+    --clock-dia: calc(var(--one-digit-x) / 2.1);
+    --clock-rad: calc(var(--clock-dia) / 2);
+    --four-digits-y: calc(var(--clock-dia) * 3.3);
+    --one-digit-y: var(--four-digits-y);
+    --hand-x: var(--clock-rad);
+    --hand-y: calc(var(--clock-rad) / 10);
+    --center-peg-radius: calc(var(--clock-rad) / 10);
+    --tickmarkwidth: 50%;
+    --boldwidth: 1.5;
+    --tickwidth: 2%;
+    --tickheight: 50%;
+  }
+
+  .clock {
+    --local-hours: var(--local-hours);
+    --local-minutes: var(--local-minutes);
+    --special-hours: var(--special-hours);
+    --special-minutes: var(--special-minutes);
+    --seconds-deg:  var(--seconds-deg);
+    /*-- background: lightblue; --*/
+    width: var(--clock-dia);
+    height: var(--clock-dia);
+    border-radius: 50%;
+    float: left;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+
+  .label {
+    display: none;
+  }
+}
+
+@keyframes specialHours {
+  0% { transform: rotate(var(--local-hours));}
+  33% {
+    transform: rotate(calc(var(--special-hours) - 360deg ));
+  }
+  66% {
+    transform: rotate(calc(var(--special-hours) - 360deg ));
+  }
+  100% {
+    transform: rotate(calc(var(--local-hours) - 360deg ));
+  }
+}
+
+@keyframes specialMinutes {
+  0% { transform: rotate(var(--local-minutes));}
+  33% {
+    transform: rotate(calc(var(--special-minutes) + 720deg ));
+  }
+  66% {
+    transform: rotate(calc(var(--special-minutes) + 720deg ));
+  }
+  100% {
+    transform: rotate(calc(var(--local-minutes) + 720deg ));
+  }
+}

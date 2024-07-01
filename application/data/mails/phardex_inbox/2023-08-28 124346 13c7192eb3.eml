@@ -1,0 +1,258 @@
+From j.fagot@biocodex.fr Mon Aug 28 12:43:46 2023
+Received: from DB9PR07MB9342.eurprd07.prod.outlook.com (::1) by
+ AM7PR07MB6692.eurprd07.prod.outlook.com with HTTPS; Mon, 28 Aug 2023 12:43:46
+ +0000
+Received: from AS1PR07MB8758.eurprd07.prod.outlook.com (2603:10a6:20b:47a::21)
+ by DB9PR07MB9342.eurprd07.prod.outlook.com (2603:10a6:10:454::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6699.34; Mon, 28 Aug
+ 2023 12:43:43 +0000
+Received: from AS1PR07MB8758.eurprd07.prod.outlook.com
+ ([fe80::545a:f769:2e8e:3430]) by AS1PR07MB8758.eurprd07.prod.outlook.com
+ ([fe80::545a:f769:2e8e:3430%4]) with mapi id 15.20.6699.034; Mon, 28 Aug 2023
+ 12:43:43 +0000
+From: FAGOT Julie <j.fagot@biocodex.fr>
+To: ADINOLFI Muriel <m.adinolfi@phardex.fr>, AGUGLIA Karen
+	<k.aguglia@phardex.fr>, ALLEMAND Caroline <c.allemand@phardex.fr>, BACHIRI
+ Malika <m.bachiri@phardex.fr>, BARBE Anne Claire <ac.barbe@phardex.fr>,
+	=?iso-8859-1?Q?BELLANCE_B=E9atrice?= <b.bellance@phardex.fr>,
+	=?iso-8859-1?Q?BERTRAND_J=E9r=F4me?= <j.bertrand@phardex.fr>,
+	=?iso-8859-1?Q?BOCQ_M=E9linda?= <m.bocq@phardex.fr>, BOULIER Olivia
+	<o.boulier@phardex.fr>, BRIERE Simon <s.briere@phardex.fr>, BURTIN Lise
+	<l.burtin@phardex.fr>, CHARRAT Audrey <a.charrat@phardex.fr>, COINUS
+ Anne-Lise <al.coinus@phardex.fr>, DANEL Muriel <m.danel@phardex.fr>, DE SA
+ FERREIRA Estelle <e.desaferreira@phardex.fr>, DEFAYE Karine
+	<k.defaye@phardex.fr>, DEVEIX Claudine <c.deveix@phardex.fr>, DEVIGNE
+ Laetitia <l.devigne@phardex.fr>, DIVIALLE Thomas <t.divialle@phardex.fr>,
+	DOUAY Justine <j.douay@phardex.fr>, DUCASTIN Anne <a.ducastin@phardex.fr>,
+	DUCROCQ Isabelle <i.ducrocq@phardex.fr>, DUPEYRE-GABILLARD Sonia
+	<s.dupeyregabillard@phardex.fr>, FERREUX Nadine <n.ferreux@phardex.fr>, GAY
+ Sabrina <s.gay@phardex.fr>, GOKHAN Kibar <k.gokhan@phardex.fr>, GORRIZ
+ Mickael <m.gorriz@phardex.fr>, GOSSEINE Delphine <d.gosseine@phardex.fr>,
+	GROENE Magali <m.groene@phardex.fr>, =?iso-8859-1?Q?GROSSE_La=EBtitia?=
+	<l.grosse@phardex.fr>, GUERIN Valerie <v.guerin@phardex.fr>, GUILLOT Dorian
+	<d.guillot@phardex.fr>, GUINGAND Laure <l.guingand@phardex.fr>, HEIMBERGER
+ Sandrine <s.heimberger@phardex.fr>, IDALI Nadia <n.idali@phardex.fr>, JANCEL
+ Rachel <r.jancel@phardex.fr>, JAUBERT Carole <c.jaubert@phardex.fr>, LAVERGNE
+ Sabine <s.lavergne@phardex.fr>, LE MORVAN Carole <c.lemorvan@phardex.fr>,
+	LEVIONNOIS Lionel <l.levionnois@phardex.fr>, MAERTEN Olivier
+	<o.maerten@phardex.fr>, MARTIN Coralie <co.martin@phardex.fr>, MAZERY Laurent
+	<l.mazery@phardex.fr>, MEIGNAN Gerard <g.meignan@phardex.fr>, MELOCCO Elodie
+	<e.melocco@phardex.fr>, MEZADI Souad <s.mezadi@phardex.fr>, MONACO Caroline
+	<c.monaco@phardex.fr>, =?iso-8859-1?Q?MORELLO_St=E9phanie?=
+	<s.morello@phardex.fr>, MORIN Johanna <j.morin@phardex.fr>, MORVAN Doriane
+	<d.morvan@phardex.fr>, ORTEGA Nathalie <n.ortega@phardex.fr>, PAINGAUD Ingrid
+	<i.paingaud@phardex.fr>, PENCOLE Carole <c.pencole@phardex.fr>, PERLATO
+ Karine <k.perlato@phardex.fr>, PIERRE Nathalie <n.pierre@phardex.fr>, PLACIDE
+ Sarah <s.placide@phardex.fr>, =?iso-8859-1?Q?QUENTIN_Gr=E9gory?=
+	<g.quentin@phardex.fr>, RAMBAUD Raphael <r.rambaud@phardex.fr>, ROBERT
+ ARNOUIL Elodie <e.robertarnouil@phardex.fr>, ROBERT Virginie
+	<v.robert@phardex.fr>, ROUVRE Baptiste <b.rouvre@phardex.fr>, ROUYER Florence
+	<f.rouyer@phardex.fr>, RUBIO Nathalie <n.rubio@phardex.fr>,
+	=?iso-8859-1?Q?TAMISE_V=E9ronique?= <v.tamise@phardex.fr>, TOUJAS
+ Jean-Francois <jf.toujas@phardex.fr>, VANDENBEUSCH Anne
+	<a.vandenbeusch@phardex.fr>, WEISBERG Laurence <l.weisberg@phardex.fr>, AMARD
+ Alexandra <a.amard@phardex.fr>, BERNARD Kathleen <k.bernard@phardex.fr>,
+	BRENIERE Anais <a.breniere@phardex.fr>, COURNEIL Virginie
+	<v.courneil@phardex.fr>, DI GRAZIA Audrey <a.digrazia@phardex.fr>, DOUGADOS
+ Maryse <m.dougados@phardex.fr>, FLEURIGEON Karine <k.fleurigeon@phardex.fr>,
+	GRAIN Vanessa <v.grain@phardex.fr>, =?iso-8859-1?Q?KOESSLER_St=E9phanie?=
+	<s.koessler@phardex.fr>, LOMBA Sandrine <s.lomba@phardex.fr>,
+	=?iso-8859-1?Q?MONDELIN_Oc=E9ane?= <o.mondelin@phardex.fr>, PAVADE Fiona
+	<f.pavade@phardex.fr>, ROUGERON Amandine <a.rougeron@phardex.fr>, SAMBOU
+ Angela <a.sambou@phardex.fr>, =?iso-8859-1?Q?VIAL_Charl=E8ne?=
+	<c.vial@phardex.fr>, WANTIER Sandrine <s.wantier@phardex.fr>,
+	=?iso-8859-1?Q?WEISS_St=E9phanie?= <s.weiss@phardex.fr>, ANTOINE-BOULAHDID
+ Nora <n.antoine-boulahdid@phardex.fr>, APARICIO Benjamin
+	<b.aparicio@phardex.fr>, ARPHEXAD Alexandra <a.arphexad@phardex.fr>, ATHIAS
+ Dominique <d.athias@phardex.fr>, =?iso-8859-1?Q?BENOIST_C=E9line?=
+	<c.benoist@phardex.fr>, =?iso-8859-1?Q?BONNARD_B=E9reng=E8re?=
+	<b.bonnard@phardex.fr>, BONNEFOY Julien <j.bonnefoy@phardex.fr>, CARPIO
+ Caroline <c.carpio@phardex.fr>, CASSIN Pamela <p.cassin@phardex.fr>, CHIRON
+ Corinne <c.chiron@phardex.fr>, COLLELL Julie <j.collell@phardex.fr>,
+	=?iso-8859-1?Q?CONTIN_Ad=E9lia?= <a.contin@phardex.fr>, CORNEJOT Jean-Edouard
+	<je.cornejot@phardex.fr>, COSTECALDE Audrey <a.costecalde@phardex.fr>,
+	COUPELOT Virginie <v.coupelot@phardex.fr>, DE BOISSIEU Pascaline
+	<p.deboissieu@phardex.fr>, DEBOEUF Roland <r.deboeuf@phardex.fr>, DELAYGUE
+ Elise <e.delaygue@phardex.fr>, DIXNEUF Karine <k.dixneuf@phardex.fr>, DONZET
+ Coralie <c.donzet@phardex.fr>, FERRIER Christine <c.ferrier@phardex.fr>,
+	FRADIN Christelle <c.fradin@phardex.fr>, GOUTHIER Dominique
+	<d.gouthier@phardex.fr>, GRANDAO Nathalie <n.grandao@phardex.fr>,
+	GUEGUEN-WARNER Marie <m.gueguen-warner@phardex.fr>, GUILBAUD Michele
+	<m.guilbaud@phardex.fr>, =?iso-8859-1?Q?GUILLE_Oph=E9lie?=
+	<o.guille@phardex.fr>, GUILLOPE Gabrielle <g.guillope@phardex.fr>, GUTTMANN
+ Sophie <s.guttmann@phardex.fr>, HAUSTANT Davy <d.haustant@phardex.fr>,
+	=?iso-8859-1?Q?HAYER_H=E9l=E8ne?= <h.hayer@phardex.fr>, JACQUET Caroline
+	<c.jacquet@phardex.fr>, JOUANY Marie-Claude <mc.jouany@phardex.fr>, KUNTZ
+ Nathalie <n.kuntz@phardex.fr>, LAGARDE Nathalie <n.lagarde@phardex.fr>,
+	LEROUGE Elodie <e.lerouge@phardex.fr>, LEVEUGLE Virginie
+	<v.leveugle@phardex.fr>, LISS Nathalie <n.liss@phardex.fr>,
+	=?iso-8859-1?Q?MALBERT_Aur=E9lie?= <a.malbert@phardex.fr>, MASSONG Laurence
+	<l.massong@phardex.fr>, MORCILLO Muriel <m.morcillo@phardex.fr>, MULLER Rosa
+	<r.muller@phardex.fr>, OUAMERALI Nassim <n.ouamerali@phardex.fr>, PICHON
+ Catherine <c.pichon@phardex.fr>, PINGET Olivier <o.pinget@phardex.fr>, PORTE
+ Marine <m.porte@phardex.fr>, RICHARD Sophie <s.richard@phardex.fr>, SA Kevin
+	<k.sa@phardex.fr>, SANTERRE Geoffrey <g.santerre@phardex.fr>,
+	=?iso-8859-1?Q?SCHAMBER_Aur=E9lie?= <a.schamber@phardex.fr>, SELLAM Estelle
+	<e.sellam@phardex.fr>, =?iso-8859-1?Q?THERVILLE_Andr=E9e-Alexandra?=
+	<aa.therville@phardex.fr>, TONNEVY Aline <a.tonnevy@phardex.fr>
+CC: DELOBEL Jean <j.delobel@biocodex.fr>, ROCHOUX Eric
+	<e.rochoux@biocodex.fr>, CARTEROT Emilie <e.carterot@biocodex.fr>
+Subject: =?iso-8859-1?Q?S=E9minaire_Nice_-_Votre_retour_!?=
+Thread-Topic: =?iso-8859-1?Q?S=E9minaire_Nice_-_Votre_retour_!?=
+Thread-Index: AQHZ2a1GjKC3ip4Jz0WC7uqBL/gsig==
+Date: Mon, 28 Aug 2023 12:43:42 +0000
+Message-ID:
+	<AS1PR07MB87589B61A0693D09A5BBFBBEEEE0A@AS1PR07MB8758.eurprd07.prod.outlook.com>
+References:
+	<AM6PR07MB464660CE65508BAF82F17DAE928B9@AM6PR07MB4646.eurprd07.prod.outlook.com>
+ <AM6PR07MB4646F21D70236DECEAED318C92969@AM6PR07MB4646.eurprd07.prod.outlook.com>
+ <AS1PR07MB87589C898025F867880DE6C9EE969@AS1PR07MB8758.eurprd07.prod.outlook.com>
+In-Reply-To:
+	<AS1PR07MB87589C898025F867880DE6C9EE969@AS1PR07MB8758.eurprd07.prod.outlook.com>
+Accept-Language: en-US, fr-FR
+Content-Language: fr-FR
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: AS1PR07MB8758.eurprd07.prod.outlook.com
+X-MS-Has-Attach:
+X-MS-Exchange-Organization-Network-Message-Id:
+	42cc8f7c-46ee-49a0-3e9e-08dba7c46932
+X-MS-Exchange-Organization-SCL: 1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+x-ms-publictraffictype: Email
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(425001)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	BZggABN0aJOiuk2eUPld+AJ/7XA9ISxCARw/0mCUzrs4m9SwmBBKCevDzo2D86rGeUa6fth922UaeXZ1PRluBVVbg9dmrnlLhEAqXfSlx7NXp5Rz8A3BIQ/bOBpUB1ZJVNBdekukGM6lNkUogzbPv+CKfhvdjh31uSTxwjVnWcI3PXZHIA9yXyayEZFxD/fx4r9mUeH/2mRUWqsxfVDdDxtWAcElZW6JsNBzm4e7P+tn9FgqHUt4xJWRgymtXnGVNZ/4biH1KCPTGLbgREU8/6+u9BZDAehE8TwRQXA7KYWHRoemLh+R/OtmxZLKVzvu5vevPXq0JhmWylaVTC2Qy8LK2xRD2eTfxhf/m2M+Z7146iu72Jw/8EUucZPpXlp7wF8w6JtmsgGkWJG1csM+t/yJPMHFfXpVo1Nh7K0RfT4LvbxDm8vMMeaMUN257T6WKSFjONQP1YGq63LstV9DPYBmAIYb3fQXfwnNT6Wi7S0GePJEw60kc7Yr1cC2QeLovLFTepPSSHyc2QG26eA9946LdwJoX5PN2qR1iPco4kf2jes44uEc9feclngJp+IdY/0IHHscTQ9KuP07A67vDfF4edpzaLVkujto0sCOSkUxsy5oz7MHIuOvft8qNGfurm1F8eFBLitWN+n6JIvKP3VX2i6KNKas/relkkV+VKD7U5+bSP6XfZGuxocIaWVokDdU0sk74LDRl3O3lk2opmgxelGTcHRgQZB92HjOKPOph3MH2XIxcW+8pZcxcHqN
+Content-Type: multipart/alternative;
+	boundary="_000_AS1PR07MB87589B61A0693D09A5BBFBBEEEE0AAS1PR07MB8758eurp_"
+MIME-Version: 1.0
+
+--_000_AS1PR07MB87589B61A0693D09A5BBFBBEEEE0AAS1PR07MB8758eurp_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+Bonjour =E0 tous,
+
+Un grand merci pour votre =E9nergie incroyable tout au long de ce s=E9minai=
+re !
+Nous sommes tous repartis super motiv=E9s et pr=EAts =E0 aller vendre et pr=
+omouvoir nos produits avec conviction et entrain !!
+
+Je sais que certains d'entre vous ont v=E9cu des retours compliqu=E9s, suit=
+e aux intemp=E9ries, et je les remercie pour leur patience.
+
+Enfin je voudrais terminer par la phrase de l'une d'entre vous, prononc=E9e=
+ en fin de s=E9minaire, et qui m'a particuli=E8rement touch=E9e car elle ex=
+prime v=E9ritablement l'esprit que nous cherchons =E0 donner aux s=E9minair=
+es et =E0 notre Direction Commerciale : =AB Je ne me suis jamais autant sen=
+tie 'moi' =BB
+
+Tr=E8s bonne rentr=E9e =E0 tous ! Et tr=E8s bon cycle 3 !
+
+Julie
+
+Ci-dessous le lien pour donner votre feedback en 2 minutes.
+https://forms.office.com/Pages/ResponsePage.aspx?id=3DRnwZ0XUsi0On7xZpDR-LZ=
+AYo4RHJPxZHn9bqB5oI4JZUM0RZUVhFSkQwVkZRVFRSUzJINVNNUzVVQi4u
+Le questionnaire est anonyme.
+
+
+--_000_AS1PR07MB87589B61A0693D09A5BBFBBEEEE0AAS1PR07MB8758eurp_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
+1">
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-fareast-language:EN-US;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#0563C1;
+	text-decoration:underline;}
+span.EmailStyle19
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;
+	mso-ligatures:none;}
+@page WordSection1
+	{size:612.0pt 792.0pt;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+</head>
+<body lang=3D"FR" link=3D"#0563C1" vlink=3D"#954F72" style=3D"word-wrap:bre=
+ak-word">
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:FR">Bonjour =E0 =
+tous,<o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"mso-fareast-language:FR"><o:p>&nbsp;<=
+/o:p></span></p>
+<p class=3D"MsoNormal">Un grand merci pour votre =E9nergie incroyable tout =
+au long de ce s=E9minaire&nbsp;!<o:p></o:p></p>
+<p class=3D"MsoNormal">Nous sommes tous repartis super motiv=E9s et pr=EAts=
+ =E0 aller vendre et promouvoir nos produits avec conviction et entrain&nbs=
+p;!!<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Je sais que certains d&#8217;entre vous ont v=E9cu d=
+es retours compliqu=E9s, suite aux intemp=E9ries, et je les remercie pour l=
+eur patience.
+<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Enfin je voudrais terminer par la phrase de l&#8217;=
+une d&#8217;entre vous, prononc=E9e en fin de s=E9minaire, et qui m&#8217;a=
+ particuli=E8rement touch=E9e car elle exprime v=E9ritablement l&#8217;espr=
+it que nous cherchons =E0 donner aux s=E9minaires et =E0 notre Direction Co=
+mmerciale&nbsp;:
+ =AB&nbsp;Je ne me suis jamais autant sentie &#8216;moi&#8217;&nbsp;=BB<o:p=
+></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Tr=E8s bonne rentr=E9e =E0 tous&nbsp;! Et tr=E8s bon=
+ cycle 3&nbsp;!<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Julie<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Ci-dessous le lien pour donner votre feedback en 2 m=
+inutes.<o:p></o:p></p>
+<p class=3D"MsoNormal"><a href=3D"https://forms.office.com/Pages/ResponsePa=
+ge.aspx?id=3DRnwZ0XUsi0On7xZpDR-LZAYo4RHJPxZHn9bqB5oI4JZUM0RZUVhFSkQwVkZRVF=
+RSUzJINVNNUzVVQi4u">https://forms.office.com/Pages/ResponsePage.aspx?id=3DR=
+nwZ0XUsi0On7xZpDR-LZAYo4RHJPxZHn9bqB5oI4JZUM0RZUVhFSkQwVkZRVFRSUzJINVNNUzVV=
+Qi4u</a><o:p></o:p></p>
+<p class=3D"MsoNormal">Le questionnaire est anonyme.<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</body>
+</html>
+
+--_000_AS1PR07MB87589B61A0693D09A5BBFBBEEEE0AAS1PR07MB8758eurp_--
+

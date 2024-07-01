@@ -1,0 +1,2075 @@
+From support@wenow.com Mon Feb 05 14:14:13 2024
+Received: from VI1PR07MB9945.eurprd07.prod.outlook.com (2603:10a6:800:1d6::22)
+ by AM7PR07MB6692.eurprd07.prod.outlook.com with HTTPS; Mon, 5 Feb 2024
+ 14:14:12 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=cfEOWbK0TK+AZ1z9be7mhGodb53FydvPxAtzgblQQJVT3fo1NkhwzfwaCJryv4/04VCFAaUz/stj+barybvKmhZE71bl+5oDUelaPFDJiVie607GsKPH2CQ/mehxr1wy4QIxSSdGajhvJu0q2lwIDo2MLen7t8jGW2dratc2Cixj7twhyVF4nIFbAsuXjq75ocCT07WfLbAqpuhUEHCbD9IcYjx6HI5kfG+tABWPVyZOl7z9H/ZUA0UX142NPAiphRJ81atRglpa/v2LyaVPgjGK7nvYTvXCrNLFq0RhTC8/NnSlZCnwlL+gFDKWjqyRTQSlaXQ3Z44y52O1z1I8uw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5KzLxVsRpDxymGA62SNS3JOVir/l9Z12cfQvlXjkAzY=;
+ b=DZa/T5yOX6UNXrIFVEZ1RlUhRHwIgY0PHkacm9EtQkfugwENTa3kyj1AQVdTbtB1Gg2zUgi2she5rCiFZ7QQFg/d3Th8JygGcvJ3rLPHXT7B+uJJ8CvNvU6vE1U/AnvhH+4CCVZ2kvPz2fDUqvN7mS1lIsCZ2B72TZaupxZLZ+5lbts8vkJgEakT06zZmqDiPQb6VWLNZZk0/O4GiiG4abkdSsKw3k0d5qNva3+9rqaUT9KhldN+CZTJC796HlKzFz+3pEpc9pivRVj4Uz2E0+v9DBjmCMCnmr3AkGIdKA8pdqSoSJvqX0D4RttzbmhWrATSVOxvkdUIPR42nF4EMw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
+ 194.104.110.241) smtp.rcpttodomain=phardex.fr
+ smtp.mailfrom=eu-west-3.amazonses.com; dmarc=none action=none
+ header.from=wenow.com; dkim=fail (body hash did not verify)
+ header.d=amazonses.com; arc=pass (0 oda=0 ltdi=0 93)
+Received: from AM0P190CA0012.EURP190.PROD.OUTLOOK.COM (2603:10a6:208:190::22)
+ by VI1PR07MB9945.eurprd07.prod.outlook.com (2603:10a6:800:1d6::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7249.32; Mon, 5 Feb
+ 2024 14:14:08 +0000
+Received: from AMS1EPF0000004A.eurprd04.prod.outlook.com
+ (2603:10a6:208:190:cafe::94) by AM0P190CA0012.outlook.office365.com
+ (2603:10a6:208:190::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7249.34 via Frontend
+ Transport; Mon, 5 Feb 2024 14:14:08 +0000
+Authentication-Results: spf=fail (sender IP is 194.104.110.241)
+ smtp.mailfrom=eu-west-3.amazonses.com; dkim=fail (body hash did not verify)
+ header.d=amazonses.com;dmarc=none action=none
+ header.from=wenow.com;compauth=none reason=405
+Received-SPF: Fail (protection.outlook.com: domain of eu-west-3.amazonses.com
+ does not designate 194.104.110.241 as permitted sender)
+ receiver=protection.outlook.com; client-ip=194.104.110.241;
+ helo=de-smtp-inbound-delivery-1.mimecast.com;
+Received: from de-smtp-inbound-delivery-1.mimecast.com (194.104.110.241) by
+ AMS1EPF0000004A.mail.protection.outlook.com (10.167.16.134) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7249.19 via Frontend Transport; Mon, 5 Feb 2024 14:14:08 +0000
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=dkim.mimecast.com; s=201903; t=1707142448;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:dkim-signature;
+	bh=5KzLxVsRpDxymGA62SNS3JOVir/l9Z12cfQvlXjkAzY=;
+	b=NIi9MlRsWAkdRxgYexEZ/gOYW3SskD3BWnHtNXQOvnzXuBhpfsPscoraNzBhk0u0/mKvA6
+	dHGElhp/J+NBef0gil6/Cl5toOGEhO9eLJcNELm+G2IrZ4+sjApTVy++a5ycnT3yKn+2Le
+	/vs/1nyWenBIuPqcn36e7Fbk1KQFsJiljBYD64/BptWuytcN0iyHT94Z6hWtLkl9G99sEc
+	IndAwUm0R/ZtYc4OXHB0Ehx4QuR3e8a7JRBnq7QnTwI7iOQWMsdbqLgAdbcZfubSIHgLtM
+	tjyihKMY7JWAP6CfQ9es9Nfw38GtGPcjI+QKfXWsBGBbuz/LDqF2buvT/0471w==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1707142448; a=rsa-sha256;
+	cv=none;
+	b=S75+ZM1xSfqld7CfeD10Sn0UwmyvMnFufaMlFPfBbPuw+t+MaduKkCKMHTAydkErVUPokJ
+	+xM7T5Dfvzlx2ZdAhJUQAkiOYNDLMeJsttFdVyrH3tOobgvo3MMFUURloqGqiEr+MEQyPt
+	om7Y6IKXmAJa/P9IZGIkwDT/pW3YB6kW0e1DUrktWi+SwT5Ejd4fWji+RuNeSdjxGBPOz9
+	xc5NVP8jM58nniBQ8L/1du2rxnMsRvkv8wJ8TX1Agf2LCREtBwJwAw5MSGVJVScdYrA1tP
+	Llny41uXk0rq1KBNy1V6rnecEPQbVgA58M8xqjUvZXPfVF2XkvlS0vyfwNUQAQ==
+ARC-Authentication-Results: i=1;
+	relay.mimecast.com;
+	dkim=pass header.d=amazonses.com header.s=2xmcwjqtfc53o6h4t73lgyi3w3u43rzi header.b=Vp7dQrU1;
+	dmarc=none;
+	spf=pass (relay.mimecast.com: domain of 0113018d799e798e-eb92f908-a30c-414e-979d-38d2ea8eadaf-000000@eu-west-3.amazonses.com designates 23.251.246.12 as permitted sender) smtp.mailfrom=0113018d799e798e-eb92f908-a30c-414e-979d-38d2ea8eadaf-000000@eu-west-3.amazonses.com
+Received: from e246-12.smtp-out.eu-west-3.amazonses.com
+ (e246-12.smtp-out.eu-west-3.amazonses.com [23.251.246.12]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ de-mta-74-vuIVL83aOUWkLWKfYxnl-g-2; Mon, 05 Feb 2024 15:14:05 +0100
+X-MC-Unique: vuIVL83aOUWkLWKfYxnl-g-2
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=2xmcwjqtfc53o6h4t73lgyi3w3u43rzi; d=amazonses.com; t=1707142445;
+	h=From:To:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-ID:Date:Feedback-ID;
+	bh=3kDivCJb8jDU1iWz3MsAWehU6J4EkX4adUMDmLQMtc8=;
+	b=Vp7dQrU1iWx3FwVSQsFUQCZnZSSz8FMgpjcRXaQ+GVx1b6hYLPYfp1zXgnesmlk9
+	jv9G2zYmAJnSNIYkX0ARfRIIld/35CVbbcvmOC7pQSBPT3JGkBCAa6JeQGbI9Jy4bfB
+	Jwz+/VSBNhQoerp8ndVx64wMhDGCyANR0eOtR7Bo=
+From: support@wenow.com
+To: j.bonnefoy@phardex.fr
+Subject: =?utf-8?Q?Vous_avez_re=C3=A7u_votre_boitier!?=
+Message-ID: <0113018d799e798e-eb92f908-a30c-414e-979d-38d2ea8eadaf-000000@eu-west-3.amazonses.com>
+Date: Mon, 5 Feb 2024 14:14:05 +0000
+Feedback-ID: 1.eu-west-3.O8ljGZpOk/W6g1QouQdF7geE5QaE8SGpGNCB1Or8B/g=:AmazonSES
+X-SES-Outgoing: 2024.02.05-23.251.246.12
+Authentication-Results-Original: relay.mimecast.com;	dkim=pass
+ header.d=amazonses.com header.s=2xmcwjqtfc53o6h4t73lgyi3w3u43rzi
+ header.b=Vp7dQrU1;	dmarc=none;	spf=pass (relay.mimecast.com: domain of
+ 0113018d799e798e-eb92f908-a30c-414e-979d-38d2ea8eadaf-000000@eu-west-3.amazonses.com
+ designates 23.251.246.12 as permitted sender)
+ smtp.mailfrom=0113018d799e798e-eb92f908-a30c-414e-979d-38d2ea8eadaf-000000@eu-west-3.amazonses.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Impersonation-Protect: Policy=Impersonation - VIP Header Display Name Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+X-Mimecast-Impersonation-Protect: Policy=New Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=true;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Return-Path:
+ 0113018d799e798e-eb92f908-a30c-414e-979d-38d2ea8eadaf-000000@eu-west-3.amazonses.com
+X-MS-Exchange-Organization-ExpirationStartTime: 05 Feb 2024 14:14:08.2392
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ cbf836b5-c9a0-47ce-b960-08dc2654b7ca
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: d1197c46-2c75-438b-a7ef-16690d1f8b64:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AMS1EPF0000004A:EE_|VI1PR07MB9945:EE_|AM7PR07MB6692:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AMS1EPF0000004A.eurprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: cbf836b5-c9a0-47ce-b960-08dc2654b7ca
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:194.104.110.241;CTRY:DE;LANG:fr;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:de-smtp-inbound-delivery-1.mimecast.com;PTR:de-smtp-delivery-1.mimecast.com;CAT:NONE;SFS:(13230031)(230922051799003)(230273577357003)(332800013)(47000500020)(1690799017)(14302899009)(451199024)(19627405001)(232800005)(9686003)(224303003)(42882007)(956004)(83170400001)(7636003)(336012)(356005)(166002)(26005)(5660300002)(34756004)(6916009)(7696005)(71280400001)(1096003)(58800400005)(22186003)(130870200001)(559001)(579004);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Feb 2024 14:14:08.1767
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cbf836b5-c9a0-47ce-b960-08dc2654b7ca
+X-MS-Exchange-CrossTenant-Id: d1197c46-2c75-438b-a7ef-16690d1f8b64
+X-MS-Exchange-CrossTenant-AuthSource:
+ AMS1EPF0000004A.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR07MB9945
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:04.4751623
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7249.032
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?Mm5MOXd0ZVc5VUljakd1ckxibGpPUXZYeEcxY0hUWkRWaUx3TWl0T09VVWlC?=
+ =?utf-8?B?NlZXRHYrQUNzYUJPWE9qcXRxN05Vb3JqNUF0Q1c1ZkZza3RuVzJ0Z2pzcS8x?=
+ =?utf-8?B?MkV1RDJ4N2tmaFNNVCtycTJvdG9Ya1lLSm9kVlBUMWpxR2x3N2VHNHlmWW9M?=
+ =?utf-8?B?bmZBa2JDWGI2WG9sRDA1bmkrUk9JanBFb0xWSGlqWkNCMnR4WTdGYmh2VWhL?=
+ =?utf-8?B?NnJHWk0wNW5TeUVyM3g2aUkyVlpBZjZRYXBXVG9kekF2Ni9rTTBJOWpyQURo?=
+ =?utf-8?B?bTNPNmRzOHNQS0Jhbm1NRVh0Unhya1AxM2tkYnV2bWEyQVdOMm8vYUs1VDB3?=
+ =?utf-8?B?K1YzQ0hZV00wYzVzd0M1aUVaem5EaE9UN3VuNHhpTnJVcWJPQTV3K0lQTFFu?=
+ =?utf-8?B?K1A2SG5ZcGJwNUkzd1ZacnVzMWQ5V3JscEZmZDB1TDRsRWR0cktNNEw3MWlo?=
+ =?utf-8?B?RHhlaFg3ZG96MlA0SXRxSVNsTTdQYlVkRUFhaDlyendHcEZjTURDa2szSXl5?=
+ =?utf-8?B?MGxsTGJtUkhaUXNVZTdlVU5vMEdTaXlERFJyRC9iV1ljVUtBNng5a3o4QlZD?=
+ =?utf-8?B?ZUNkUC94aUxBeG1OZVJpNDlpRkUyTUF3QWplQkgvOUt3VEZNWm92R0tsN2ZN?=
+ =?utf-8?B?SUR5OG5ZeGZZMG4xMHpUMHcya3lHR055NHl5cTRobVA1dndTVkh3WmFZMWsv?=
+ =?utf-8?B?NVJjNUlPeXJOUXBwZW5JMkJLY0RzWm9KRlFoOEV2bjZIVTdzNXcxRW1IVmFH?=
+ =?utf-8?B?VzJGY2U5U3J3UFRNdERhSnBhTnhDelhiWkpRNDREYjhSQmZpbnNlK1R5N3VW?=
+ =?utf-8?B?Q2dnODViWG5QbkpzalMzb0t0eFRZYUdjbWFWUlArUFZ5THVvbjdMcEJuR3dS?=
+ =?utf-8?B?dkdtazFDTXVlMXNzdVBGQXNDdWlwaXI2d0pkM3d2cFJONk9YUU9rZEpPbUht?=
+ =?utf-8?B?dEFHZFBUUDBXdXJHTFVEZ1dJV0t5SXZydDNDTTVjaDcveXk5SVdIeEtmOHRP?=
+ =?utf-8?B?MHU2VjdTUEdLLzFBa3lURWRpYUUyS0FDMjhBMW9oVmhFNXdVZnQxWFgyTTh4?=
+ =?utf-8?B?cjh6OCtWQXVSa0NBdVR3UnNLUWcrRkJlRUFadDJXMTdvQjIwTm1PRkk5Y1FR?=
+ =?utf-8?B?VVpaVGlscUNTa25qK2xQMC9icDNNUnRGRWdSbXNldFR0OXZqaHlaRjFOVzRP?=
+ =?utf-8?B?VEpDZU9kZlJ4K0psTDhlMmtwTXhnS3ZndWc5cnNpVWVMZCsvaHBTNnhlaWtN?=
+ =?utf-8?B?b1ZCZ0N4MFJya3NOb2YzN3dlUmxYMWxrS0gwbWpDbnZ1SGRWUEJMQzhoZmd1?=
+ =?utf-8?B?UTZERFN5RDRmc1ZJUUlCNTM1VzloNWRHakJ5djg1b21jWUJCUVFPZFFLTlBK?=
+ =?utf-8?B?elQxcisyZVM4T05PRXk5ZnBtY0oyakZNWTlBR0FEV1h1VUdBTU40eCszeXN1?=
+ =?utf-8?B?YmwySTdWQnl3NXFFSFh4cnQxQVlQN1M1UlRtS0pJQ1U2SU1QaWJ0MkdUdnc4?=
+ =?utf-8?B?UFE2ZHcvRFBJelhSbXBCOHpNbERnUURmcGVOYzNHZTR0TzVWV05FbG11WUdH?=
+ =?utf-8?B?cVo4ZWNUVC9LQkwyRWxtWjBjc1FrYzl6dFR3N3JkMnNFVE5vUFFVTWlNcHBN?=
+ =?utf-8?B?amVmazd0S2kxK3FIN2c3RlVtc09yd1kyR3dyTE5wV3dLZVNMRFZMVGkyN0JH?=
+ =?utf-8?B?M09QYjVlbUJ2WkJoUXM0ZUcrcGVBMzhRWERxM3ZwdnUvZmpyKzI2N1JWMGZs?=
+ =?utf-8?B?UVkvWFpWdjd3QzVaZ2ExU1JxRnV2V2M4UVdBS2x1RXdMczc4czNIWjdKRVEv?=
+ =?utf-8?B?N0ppUGJuOWk4ODRLWHdXOEowNjFCMVRZcEl3Q0dhZkR3UkdZRjlONEtvYk9t?=
+ =?utf-8?B?djdEd3AzV2JFMGN6Rmc0TVVIc245NDN5dzVEeXdOanE5dEtzbFY0S1dZclJX?=
+ =?utf-8?B?amVhQk9JWVBlN3ZBNC94Wm1DVE9OZkFsUFA3VEVPZCtIWm9LQkJIeHJ6aW5P?=
+ =?utf-8?B?ZDBncE9EUUlDb1hxV0N1Q21QTFd1aG5lSVlwMGpaNzI5czhOMVB1RSt6R2ZB?=
+ =?utf-8?B?KzVGMEFadHFwTUk5ejVxOVV4aG1vQi9jQ25uTlpxZzMwV21idkQwdTl2OUZa?=
+ =?utf-8?B?Vm4yYUh1SG1TclRjODBySHpLbDFaYitQZTYzTGVmRDh2djk3SUVKNWVYbEZs?=
+ =?utf-8?B?S1dRY0ZkdTF6NGovQVAydCt3aXBrZGJIdTFieSt6TE5SUjc3ZUlmcHhTQTVW?=
+ =?utf-8?B?amRCRDB2eFVodGZZTk8wSkxvZjR1UHZCVVZNaG4wZDlKRVJWeVJ0UzhUS1NO?=
+ =?utf-8?B?TUZlTU5NQjJhNVpUQ1h2cUlqUGN6dGNRYlE0NHNqZ2V1ZDJMM0ZWZHllNDhE?=
+ =?utf-8?B?bUora2I0QzZaZXp0RmpPVTRhVFV4eWNDMGZ3dUJUUWxWQkcyNGVtalRSb2Rp?=
+ =?utf-8?B?cGxqYXlPajJGcUxwZUhaemtlbTVvYnRETEswOHlReGVqdkwzTCtaamhkbFcz?=
+ =?utf-8?B?K05sZ2JOTHZzL2VNTmgyOVpEdnBKYkk2TzBnQmkra2huRVBvSUJZNHU5K0Jn?=
+ =?utf-8?B?WTFrdms1SnF1empwRlYvRk0zUDNRUUgyaFFPWm1tNS9jSmpMdWpTNm1NSnkw?=
+ =?utf-8?B?VHVMemtJQT09?=
+MIME-Version: 1.0
+
+<!doctype html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:=
+schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:offi=
+ce"><head><!-- NAME: 1 COLUMN --><!--[if gte mso 15]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1"=
+>
+<style type=3D"text/css">
+        p{
+            margin:10px 0;
+            padding:0;
+        }
+        table{
+            border-collapse:collapse;
+        }
+        h1,h2,h3,h4,h5,h6{
+            display:block;
+            margin:0;
+            padding:0;
+        }
+        img,a img{
+            border:0;
+            height:auto;
+            outline:none;
+            text-decoration:none;
+        }
+        body,#bodyTable,#bodyCell{
+            height:100%;
+            margin:0;
+            padding:0;
+            width:100%;
+        }
+        .mcnPreviewText{
+            display:none !important;
+        }
+        #outlook a{
+            padding:0;
+        }
+        img{
+            -ms-interpolation-mode:bicubic;
+        }
+        table{
+            mso-table-lspace:0pt;
+            mso-table-rspace:0pt;
+        }
+        .ReadMsgBody{
+            width:100%;
+        }
+        .ExternalClass{
+            width:100%;
+        }
+        p,a,li,td,blockquote{
+            mso-line-height-rule:exactly;
+        }
+        a[href^=3Dtel],a[href^=3Dsms]{
+            color:inherit;
+            cursor:default;
+            text-decoration:none;
+        }
+        p,a,li,td,body,table,blockquote{
+            -ms-text-size-adjust:100%;
+            -webkit-text-size-adjust:100%;
+        }
+        .ExternalClass,.ExternalClass p,.ExternalClass td,.ExternalClass di=
+v,.ExternalClass span,.ExternalClass font{
+            line-height:100%;
+        }
+        a[x-apple-data-detectors]{
+            color:inherit !important;
+            text-decoration:none !important;
+            font-size:inherit !important;
+            font-family:inherit !important;
+            font-weight:inherit !important;
+            line-height:inherit !important;
+        }
+        #bodyCell{
+            padding:10px;
+        }
+        .templateContainer{
+            max-width:600px !important;
+        }
+        a.mcnButton{
+            display:block;
+        }
+        .mcnImage,.mcnRetinaImage{
+            vertical-align:bottom;
+        }
+        .mcnTextContent{
+            word-break:break-word;
+        }
+        .mcnTextContent img{
+            height:auto !important;
+        }
+        .mcnDividerBlock{
+            table-layout:fixed !important;
+        }
+        /*
+        @tab Page
+        @section Background Style
+        @tip Set the background color and top border for your email. You ma=
+y want to choose colors that match your company's branding.
+        */
+        body,#bodyTable{
+            /*@editable*/background-color:#FAFAFA;
+        }
+        /*
+        @tab Page
+        @section Background Style
+        @tip Set the background color and top border for your email. You ma=
+y want to choose colors that match your company's branding.
+        */
+        #bodyCell{
+            /*@editable*/border-top:0;
+        }
+        /*
+        @tab Page
+        @section Email Border
+        @tip Set the border for your email.
+        */
+        .templateContainer{
+            /*@editable*/border:0;
+        }
+        /*
+        @tab Page
+        @section Heading 1
+        @tip Set the styling for all first-level headings in your emails. T=
+hese should be the largest of your headings.
+        @style heading 1
+        */
+        h1{
+            /*@editable*/color:#202020;
+            /*@editable*/font-family:Helvetica;
+            /*@editable*/font-size:26px;
+            /*@editable*/font-style:normal;
+            /*@editable*/font-weight:bold;
+            /*@editable*/line-height:125%;
+            /*@editable*/letter-spacing:normal;
+            /*@editable*/text-align:left;
+        }
+        /*
+        @tab Page
+        @section Heading 2
+        @tip Set the styling for all second-level headings in your emails.
+        @style heading 2
+        */
+        h2{
+            /*@editable*/color:#202020;
+            /*@editable*/font-family:Helvetica;
+            /*@editable*/font-size:22px;
+            /*@editable*/font-style:normal;
+            /*@editable*/font-weight:bold;
+            /*@editable*/line-height:125%;
+            /*@editable*/letter-spacing:normal;
+            /*@editable*/text-align:left;
+        }
+        /*
+        @tab Page
+        @section Heading 3
+        @tip Set the styling for all third-level headings in your emails.
+        @style heading 3
+        */
+        h3{
+            /*@editable*/color:#202020;
+            /*@editable*/font-family:Helvetica;
+            /*@editable*/font-size:20px;
+            /*@editable*/font-style:normal;
+            /*@editable*/font-weight:bold;
+            /*@editable*/line-height:125%;
+            /*@editable*/letter-spacing:normal;
+            /*@editable*/text-align:left;
+        }
+        /*
+        @tab Page
+        @section Heading 4
+        @tip Set the styling for all fourth-level headings in your emails. =
+These should be the smallest of your headings.
+        @style heading 4
+        */
+        h4{
+            /*@editable*/color:#202020;
+            /*@editable*/font-family:Helvetica;
+            /*@editable*/font-size:18px;
+            /*@editable*/font-style:normal;
+            /*@editable*/font-weight:bold;
+            /*@editable*/line-height:125%;
+            /*@editable*/letter-spacing:normal;
+            /*@editable*/text-align:left;
+        }
+        /*
+        @tab Preheader
+        @section Preheader Style
+        @tip Set the background color and borders for your email's preheade=
+r area.
+        */
+        #templatePreheader{
+            /*@editable*/background-color:#FAFAFA;
+            /*@editable*/background-image:none;
+            /*@editable*/background-repeat:no-repeat;
+            /*@editable*/background-position:center;
+            /*@editable*/background-size:cover;
+            /*@editable*/border-top:0;
+            /*@editable*/border-bottom:0;
+            /*@editable*/padding-top:9px;
+            /*@editable*/padding-bottom:9px;
+        }
+        /*
+        @tab Preheader
+        @section Preheader Text
+        @tip Set the styling for your email's preheader text. Choose a size=
+ and color that is easy to read.
+        */
+        #templatePreheader .mcnTextContent,#templatePreheader .mcnTextConte=
+nt p{
+            /*@editable*/color:#656565;
+            /*@editable*/font-family:Helvetica;
+            /*@editable*/font-size:12px;
+            /*@editable*/line-height:150%;
+            /*@editable*/text-align:left;
+        }
+        /*
+        @tab Preheader
+        @section Preheader Link
+        @tip Set the styling for your email's preheader links. Choose a col=
+or that helps them stand out from your text.
+        */
+        #templatePreheader .mcnTextContent a,#templatePreheader .mcnTextCon=
+tent p a{
+            /*@editable*/color:#656565;
+            /*@editable*/font-weight:normal;
+            /*@editable*/text-decoration:underline;
+        }
+        /*
+        @tab Header
+        @section Header Style
+        @tip Set the background color and borders for your email's header a=
+rea.
+        */
+        #templateHeader{
+            /*@editable*/background-color:#FFFFFF;
+            /*@editable*/background-image:none;
+            /*@editable*/background-repeat:no-repeat;
+            /*@editable*/background-position:center;
+            /*@editable*/background-size:cover;
+            /*@editable*/border-top:0;
+            /*@editable*/border-bottom:0;
+            /*@editable*/padding-top:9px;
+            /*@editable*/padding-bottom:0;
+        }
+        /*
+        @tab Header
+        @section Header Text
+        @tip Set the styling for your email's header text. Choose a size an=
+d color that is easy to read.
+        */
+        #templateHeader .mcnTextContent,#templateHeader .mcnTextContent p{
+            /*@editable*/color:#202020;
+            /*@editable*/font-family:Helvetica;
+            /*@editable*/font-size:16px;
+            /*@editable*/line-height:150%;
+            /*@editable*/text-align:left;
+        }
+        /*
+        @tab Header
+        @section Header Link
+        @tip Set the styling for your email's header links. Choose a color =
+that helps them stand out from your text.
+        */
+        #templateHeader .mcnTextContent a,#templateHeader .mcnTextContent p=
+ a{
+            /*@editable*/color:#007C89;
+            /*@editable*/font-weight:normal;
+            /*@editable*/text-decoration:underline;
+        }
+        /*
+        @tab Body
+        @section Body Style
+        @tip Set the background color and borders for your email's body are=
+a.
+        */
+        #templateBody{
+            /*@editable*/background-color:#FFFFFF;
+            /*@editable*/background-image:none;
+            /*@editable*/background-repeat:no-repeat;
+            /*@editable*/background-position:center;
+            /*@editable*/background-size:cover;
+            /*@editable*/border-top:0;
+            /*@editable*/border-bottom:2px solid #EAEAEA;
+            /*@editable*/padding-top:0;
+            /*@editable*/padding-bottom:9px;
+        }
+        /*
+        @tab Body
+        @section Body Text
+        @tip Set the styling for your email's body text. Choose a size and =
+color that is easy to read.
+        */
+        #templateBody .mcnTextContent,#templateBody .mcnTextContent p{
+            /*@editable*/color:#202020;
+            /*@editable*/font-family:Helvetica;
+            /*@editable*/font-size:16px;
+            /*@editable*/line-height:150%;
+            /*@editable*/text-align:left;
+        }
+        /*
+        @tab Body
+        @section Body Link
+        @tip Set the styling for your email's body links. Choose a color th=
+at helps them stand out from your text.
+        */
+        #templateBody .mcnTextContent a,#templateBody .mcnTextContent p a{
+            /*@editable*/color:#007C89;
+            /*@editable*/font-weight:normal;
+            /*@editable*/text-decoration:underline;
+        }
+        /*
+        @tab Footer
+        @section Footer Style
+        @tip Set the background color and borders for your email's footer a=
+rea.
+        */
+        #templateFooter{
+            /*@editable*/background-color:#FAFAFA;
+            /*@editable*/background-image:none;
+            /*@editable*/background-repeat:no-repeat;
+            /*@editable*/background-position:center;
+            /*@editable*/background-size:cover;
+            /*@editable*/border-top:0;
+            /*@editable*/border-bottom:0;
+            /*@editable*/padding-top:9px;
+            /*@editable*/padding-bottom:9px;
+        }
+        /*
+        @tab Footer
+        @section Footer Text
+        @tip Set the styling for your email's footer text. Choose a size an=
+d color that is easy to read.
+        */
+        #templateFooter .mcnTextContent,#templateFooter .mcnTextContent p{
+            /*@editable*/color:#656565;
+            /*@editable*/font-family:Helvetica;
+            /*@editable*/font-size:12px;
+            /*@editable*/line-height:150%;
+            /*@editable*/text-align:center;
+        }
+        /*
+        @tab Footer
+        @section Footer Link
+        @tip Set the styling for your email's footer links. Choose a color =
+that helps them stand out from your text.
+        */
+        #templateFooter .mcnTextContent a,#templateFooter .mcnTextContent p=
+ a{
+            /*@editable*/color:#656565;
+            /*@editable*/font-weight:normal;
+            /*@editable*/text-decoration:underline;
+        }
+        @media only screen and (min-width:768px){
+            .templateContainer{
+                width:600px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            body,table,td,p,a,li,blockquote{
+                -webkit-text-size-adjust:none !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            body{
+                width:100% !important;
+                min-width:100% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            #bodyCell{
+                padding-top:10px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnRetinaImage{
+                max-width:100% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnImage{
+                width:100% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnCartContainer,.mcnCaptionTopContent,.mcnRecContentContainer=
+,.mcnCaptionBottomContent,.mcnTextContentContainer,.mcnBoxedTextContentCont=
+ainer,.mcnImageGroupContentContainer,.mcnCaptionLeftTextContentContainer,.m=
+cnCaptionRightTextContentContainer,.mcnCaptionLeftImageContentContainer,.mc=
+nCaptionRightImageContentContainer,.mcnImageCardLeftTextContentContainer,.m=
+cnImageCardRightTextContentContainer,.mcnImageCardLeftImageContentContainer=
+,.mcnImageCardRightImageContentContainer{
+                max-width:100% !important;
+                width:100% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnBoxedTextContentContainer{
+                min-width:100% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnImageGroupContent{
+                padding:9px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnCaptionLeftContentOuter .mcnTextContent,.mcnCaptionRightCon=
+tentOuter .mcnTextContent{
+                padding-top:9px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnImageCardTopImageContent,.mcnCaptionBottomContent:last-chil=
+d .mcnCaptionBottomImageContent,.mcnCaptionBlockInner .mcnCaptionTopContent=
+:last-child .mcnTextContent{
+                padding-top:18px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnImageCardBottomImageContent{
+                padding-bottom:9px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnImageGroupBlockInner{
+                padding-top:0 !important;
+                padding-bottom:0 !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnImageGroupBlockOuter{
+                padding-top:9px !important;
+                padding-bottom:9px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnTextContent,.mcnBoxedTextContentColumn{
+                padding-right:18px !important;
+                padding-left:18px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnImageCardLeftImageContent,.mcnImageCardRightImageContent{
+                padding-right:18px !important;
+                padding-bottom:0 !important;
+                padding-left:18px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcpreview-image-uploader{
+                display:none !important;
+                width:100% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Heading 1
+            @tip Make the first-level headings larger in size for better re=
+adability on small screens.
+            */
+            h1{
+                /*@editable*/font-size:22px !important;
+                /*@editable*/line-height:125% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Heading 2
+            @tip Make the second-level headings larger in size for better r=
+eadability on small screens.
+            */
+            h2{
+                /*@editable*/font-size:20px !important;
+                /*@editable*/line-height:125% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Heading 3
+            @tip Make the third-level headings larger in size for better re=
+adability on small screens.
+            */
+            h3{
+                /*@editable*/font-size:18px !important;
+                /*@editable*/line-height:125% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Heading 4
+            @tip Make the fourth-level headings larger in size for better r=
+eadability on small screens.
+            */
+            h4{
+                /*@editable*/font-size:16px !important;
+                /*@editable*/line-height:150% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Boxed Text
+            @tip Make the boxed text larger in size for better readability =
+on small screens. We recommend a font size of at least 16px.
+            */
+            .mcnBoxedTextContentContainer .mcnTextContent,.mcnBoxedTextCont=
+entContainer .mcnTextContent p{
+                /*@editable*/font-size:14px !important;
+                /*@editable*/line-height:150% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Preheader Visibility
+            @tip Set the visibility of the email's preheader on small scree=
+ns. You can hide it to save space.
+            */
+            #templatePreheader{
+                /*@editable*/display:block !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Preheader Text
+            @tip Make the preheader text larger in size for better readabil=
+ity on small screens.
+            */
+            #templatePreheader .mcnTextContent,#templatePreheader .mcnTextC=
+ontent p{
+                /*@editable*/font-size:14px !important;
+                /*@editable*/line-height:150% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Header Text
+            @tip Make the header text larger in size for better readability=
+ on small screens.
+            */
+            #templateHeader .mcnTextContent,#templateHeader .mcnTextContent=
+ p{
+                /*@editable*/font-size:16px !important;
+                /*@editable*/line-height:150% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Body Text
+            @tip Make the body text larger in size for better readability o=
+n small screens. We recommend a font size of at least 16px.
+            */
+            #templateBody .mcnTextContent,#templateBody .mcnTextContent p{
+                /*@editable*/font-size:16px !important;
+                /*@editable*/line-height:150% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Footer Text
+            @tip Make the footer content text larger in size for better rea=
+dability on small screens.
+            */
+            #templateFooter .mcnTextContent,#templateFooter .mcnTextContent=
+ p{
+                /*@editable*/font-size:14px !important;
+                /*@editable*/line-height:150% !important;
+            }
+
+        }</style>
+</head>
+<body>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-family:&quot;Time=
+s New Roman&quot;,serif;=0A=
+color:red">=E2=96=88</span><span lang=3D"EN-US" style=3D"font-family:&quot;=
+Arial&quot;,sans-serif;=0A=
+color:red">
+</span><b><span lang=3D"EN-US" style=3D"color:black;background:yellow">Caut=
+ion : External Email. Do not click links or open attachments unless you rec=
+ognize the sender and the content is safe.<br>
+Do not scan QR codes from external emails. </span></b><br>
+<br>
+</p>
+<div>
+<table id=3D"mcpreviewzzyygg" style=3D"display: none; mso-hide: all; width:=
+ 0px; height: 0px; max-width: 0px; max-height: 0px; font-size: 0px; line-he=
+ight: 0px; color: white; text-decoration: none;">
+<tbody>
+<tr>
+<td>&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=
+=80=8C</td>
+</tr>
+</tbody>
+</table>
+<table id=3D"mcalertwrapperzzyygg" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+<tbody>
+<tr>
+<td><a href=3D"https://protect-de.mimecast.com/s/HwweCx6pQyU16OOvF8ZC5a?dom=
+ain=3Dde.report.cybergraph.mimecast.com"><img id=3D"mcalertzzyygg" src=3D"h=
+ttps://alert-eu-central-1.api.getmessagecontrol.com/onprem_security_warning=
+_fetch?r=3D1&amp;dep=3DuaUFBLrxbVME1s%2BJwKJy9w%3D%3DY1Ml2tOkBoJ31qzXkfUtJv=
+A%2BQYvumtk0N3HQ%2FfGFqceA6XzTcAO5NOAJWG%2FvNCfsxzo0CQzh0fBud36e0yCIXMnLJTx=
+2t7p0GbXLLSbRSxeW0pb7v0MlBUZYigdJvYg22XaEsSc0X%2B4LPOhVV9jU7sWi8PLBSOIh8Shf=
+bPdZCj8MASoMsHWoZuGoZO6EPVMFDFMhw%2BJv7Q3NE7Pv7n1MDe61OXHOwGJAcz%2Fi1tCGciB=
+4XQXx2vBbI%2FNF1c2dCPo3mM6SIGbRXp%2BHyzFJlBofQsA5NNlXIVLO27Z9Htd8cchGDxzIhb=
+9%2Bc6I%2B%2FpW7DfwFj%2BQfh3pCp0xRsVEVn1Z2AonRj%2BW7L88rYNtsdcEe0wd6pD7Y2H0=
+OolIcf9bVFtufPHiN%2BeBeI7bpbXZKVNMkT5VviHToivUkkN1ewxlWfK%2BBVGQZcFCBRqilWl=
+vfLskTdFrY8m24OmRd749NGT6Gi908NdPsBdJAZk5%2BGICIf9KgrBMp9UKKVKii0P13Mjh14rO=
+v7UPDTd%2BTCTnYavqXxQHGc1XP9h3ROyKsHHY1cxNAzUPa4Cr9u7vSNLZMJmkkUpnpDKc1Baux=
+Bkf44oKPLoATmRl22OnSBhNL%2FKAj7DwTvZcNBKJzJyXZnVuz1GmQckr0UMjLQNxwSSp2n4h04=
+CnOAPW037MLpIbTAde7MBavczTgrqcyGAGgAEO59eFvliVfTdwMtlcncUNaE%2FfIpTLfEF8pyS=
+W6QXKkBbPJOttyITy%2F75ggAbPohyuTSeSy2PzgV%2FbDJDzF3JWfZGR%2Bsg%3D%3D" style=
+=3D"display: block; border: 0px; border-style: none;" border=3D"0"></a></td=
+>
+</tr>
+</tbody>
+</table>
+<center>
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" he=
+ight=3D"100%" width=3D"100%" id=3D"bodyTable">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" id=3D"bodyCell"><!-- BEGIN TEMPLATE // =
+--><!--[if (gte mso 9)|(IE)]>
+                <table align=3D"center" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" width=3D"600" style=3D"width:600px;">
+                    <tr>
+                        <td align=3D"center" valign=3D"top" width=3D"600" s=
+tyle=3D"width:600px;">
+                <![endif]-->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"templateContainer">
+<tbody>
+<tr>
+<td valign=3D"top" id=3D"templateHeader">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"mcnImageBlock" style=3D"min-width:100%;">
+<tbody class=3D"mcnImageBlockOuter">
+<tr>
+<td valign=3D"top" style=3D"padding:9px" class=3D"mcnImageBlockInner">
+<table align=3D"left" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" class=3D"mcnImageContentContainer" style=3D"min-width:100%;">
+<tbody>
+<tr>
+<td class=3D"mcnImageContent" valign=3D"top" style=3D"padding-right: 9px; p=
+adding-left: 9px; padding-top: 0; padding-bottom: 0; text-align:center;">
+<a href=3D"https://protect-de.mimecast.com/s/JQdHCywqRzSrvnnosM0shu?domain=
+=3Dwenow.com" target=3D"_blank" style=3D"text-decoration:none;border-bottom=
+:1px solid #2e2f33;color:#2e2f33;"><img src=3D"https://eu-central-1.api.get=
+messagecontrol.com/onprem_image_fetch?dep=3D%2F3kOJRv7luljU6JFFE2tzQ%3D%3DH=
+Ow7V5KomibjxzTJ4iNRZTRv25pgFymSMSb8lJgaB0vEVuRkcNtQedMV3L%2FUbJhfmYRfAd%2FZ=
+apvk2nZyt%2BcizKdU7hTvM5gWL1583ooxHqdLKbUhBRPKpJ6ynd%2BAsEJjqG2dNrTGYF2O59c=
+a1JAtHKzA6kPuHKj8RAR8b%2F81znzHQinKatSo5E8IgpLblKYzZCOJgOxreQJgjGuJOOPapfr6=
+223F%2BMuT1jc6lYl059HxL4d7x88xPQpKZ4SPCZHty1C5mPZ1blJzIMFx0eUyICI9Hm9kzLISM=
+UznJxTz7jtGeGw3cFHBKUKOi94%2B%2FVvVWmDdsQzIeXJSIB1PmHQFng%3D%3D" class=3D"m=
+cnImage" width=3D"80" style=3D"max-width:100%; padding-left: 30px;display: =
+block;" alt=3D"WeNow" title=3D"WeNow">
+</a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" id=3D"templateBody">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"mcnTextBlock" style=3D"min-width:100%;">
+<tbody class=3D"mcnTextBlockOuter">
+<tr>
+<td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"padding-top:9px;"><=
+!--[if mso]>
+                                        <table align=3D"left" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" style=3D"width:100%;">
+                                            <tr>
+                                        <![endif]--><!--[if mso]>
+                                        <td valign=3D"top" width=3D"600" st=
+yle=3D"width:600px;">
+                                        <![endif]-->
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"max-width:100%; min-width:100%;" width=3D"100%" class=3D"mcnTextConten=
+tContainer">
+<tbody>
+<tr>
+<td valign=3D"top" class=3D"mcnTextContent" style=3D"padding-top:0; padding=
+-right:18px; padding-bottom:9px; padding-left:18px;">
+<table bgcolor=3D"#FFFFFF" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ width=3D"100%" id=3D"emailBody">
+<!-- MODULE ROW // -->
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CENTERING TABLE // --><!--
+                    The centering table keeps the content
+                    tables centered in the emailBody table,
+                    in case its width is set to 100%.
+                -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" back=
+ground=3D"#F8F8F8">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- FLEXIBLE CONTAINER // --><!--
+                                The flexible container has a set width
+                                that gets overridden by the media query.
+                                Most content tables within can then be
+                                given 100% widths.
+                            -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" class=
+=3D"flexibleContainer">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" width=3D"600" class=3D"flexibleContaine=
+rCell"><!-- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"30" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"left" valign=3D"top" class=3D"textContent">
+<div style=3D"padding: 0px;">
+<h1 style=3D"color:#2e2f33;line-height:140%;font-family:Helvetica,Arial,san=
+s-serif;font-size:18px;font-weight:lighter;margin-bottom:5px;text-align:cen=
+ter;">
+Bonjour <span style=3D" font-weight: normal;">Julien</span><br>
+<span style=3D"color:#03FF1C;font-weight: bold;">=E2=80=94</span></h1>
+<h2 style=3D"text-align:center;font-weight:normal;font-family:Helvetica,Ari=
+al,sans-serif;font-size:30px;margin-bottom:4px;color:#2e2f33;line-height:12=
+5%;">
+Vous avez re=C3=A7u <strong>votre boitier</strong> ! </h2>
+<h3 style=3D"text-align:center;font-weight:lighter;font-family:Helvetica,Ar=
+ial,sans-serif;font-size:20px;margin-bottom:10px;color:#2e2f33;line-height:=
+145%;">
+(ou cela ne devrait plus tarder)</h3>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+<!-- // FLEXIBLE CONTAINER --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CENTERING TABLE --></td>
+</tr>
+<!-- // MODULE ROW --><!-- MODULE ROW // -->
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CENTERING TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bgco=
+lor=3D"#FFFFFF">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- FLEXIBLE CONTAINER // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" class=
+=3D"flexibleContainer">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" width=3D"600" class=3D"flexibleContaine=
+rCell"><!-- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" class=3D"imageContent"><img src=3D"http=
+s://eu-central-1.api.getmessagecontrol.com/onprem_image_fetch?dep=3D6O%2Brl=
+kEpE8yokyerP%2BhtkQ%3D%3Dj%2B16Bo3BC7GKKRwpdmHWeW%2FBOTjM7stL3%2BcUWV6jETuq=
+%2BIsUL6BfP3nSgpswKYoTqfNEgLXRJIgY3ViMOxE3gOFT%2Bdu%2FyC6sCaCUynPM9lTfkEznB=
+YY6XxVuROUI3jzeY4PEwVMirEyPfCSN6meskMO00ysjq13j%2BNaTHIn5BzLtRq96lpUzup1NxG=
+tB8pMLF5gu1kGKJRpEGQPn2YaWHM0G0wDRKnsC4OvZAaZpz76uOxDmXLQwspXgNm8HYOZX8%2Bu=
+1fn6ZQnjzGT9e8BzkK94nO2i2P2g8tgWq7lZtqoixFUd8r9fGPtk1qkE5hM97lHFAYGpfsD%2FG=
+KgEVFcz3gmAErMvuccKBSJvNT1ObqEsFKix2iW%2FTH%2FEux08vgf8f" width=3D"250" cla=
+ss=3D"flexibleImage" style=3D"max-width:250px;width:100%;display:block;" al=
+t=3D"WeNowBox" title=3D"WeNowBox">
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+<!-- // FLEXIBLE CONTAINER --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CENTERING TABLE --></td>
+</tr>
+<!-- // MODULE ROW --><!-- MODULE ROW // -->
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CENTERING TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bgco=
+lor=3D"#FFFFFF">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- FLEXIBLE CONTAINER // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" class=
+=3D"flexibleContainer">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" width=3D"600" class=3D"flexibleContaine=
+rCell">
+<table border=3D"0" cellpadding=3D"30" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"background-color:#FFFFFF;"><!-=
+- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td valign=3D"top" class=3D"textContent">
+<h3 style=3D"color:#2e2f33;line-height:125%;font-family:Helvetica,Arial,san=
+s-serif;font-size:24px;font-weight:bold;margin-top:0;margin-bottom:20px;tex=
+t-align:left;">
+O=C3=B9 est la prise de ma voiture ?</h3>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" class=3D"textContent">
+<div style=3D"text-align:justify;font-size:15px;margin-bottom:0;color:#2e2f=
+33;line-height:145%;">
+Nous n=E2=80=99avons pas pu identifier l=E2=80=99emplacement exact de la pr=
+ise diagnostic du fait de la raret=C3=A9 de votre mod=C3=A8le dans notre ba=
+se de donn=C3=A9es (v=C3=A9hicule tr=C3=A8s r=C3=A9cent ou tr=C3=A8s rare).=
+ Merci de nous contacter par mail =C3=A0
+<a href=3D"mailto:support@wenow.com" target=3D"_blank"><span style=3D"font-=
+weight:bold;color:#000000">support@wenow.com</span></a>
+<strong>si vous avez besoin d=E2=80=99aide</strong>. <br>
+<br>
+<br>
+<br>
+</div>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" class=3D"imageContent"><img src=3D"https://eu-central-1.=
+api.getmessagecontrol.com/onprem_image_fetch?dep=3DpNdAPhQkQov7S%2BR1Ipn8jA=
+%3D%3DHiUC9EqoJYOFipiLR9GqDDJD%2FXpAQ3qGzFds79vr8xkfDCGaAMaYEWDA5qifEyN5d%2=
+FQIm6VOR7SUYAdVseeqqiuASrwxHbMEcNhL6e%2BRUiDK5o%2BE%2FGuuaqyd0T3CdQYtv5v6xL=
+WpKcuDzWty4MPMqCVDaqYHqA%2BGnunxoDYPsOymRCz3jd7%2BHB7JoHbqPsnxkHzicpRQovkYO=
+2kXfBrbdDZA3nEFcqpQhsNBJsmGkqHVSzK8Vnr6%2FwUn0ckGi3ciXmtSQhHWWwCZ19Y7WS1t53=
+w7yis0J1821gIGyvyif8Sqe%2F8c189zqCMW9pzcr%2BtG9JUnkPEYEByDcro%2FqOFuzsVaxQE=
+fM9BifCpub3BpMiokUpOxqT3UOr4p9piZ8U3e" width=3D"600" class=3D"flexibleImage=
+" style=3D"max-width:600px;width:100%;display:block;" alt=3D"OBD" title=3D"=
+OBD">
+<img src=3D"https://eu-central-1.api.getmessagecontrol.com/onprem_image_fet=
+ch?dep=3D4OqspJHINmjs2UdUkywlkw%3D%3DmhfpRfRLgGyUShktC5kB96mOBVHjXqlsJC8EpO=
+fAghfnhEPpZJpXioj1Pn7iyLx%2B8RgBRkAB6RiAmeqdV4lGomAoQV7ODj1x8vXgtz0MukkQC3r=
+RFFbrhkfYicoVEIHW6Sqw99Dy%2BvZTT8vzSmphIKzpjGthoDzEzaxfhXISqj9TNdChjG%2BIwY=
+k6hamJ%2FH0IgYusqm4X6LvPy3EOhRfAneGtTc9wosJ%2BA9A4pDtwbugx2uB1lNDmqYhi0u3ep=
+KjRgWW%2BInfWln7UN2fp3w5z%2BKQuUxAu4RNDX5%2BGQhp2ofa30F5fBLn30nB2VO4E29dzj7=
+l3bNkaj4dARR8IHfGy%2F6u69hlhuf1TQFYQx5%2F9198Rdeq9JDtY5gbJ6HZSYLgY" width=
+=3D"600" class=3D"flexibleImage" style=3D"max-width:600px;width:100%;displa=
+y:block;" alt=3D"OBD" title=3D"OBD">
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // FLEXIBLE CONTAINER --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CENTERING TABLE --></td>
+</tr>
+<!-- // MODULE ROW --><!-- MODULE ROW // -->
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CENTERING TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bgco=
+lor=3D"#FFFFFF">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- FLEXIBLE CONTAINER // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" class=
+=3D"flexibleContainer">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" width=3D"600" class=3D"flexibleContaine=
+rCell">
+<table border=3D"0" cellpadding=3D"30" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td valign=3D"middle" class=3D"textContent">
+<div style=3D"text-align:justify;font-family:Helvetica,Arial,sans-serif;fon=
+t-size:15px;margin-bottom:0;color:#2e2f33;line-height:165%;padding-top: 0px=
+;">
+La prise se situe en g=C3=A9n=C3=A9ral =C3=A0 3 endroits possibles au sein =
+de l=E2=80=99habitacle du v=C3=A9hicule :
+<ul>
+<li>Sous le volant en bas =C3=A0 gauche principalement et de temps en temps=
+ =C3=A0 droite. Parfois il faut d=C3=A9clipser le cache qui se situe sous l=
+e volant pour acc=C3=A9der =C3=A0 la prise diagnostic. Si l'emplacement est=
+ =C3=A9troit, utilisez le c=C3=A2ble livr=C3=A9 avec le boitier.
+</li><li>Au centre du v=C3=A9hicule, soit devant le levier de vitesse ou en=
+ bas de la console centrale,
+</li><li>Plus rarement, la prise diagnostic peut se situer dans la bo=C3=AE=
+te =C3=A0 gants du v=C3=A9hicule.
+</li></ul>
+<p>Astuce : Votre garagiste saura vous indiquer l=E2=80=99emplacement exact=
+ en moins de 10 secondes.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // FLEXIBLE CONTAINER --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CENTERING TABLE --></td>
+</tr>
+<!-- // MODULE ROW --><!-- MODULE DIVIDER // -->
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CENTERING TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- FLEXIBLE CONTAINER // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" class=
+=3D"flexibleContainer">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" width=3D"600" class=3D"flexibleContaine=
+rCell">
+<table class=3D"flexibleContainerCellDivider" border=3D"0" cellpadding=3D"3=
+0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding-top:0px;padding-bottom=
+:0px;"><!-- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"border-top:1px solid #eceef1;"=
+></td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // FLEXIBLE CONTAINER --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CENTERING TABLE --></td>
+</tr>
+<!-- // END --><!-- MODULE ROW // -->
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CENTERING TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bgco=
+lor=3D"#FFFFFF">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- FLEXIBLE CONTAINER // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" class=
+=3D"flexibleContainer">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" width=3D"600" class=3D"flexibleContaine=
+rCell">
+<table border=3D"0" cellpadding=3D"30" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"background-color:#FFFFFF;"><!-=
+- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td valign=3D"top" class=3D"textContent">
+<h3 style=3D"color:#2e2f33;line-height:125%;font-family:Helvetica,Arial,san=
+s-serif;font-size:24px;font-weight:bold;margin-top:0;margin-bottom:20px;tex=
+t-align:left;">
+Installer l'app </h3>
+</td>
+</tr>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td valign=3D"top" width=3D"45" class=3D"textContent"><img src=3D"https://e=
+u-central-1.api.getmessagecontrol.com/onprem_image_fetch?dep=3D3l76Ef1lYVPc=
+EHMViZhArQ%3D%3DH0GMCf7miXqYqHj3d8xS5NzZczSXKl5TnnT1y1xHz42FDL6wJSDFCg2ZA8u=
+%2BwisVbdF7JMUDEzCwOIGWcPUw6P8KWxVzbi8rdIHJjPlVSWtlrc%2FsGC5H9qwWewH6LKlwaw=
+3L0x%2BoXON5pDn%2BJG1IpELgzEsAQM6Sjnp30QbXuwo2uNNEPn4hVuzs9DLB%2Ba7ueREpuln=
+x6wnT86wb524fGH8MdorQEizR0j4S14LAiUtmZuXzv1wPQErexaGZsrT8bf9Zh4vkK5GoI6%2Fh=
+ARYJMFM77PdcQtFTkN9psWr5VSLOpJSZe7RNxCOXuBJasDlnLlixJxKDEpPKCIAExvAcSw%3D%3=
+D" width=3D"35" alt=3D"1">
+</td>
+<td valign=3D"top" class=3D"textContent">
+<div style=3D"text-align:left;font-size:15px;margin-bottom:0px;color:#2e2f3=
+3;line-height:165%;">
+<strong>T=C3=A9l=C3=A9chargez l'app</strong><br>
+Recherchez =C2=AB WeNow =C2=BB sur l'App Store, Google Play ou :</div>
+</td>
+</tr>
+<tr>
+<td valign=3D"middle" align=3D"center" colspan=3D"2">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td height=3D"20" style=3D"height: 20px; line-height: 20px;">&nbsp;</td>
+<td height=3D"20" style=3D"height: 20px; line-height: 20px;">&nbsp;</td>
+</tr>
+<tr>
+<td valign=3D"top" align=3D"right" class=3D"textContent"><a href=3D"https:/=
+/protect-de.mimecast.com/s/T8WnCz6r0AUMlLLqTgjHFe?domain=3Dmandrillapp.com"=
+ target=3D"_blank"><img src=3D"https://eu-central-1.api.getmessagecontrol.c=
+om/onprem_image_fetch?dep=3D5t8PnayHBpKLMSYDBWRihQ%3D%3Dqja7TIoLsKKllT50UvI=
+iZeS98I%2BtOByW%2Bx9cHSHYMkLGai7UK9RNxkjC3kM74hx3xuq1sEzFoDpy2YmYahKIkDNTQ4=
+1FTmlaOD60Ay0tq6Jvpz9P4nbV44i2CEFeZvx9iO03hMS8din8EnnN1Q4j9TJd0FkNiOEm4CrJ1=
+9F2HWCnEwvuf27XrOoAO44EJpY84lFBQVTE2ZQgAyTiSukaq8rmIyZTjPO9g6CPmjqA5aaJCR%2=
+F2BnZB9bCeqNBL0JMqGxG3qwOpfT9wfsTIMhGwgiQhY%2BD%2FtgX3aAB5xRSd5HVl5F2otqyTN=
+%2FyNO20Ga0Rci4RHJelTqE%2FdKBYxkG%2FOjg%3D%3D" width=3D"130" alt=3D"T=C3=A9=
+l=C3=A9chargez dans l'App Store">
+</a></td>
+<td valign=3D"top" align=3D"left" class=3D"textContent"><a href=3D"https://=
+protect-de.mimecast.com/s/pMQACA6RyrUNyYYOcYBXUN?domain=3Dmandrillapp.com" =
+target=3D"_blank"><img src=3D"https://eu-central-1.api.getmessagecontrol.co=
+m/onprem_image_fetch?dep=3D25rJdKApV170hFdjwbWqAA%3D%3DPolMR7H9ToQPUuRJ2FDv=
+dNOdqu9b6c%2B4aEAzLM1385olxmRrn%2FyCBM9RTfrbiYn9PcfT9ooqUt1E%2Bmr8F2eCXrDx3=
+4rYqzar3oHsbi2PZOvRH%2FQp4Y%2BBF3tSfz7VYyvE6bD%2FvvbPapvTavYMV1WJ4HgLXbQ7yB=
+%2FqUCPhVjz5GhI0oJ238mYt8rz5zLjqpgcvUUud%2FyZUGUqiAg0%2BEceN%2Fm1Fy55kXb09R=
+hPaxRMlhKFQVQ1J2PLJth%2FbEJ14e8oxEme0KAkr44IA9xKF0HnvD5cS%2B41mCMjxI0sRSPGZ=
+xvCB5vytBzEg9afXogKNYn5ys9ta6Jl2jEGQkzNWVIlKwQ1mpEYf54OrAZChW9M25gM%3D" wid=
+th=3D"130" alt=3D"T=C3=A9l=C3=A9chargez sur Google Play">
+</a></td>
+</tr>
+<tr>
+<td height=3D"20" style=3D"height: 20px; line-height: 20px;">&nbsp;</td>
+<td height=3D"20" style=3D"height: 20px; line-height: 20px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td valign=3D"middle" align=3D"center" colspan=3D"2">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td height=3D"20" style=3D"height: 20px; line-height: 20px;">&nbsp;</td>
+<td height=3D"20" style=3D"height: 20px; line-height: 20px;">&nbsp;</td>
+</tr>
+<tr>
+<td height=3D"20" style=3D"height: 20px; line-height: 20px;">&nbsp;</td>
+<td height=3D"20" style=3D"height: 20px; line-height: 20px;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // FLEXIBLE CONTAINER --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CENTERING TABLE --></td>
+</tr>
+<!-- // MODULE ROW --><!-- MODULE ROW // -->
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CENTERING TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bgco=
+lor=3D"#FFFFFF">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- FLEXIBLE CONTAINER // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" class=
+=3D"flexibleContainer">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" width=3D"600" class=3D"flexibleContaine=
+rCell">
+<table border=3D"0" cellpadding=3D"30" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"background-color:#FFFFFF;"><!-=
+- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td valign=3D"top" width=3D"45" class=3D"textContent"><img src=3D"https://e=
+u-central-1.api.getmessagecontrol.com/onprem_image_fetch?dep=3D00Pw%2FQsvU0=
+0YaaBo6vY3bQ%3D%3DUsY0lCtcKxNqxAEQGVzYBIhAMXaMfMyUHJxSB%2B7vYg2q%2B4yAJXEU6=
+3p8fw8jnWdZMv63Hz%2B36wsKH5fCkzpo60SoKjERmfy1B9oSKDQsa4iNui7enLjFkWci6Eo1Fz=
+PzlG3aRi1zQ%2BE8tSu6hAX4PioF7r8wItzN%2BjyFI8FVaErmT6czPRhqxQAOitKhPRUahjxe6=
+JGtI0z4a4W6PWDsX2cFuJ3f%2BHFhzYwqIxwFcHycM%2Bu8hCYbWPhTmmPrYPZkJ2TcDukFbUVy=
+cU%2Bi7z4j%2F2uKvwFM0XFFsrw4raUEgW5TGtd6a0IA%2FpLpbB7lzFDJUHaxKJv0aEozWywFF=
+59bxg%3D%3D" width=3D"35" alt=3D"3">
+</td>
+<td valign=3D"top" class=3D"textContent">
+<div style=3D"text-align:justify;font-size:15px;margin-bottom:0px;color:#2e=
+2f33;line-height:165%; padding-bottom: 20px;">
+<strong>Lancez l'app</strong><br>
+Lors de votre premi=C3=A8re connexion, l=E2=80=99application va vous demand=
+er votre identifiant (votre adresse mail) et votre mot de passe. Vous l=E2=
+=80=99avez re=C3=A7u dans un mail s=C3=A9par=C3=A9, =C3=A0 la suite de votr=
+e inscription. Si vous ne le retrouvez pas, vous pouvez le r=C3=A9initialis=
+er depuis
+ la page d=E2=80=99accueil de l=E2=80=99application en cliquant sur =C2=AB =
+Mot de passe oubli=C3=A9 ? =C2=BB. </div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // FLEXIBLE CONTAINER --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CENTERING TABLE --></td>
+</tr>
+<!-- // MODULE ROW --><!-- MODULE ROW // -->
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CENTERING TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bgco=
+lor=3D"#FFFFFF">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- FLEXIBLE CONTAINER // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" class=
+=3D"flexibleContainer">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" width=3D"600" class=3D"flexibleContaine=
+rCell"><!-- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td valign=3D"top" class=3D"imageContent"><br>
+<img src=3D"https://eu-central-1.api.getmessagecontrol.com/onprem_image_fet=
+ch?dep=3DczFiGCdoyIf5Sv49Rzn6GQ%3D%3Do8p9Ba0CIxqnRMwBe7davnBYA9sj4Rp%2B4mKu=
+e%2Fn8V7YfQnq8aKbMOJkTtIITHWhAmVnamb30vKDcDPSkLCF1q3ittZyhwN4Ao7aSWYJmcZJdA=
+ynHjgohYjFFkhTxWz%2F3R8dqDO8j3Pk4JUmuZ3dSRsI2DFtNpFSKmQk6XrSgaXQgSuhQztYuMT=
+GW9VCbK%2F4QCc8%2F2hODb6%2FAmzdY9qLMkpCCSnFPNtMS%2F5%2FlZDJN2b9GDHQiDd6pPdp=
+To3qQtBL7iQwYcu71jGAKKOskbBPQWvsOZMTAUCCkawxjp%2BcIrMfBhPVk%2BZJSJzfWAWWaQi=
+mot%2F3%2FhdnvU7KUHDzC7fGzNg%3D%3D" width=3D"600" class=3D"flexibleImage" s=
+tyle=3D"max-width:600px;width:100%;display:block;" alt=3D"Text" title=3D"Te=
+xt">
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+<!-- // FLEXIBLE CONTAINER --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CENTERING TABLE --></td>
+</tr>
+<!-- // MODULE ROW --><!-- MODULE ROW // -->
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CENTERING TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bgco=
+lor=3D"#FFFFFF">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- FLEXIBLE CONTAINER // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" class=
+=3D"flexibleContainer">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" width=3D"600" class=3D"flexibleContaine=
+rCell">
+<table border=3D"0" cellpadding=3D"30" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"background-color:#FFFFFF;"><!-=
+- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td valign=3D"top" class=3D"textContent">
+<h3 style=3D"color:#2e2f33;line-height:125%;font-family:Helvetica,Arial,san=
+s-serif;font-size:24px;font-weight:bold;margin-top:0;margin-bottom:20px;tex=
+t-align:left;">
+Derni=C3=A8re =C3=A9tape, dans votre voiture...</h3>
+</td>
+</tr>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td valign=3D"top" width=3D"45" class=3D"textContent"><img src=3D"https://e=
+u-central-1.api.getmessagecontrol.com/onprem_image_fetch?dep=3DaYAdXfszPCCa=
+zEB8DT%2F44g%3D%3D%2BSt%2FpZwvpMNzeNfERlSCyS%2FYcH4J5R9g6fVGmmqQ1RGXcX1ZMlK=
+cvQ3tkEDZmpSK0%2BUVsdzDnue4Fr9JZ42xIN5rT8NEMMCJbu0Da0uBPzAxwAcjhnN3G21Radtg=
+JPXIDEMnksoSC4FIRRr6hQvFGMpCiCCtrGR7xJMvScwWvpUc1I2gpxA80%2FjOJDAHDSmr6ZDKu=
+5l73I1A0W5WSMIXWOoBYmxa6%2BuvQvv%2B1VxjArevW8MgnUbiTe3ffHKXqWhDUWb0oFiJtsL9=
+Eeu%2B5eomHd%2Ba8jRuMJhvOSfBiycUwKGANrcAzqusIzthE5YOeuPz3G4IB4PpiZz0EMYAwef=
+8xA%3D%3D" width=3D"35" alt=3D"2">
+</td>
+<td valign=3D"top" class=3D"textContent">
+<div style=3D"text-align:left;font-size:15px;margin-bottom:0px;color:#2e2f3=
+3;line-height:165%; padding-bottom: 20px;">
+<strong>Roulez sans impact sur le climat et =C3=A9conomisez.</strong><br>
+A partir de l=C3=A0, plus rien =C3=A0 faire. <br>
+La WeNowBox d=C3=A9tectera lorsque vous serez dans la voiture et commencera=
+ =C3=A0 lire les informations. A la chaque fin de trajet, vous pourrez suiv=
+re votre score et vos conseils sur l=E2=80=99application.
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // FLEXIBLE CONTAINER --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CENTERING TABLE --></td>
+</tr>
+<!-- // MODULE ROW --><!-- MODULE DIVIDER // -->
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CENTERING TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- FLEXIBLE CONTAINER // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" class=
+=3D"flexibleContainer">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" width=3D"600" class=3D"flexibleContaine=
+rCell">
+<table class=3D"flexibleContainerCellDivider" border=3D"0" cellpadding=3D"3=
+0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding-top:0px;padding-bottom=
+:0px;"><!-- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"border-top:1px solid #eceef1;"=
+></td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // FLEXIBLE CONTAINER --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CENTERING TABLE --></td>
+</tr>
+<!-- // END --><!-- MODULE DIVIDER // -->
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CENTERING TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- FLEXIBLE CONTAINER // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" class=
+=3D"flexibleContainer">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" width=3D"600" class=3D"flexibleContaine=
+rCell">
+<table class=3D"flexibleContainerCellDivider" border=3D"0" cellpadding=3D"3=
+0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding-top:0px;padding-bottom=
+:0px;"><!-- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"border-top:1px solid #eceef1;"=
+></td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // FLEXIBLE CONTAINER --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CENTERING TABLE --></td>
+</tr>
+<!-- // END --><!-- MODULE ROW // -->
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CENTERING TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bgco=
+lor=3D"#FFFFFF">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- FLEXIBLE CONTAINER // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" class=
+=3D"flexibleContainer">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" width=3D"600" class=3D"flexibleContaine=
+rCell">
+<table border=3D"0" cellpadding=3D"30" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!-- CONTENT TABLE // -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">
+<tbody>
+<tr>
+<td colspan=3D"2" valign=3D"top" class=3D"textContent">
+<div style=3D"text-align:left;font-family:Helvetica,Arial,sans-serif;font-s=
+ize:15px;margin-bottom:0;color:#2e2f33;line-height:165%;">
+Vous avez des questions ? Vous avez du mal =C3=A0 t=C3=A9l=C3=A9charger l=
+=E2=80=99application ? Vous ne trouvez pas l=E2=80=99emplacement de la pris=
+e dans votre v=C3=A9hicule ? N=E2=80=99h=C3=A9sitez pas ! =C3=89crivez-nous=
+ =C3=A0
+<a href=3D"mailto:support@wenow.com" style=3D"text-decoration:none;color:#2=
+e2f33;border-bottom: 1px solid #03FF1C;" target=3D"_blank">
+<strong>support@wenow.com</strong></a><br>
+<br>
+=C3=80 tr=C3=A8s vite ! </div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // CONTENT TABLE --></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- // FLEXIBLE CONTAINER --></td>
+</tr>
+</tbody>
+</table>
+<!-- // CENTERING TABLE --></td>
+</tr>
+<!-- // MODULE ROW -->
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if mso]>
+                                        </td>
+                                        <![endif]--><!--[if mso]>
+                                        </tr>
+                                        </table>
+                                        <![endif]--></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" id=3D"templateFooter">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"mcnFollowBlock" style=3D"min-width:100%;">
+<tbody class=3D"mcnFollowBlockOuter">
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding:9px" class=3D"mcnFollo=
+wBlockInner">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"mcnFollowContentContainer" style=3D"min-width:100%;">
+<tbody>
+<tr>
+<td align=3D"center" style=3D"padding-left:9px;padding-right:9px;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"min-width:100%;" class=3D"mcnFollowContent">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding-top:9px; padding-right=
+:9px; padding-left:9px;">
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"top"><!--[if mso]>
+                                                                           =
+ <table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+                                                                           =
+     <tr>
+                                                                           =
+ <![endif]--><!--[if mso]>
+                                                                           =
+ <td align=3D"center" valign=3D"top">
+                                                                           =
+ <![endif]-->
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"display:inline;">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding-right:10px; padding-bottom:9px;" class=
+=3D"mcnFollowContentItemContainer">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"mcnFollowContentItem">
+<tbody>
+<tr>
+<td align=3D"left" valign=3D"middle" style=3D"padding-top:5px; padding-righ=
+t:10px; padding-bottom:5px; padding-left:9px;">
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" widt=
+h=3D"">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnFollowIconC=
+ontent"><a href=3D"https://protect-de.mimecast.com/s/6g4qCBrVzvH7QooKuWkNSy=
+?domain=3Dtwitter.com" target=3D"_blank"><img src=3D"https://eu-central-1.a=
+pi.getmessagecontrol.com/onprem_image_fetch?dep=3D4KJQEFr%2FB0cIcro6m1fcmw%=
+3D%3DQIye1dRQx%2FMLV6zOMd5wiYVBbD5qR9xf28tFbYmAp%2BT6LEih9JappIE8c1YOX%2FXn=
+eAdi5ETtmezOLXorZFyok%2BMI%2B1M8A8nsGbeUe2TCsdWldqj31c%2Fa1ZZfeG%2FT569P%2F=
+CFLVxfyhc1%2F3QQoJ9Nq6Sd9c7JG7ZH5GN1z4zpXiMuqBT8eVMr50ZssySxKBMtwZ3MN38XJo1=
+IQTGiojM6j%2FBouXWXSGSZDSOBjndLV1a8ZN7GMzWMEYO7gh00vVZ439xVrHhfBB9P7EfMjFVi=
+H5orE8XM8kNqkLsINi0NPtT6kCRn29EomEad%2BqhXt2J%2FsBdCZ0uMVNMqKfzxNVKQUjh5mDI=
+kqQ0ZDmKefdYmnn7DHVp2FPoWUsVal4uP08EGU" style=3D"display:block;" height=3D"=
+24" width=3D"24" class=3D""></a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if mso]>
+                                                                           =
+ </td>
+                                                                           =
+ <![endif]--><!--[if mso]>
+                                                                           =
+ <td align=3D"center" valign=3D"top">
+                                                                           =
+ <![endif]-->
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"display:inline;">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding-right:10px; padding-bottom:9px;" class=
+=3D"mcnFollowContentItemContainer">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"mcnFollowContentItem">
+<tbody>
+<tr>
+<td align=3D"left" valign=3D"middle" style=3D"padding-top:5px; padding-righ=
+t:10px; padding-bottom:5px; padding-left:9px;">
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" widt=
+h=3D"">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnFollowIconC=
+ontent"><a href=3D"https://protect-de.mimecast.com/s/_rLbCDqXBxU52PPAIk4FKm=
+?domain=3Dlinkedin.com" target=3D"_blank"><img src=3D"https://eu-central-1.=
+api.getmessagecontrol.com/onprem_image_fetch?dep=3DKjmHfybjFWz2p7R%2FYTe9Pw=
+%3D%3DsXsEMEiww%2Fxa2mOnHqyVLS9Py8UyspG3mhnZ7lL%2BTdLRHnE%2FCdvA1bgZtYtd8O6=
+pIue4LEPlr53sAjjxcpHfPRBaEneZbDSQr0DFSNOnmhFc1peb%2BmohVInWVrm2T9rTmi%2FPpb=
+ypN3Ue4X3VbyNHitXSewPcoRhtdh%2FZ%2BBmftOUFMDDsnXSB%2Fuhv%2BxVSBaKmL7CUYAc1s=
+NdqbAiFvHe6PH0EYIiokOE6%2BOnVlB4U6BSUShsszTTaKyd6uhYuUWCXJzXrEL5nGOwpRzhAr4=
+sIuAoUp9%2F7qurk6Qg1gs21WfUOiDuiqM64xE7XRzk7I6v2iq1nZ40Q5%2FQlbeNaW7Fo9jdBe=
+YBU2jfKpgyOEeK0q775KdPY8jKnqCUlsCd%2FPSFB" style=3D"display:block;" height=
+=3D"24" width=3D"24" class=3D""></a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if mso]>
+                                                                           =
+ </td>
+                                                                           =
+ <![endif]--><!--[if mso]>
+                                                                           =
+ <td align=3D"center" valign=3D"top">
+                                                                           =
+ <![endif]-->
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"display:inline;">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding-right:0; padding-bottom:9px;" class=3D"=
+mcnFollowContentItemContainer">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"mcnFollowContentItem">
+<tbody>
+<tr>
+<td align=3D"left" valign=3D"middle" style=3D"padding-top:5px; padding-righ=
+t:10px; padding-bottom:5px; padding-left:9px;">
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" widt=
+h=3D"">
+<tbody>
+<tr>
+<td align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnFollowIconC=
+ontent"><a href=3D"https://protect-de.mimecast.com/s/JQdHCywqRzSrvnnosM0shu=
+?domain=3Dwenow.com" target=3D"_blank"><img src=3D"https://eu-central-1.api=
+.getmessagecontrol.com/onprem_image_fetch?dep=3DqE%2F60Y5AI7MUwZdF%2F2WeAw%=
+3D%3DGZaGCoywh%2BrdUzVnemAHw1LkAO1r2ql0DjmFUraWgGvylDTNCGIorqrsNQh0o63QByR1=
+mr70eqI2ICQ1E8KKTn7ihfFSMOaklh2mgmnQlXWtvIMMPQIOoX0XtXO2cULoqsJDQw93STQqBVw=
+Qwl3ZU63dZTLnbUts%2FL4VIQfFpt7W2TEtr9gIa27lbuWpZMimvDZvai7dkYHIMT1liEOOP%2F=
+iFa6sN4zuszC5gc4qud4t8s3nEnmVnjSlOHyH86DBZ176F%2FW87zlZiGItSi0sVGP3%2FT2W5x=
+eRQqibtpJ7EOwDullafUih5Iew%2FIKWOUKF485kFPoxDghumNJLwyEnsLyRXjw8qkICX6%2B6s=
+uTr1%2BXvMx4deaGjaAAJ%2FSjwM1M%2F4" style=3D"display:block;" height=3D"24" =
+width=3D"24" class=3D""></a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if mso]>
+                                                                           =
+ </td>
+                                                                           =
+ <![endif]--><!--[if mso]>
+                                                                           =
+ </tr>
+                                                                           =
+ </table>
+                                                                           =
+ <![endif]--></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" clas=
+s=3D"mcnTextBlock" style=3D"min-width:100%;">
+<tbody class=3D"mcnTextBlockOuter">
+<tr>
+<td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"padding-top:9px;"><=
+!--[if mso]>
+                                        <table align=3D"left" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" style=3D"width:100%;">
+                                            <tr>
+                                        <![endif]--><!--[if mso]>
+                                        <td valign=3D"top" width=3D"600" st=
+yle=3D"width:600px;">
+                                        <![endif]-->
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"max-width:100%; min-width:100%;" width=3D"100%" class=3D"mcnTextConten=
+tContainer">
+<tbody>
+<tr>
+<td valign=3D"top" class=3D"mcnTextContent" style=3D"padding-top:0; padding=
+-right:18px; padding-bottom:9px; padding-left:18px;">
+<em>Copyright =C2=A9 2022 WeNow, Tous droits r=C3=A9serv=C3=A9s.</em> <br>
+Vous recevez ce mail car vous disposez d'un acc=C3=A8s =C3=A0 l'outil WeNow=
+. <br>
+<br>
+<strong>Notre adresse postale est la suivante:</strong> <br>
+3 Place Andr=C3=A9 Malraux - 78100 Saint Germain en Laye </td>
+</tr>
+</tbody>
+</table>
+<!--[if mso]>
+                                        </td>
+                                        <![endif]--><!--[if mso]>
+                                        </tr>
+                                        </table>
+                                        <![endif]--></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<!--[if (gte mso 9)|(IE)]>
+                </td>
+                </tr>
+                </table>
+                <![endif]--><!-- // END TEMPLATE --></td>
+</tr>
+</tbody>
+</table>
+</center>
+</div>
+</body>
+</html>
+

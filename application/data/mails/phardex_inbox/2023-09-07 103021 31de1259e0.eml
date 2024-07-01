@@ -1,0 +1,786 @@
+From prestamed.s03@prestamed.fr Thu Sep 07 10:30:21 2023
+Received: from DB9PR07MB10075.eurprd07.prod.outlook.com (2603:10a6:10:4cc::9)
+ by AM7PR07MB6692.eurprd07.prod.outlook.com with HTTPS; Thu, 7 Sep 2023
+ 10:30:19 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=KLAr03BWA8KVTXB4S880sLMcLGG4qA1y4K0OLezCmo7xwje4XZPh7FkYks/1+xRrCqpVjBNot2mNu6yUC4V6VwEQ8Rn8zA4rlt7E7O4H1k5dFWw8ASYbB4pua6c0GY2yuZ9JWDtRUsI66TuIIgw4lKkkKbUB2sDarPtRBaLmmTA1LsJ1AIG09KIbQvXdbZFoRuutRlKOl15Jo0DzzrDp69Is2gqzOOTf6pocv5HtXnaINkwShV8LhFck71+8Lkxzy4dc+TV/D2KjRMdn8Wdxk9p15kn96bcNIKQYpV/WbpDmSpCBXCNZUWvZm6VBdUaOwu0yMqU5WDu87RTEcXDweg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rhPHSQ9jDAUcOj/cK9BDDNoXTIHSy33tM/o4SBCmI3I=;
+ b=V68OGnZ0qF4sMBlPSEGuGx7p4lMKffqjS8Y+q7uu/JIzP25k407kJRi4N2C9FBMknrZ9BRT0YM0nhky4vG3ZcMDUJCK/gIVTbFwmGblFLFmgL1qy4r/TK48STBzPs82rqsM2hnx32/rbJhLfdeu1AX/tP3Wo3XvPr4OaOzhvigmGnKXLTcJf54tBRKc+5hh7tfqQJGRb9mS9LuNpqnp/1LJcpXtG0U6idC4zosztcXgeAM7GOgHmbEpX+108vxsJloA6kTnQogotzDKErAuglyvCtiMfBwf3Xv44amwOJTaN8GhZsnPNL2rbR66GbLPPYISPCfxKQye+z/Mtd8XMdQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
+ 194.104.110.241) smtp.rcpttodomain=phardex.fr smtp.mailfrom=prestamed.fr;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=prestamed.fr;
+ dkim=none (message not signed); arc=pass (0 oda=0 ltdi=0 93)
+Received: from DU6P191CA0041.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:53f::21)
+ by DB9PR07MB10075.eurprd07.prod.outlook.com (2603:10a6:10:4cc::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6745.34; Thu, 7 Sep
+ 2023 10:30:15 +0000
+Received: from DBAEUR03FT047.eop-EUR03.prod.protection.outlook.com
+ (2603:10a6:10:53f:cafe::bd) by DU6P191CA0041.outlook.office365.com
+ (2603:10a6:10:53f::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6768.30 via Frontend
+ Transport; Thu, 7 Sep 2023 10:30:15 +0000
+Authentication-Results: spf=fail (sender IP is 194.104.110.241)
+ smtp.mailfrom=prestamed.fr; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none
+ header.from=prestamed.fr;compauth=softpass reason=201
+Received-SPF: Fail (protection.outlook.com: domain of prestamed.fr does not
+ designate 194.104.110.241 as permitted sender)
+ receiver=protection.outlook.com; client-ip=194.104.110.241;
+ helo=de-smtp-1.mimecast.com;
+Received: from de-smtp-1.mimecast.com (194.104.110.241) by
+ DBAEUR03FT047.mail.protection.outlook.com (100.127.143.25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6768.28 via Frontend Transport; Thu, 7 Sep 2023 10:30:14 +0000
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=dkim.mimecast.com; s=201903; t=1694082614;
+	h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=rhPHSQ9jDAUcOj/cK9BDDNoXTIHSy33tM/o4SBCmI3I=;
+	b=Jo8hDvoJsocDW2JTKqAVBij10+MEkZYSSR2EltxyeXupkDC09okcOQU/vVXcuCNR2vaCAT
+	EpheMMnk6oUlzFemJ7k3qkrF125yqotAA/qb2OUADyq1q76rwcDppCdRdx16ShK0xGd6YF
+	r2XA4URuIBq2o8mvFAbmNTEvpzALoVPMH405QHpX1zED9/KWf+jCt5+kBnwlp6nWsKht+e
+	DqahGn3oggkRF4R5Kjk35E6rrD0wn/2Xz1btzeGwKLyeKLgISQLWdThE1Si6LYqadEmWha
+	0bijE/zYAn/R2CnLOa8dYs1NZJ/PXe4iIGEsjN9EZ7KtENXqTtP4wQVFobLz9w==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1694082614; a=rsa-sha256;
+	cv=none;
+	b=kMdln9uspF6r/lEuqpl4eB2o0DUelYRFVkbjCqAkcn6eZoO4bmSBFCcLDz5uHQU+hfAssz
+	t+vKRC4clnGVW4ZgkWISjrFjYszaXo0p0XVaTxkO94rcLff+/s3JBhXWmJKqqqgaawGs4b
+	C9RRKLzg604ZcAd0Hj11rXtLQ/K5wCtDBt4fkOTPt/4RFaNMCmZpQrKnKdJRW8vhdubi7B
+	cbWnN38Je0/RMXmQc13vSKVOEJuW3z/cqtRDy1N3XiTuIJSbSch9aenw1BFE0XjsuwthK3
+	2aDHCptdMd76nD3tevhiB4gLpMkTLdOpLojbTW60LzdUYLJN+4yDpbcFi5mRWA==
+ARC-Authentication-Results: i=1;
+	relay.mimecast.com;
+	dkim=none;
+	dmarc=pass (policy=none) header.from=prestamed.fr;
+	spf=pass (relay.mimecast.com: domain of prestamed.s03@prestamed.fr designates 217.160.14.139 as permitted sender) smtp.mailfrom=prestamed.s03@prestamed.fr
+Received: from mail.datadev.fr (mail.datadev.fr [217.160.14.139]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id de-mta-42-CVRDGVvjOOS4dBf9jruhUw-1; Thu,
+ 07 Sep 2023 12:30:12 +0200
+X-MC-Unique: CVRDGVvjOOS4dBf9jruhUw-1
+Received: from JAUNE-WIN11 ([193.248.47.71])
+        by mail.datadev.fr (13.0.3 build 10 x64) with ASMTP (SSL) id 202309071230083278;
+        Thu, 07 Sep 2023 12:30:08 +0200
+From: prestamed.s03@prestamed.fr
+Subject: CONVOCATION A VOTRE SUIVI DE SANTE AU TRAVAIL
+To: j.bonnefoy@phardex.fr, mp.picard@biocodex.fr
+Reply-To: prestamed.s03@prestamed.fr
+Date: Thu,  7 Sep 2023 12:30:08 +0200
+Message-ID: <e66cf64dd87f4bc4fb25bbd640e33b33@prestamed.fr>
+Authentication-Results-Original: relay.mimecast.com;	dkim=none;	dmarc=pass
+ (policy=none) header.from=prestamed.fr;	spf=pass (relay.mimecast.com: domain
+ of prestamed.s03@prestamed.fr designates 217.160.14.139 as permitted sender)
+ smtp.mailfrom=prestamed.s03@prestamed.fr
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Impersonation-Protect: Policy=Impersonation - VIP Header Display Name Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+X-Mimecast-Impersonation-Protect: Policy=New Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Return-Path: prestamed.s03@prestamed.fr
+X-MS-Exchange-Organization-ExpirationStartTime: 07 Sep 2023 10:30:15.0569
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ d3edf7c2-2aa1-4e7b-8482-08dbaf8d6c9d
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: d1197c46-2c75-438b-a7ef-16690d1f8b64:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ DBAEUR03FT047:EE_|DB9PR07MB10075:EE_|AM7PR07MB6692:EE_
+X-MS-Exchange-Organization-AuthSource:
+ DBAEUR03FT047.eop-EUR03.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: d3edf7c2-2aa1-4e7b-8482-08dbaf8d6c9d
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:194.104.110.241;CTRY:DE;LANG:fr;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:de-smtp-1.mimecast.com;PTR:de-smtp-inbound-delivery-1.mimecast.com;CAT:NONE;SFS:(13230031)(451199024)(1690799017)(5660300002)(34756004)(1096003)(8676002)(9686003)(2616005)(26005)(24736004)(108616005)(956004)(66574015)(83380400001)(336012)(19627405001)(7636003)(356005)(166002)(86362001)(36756003);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Sep 2023 10:30:14.8069
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d3edf7c2-2aa1-4e7b-8482-08dbaf8d6c9d
+X-MS-Exchange-CrossTenant-Id: d1197c46-2c75-438b-a7ef-16690d1f8b64
+X-MS-Exchange-CrossTenant-AuthSource:
+ DBAEUR03FT047.eop-EUR03.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR07MB10075
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:04.2661667
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6745.026
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?d1pEdnVicndLYTkxemhDQXMvUnlmRGpsa1JoRHZnVmk2U0hJa0xSeXJ2aTZO?=
+ =?utf-8?B?enp2UHpOSDZRL3NqRHR6Nndoazg2SUQwZ3RsdkJudmdId0xHd2dyZTdkMEZn?=
+ =?utf-8?B?ck1rdkx6eDYzTXBMTnZjSGhVTXRWMlhSTmFHQzRIeTJFeXBHOTdwdUxWVVRS?=
+ =?utf-8?B?NDBmQ1dxaFdpV0IrVkh2TjJJTXRMWlArRUdQM2U4ZnJZcEg4dldrL1hjdE5G?=
+ =?utf-8?B?azkrK3kyRTROSXlkT1BmY1F1RENtdklSeXN4L0FYVm1zb2dqQ0pWRWJCbUFK?=
+ =?utf-8?B?YlBVT2xIRkZjT3pqaUtqdkp5bWIyRXE4SkFCZlZxVjhUVWV2dUQ3bUZMdW1H?=
+ =?utf-8?B?TGQ1bVQ1SnR1Tll2cGluRGlGd0xQZ0laMU56aVAyNExjTFF4TXFqUWt2VkFI?=
+ =?utf-8?B?TTR6TEdLa3dOMlJSOTZCV3ViS1hWSEt4UU9YdFBWanRaVDFOTVVyMUJxS1R1?=
+ =?utf-8?B?Q2RNakJOZnRUS3RkTkhKVmlHTlhONWsrWjRReVRvS3F5c3lsVXV2RGZvUnc2?=
+ =?utf-8?B?eGxacVcvRk9aVEM1S0ZoT1dnQmg5Ym5aYW4xczI0K3Y4UVhWWk9ZdnljT2ho?=
+ =?utf-8?B?RzJZVnM3OWJ5N25FbUJTclJWa2o1WHAwNStkUm83L3o2MTFYQmFZcGFMaXhH?=
+ =?utf-8?B?eFpVcnFxOG9UTXZTSVd6NTNBZHVQYTQ5RFdqaTZpMXYvQyt4T1ZWcWo5eitq?=
+ =?utf-8?B?alhqYjAzb0EwUW9rTVFldmNZTUQ0SlhPU3ZzUGdtaVlXNm43ZVdHeFZseWQx?=
+ =?utf-8?B?TFVvNUlHRXAxdmN1SzVrYWhzK0RTcXFqQkhVN1J0dFJjYlU4djRaNHNnL2I1?=
+ =?utf-8?B?Z2RYZERPZkM4TUE5NjNNU0Jlcmx5ZG11U0hjMGtiNnNpY3FZbG0zVkxZNUJT?=
+ =?utf-8?B?d1pReXQ5THdaVm0xNmh5LzhmbXJmc1RDZ016b211OERjbll6WDRpTVVBN2Rx?=
+ =?utf-8?B?N0NPS3preUdkcUdqREJiNFEvUUI0N05tbW5IekdqRkFzQlRiVjkrR2NQbE0y?=
+ =?utf-8?B?U0pIVWdZcC9CL21PWkNHZW4wY1lmVkZnVWI3N3UwYXlJbFBrbUU5OHVnL01q?=
+ =?utf-8?B?Zlk4UEhsbkF2QjhtUmRNNDZpYkJVdUJ4Rk1Vc0JxN25ZVzB5NnZBVUt0Sjdo?=
+ =?utf-8?B?U1p5WUZQSG93cjNXOCt1aWIzL1ZWQnBmdGo3TWJLQVFPVnFnSVVlMVdUNnlj?=
+ =?utf-8?B?ZnpBMXY4NlpWeWxYL2gwVW02YU5pZ2VsRENzL0NWMmdyaVdCVEVkTktWWUky?=
+ =?utf-8?B?dEN4cmpUdXJoaVAzajdqMnplRnhzb1IxWnQwY3B2am91MnY4ZnJLdW9MYW8x?=
+ =?utf-8?B?ck4zRi8rVXRCSlRGSUxreFI2SmRvMlVYRzFZdllEMXVxd04xVjF3YnJIVmtM?=
+ =?utf-8?B?NUdFVTZGY3JCZ1E5SnZudFBBQWE0R1AzblpkM295SmNqdFZxQXJ3SjZwclZa?=
+ =?utf-8?B?S0I4bVdsWW1wVjNmbmU3clZ3SFhtZDBHR1BFNWVGdTYyay9NNUhRMFkrcDFG?=
+ =?utf-8?B?U3NRUUs3bGJYMHpLaEEyZU43KzVlNWRIVGNsVTlkVzYxUmxkUHpVT1R2N1JL?=
+ =?utf-8?B?RkJ1Y3prZXhvYU5aTUZ4VXJWYjRENnBOYm5GTmNodDR6VStYY1l5Si91eVpm?=
+ =?utf-8?B?NmZpcG91dG5pRFRPbFNoZ1k4ZDlJcG16Z2RxZU41L29Zc1ErdEYxVzV2dGxR?=
+ =?utf-8?B?eG9lMUpSYXpLWXYvL0VJVk53R3lXSXdiclV0ZUtiQnBudnpiUWhKZ0N3OEV5?=
+ =?utf-8?B?d2NvTERncXdFKzUxdGZKdkZacWZzdUExb3BnbzFMVWJTZXdOS1hnb2dvbnFS?=
+ =?utf-8?B?T1VScVdCRjVBN25LRzNKQ0dlb1kwTnZMditTUm83T3dhY0tMQTBEK3B5SzRY?=
+ =?utf-8?B?aDV3b09CRkp4M09oRjViZUVWYnF5dkE4UkxHNWhlTzBxMXVZYUx4dHNQMWk5?=
+ =?utf-8?B?cjl6V050REVXME8vSElKelgrWVo0REtEZ3V3U1hUQ0g1ZTNmamk5eVJOTDVi?=
+ =?utf-8?B?U0lTakE0YUtCK3NQME5MbEJnTTB3bUsvMzErRGN1OVpGZ25oaXFLWXQxdXpx?=
+ =?utf-8?B?eEhYSFFCVXNXZ3lKNHRFZ0NBZnBwOExFc1Boa2xpZnpDR09tZXY4SE13Q0xm?=
+ =?utf-8?B?bjhxbUVzMTNhUkRyaTI2WkhTWlFaSW1DUUUvL003alVVdGJTVzNLd29uSUF3?=
+ =?utf-8?B?UUxsbEVwQzJrNnQ4MkxxUEd1S2podXNWZ2liYnd1N0dOcytPenZhY2p5L2RH?=
+ =?utf-8?B?SlFlK05XS2xWbzk3VGdFdDRORS9EbWdweDMyZ1BLa0I3Q1Y5Yk4xdUlWeUtT?=
+ =?utf-8?Q?/Uwn5PkZ3LkO0W3+cU?=
+MIME-Version: 1.0
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</head>
+<body text=3D"#000000" style=3D"width: 795px;" bgcolor=3D"#ffffff">
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-family:&quot;Time=
+s New Roman&quot;,serif;=0A=
+color:red">=E2=96=88</span><span lang=3D"EN-US" style=3D"font-family:&quot;=
+Arial&quot;,sans-serif;=0A=
+color:red">
+</span><b><span lang=3D"EN-US" style=3D"color:black;background:yellow">Caut=
+ion : External Email. Do not click links or open attachments unless you rec=
+ognize the sender and the content is safe.</span></b><br>
+<br>
+</p>
+<div>
+<table id=3D"mcpreviewzzyygg" style=3D"display: none; mso-hide: all; width:=
+ 0px; height: 0px; max-width: 0px; max-height: 0px; font-size: 0px; line-he=
+ight: 0px; color: white; text-decoration: none;">
+<tbody>
+<tr>
+<td>CONVOCATION =C3=A0 M. BONNEFOY JULIEN VOTRE RENDEZ-VOUS de SURVEILLANCE=
+ de SANTE au TRAVAIL EST FIXE AU jeudi 28 septembre 2023 =C3=A0 09:00 VISIT=
+E INDIVIDUELLE DE PREVENTION INITIALE pour PHARDEXR=C3=A9f : F2023/CONVP/20=
+23-250/BONNEFOY_147053_12h30_ Lieu : AMI 30 RUE
+ PAUL BERT Angle rues G. So&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nb=
+sp;=E2=80=8C&nbsp;=E2=80=8C</td>
+</tr>
+</tbody>
+</table>
+<table id=3D"mcalertwrapperzzyygg" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0">
+<tbody>
+<tr>
+<td><a href=3D"https://protect-de.mimecast.com/s/AFPnCGR1GAfnJBzcKW3BG?doma=
+in=3Dde.report.cybergraph.mimecast.com"><img id=3D"mcalertzzyygg" src=3D"ht=
+tps://alert-eu-central-1.api.getmessagecontrol.com/onprem_security_warning_=
+fetch?r=3D1&amp;dep=3DxeOf2ZujD%2Brl34oN2CsAqA%3D%3DA38FI0qoofu1SriMuBKnhLi=
+EiH5XcCXrh5PUAHIC5d3iXwUaRocuVHyjQTsv2wo7jNeQsy1ljc5pDC8V%2BoDHvKJcOYnHxS41=
+7tRcBrEWfmV0fQCAqRlWBTP8LU0DVq0TckNA%2BVEMqikoIhcnw7jpSnYXpePhDLXwcZwcc4KjS=
+Kjh739cZBN0gQnu3Uk5B2zH8S2%2BLOd5AqgbjBEDyc8BkHm6cl%2FJ3AV%2Fa%2BW5RmFiFcEu=
+dfvBJFXUEjIK8eBoLf3kexz5uaX8h1KqDGpsGSxazlksyJzZkOtaQuv7pxYB%2BEk2spyMfN0Hk=
+4PUFoD3txu0ZiYiuroAYdlF%2BFN3fluovdvhclwbvKUMek8OGEdfKqpMic8yv6tEcWREN9QpL2=
+EvLGEzo434RmoRE5wGoMLqQ3qeuWb9HMnvQHuWqDH0xiaqfj7qkPaBReyxwj6nAHxDXLbpSel%2=
+Fzu%2FPcT1IrCyuvzVw0fLnhukxcKDs%2B4%2F6Vp0fuYN9GBXHB0EdfMieLSaJVALFMJULmL%2=
+BCuy%2FlPHJaGK7qclAS7CpLEgCVM%2FdHq5laSWQB2UCHU4oiajUuv6Bj" style=3D"displa=
+y: block; border: 0px; border-style: none;" border=3D"0"></a></td>
+</tr>
+</tbody>
+</table>
+<div class=3D"WordSection1">
+<div align=3D"center">
+<table width=3D"652" class=3D"MsoNormalTable" style=3D"width: 488.9pt; mso-=
+cellspacing: 0cm; mso-yfti-tbllook: 1184; mso-padding-alt: 0cm 0cm 0cm 0cm;=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr style=3D"height: 75pt; mso-yfti-irow: 1;">
+<td style=3D"background: rgb(219, 232, 245); padding: 0cm; height: 75pt;"><=
+span style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_L=
+INK2;">
+<p align=3D"center" class=3D"MsoNormal" style=3D"margin: 1pt 0cm; text-alig=
+n: center;">
+<a name=3D"OLE_LINK1"></a><a name=3D"OLE_LINK26"></a><a name=3D"OLE_LINK2">=
+<span style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_=
+LINK1;"><b style=3D"mso-bidi-font-weight: normal;"><span style=3D"color: bl=
+ack; font-size: 16pt;">CONVOCATION</span><span style=3D"color: black;">
+</span></b><span style=3D"color: black;"><!--?xml:namespace prefix =3D "o" =
+/--><o:p></o:p></span></span></span></a></p>
+<p align=3D"center" class=3D"MsoNormal" style=3D"background: rgb(219, 232, =
+245); margin: 1pt 0cm; text-align: center;">
+<span style=3D"mso-bookmark: OLE_LINK2;"><span style=3D"mso-bookmark: OLE_L=
+INK26;"><span style=3D"mso-bookmark: OLE_LINK1;"><a name=3D"_Hlk424138011">=
+<b style=3D"mso-bidi-font-weight: normal;"><span style=3D"color: black;">=
+=C3=A0 M. BONNEFOY JULIEN
+</span></b></a><span style=3D"color: black;"><o:p></o:p></span></span></spa=
+n></span></p>
+<p align=3D"center" class=3D"MsoNormal" style=3D"margin: 1pt 0cm; text-alig=
+n: center;">
+<span style=3D"mso-bookmark: OLE_LINK2;"><span style=3D"mso-bookmark: OLE_L=
+INK26;"><span style=3D"mso-bookmark: OLE_LINK1;"><b style=3D"mso-bidi-font-=
+weight: normal;"><span style=3D"color: black;">VOTRE&nbsp;RENDEZ-VOUS&nbsp;=
+de&nbsp;SURVEILLANCE&nbsp;de&nbsp;SANTE&nbsp;au&nbsp;TRAVAIL&nbsp;
+</span></b><span style=3D"color: black;"><o:p></o:p></span></span></span></=
+span></p>
+<p align=3D"center" class=3D"MsoNormal" style=3D"margin: 1pt 0cm; text-alig=
+n: center;">
+<span style=3D"mso-bookmark: OLE_LINK2;"><span style=3D"mso-bookmark: OLE_L=
+INK26;"><span style=3D"mso-bookmark: OLE_LINK1;"><b style=3D"mso-bidi-font-=
+weight: normal;"><span style=3D"color: black;">EST&nbsp;FIXE&nbsp;AU</span>=
+</b><span style=3D"color: black;">
+</span></span></span></span><span style=3D"mso-bookmark: OLE_LINK2;"><span =
+style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_LINK1;=
+"><b style=3D"mso-bidi-font-weight: normal;"><span style=3D"color: rgb(255,=
+ 153, 51); font-size: 14pt;">jeudi 28 septembre
+ 2023 =C3=A0 09:00</span><span style=3D"color: black;"> </span></b></span><=
+/span></span></p>
+<p align=3D"center" class=3D"MsoNormal" style=3D"margin: 1pt 0cm; text-alig=
+n: center;">
+<span style=3D"mso-bookmark: OLE_LINK2;"><span style=3D"mso-bookmark: OLE_L=
+INK26;"><span style=3D"mso-bookmark: OLE_LINK1;"><b style=3D"mso-bidi-font-=
+weight: normal;"><span style=3D"color: black;"></span></b></span></span></s=
+pan><span style=3D"mso-bookmark: OLE_LINK1;"><span style=3D"color: black; f=
+ont-size: 11pt; mso-bidi-font-family: Arial;"><font size=3D"2">VISITE
+ INDIVIDUELLE DE PREVENTION INITIALE&nbsp;pour&nbsp;PHARDEX</font></span></=
+span></p>
+</span></span></td>
+</tr>
+<tr style=3D"mso-yfti-irow: 2;">
+<td style=3D"padding: 0cm;"><span style=3D"mso-bookmark: OLE_LINK1;"></span=
+><span style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE=
+_LINK2;"><span style=3D"mso-bookmark: OLE_LINK1;"></span></span></span><spa=
+n style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_LINK=
+2;"><span style=3D"mso-bookmark: OLE_LINK1;"></span></span></span><span sty=
+le=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_LINK2;"><=
+span style=3D"mso-bookmark: OLE_LINK1;"></span></span></span><span style=3D=
+"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_LINK2;"><span =
+style=3D"mso-bookmark: OLE_LINK1;"></span></span></span><span style=3D"mso-=
+bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_LINK2;"><span style=
+=3D"mso-bookmark: OLE_LINK1;"></span></span></span><span style=3D"mso-bookm=
+ark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_LINK2;"><span style=3D"m=
+so-bookmark: OLE_LINK1;"></span></span></span><span style=3D"mso-bookmark: =
+OLE_LINK26;"><span style=3D"mso-bookmark: OLE_LINK2;"><span style=3D"mso-bo=
+okmark: OLE_LINK1;"></span></span></span><span style=3D"mso-bookmark: OLE_L=
+INK26;"><span style=3D"mso-bookmark: OLE_LINK2;"><span style=3D"mso-bookmar=
+k: OLE_LINK1;"></span></span></span><span style=3D"mso-bookmark: OLE_LINK26=
+;"><span style=3D"mso-bookmark: OLE_LINK2;"></span><span style=3D"mso-bookm=
+ark: OLE_LINK1;"></span></span>
+<table class=3D"MsoNormalTable" style=3D"background: white; width: 652px; h=
+eight: 933px;" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+<tbody>
+<tr style=3D"mso-yfti-irow: 0; mso-yfti-firstrow: yes;">
+<td width=3D"5" style=3D"padding: 0cm; width: 3.5pt;"><span style=3D"mso-bo=
+okmark: OLE_LINK1;"></span><br>
+</td>
+<td width=3D"417" style=3D"padding: 0cm; width: 312.5pt;" colspan=3D"3">
+<p class=3D"MsoNormal" style=3D"width: 614px;"><font size=3D"3"><span style=
+=3D"mso-bookmark: OLE_LINK1;"><span style=3D"font-size: 6pt; mso-bidi-font-=
+family: Arial;">R=C3=A9f</span>
+</span><span style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmar=
+k: OLE_LINK2;"><span style=3D"mso-bookmark: OLE_LINK1;"><span style=3D"font=
+-family: &quot;Verdana&quot;,&quot;sans-serif&quot;;">:</span></span></span=
+></span>
+<span style=3D"mso-bookmark: OLE_LINK1;"><b><span style=3D"font-size: 6pt; =
+mso-bidi-font-family: Arial;">F2023/CONVP/2023-250/BONNEFOY_147053_12h30_<o=
+:p></o:p></span></b></span></font></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt: auto; mso-margin-bottom=
+-alt: auto;">
+&nbsp;<span style=3D"mso-bookmark: OLE_LINK1;"><b style=3D"mso-bidi-font-we=
+ight: normal;"></b></span>&nbsp;&nbsp;&nbsp;
+</p>
+<span style=3D"mso-bookmark: OLE_LINK1;">Lieu&nbsp;:&nbsp; <b style=3D"mso-=
+bidi-font-weight: normal;">
+AMI&nbsp;</b>&nbsp;</span><br>
+<span style=3D"mso-bookmark: OLE_LINK1;"><span style=3D"mso-spacerun: yes;"=
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b></b><br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 30 RUE PAUL=
+ BERT </b><br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Angle rues =
+G. Sorel et Paul Bert </b><br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M=C3=A9tro =
+: Marcel Sembat</b><br>
+<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 92100 BOULO=
+GNE BILLANCOURT</b></span></span><br>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt: auto; mso-margin-bottom=
+-alt: auto;">
+<span style=3D"mso-bookmark: OLE_LINK1;">Service&nbsp;=C3=A0&nbsp;demander&=
+nbsp;:&nbsp;MME DURAND </span></p>
+<p class=3D"MsoNormal" style=3D"margin-right: -119.9pt; mso-margin-top-alt:=
+ auto; mso-margin-bottom-alt: auto;">
+<span style=3D"mso-bookmark: OLE_LINK1;">T=C3=A9l&nbsp;:&nbsp;01-48-78-55-0=
+0 <span style=3D"mso-tab-count: 2;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D"mso=
+-bookmark: OLE_LINK1;"><span style=3D"mso-tab-count: 2;"><span style=3D"mso=
+-bookmark: OLE_LINK1;">Mobile :
+</span></span></span></p>
+<p class=3D"MsoNormal" style=3D"margin-right: -119.9pt; mso-margin-top-alt:=
+ auto; mso-margin-bottom-alt: auto;">
+<span style=3D"mso-bookmark: OLE_LINK1;"><span style=3D"mso-tab-count: 2;">=
+<span style=3D"mso-bookmark: OLE_LINK1;"></span></span></span><span style=
+=3D"mso-bookmark: OLE_LINK1;"><span style=3D"mso-tab-count: 2;"><span style=
+=3D"mso-bookmark: OLE_LINK1;">e-Mail : amicamion@orange.fr</span></span></s=
+pan><span style=3D"mso-bookmark: OLE_LINK1;"><span class=3D"spelle"><span s=
+tyle=3D"mso-bookmark: OLE_LINK1;"><span class=3D"spelle"><span class=3D"spe=
+lle"><span style=3D"mso-bookmark: OLE_LINK1;"><span class=3D"spelle">&nbsp;=
+</span></span></span></span></span></span></span></p>
+<p class=3D"MsoNormal" style=3D"margin: 0cm -119.9pt 0cm 0cm;"><span class=
+=3D"spelle">Adh</span>&nbsp;:&nbsp;<span style=3D"font-family: &quot;Calibr=
+i&quot;,sans-serif; font-size: 10pt; mso-bidi-font-family: &quot;Times New =
+Roman&quot;; mso-fareast-font-family: &quot;Times New Roman&quot;;">
+</span><o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"margin: 0cm -119.9pt 0cm 0cm;"><span style=
+=3D"mso-spacerun: yes;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;
+</span>40581<o:p></o:p></p>
+<p class=3D"MsoNormal" style=3D"margin-right: -119.9pt; mso-margin-top-alt:=
+ auto; mso-margin-bottom-alt: auto;">
+</p>
+<p class=3D"MsoNormal" style=3D"margin-right: -119.9pt; mso-margin-top-alt:=
+ auto; mso-margin-bottom-alt: auto;">
+</p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt: auto; mso-margin-bottom=
+-alt: auto;">
+<span style=3D"mso-bookmark: OLE_LINK1;">Observation&nbsp;:&nbsp;<font colo=
+r=3D"#ff0000"><strong></strong></font></span></p>
+</td>
+</tr>
+<tr style=3D"mso-yfti-irow: 1;">
+<td width=3D"5" valign=3D"top" style=3D"padding: 0cm; width: 3.5pt;"><span =
+style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_LINK2;=
+"><span style=3D"mso-bookmark: OLE_LINK1;"></span></span></span><br>
+</td>
+<td width=3D"631" valign=3D"top" style=3D"padding: 0cm; width: 473.1pt;" ro=
+wspan=3D"2" colspan=3D"3">
+<span style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_=
+LINK2;"><span style=3D"mso-bookmark: OLE_LINK1;">
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt: auto; mso-margin-bottom=
+-alt: auto;">
+<strong><span style=3D"color: black; font-size: 8pt; mso-bidi-font-family: =
+&quot;Times New Roman&quot;; mso-fareast-font-family: &quot;Times New Roman=
+&quot;; mso-fareast-language: FR; mso-ascii-font-family: Calibri; mso-hansi=
+-font-family: Calibri;"><font face=3D"Calibri" size=3D"2" style=3D"color: r=
+gb(255, 0, 0);"></font></span><br>
+</strong><span style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookm=
+ark: OLE_LINK2;"><span style=3D"mso-bookmark: _Hlk424138011;"><span style=
+=3D"mso-bookmark: OLE_LINK1;"><span style=3D"font-size: 11pt;"><span style=
+=3D"color: black; font-size: 8pt; mso-bidi-font-family: &quot;Times New Rom=
+an&quot;; mso-fareast-font-family: &quot;Times New Roman&quot;; mso-fareast=
+-language: FR; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calib=
+ri;"><font face=3D"Calibri" size=3D"2" style=3D"color: rgb(255, 0, 0);"><st=
+rong></strong></font></span></span></span></span></span></span></p>
+<p class=3D"MsoNormal" style=3D"mso-margin-top-alt: auto; mso-margin-bottom=
+-alt: auto;">
+<span style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_=
+LINK2;"><span style=3D"mso-bookmark: _Hlk424138011;"><span style=3D"mso-boo=
+kmark: OLE_LINK1;"><span style=3D"font-size: 11pt;"><span style=3D"color: b=
+lack; font-size: 8pt; mso-bidi-font-family: &quot;Times New Roman&quot;; ms=
+o-fareast-font-family: &quot;Times New Roman&quot;; mso-fareast-language: F=
+R; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri;"></span>=
+De&nbsp;la&nbsp;part&nbsp;de&nbsp;PRESTAMED&nbsp;:</span><span style=3D"mso=
+-tab-count: 6;">
+</span></span></span></span></span></p>
+<span style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_=
+LINK2;"><span style=3D"mso-bookmark: _Hlk424138011;"><span style=3D"mso-boo=
+kmark: OLE_LINK1;"><span style=3D"mso-tab-count: 6;"></span></span></span><=
+/span></span><span style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-b=
+ookmark: OLE_LINK2;"><span style=3D"mso-bookmark: OLE_LINK1;"><font face=3D=
+"Calibri"><span style=3D"font-size: 10pt; mso-bidi-font-family: &quot;Times=
+ New Roman&quot;; mso-fareast-font-family: &quot;Times New Roman&quot;; mso=
+-fareast-language: FR; mso-ascii-font-family: Calibri; mso-hansi-font-famil=
+y: Calibri;">
+<p class=3D"MsoNormal" style=3D"margin: 0cm 0cm 0pt; line-height: normal;">=
+<span style=3D"color: black; font-size: 8pt; mso-bidi-font-family: &quot;Ti=
+mes New Roman&quot;; mso-fareast-font-family: &quot;Times New Roman&quot;; =
+mso-fareast-language: FR; mso-ascii-font-family: Calibri; mso-hansi-font-fa=
+mily: Calibri;"><font face=3D"Calibri" size=3D"2">MME
+ GARDIEN PATRICIA</font></span></p>
+<span style=3D"color: black; font-size: 8pt; mso-bidi-font-family: &quot;Ti=
+mes New Roman&quot;; mso-fareast-font-family: &quot;Times New Roman&quot;; =
+mso-fareast-language: FR; mso-ascii-font-family: Calibri; mso-hansi-font-fa=
+mily: Calibri;">
+<p class=3D"MsoNormal" style=3D"margin: 0cm 0cm 0pt; line-height: normal;">=
+<span style=3D"color: black; font-size: 8pt; mso-bidi-font-family: &quot;Ti=
+mes New Roman&quot;; mso-fareast-font-family: &quot;Times New Roman&quot;; =
+mso-fareast-language: FR; mso-ascii-font-family: Calibri; mso-hansi-font-fa=
+mily: Calibri;"><font face=3D"Calibri" size=3D"2"></font></span></p>
+</span></span></font>
+<p class=3D"MsoNormal" style=3D"margin: 0cm 0cm 0pt; line-height: normal;">=
+<font face=3D"Calibri"></font><span style=3D"mso-bookmark: OLE_LINK26;"><sp=
+an style=3D"mso-bookmark: OLE_LINK2;"><span style=3D"mso-bookmark: OLE_LINK=
+1;"><span style=3D"font-family: Wingdings; font-size: 10pt; mso-bidi-font-f=
+amily: &quot;Times New Roman&quot;; mso-fareast-font-family: &quot;Times Ne=
+w Roman&quot;; mso-fareast-language: FR;">(</span><font face=3D"Calibri"><b=
+><span style=3D"font-size: 12pt; mso-bidi-font-family: &quot;Times New Roma=
+n&quot;; mso-fareast-font-family: &quot;Times New Roman&quot;; mso-fareast-=
+language: FR; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibr=
+i;">
+ : </span></b><span style=3D"font-size: 10pt; mso-bidi-font-family: &quot;T=
+imes New Roman&quot;; mso-fareast-font-family: &quot;Times New Roman&quot;;=
+ mso-fareast-language: FR; mso-ascii-font-family: Calibri; mso-hansi-font-f=
+amily: Calibri;">01-86-70-91-75</span></font></span></span></span></p>
+<p class=3D"MsoNormal" style=3D"margin: 0cm 0cm 0pt; line-height: normal;">=
+<span style=3D"color: black; font-size: 10pt; mso-bidi-font-family: Arial; =
+mso-fareast-font-family: &quot;Times New Roman&quot;; mso-fareast-language:=
+ FR; mso-ascii-font-family: Calibri; mso-hansi-font-family: Calibri;"><o:p>=
+<font face=3D"Calibri"><img align=3D"bottom" style=3D"width: 170px; height:=
+ 43px;" alt=3D"Prestamed" src=3D"https://eu-central-1.api.getmessagecontrol=
+.com/onprem_image_fetch?dep=3D%2FZiECLRNaM%2FfJ3U5cFl1xw%3D%3DWTxTLG4DzShn4=
+T6kXvzhmrO2xh3FTuTw2tiEihS5bg9sEZ87gwpHegybnh1f8yoWM3XOxsf1lb6RWBmF3RJB3S19=
+%2B3gAnuLCxpdaiMK%2BsFGkoW98oq6wM5hmxZTNxvd7k1MJ9v%2BfbBT%2FKKlKaBpRR9o7JZX=
+OXtMPKMtfacUhbOS72MQX1Vb8v5FtCP8lbcibV5co8O8G62qGSngrukvutaseVRlqm2LNQd%2B6=
+mulRQGNDPIm85bq8%2BK0QC79YQaIbnUQmuDAiA3kYv5tc46tUzPKTY5FYxNb3nkh%2FxYOQqZF=
+D5DQDTUtIBmmjHI3fMbEsSUbHHY7kuvQhKB3BIm6ips536ArGcCZcfvkY3qDr%2FOAdsOrxBCBM=
+Iq979DKLFWn4HINIl8v5Ksq9wxohgw8lwebsjxbGEE9%2BiTAQNCR0HRg%3D" border=3D"0" =
+hspace=3D"0">&nbsp;</font></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin: 0cm 0cm 0pt; line-height: normal;">=
+<b><span style=3D"color: black; font-size: 8pt; mso-bidi-font-family: &quot=
+;Times New Roman&quot;; mso-fareast-font-family: &quot;Times New Roman&quot=
+;; mso-fareast-language: FR; mso-ascii-font-family: Calibri; mso-hansi-font=
+-family: Calibri;"><font face=3D"Calibri">Le
+ Mercredi : joignable uniquement par e-mail</font></span></b></p>
+<p class=3D"MsoNormal" style=3D"margin: 0cm 0cm 0pt; line-height: normal;">=
+<span style=3D"color: black; font-size: 8pt; mso-bidi-font-family: &quot;Ti=
+mes New Roman&quot;; mso-fareast-font-family: &quot;Times New Roman&quot;; =
+mso-fareast-language: FR; mso-ascii-font-family: Calibri; mso-hansi-font-fa=
+mily: Calibri;"><font face=3D"Calibri">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16-18,
+ rue de la Glaci=C3=A8re =E2=80=93 75013 PARIS<o:p></o:p></font></span></p>
+<p class=3D"MsoNormal" style=3D"margin: 0cm 0cm 0pt; line-height: normal;">=
+<font face=3D"Calibri"><span style=3D"color: black; font-size: 8pt; mso-bid=
+i-font-family: &quot;Times New Roman&quot;; mso-fareast-font-family: &quot;=
+Times New Roman&quot;; mso-fareast-language: FR; mso-ascii-font-family: Cal=
+ibri; mso-hansi-font-family: Calibri;">Standard&nbsp;:
+ 01-45-35-24-24 - Fax : 01-45-35-69-69</span></font></p>
+</span></span></span>
+<table width=3D"98%" class=3D"MsoNormalTable" style=3D"background: rgb(0, 0=
+, 51); width: 98.88%; mso-cellspacing: .7pt; mso-yfti-tbllook: 1184; mso-pa=
+dding-alt: 0cm 0cm 0cm 0cm;" border=3D"0" cellspacing=3D"1" cellpadding=3D"=
+0">
+<tbody>
+<tr style=3D"height: 52.8pt; mso-yfti-irow: 0; mso-yfti-firstrow: yes; mso-=
+yfti-lastrow: yes;">
+<td width=3D"99%" style=3D"background: rgb(255, 255, 204); padding: 7.5pt; =
+width: 99.7%; height: 52.8pt;">
+<span style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_=
+LINK2;"><span style=3D"mso-bookmark: OLE_LINK1;"><span style=3D"mso-bidi-fo=
+nt-family: Arial;">
+<p class=3D"MsoNormal" style=3D"margin: 0cm 0cm 6pt; tab-stops: list 36.0pt=
+;"><b><span style=3D"color: black; mso-bidi-font-family: Arial;">Important&=
+nbsp;:&nbsp;
+</span></b><span style=3D"color: black;"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin: 0cm 0cm 6pt; tab-stops: list 36.0pt=
+;"><b><span style=3D"color: black; font-family: &quot;Calibri&quot;,sans-se=
+rif; mso-fareast-font-family: Calibri;">1.</span></b><span style=3D"color: =
+black; font-family: &quot;Calibri&quot;,sans-serif; mso-fareast-font-family=
+: Calibri;">&nbsp;</span><span style=3D"color: black; font-size: 7pt; mso-f=
+areast-font-family: Calibri;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span st=
+yle=3D"color: black; font-size: 8pt;">Si
+ la <b style=3D"mso-bidi-font-weight: normal;">date </b>ou l=E2=80=99heure&=
+nbsp;ne&nbsp;vous&nbsp;convenait&nbsp;pas,&nbsp;merci&nbsp;d=E2=80=99appele=
+r&nbsp;AMI&nbsp;de&nbsp;BOULOGNE BILLANCOURT,
+</span><b style=3D"mso-bidi-font-weight: normal;"><span style=3D"color: red=
+; font-size: 8pt;">4 jours&nbsp;ouvr=C3=A9s</span></b><b style=3D"mso-bidi-=
+font-weight: normal;"><span style=3D"color: black; font-size: 8pt;">
+</span></b><span style=3D"color: black; font-size: 8pt;">avant&nbsp;la&nbsp=
+;date&nbsp;de&nbsp;rendez-vous&nbsp;afin&nbsp;
+<u>d=E2=80=99=C3=A9viter&nbsp;les&nbsp;p=C3=A9nalit=C3=A9s</u>&nbsp;du SST.=
+ Tout salari=C3=A9 non excus=C3=A9 avant ce rendez-vous ne sera reconvoqu=
+=C3=A9 que dans la
+<u>limite des places disponibles</u>.</span><span style=3D"color: black;"> =
+<o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin: 0cm 0cm 6pt; tab-stops: list 36.0pt=
+;"><b><span style=3D"color: black; font-family: &quot;Calibri&quot;,sans-se=
+rif; mso-fareast-font-family: Calibri;">2.</span></b><span style=3D"color: =
+black; font-family: &quot;Calibri&quot;,sans-serif; mso-fareast-font-family=
+: Calibri;">
+</span><span style=3D"color: black; font-size: 7pt; mso-fareast-font-family=
+: Calibri;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style=3D"color: black; font-size: 8pt;">Merci&nbsp;de&nbsp;nou=
+s&nbsp;informer&nbsp;de&nbsp;la&nbsp;date&nbsp;et&nbsp;l=E2=80=99heure&nbsp=
+;du&nbsp;rendez-vous.</span><span style=3D"color: black;">&nbsp;</span><b><=
+span style=3D"color: black; font-size: 8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;___/___/______</span><span style=3D"color: black;">
+</span></b><a name=3D"_Hlk424138011"><b><span style=3D"color: black; font-s=
+ize: 8pt;">=C3=A0
+</span></b></a><span style=3D"mso-bookmark: _Hlk424138011;"><b style=3D"mso=
+-bidi-font-weight: normal;"><span style=3D"color: black; font-size: 8pt;">_=
+_&nbsp;:__</span><span style=3D"color: black; mso-bidi-font-weight: bold;">
+</span></b></span><b><span style=3D"color: black;"><o:p></o:p></span></b></=
+p>
+<p class=3D"MsoNormal" style=3D"margin: 0cm 0cm 6pt;"><b><span style=3D"col=
+or: black; font-family: &quot;Calibri&quot;,sans-serif; mso-fareast-font-fa=
+mily: Calibri;">3.
+</span></b><b><span style=3D"color: black; font-size: 7pt; mso-fareast-font=
+-family: Calibri;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=3D"colo=
+r: black;">
+</span></b><span style=3D"color: black; font-size: 8pt;">Merci&nbsp;de&nbsp=
+;vous&nbsp;munir&nbsp;de&nbsp;votre<b>
+</b></span><b><span style=3D"color: red; font-size: 8pt;">carnet de vaccina=
+tions, tout document utile</span></b><span style=3D"color: black; font-size=
+: 8pt;">.&nbsp;Pour les visites de reprises (obligatoires) et de pr=C3=A9-r=
+eprises, se munir de<b>
+</b></span><b><span style=3D"color: red; font-size: 8pt;">tous documents re=
+latifs =C3=A0 l'arr=C3=AAt de travail et =C3=A9ventuelles lunettes de vue</=
+span></b><b><span style=3D"color: black; font-size: 8pt;">.</span></b></p>
+</span></span></span></span></td>
+</tr>
+</tbody>
+</table>
+<span style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_=
+LINK2;"><span style=3D"mso-bookmark: OLE_LINK1;"></span></span></span>
+<p align=3D"center" style=3D"margin: 0cm 0cm 0pt; text-align: center;"><spa=
+n style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_LINK=
+2;"><span style=3D"mso-bookmark: OLE_LINK1;"><span style=3D"font-family: &q=
+uot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 1pt;"></span></span></=
+span></span>&nbsp;</p>
+<p align=3D"center" style=3D"margin: 0cm 0cm 0pt; text-align: center;"><spa=
+n style=3D"mso-bookmark: OLE_LINK26;"><span style=3D"mso-bookmark: OLE_LINK=
+2;"><span style=3D"mso-bookmark: OLE_LINK1;"><span style=3D"font-family: &q=
+uot;Calibri&quot;,&quot;sans-serif&quot;; font-size: 1pt;"><br>
+<span style=3D"mso-bookmark: OLE_LINK1;"><b style=3D"mso-bidi-font-weight: =
+normal;"></b></span><font size=3D"3"><font face=3D"Times New Roman"><b styl=
+e=3D"mso-bidi-font-weight: normal;"><span style=3D"color: black; mso-themec=
+olor: text1;"></span></b>&nbsp;<br>
+<br>
+<img alt=3D"" src=3D"https://eu-central-1.api.getmessagecontrol.com/onprem_=
+image_fetch?dep=3D5eor3vqjH4kDWWFGdwdIJA%3D%3DnweFq%2BZq1Ki%2BWvWYbxaA4evf%=
+2BHWRjsb1VHpIMKiLR4av6cTO5gijjzIkrQ%2FwN%2FRmtRXifE%2B2p2R3S9oMJQ5m947ngU4v=
+lXYcwPnt7vAnCNzXOlewawGOt5zsOW35UePzofESDBUPB6o3gQBrvC4%2FX%2FFynxXAeZheiQa=
+kg3I4hFVXsT3iJM%2FWA4fdQOpI39UYBk0tT8cAKsHogwOtXSNY4p0tqjQxpZvUQZxy4QQer9v3=
+o8nC1THYxfB1WQ46iYNenme%2BkTTjlCUe%2BpoJZchF4cEDMNY04aC569FxpJDlLl4CcYLYDue=
+9huKV%2Fak7eTAyTd%2BqLe%2FcFtZqRwgQATGLF30A%2BKxfwqjLh0LUw90XBMteOZH9PR05CK=
+vijTBDS50qFpI3HNgDS8RFCUqje2wU3%2FwsP6hqvwjdxKMXRCldbFU%3D" border=3D"0" hs=
+pace=3D"0">&nbsp;</font></font></span></span></span></span></p>
+</span></span></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</body>
+</html>
+

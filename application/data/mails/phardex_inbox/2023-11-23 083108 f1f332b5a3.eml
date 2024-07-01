@@ -1,0 +1,455 @@
+From noreply@our-account.com Thu Nov 23 08:31:08 2023
+Received: from VI1PR07MB6334.eurprd07.prod.outlook.com (2603:10a6:800:13d::11)
+ by AM7PR07MB6692.eurprd07.prod.outlook.com with HTTPS; Thu, 23 Nov 2023
+ 08:31:07 +0000
+Received: from DUZPR01CA0265.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b9::15) by VI1PR07MB6334.eurprd07.prod.outlook.com
+ (2603:10a6:800:13d::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7025.20; Thu, 23 Nov
+ 2023 08:31:02 +0000
+Received: from DB5PEPF00014B89.eurprd02.prod.outlook.com
+ (2603:10a6:10:4b9:cafe::d7) by DUZPR01CA0265.outlook.office365.com
+ (2603:10a6:10:4b9::15) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7025.20 via Frontend
+ Transport; Thu, 23 Nov 2023 08:31:02 +0000
+Authentication-Results: spf=pass (sender IP is 194.104.108.241)
+ smtp.mailfrom=our-account.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none
+ header.from=our-account.com;compauth=pass reason=109
+Received-SPF: Pass (protection.outlook.com: domain of our-account.com
+ designates 194.104.108.241 as permitted sender)
+ receiver=protection.outlook.com; client-ip=194.104.108.241;
+ helo=de-smtp-inbound-delivery-1.mimecast.com; pr=C
+Received: from de-smtp-inbound-delivery-1.mimecast.com (194.104.108.241) by
+ DB5PEPF00014B89.mail.protection.outlook.com (10.167.8.197) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7025.12 via Frontend Transport; Thu, 23 Nov 2023 08:31:02 +0000
+Received: from de-smtp-inbound-delivery-1.mimecast.com
+ (de-mta-7-route1.de.mimecast.lan [10.70.115.241]) by relay.mimecast.com
+ with ESMTP id de-mta-7-QG-1Zyv1O4yLqIybRX7AlA-1; Thu, 23 Nov 2023 09:31:00
+ +0100
+X-MC-Unique: QG-1Zyv1O4yLqIybRX7AlA-1
+x-mimecast-header-at-p: QERa9zCB8S76-H1bMymBOc1QshMUhUz1X4ug2bCwiiUQU_r2mCkq8JW0vJi9XU51lspc1-PORwqmtY29lENbTXF3h5ELZI2ga9soKzHL3nkIpFnzOl8GwS6ZdaEGdz8aVL0evBiGg2FdfhRlmT2YUBUGnnXnuT5nfkny5FdOJNgiPbJ7aI_MCvV7QVdNztx9isLZUORM4tn7dhYw5XXu3iDsDy9C0ScxhraV3Mhki5W7ZFPBuWnaPmMJcDzNaNWOZn25qr_31K7LojIJg5RdPChNqebl4iT0ycKeV4SoB10ubys68gWvcGJt3z-fo40rM4hvgwIMlbXxKN_s99fFpOLZ8_gl_NlCddlxtg7KLuLORtXILoSSSfi4Vg2c8_ZS
+Message-Id: <73901-1700728260131@de-mta-7.de.mimecast.lan>
+Date: Thu, 23 Nov 2023 09:31:00 +0100
+From: "Onedrive" <noreply@our-account.com>
+To: "BONNEFOY Julien" <j.bonnefoy@phardex.fr>
+Subject: Organigramme Biocodex 2023
+X-MC-System: =aaAAZtmaUn3osdq5Oz+o83BMfycHuETOtPvB0dd1BT9hy+FJHyUsgyq0vkfjpFC1VsGeCD0I79cSrfIhuM3udojnYNHuPGIWWnHie9yyi90=
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: our-account.com
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Return-Path: noreply@our-account.com
+X-MS-Exchange-Organization-ExpirationStartTime: 23 Nov 2023 08:31:02.4402
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 8ceed8b8-01c0-4753-9347-08dbebfe8721
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: d1197c46-2c75-438b-a7ef-16690d1f8b64:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ DB5PEPF00014B89:EE_|VI1PR07MB6334:EE_|AM7PR07MB6692:EE_
+X-MS-Exchange-Organization-AuthSource:
+ DB5PEPF00014B89.eurprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 8ceed8b8-01c0-4753-9347-08dbebfe8721
+X-MS-Exchange-Organization-SCL: -1
+X-Microsoft-Antispam: BCL:5;
+X-Forefront-Antispam-Report:
+ CIP:194.104.108.241;CTRY:DE;LANG:fr;SCL:-1;SRV:;IPV:NLI;SFV:NSPM;H:de-smtp-inbound-delivery-1.mimecast.com;PTR:de-smtp-delivery-1.mimecast.com;CAT:NONE;SFS:;DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2023 08:31:02.3464
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8ceed8b8-01c0-4753-9347-08dbebfe8721
+X-MS-Exchange-CrossTenant-Id: d1197c46-2c75-438b-a7ef-16690d1f8b64
+X-MS-Exchange-CrossTenant-AuthSource:
+ DB5PEPF00014B89.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR07MB6334
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:05.1399817
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7025.020
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?WWRqOFhTUDlxRzV6UE9USHdGcWphL3NRS01WREpERHZBS0hVMjlYbDk4MEN5?=
+ =?utf-8?B?L3dJMXhMS1N1cGJzKytWMVAxU2V6SWNmSEY1SitkdjFFL0lraXRQdVFObm13?=
+ =?utf-8?B?N0dNUE5ZZDlzWWdXZTJ6Y2IvWURyOWlEbFN0ak9SaVQ4T0YvRVJOZU40TFNW?=
+ =?utf-8?B?UHpTZ0NRVmowZk1aK3R5NzYvVWdJL3FaZW80eUNPZTZwbTVHZG1URGNrVzds?=
+ =?utf-8?B?U0NyRzRucTUxc2tBZGpKUFJNUHBZWi9DeWxYcTFQVzFyVnhZYmh3dFhWRTNu?=
+ =?utf-8?B?Q2Z1d1dZM2luL2k0aE9SVU1oVXVUQ1ZmT0FReUM0YVRUYVpsS2VZc01uY013?=
+ =?utf-8?B?dXVZN0Uxc3poUGN3aXRYWnZvbGR2RnJMWU9jSDV1ZURneE4yTS9sNmpDcFoz?=
+ =?utf-8?B?dlAvQW5XSzNLbFFGOUJaZ3huaThnRTBXd0p0Rnc1SXRWNGwxcjQ0RDl3eWVZ?=
+ =?utf-8?B?U2VxcElsalJvYStySFEvRHRuSmIweDJIaEFTZFc3L3JFNGFHQURKaTE1anEr?=
+ =?utf-8?B?VVB2akxXWDNiNER5WitpNFAvS1hSUk9jclRYZktQa055elgwRU4vM0xmT2xU?=
+ =?utf-8?B?NnErRGxtL3FpU1cvWVg5VHZlMXF2WXBsYTloQnZwbkRYM2xNVDRiUkl2bzRv?=
+ =?utf-8?B?V0pFbUx4Sk9VOTNmN0ZqbzBvc3VzaHVUbVJpRy9Yc21NNHRYc2NoSGx4emE5?=
+ =?utf-8?B?MjgwdkMrNUhzQkQra0ZFTWxwUW40dmhiejJpME14MlVLc3lDcVdveXlXakdq?=
+ =?utf-8?B?Y0tSVE9xaGExeW1FSTBZWVRvYWZBSmRPakFWK0tMUkpVNVZUb1dUS0RvNE45?=
+ =?utf-8?B?ZFk5RFdlREU1eUN2Tjg2czNaRVBBdktTc1dGZGVTeHpzeFNNNkpFWjlzRHZD?=
+ =?utf-8?B?aEJqMktCVC9hUHVhUnN4L2VVd0diYi9qSStTK2l6OHhEY2VJem9VYTBjd0p5?=
+ =?utf-8?B?dTRjU3FmRmZQL0tjbEhpcm56OE5aMHdHNXA4eXhBc0wwT1N6S0pML1QwaU5t?=
+ =?utf-8?B?dCsvQlhNMW9nWGZXVzMyZXYzWUdyL0piY2dCTENRVVB0WERIVW5yQ2p3dUNz?=
+ =?utf-8?B?VjBpYnpmN0NZZmtKdU5BcTlJeDJtYWZ4MXNvU2dlMUtQbTI3Z1k1TzNJQ05t?=
+ =?utf-8?B?d0lFb3A2MGJ3bElkVXJKZFhVNlZLcHJ2MjhMTEtUSktwYW9xVmM2bExiWE95?=
+ =?utf-8?B?amlDYjJxSFg5cjFjMTVhU2ZoaEtRNzU1eWUxSlFBWHBUQ1F1ZkhPeVVpRUJx?=
+ =?utf-8?B?ZDNsRnZ4L3ZCbkZHbzFkMjA3RVpGMUw1T0FseEgwN1VjdVBlcUZ4eWFHbGRH?=
+ =?utf-8?B?Qit2b2ZIajJLeTQ5QWtnanJDc0dkbmNBODNOQTd5ZDQwV0g3K3pHbUtJbHcw?=
+ =?utf-8?B?K2loeUNreFA4VmJNcEdEVFJkbEZjUzhPQzZpTFc5cnozcjFDNUJPVUlxdGhV?=
+ =?utf-8?B?Q1VhdThpcXlUYzR4bnBUbjNMNmEzc2VKMFdYN09pUG9JalFpWEhyK3VDSW9W?=
+ =?utf-8?B?ZW0xZVJreWRMZnkvMTRpWTcrWis0QTZqU2t0c0RoejRvZ0xET2F3SStPaTQ2?=
+ =?utf-8?B?WkJKclc2LzY0ck42bE85UXhDOWZ4U0dOaG9pL2Y1VUVIbzRDUUc2RzZLMEVp?=
+ =?utf-8?B?MVhMY3dmWUIxOHRDaGhUdzc2SHVDVWZyd1BqeG11eGJjeVlyMFBrMGVmOExP?=
+ =?utf-8?B?NlZLK1FKeHRTOVpRcFRjSzhMZE1hc1FDanpyOU5PM2NvR2c1alhveHZhWllZ?=
+ =?utf-8?B?NVVsTjB6VWM2MmZucWFVSTlVUFh3cG1yN2I3SDlYVHJhN3diS2dmcC8vcU9W?=
+ =?utf-8?B?dXpNdkQyRTY4aU85ZVJRR1VyWFpvWjhaWmFtc3JLT2cxQzFYRlU3VGV1REdV?=
+ =?utf-8?B?anRxZDZsUWF0Tm4yZmUxQjZNVklNUHVpSFB3ZUl6ZGlHQi9YakIwZm5uOG5U?=
+ =?utf-8?B?SVowSlJKUnZMaWxIc3drNXNyTExtOGFkNVdnMGFSWTlqQnN6c3p5N3F0aGZ4?=
+ =?utf-8?B?SUpKQ2N0YXJxZlY5VVp5VXhKUGZtT3Q3YU5RVm9NdnB2ejJMek83NlBsY1Mx?=
+ =?utf-8?B?ckFFMnllcnp4UnUvK1VRYzVGOGZVbUdTejZNVlp6YzRuRzhKZWZvK0FycEE3?=
+ =?utf-8?B?OFBlaGttaFpFdlVkalhrWTk5OVo4b2J6VUFhMENTU0FjTTJ6U1RKdUFaWktk?=
+ =?utf-8?B?SnYvOFpDUXl5b3l4VHp4ZE9NbHhIK1ppZ3R1OUhlQTlLVXhGaWhSQnYzVEVq?=
+ =?utf-8?B?ZW5LaHdETlVpdHZiTVIwdHE2MVFxL1N5Z0hRVzZENFp5Q3hra1Y4WWNQbHd4?=
+ =?utf-8?B?amRrb2UrWnRqeTdxd0U1RWZYU1B6aFgyaStNYTNNcWQ0M0ZVMlBRWGNXRWVw?=
+ =?utf-8?B?WVBIaHVENUxJUFY0KytRd043TzUzeUVCNDNqdVZ4NjB6QVE3VkJmNU4ydi9n?=
+ =?utf-8?B?a3ljRmtUOUV6NGxiRlRsUVBDUm9rdlM0TXI3RktEWGpBYWRVK1E0d3lQNFVH?=
+ =?utf-8?B?c1BDRzVzU3dQdys3SHk5S2huS0U4bjFzcjFNVDhPM29laU95amQvU0g2SFds?=
+ =?utf-8?B?alV0VEt0M0E2cmJvUGVUTDFTd3FOU0pPb2pxLytKQzhiWE9EaTA5T3AvSkVO?=
+ =?utf-8?B?NDAvenJvL1czMUV0Mk9QTUplT21nVU9hVFo2cDJramlsK0pEVXFMeWUwNHJF?=
+ =?utf-8?B?S3NKWWwrNXhEWWI3dGNnVXdJMStrUUZ5VDRpN2VMeGZZTXhNUHQxZlk3ZVk3?=
+ =?utf-8?B?WEFQcVJIQzFNVTNXK0RtWlJRMTgyako5d01tMXlYOVFoREQzWVQ2Tit5cmpT?=
+ =?utf-8?B?R3dCUnIxWXRZMnFYVkljTWZFR25IZTZvTzBCektjQkc5WUNQOTJrcmNleEhL?=
+ =?utf-8?B?cVRjWkFscDc1eVFOTzk4MzBwbzJWLzRLdVJ2cjk2K0NOMjZTY045L2dwNjVr?=
+ =?utf-8?B?YURLNFdHK2lLcU8ya3YybTc5N3QzL1dkdWJndHlDVklGcWx0MU1HSWFmSU1E?=
+ =?utf-8?B?ejZoZUdKVkhkM3N3cmdaUStxVXMyTVdidlFGeU1QV3pMejF3VXVZN2FyRVhj?=
+ =?utf-8?B?eEtoWE1MR3FFeXZxWmx3UjRZWnRxK3lCVyswTmpqUWFpeVlqaDNHV0kwMkls?=
+ =?utf-8?B?anN6aEhRbGg1eUpacEs2bHdWdC9ydVgyQ28xeWZqSHVUL3RMb0xSZWFIMjU3?=
+ =?utf-8?B?OXJlNDBZbHpkbk8wRkRpeTVQYm9RMzcvbTg1NHE4Q3RjRERXQm5KUE9VRytU?=
+ =?utf-8?B?OUM4dGN2RVBUUmZ0NFFFMXB2SmdEV3RBQWhTd09UcWw1c2dVVjhxUFFzWk9B?=
+ =?utf-8?B?aUVVTXJlczN1TTZCZTJmQzdJdVErWS9xdi9hb1hlNkEySWl1YnE2eURmVG8v?=
+ =?utf-8?B?TERGUW5aYmJGRm9ldDl2YVB5M2dNbHhzNVlYcjQ0NnNxN2NxcmNoL0g1eUNZ?=
+ =?utf-8?B?WGhiMUVVaUQ1Tzk5MTA4WlJranhMT2IzZTZtRTdUdXBKODlVd2gremFheGc4?=
+ =?utf-8?B?YUYrUWxmbDlnMlRqdWg0VUNQeTFVaW9yWHlSUWFCblY2d2FXNXc1SjJCSTNE?=
+ =?utf-8?Q?KNqLRz4w26TNew?=
+MIME-Version: 1.0
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</head>
+<body>
+<p class=3D"MsoNormal"><span lang=3D"EN-US" style=3D"font-family:&quot;Time=
+s New Roman&quot;,serif;=0A=
+color:red">=E2=96=88</span><span lang=3D"EN-US" style=3D"font-family:&quot;=
+Arial&quot;,sans-serif;=0A=
+color:red">
+</span><b><span lang=3D"EN-US" style=3D"color:black;background:yellow">Caut=
+ion : External Email. Do not click links or open attachments unless you rec=
+ognize the sender and the content is safe.</span></b><br>
+<br>
+</p>
+<div>
+<center>
+<table bgcolor=3D"#FAFAFA" align=3D"center" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" border=3D"0" style=3D"border-collapse:collapse;height=
+:100%;padding:0;width:100%;background-color:#fafafa;margin:0" id=3D"bodyTab=
+le">
+<tbody>
+<tr>
+<td height=3D"100%" width=3D"100%" valign=3D"top" align=3D"center" style=3D=
+"height:100%;width:100%;padding:10px;border-top:0;margin:0" id=3D"bodyCell"=
+>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" styl=
+e=3D"border-collapse:collapse;border:0;margin:0;max-width:600px" class=3D"t=
+emplateContainer">
+<tbody>
+<tr>
+<td bgcolor=3D"#FAFAFA" valign=3D"top" style=3D"background-color:#fafafa;ba=
+ckground-image:none;background-repeat:no-repeat;background-position:center;=
+border-top:0;border-bottom:0;padding-top:9px;padding-bottom:9px;margin:0" i=
+d=3D"templatePreheader">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" styl=
+e=3D"border-collapse:collapse;min-width:100%;margin:0" class=3D"mcnTextBloc=
+k">
+<tbody class=3D"mcnTextBlockOuter">
+<tr>
+<td valign=3D"top" style=3D"padding-top:9px;margin:0" class=3D"mcnTextBlock=
+Inner">
+<table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bo=
+rder=3D"0" style=3D"border-collapse:collapse;max-width:100%;min-width:100%;=
+margin:0" class=3D"mcnTextContentContainer">
+<tbody>
+<tr>
+<td valign=3D"top" align=3D"center" style=3D"color:#656565;font-family:'hel=
+vetica';font-size:12px;line-height:150%;padding:0px 18px 0;text-align:cente=
+r;margin:0" class=3D"mcnTextContent">
+<h4 style=3D"margin:0;padding:0;color:#202020;font-size:18px;font-style:nor=
+mal;line-height:125%;letter-spacing:normal;text-align:left;font-weight:norm=
+al;font-family:sans-serif">
+Un collaborateur a partag=C3=A9 ce document avec vous.</h4>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td bgcolor=3D"#FFFFFF" valign=3D"top" style=3D"background-color:#ffffff;ba=
+ckground-image:none;background-repeat:no-repeat;background-position:center;=
+border-top:0;border-bottom:0;padding-top:9px;padding-bottom:0;margin:0" id=
+=3D"templateHeader">
+<table width=3D"100%" style=3D"border-collapse:collapse;margin:0">
+<tbody>
+<tr>
+<td style=3D"margin:0">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" styl=
+e=3D"border-collapse:collapse;min-width:100%;background:#fff5cd;margin:0" c=
+lass=3D"mcnTextBlock ribbon-table">
+<tbody class=3D"mcnTextBlockOuter">
+<tr>
+<td valign=3D"top" style=3D"margin:0" class=3D"mcnTextBlockInner">
+<table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bo=
+rder=3D"0" style=3D"border-collapse:collapse;max-width:100%;min-width:100%;=
+margin:0" class=3D"mcnTextContentContainer">
+<tbody>
+<tr>
+<td valign=3D"top" align=3D"center" style=3D"color:#202020;font-family:'hel=
+vetica';font-size:16px;line-height:150%;padding:0px 18px 0;text-align:cente=
+r;margin:0" class=3D"mcnTextContent">
+<table width=3D"100%" style=3D"border-collapse:collapse;background:#fff5cd;=
+margin:0" class=3D"table1">
+<tbody>
+<tr>
+<td width=3D"65" style=3D"margin:0;padding:0"><img height=3D"40" width=3D"4=
+0" src=3D"https://eu-central-1.api.getmessagecontrol.com/onprem_image_fetch=
+?dep=3DGIsQIIawbs1BywEugF9X2A%3D%3DVPkH0gzArNpUaYUFqy52OqWMrItM7Wsu9xekZ2P1=
+Dw0B7GDOp1B%2BAQIJANnxybxWLqSNEpOPL6sGElttp4ubXjiVg%2BGpdgNZuI26p6i2fyDIfPE=
+AAlASI3Xywp9toAQH2XqHYrq3nHXLZncf%2BJ1rqoTpunGm%2BIJZt9jZwds8sS4hRk4JQCvzVI=
+27ysEIl4Rg%2BHrIKdAxqkGv%2FYQbgKFUZk%2Fah4Y8PAcS0fmwAZYJMYivVzzNTyfA%2FhnQO=
+dpe5owZzXsqyq3yO4qb3nEyUb1sDOq9G8kwERRN7rrJPN8HrlLCq1yKwf1mF2Bglz7vBq0TKzrx=
+Tzq%2F7AyOjTKLXDXqsolKyS82f94nMe6YBsfOJtwhrA1yWFvqepXmz%2Boo8MV9Rz2GIOQXCMz=
+oPESGfJwrxg%2FI6P55JBn%2FXmWBcNQvRZIlzG%2FVZ8EKA9uYc%2Bf2P93HIrPNIFc7Ep69KW=
+zSLQYriBVy0uIJig%2B1CUDU94d32MXgCMyE10dKeWnKEPBAJgiDolktgjaai8r%2B78bLxzOB6=
+Q%3D%3D" style=3D"outline:none;text-decoration:none;border:0px;width:40px;m=
+argin:0px;height:auto"></td>
+<td align=3D"left" style=3D"text-align:left;font-size:12px;font-family:sans=
+-serif;margin:0;padding:0">
+Ce lien ne fonctionne que pour les destinataires directs de ce message.</td=
+>
+<td style=3D"margin:0;padding:0">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style=3D"margin:0">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" styl=
+e=3D"border-collapse:collapse;min-width:100%;margin:0" class=3D"mcnTextBloc=
+k">
+<tbody class=3D"mcnTextBlockOuter">
+<tr>
+<td valign=3D"top" style=3D"padding-top:9px;margin:0" class=3D"mcnTextBlock=
+Inner">
+<table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bo=
+rder=3D"0" style=3D"border-collapse:collapse;max-width:100%;min-width:100%;=
+margin:0" class=3D"mcnTextContentContainer">
+<tbody>
+<tr>
+<td valign=3D"top" align=3D"left" style=3D"color:#202020;font-family:'helve=
+tica';font-size:16px;line-height:150%;text-align:left;margin:0;padding:0 18=
+px 9px 18px" class=3D"mcnTextContent">
+<table width=3D"590" style=3D"border-collapse:collapse;margin:0px;height:61=
+px">
+<tbody>
+<tr>
+<td width=3D"65" style=3D"margin:0">
+<div>&nbsp;</div>
+<div><img height=3D"71" width=3D"71" src=3D"https://eu-central-1.api.getmes=
+sagecontrol.com/onprem_image_fetch?dep=3DEXMxutlMs4SUPCV3IKtOPQ%3D%3DKgLzJt=
+rrkxK3HgPw2uQVWJCnfyQiEfwNLrV1CLnwVWGGI7ElgHFHFFnpENOBhBuR7wXvLwNDkael05zDK=
+IgPuK6J%2Fn3LzLngiFmOWN1l3BMUEq2blI%2BK6Ku8uGRWm8wDoN1HhSXdkHwlXGAVfgJkVHzv=
+Ju69M74uVL5Btz4dqBZl6PkhCy1wc9nEvGTbJKvjf4bfMOaQU9BxtjdI1U1gNICXldQoAAyUWy8=
+NCU6JctMONXRKlgYxbuARBr7xxViu8uVS%2FUxCZDq4SJpDF3NGuhTbJUN9yI0XwIgKEztBn1W0=
+6ayRQlQyG6rrGi5Sa448aP0%2F%2FRANyN3W4KS8C9pH7oK2IkB6%2Bg9YUF1mOYx4yly8eOH%2=
+FI%2BXKlbUwjZabNJvcM0uGtJ9XIBQrGIqyCGSI7hR8t%2FwpwNSB9MKbRtfVFxzXul0rcobtR3=
+LmO%2F1QkmiJW2lSccOkkqrM4up5uWj03TKfKOD4J8BYaiMNwEkie0YknDgMr2%2BZeC1i8SKEZ=
+N3FnMqyJx9R6kc6kJtfz4lvWdzYeapG%2B98lND0sofhDYhfCt%2FmvFoyUpAHGF8u8%2Fr7JMT=
+yo2A4Bm4qEmY0DckLsQFKDxxpA9lPsb6FcosrstZdgK5ezaN8Kb5kqUtupVX%2BQJf6KyglSjD%=
+2FVs3XCVlKPJ1kzDboD92B0QGTggG0r9d1vwXHfHDnj9QBrAbYRgz4%2FrELvmu1o5K5UJ6KgXX=
+F%2FpNmq2b0NuOYjuNFvFBoVxTXN1Rn3Fc2bQeJjr%2BA7EUQQ" style=3D"font-size:16px=
+;color:#202020;font-family:'helvetica'"></div>
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</div>
+</td>
+<td style=3D"margin:50">
+<p><font face=3D"helvetica,arial,sans-serif">Bonjour BONNEFOY Julien,</font=
+></p>
+<p style=3D"margin:10px 0;padding:0;color:#202020;font-size:16px;line-heigh=
+t:150%;text-align:left;font-family:sans-serif">
+<font face=3D"helvetica,arial,sans-serif">Je vous partage ce document &quot=
+;Organigramme 2023&quot; qui vous permet d'avoir une vision plus globale de=
+ l'organisation des diff=C3=A9rentes =C3=A9quipes chez Biocodex.</font></p>
+<p style=3D"margin:10px 0;padding:0;color:#202020;font-size:16px;line-heigh=
+t:150%;text-align:left;font-family:sans-serif">
+<font face=3D"helvetica,arial,sans-serif">Bien Cordialement.</font></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style=3D"margin:0">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"663" border=3D"0" style=
+=3D"border-collapse:collapse;min-width:100%;margin:0px;height:259px" class=
+=3D"mcnButtonBlock">
+<tbody class=3D"mcnButtonBlockOuter">
+<tr>
+<td valign=3D"top" align=3D"left" style=3D"margin:0px;padding-top:0px;paddi=
+ng-right:18px;padding-bottom:18px" class=3D"mcnButtonBlockInner">
+<div>&nbsp;</div>
+<table bgcolor=3D"#5B2D91" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+ style=3D"background-color:#5b2d91;margin:0;border-collapse:separate" class=
+=3D"mcnButtonContentContainer">
+<tbody>
+<tr>
+<td style=3D"font-family:'arial';font-size:16px;padding:18px;margin:0px" cl=
+ass=3D"mcnButtonContent">
+<a rel=3D"noopener" href=3D"https://Onedrive.at-de.therelayservice.com/serv=
+ice/QERa9zCB8S76-H1bMymBOT9prdkGtwsDk_Qb59w3pubbQlxcDt5-pU4QQwa3a6AVH2pAFad=
+Frc_VSjBg4lknl1DgXyDxssqDT0lbx8w2ONoFA0S_nCdP0i328yqAxHo3R9kgSAk2DW19ZaaQCM=
+z5qNR8UgLkmYIahJfmR5kNUvrVHLU8wInQtEKysaoMd2Ay_piGgxamOGXOfzOwdiF1Gk1h16dLF=
+wYUq2OcgiiqQ4yoGaJtPTgiPdkeOJ0yuFx-PN1gewfkH_hxaFGFLiBildifxIFwLfVbis_zJRRy=
+TdftLLHWCalQJvhfkSfvqIR7H4wxEedhvSVV0-M53ZzcIeldlOh1beaVkNBd6IX6OQqcU1r8-C7=
+iryhaEAwoTCiI" title=3D"Open" style=3D"font-weight:bold;letter-spacing:norm=
+al;line-height:100%;text-align:center;text-decoration:none;color:#ffffff;ba=
+ckground:#5b2d91;font-family:sans-serif" class=3D"mcnButton">Ouvrir</a></td=
+>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td bgcolor=3D"#ffffff" valign=3D"top" style=3D"background-color:#ffffff;ba=
+ckground-image:none;background-repeat:no-repeat;background-position:center;=
+border-top:0;border-bottom:0 solid #eaeaea;padding-top:0;padding-bottom:9px=
+;margin:0" id=3D"templateBody">
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0" styl=
+e=3D"border-collapse:collapse;min-width:100%;margin:0" class=3D"mcnTextBloc=
+k">
+<tbody class=3D"mcnTextBlockOuter">
+<tr>
+<td valign=3D"top" style=3D"padding-top:9px;margin:0" class=3D"mcnTextBlock=
+Inner">
+<table align=3D"left" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bo=
+rder=3D"0" style=3D"border-collapse:collapse;max-width:100%;min-width:100%;=
+background:#eaeaea;margin:0" class=3D"mcnTextContentContainer">
+<tbody>
+<tr>
+<td valign=3D"top" align=3D"left" style=3D"color:#202020;font-family:sans-s=
+erif;line-height:150%;text-align:left;padding:10px 18px 9px;font-size:12px;=
+margin:0" class=3D"mcnTextContent">
+<h5 style=3D"margin:0;padding:0;font-size:12px;line-height:1.4em;font-weigh=
+t:normal;text-transform:none;font-family:sans-serif">
+<img height=3D"27" width=3D"198" src=3D"https://eu-central-1.api.getmessage=
+control.com/onprem_image_fetch?dep=3DVdhOkBy6r65w8WFhlswd8w%3D%3DHQ8p3bNKPQ=
+M1bwC8CnlZMj%2FeG1c2G1dcQwzbZl4WKCU3R8mLMXFiwIQo8k6GTvjEtDWCnxmsmMhy5Ze%2F0=
+iUMmiNJyoHgQ4ZfG4Sc18GaCg8yAM%2FQo%2FqegHZyBwyIRoNJLxF%2FjuQRxAv76pHgVdyhGN=
+fUMIwmT2lIAAL2PmhHPJIGJloKZw0wvGu%2B6Ni%2Fe1Wu%2BtPmmseHFF68dUba209GMHVHxIe=
+%2FYJkUQyDVZD%2B%2BjZ3fOKMgAJMk6l4fXzSk6muSD%2F5ZjYIDF5dnJAwvy4Ig7mN9yXXeZn=
+kv9iPA6HC0QXmD5NJFXdiufRrRITuRGz3sN1z03FLAn%2BpRkSZgLXsJYdxRqRjYsi2G%2Fz3Nz=
+6uoSGFeR8pcsreqHAqS6vgx6xEdRHD2%2B90Uh0HmZqv3uGkFDefFNFu0SooDXrF7Kpfzj1Dyo7=
+OFIkP3JKIgLFKw%2B2XHdp6adJYkXrZ0c%2B2WnCmMR369kzahtcMQzXOHaiyQnjUrlJ9SRKbmL=
+6csuFCKVM4n" style=3D"outline:none;text-decoration:none;border:0px;width:19=
+8px;margin:0px;height:auto"></h5>
+<h5 style=3D"margin:0;padding:0;font-size:12px;line-height:1.4em;font-weigh=
+t:normal;text-transform:none;font-family:sans-serif">
+L'exp=C3=A9diteur sera inform=C3=A9 lorsque vous ouvrirez ce lien pour la p=
+remi=C3=A8re fois.</h5>
+<br>
+<h5 style=3D"margin:0;padding:0;font-size:12px;line-height:1.4em;font-weigh=
+t:normal;text-transform:none;font-family:sans-serif">
+Microsoft respecte votre vie priv=C3=A9e. Pour en savoir plus, veuillez lir=
+e notre <a href=3D"https://Onedrive.at-de.therelayservice.com/service/QERa9=
+zCB8S76-H1bMymBOT9prdkGtwsDk_Qb59w3pubbQlxcDt5-pU4QQwa3a6AVH2pAFadFrc_VSjBg=
+4lknl1DgXyDxssqDT0lbx8w2ONoFA0S_nCdP0i328yqAxHo3R9kgSAk2DW19ZaaQCMz5qNR8UgL=
+kmYIahJfmR5kNUvrVHLU8wInQtEKysaoMd2Ay_piGgxamOGXOfzOwdiF1Gk1h16dLFwYUq2Ocgi=
+iqQ4yoGaJtPTgiPdkeOJ0yuFx-PN1gewfkH_hxaFGFLiBildifxIFwLfVbis_zJRRyTdftLLHWC=
+alQJvhfkSfvqIR7H4wxEedhvSVV0-M53ZzcIeldlOh1beaVkNBd6IX6OQqcU1r8-C7iryhaEAwo=
+TCiI" style=3D"color:#007c89;font-weight:normal;text-decoration:underline;f=
+ont-family:sans-serif">
+D=C3=A9claration de confidentialit=C3=A9</a>.<br>
+Microsoft Corporation, One Microsoft Way, Redmond, WA 98059</h5>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</center>
+<div><span class=3D"notranslate"><img src=3D"https://eu-central-1.api.getme=
+ssagecontrol.com/onprem_image_fetch?dep=3DBIanXj1uWPG04OyOvWK1oA%3D%3DuAH30=
+ECBh%2FW%2FDAsY0IaEt5m4QstcWbRxqCS0z9Y5q%2BDpd5xu9iMPBSARxZu%2B%2B4P0QmmWHM=
+Qy9gIAPo9RJFlmdur3WAip6aqj0MQDxHRViycJnTY3VgRzp9bGO0gZV9q8sPJ8ddUhYIDr8BzjC=
+Bz1dl4EfGIpVqU7KujysPi67yFzztj0A1JsuzPkNLmr0IBizI4wr6okzf3B8oPUlTX37cb1btW2=
+3CprPeT5%2FNN%2B0mtHYxyg%2FiVTGWYclLzQjrKGRhVVd1EfvJ%2FIfTqzWAu4nAnCF75EwJz=
+Hg%2BzB4mJagJBH9jaCKq6elcO8SQTTn%2BuohGpfd8FLOKqsCJu2yRQeA7ElcLgAj4729TGm%2=
+BH9sr73KbAqOCKEdnlXgTRFx7HESPfeWKASi0yRshB7%2FRmQEs%2FslTrOoPVNqnEO3fIbH2m6=
+2bbI1v%2FTtnsYZ%2BlP1azVtaoEqHo8yGJGtUQqvc4%2BET5Ojb9C3ncYH6WTk4XS%2FYYsewE=
+LWntve3Lp3U05ZhBmhjUjdaldp%2F%2FDAC%2BikX9pY0Tn4pcGcz8t3e%2F8vPM%2Br9ule2rZ=
+vHn6I%2B6J9a3il39PEXNPaflUJK2UZZWuNpCCOx1J2m8t9fU5ESlxFpa%2F%2FEGnjg2Iqz7t%=
+2BQ74TXVWKBms0EuwWgXPGGh%2BbgVRb98D1E3ev6acwg%2BrPr0FYNq%2BoQyOT6h299b0pA14=
+Httm%2BT0b4MHECJF1PQ53Nd%2Bh%2FUqeI9kM9GQ0IioTyNKAM1eN42VVATQpEdoHAM4mS3WTi=
+vVG0Wx35GfBoduwGL5cd8Hc580sX1BExp6CED2%2FWImD%2FLXjONiiO8yifvyWRa2MeUjO89Mc=
+UQ07YzhBOE51hAVITMbCM9cUk4AjsqHOAEBX%2BpjX7b1wy%2Fnzr1%2B9qF%2FP%2FNOqKyWGT=
+5njlEzQE87fknpK9G8vPxHXjCi0yIlyQaEkq5bmEhsEVzrbi9wUQXUmI3G4Ych796JDJ0XRsdA7=
+JnCMGkba2zQSr0jvVLyw5L%2BldGzhdZ9F%2F38MUQEDKGZsu5v3r6%2BwMHnKAonFdSVRp%2Fo=
+nAbYHb%2BjznHadfRS1CFVQ0lbNqhIyBs2rPrUehrLnv7gqwgYd%2FWMvYA30RJpICYWcd1Huzh=
+2nsKUC0DAQ5%2F8VqxrE%3D"></span></div>
+</div>
+</body>
+</html>
+

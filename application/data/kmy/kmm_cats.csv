@@ -1,0 +1,157 @@
+parent	catégorie	type	string
+Alimentation	Boulangerie	E	E:Alimentation:Boulangerie
+Alimentation	Cantine	E	E:Alimentation:Cantine
+Alimentation	Epicerie	E	E:Alimentation:Epicerie
+Alimentation	Fast food	E	E:Alimentation:Fast food
+Alimentation	Restaurant	E	E:Alimentation:Restaurant
+Alimentation	Supérette	E	E:Alimentation:Supérette
+Alimentation	Supermarché	E	E:Alimentation:Supermarché
+Alimentation	TakeAway	E	E:Alimentation:TakeAway
+Allocations et Sécurité sociale	Allocation de Retour à lEmploi	I	I:Allocations et Sécurité sociale:Allocation de Retour à lEmploi
+Allocations et Sécurité sociale	Indemnités Journalières	I	I:Allocations et Sécurité sociale:Indemnités Journalières
+Allocations et Sécurité sociale	Remboursement de frais de santé	I	I:Allocations et Sécurité sociale:Remboursement de frais de santé
+Assurance	Automobile	E	E:Assurance:Automobile
+Assurance	Habitation	E	E:Assurance:Habitation
+Assurance	Responsabilité civile	E	E:Assurance:Responsabilité civile
+Assurance	Santé	E	E:Assurance:Santé
+Automobile	Achat	E	E:Automobile:Achat
+Automobile	Amendes	E	E:Automobile:Amendes
+Automobile	Assurance	E	E:Automobile:Assurance
+Automobile	Carburant	E	E:Automobile:Carburant
+Automobile	Contrôle technique	E	E:Automobile:Contrôle technique
+Automobile	Péage	E	E:Automobile:Péage
+Automobile	Réparations	E	E:Automobile:Réparations
+Automobile	Stationnement	E	E:Automobile:Stationnement
+Crédit	Mensualité	E	E:Crédit:Mensualité
+Expense	Alimentation	E	E:Alimentation
+Expense	Assurance	E	E:Assurance
+Expense	Automobile	E	E:Automobile
+Expense	Cadeaux	E	E:Cadeaux
+Expense	Crédit	E	E:Crédit
+Expense	Dettes personnelles	E	E:Dettes personnelles
+Expense	Frais bancaires	E	E:Frais bancaires
+Expense	Frais professionels	E	E:Frais professionels
+Expense	Junk	E	E:Junk
+Expense	Logement	E	E:Logement
+Expense	Loisirs	E	E:Loisirs
+Expense	Loterie	E	E:Loterie
+Expense	loyer	E	E:loyer
+Expense	Non attribué	E	E:Non attribué
+Expense	Prêt	E	E:Prêt
+Expense	Retenues sur salaire	E	E:Retenues sur salaire
+Expense	Retrait despèces	E	E:Retrait despèces
+Expense	Santé	E	E:Santé
+Expense	Soins	E	E:Soins
+Expense	Taxes et impôts	E	E:Taxes et impôts
+Expense	Transaction interne	E	E:Transaction interne
+Expense	Transport	E	E:Transport
+Frais bancaires	Intérêts	E	E:Frais bancaires:Intérêts
+Frais bancaires	Pénalités bancaires	E	E:Frais bancaires:Pénalités bancaires
+Frais bancaires	Services bancaires	E	E:Frais bancaires:Services bancaires
+Frais généraux	Chauffage	E	E:Frais généraux:Chauffage
+Frais généraux	Eau	E	E:Frais généraux:Eau
+Frais généraux	Electricité	E	E:Frais généraux:Electricité
+Frais généraux	Internet-TV-Téléphone	E	E:Frais généraux:Internet-TV-Téléphone
+Frais généraux	Photographie	E	E:Frais généraux:Photographie
+Frais généraux	Services postaux	E	E:Frais généraux:Services postaux
+Frais généraux	Téléphone mobile	E	E:Frais généraux:Téléphone mobile
+Frais professionels	Non-remboursées	E	E:Frais professionels:Non-remboursées
+Frais professionels	Remboursées	E	E:Frais professionels:Remboursées
+I	Allocations et Sécurité sociale	I	I:I:Allocations et Sécurité sociale
+I	Cashback	I	I:I:Cashback
+I	Dettes personnelles	I	I:I:Dettes personnelles
+I	Non attribuée	I	I:I:Non attribuée
+I	Pending	I	I:I:Pending
+I	Remboursements divers	I	I:I:Remboursements divers
+I	Rentes et pensions	I	I:I:Rentes et pensions
+I	Revenus dinvestissement	I	I:I:Revenus dinvestissement
+I	Revenus divers	I	I:I:Revenus divers
+I	Revenus du travail	I	I:I:Revenus du travail
+I	Revenus fonciers	I	I:I:Revenus fonciers
+I	Transaction interne	I	I:I:Transaction interne
+Junk	G	E	E:Junk:G
+Junk	T	E	E:Junk:T
+Junk	Tabac	E	E:Junk:Tabac
+Logement	Ameublement	E	E:Logement:Ameublement
+Logement	Charges	E	E:Logement:Charges
+Logement	Entretien	E	E:Logement:Entretien
+Logement	Equipement	E	E:Logement:Equipement
+Logement	Frais généraux	E	E:Logement:Frais généraux
+Logement	Jardinage	E	E:Logement:Jardinage
+Logement	Loyer	E	E:Logement:Loyer
+Logement	Rembousement de prêt	E	E:Logement:Rembousement de prêt
+Logement	Travaux	E	E:Logement:Travaux
+Loisirs	Cinéma	E	E:Loisirs:Cinéma
+Loisirs	Informatique	E	E:Loisirs:Informatique
+Loisirs	Musées et expositions	E	E:Loisirs:Musées et expositions
+Loisirs	Parc dattraction	E	E:Loisirs:Parc dattraction
+Loisirs	Service Numérique	E	E:Loisirs:Service Numérique
+Loisirs	Spectacles	E	E:Loisirs:Spectacles
+Loisirs	Sport	E	E:Loisirs:Sport
+Pending	Pending Carburant	I	I:Pending:Pending Carburant
+Pending	Pënding Doctolib	I	I:Pending:Pënding Doctolib
+Pending	Pending Location de véhivcule	I	I:Pending:Pending Location de véhivcule
+Pending	Pending VTC-Taxi	I	I:Pending:Pending VTC-Taxi
+Prêt	Amortissement de prêt	E	E:Prêt:Amortissement de prêt
+Prêt	Assurance	E	E:Prêt:Assurance
+Prêt	Frais de dossier	E	E:Prêt:Frais de dossier
+Prêt	Frais de remboursement anticipé	E	E:Prêt:Frais de remboursement anticipé
+Prêt	Intérêts de prêt	E	E:Prêt:Intérêts de prêt
+Prêt	Remboursement anticipé de prêt	E	E:Prêt:Remboursement anticipé de prêt
+Remboursements divers	Annulation/Régularistation transaction carte bancaire	I	I:Remboursements divers:Annulation/Régularistation transaction carte bancaire
+Remboursements divers	Remboursement dassurance	I	I:Remboursements divers:Remboursement dassurance
+Remboursements divers	Remboursement délectricité	I	I:Remboursements divers:Remboursement délectricité
+Remboursements divers	Remboursement Internet-TV-Téléphone	I	I:Remboursements divers:Remboursement Internet-TV-Téléphone
+Remboursements divers	Remboursements divers	I	I:Remboursements divers:Remboursements divers
+Remboursements divers	Retour marchandise	I	I:Remboursements divers:Retour marchandise
+Rentes et pensions	Rentes temporaires	I	I:Rentes et pensions:Rentes temporaires
+Rentes et pensions	Rentes viagères	I	I:Rentes et pensions:Rentes viagères
+Rentes et pensions	Retraite complémentaire	I	I:Rentes et pensions:Retraite complémentaire
+Rentes et pensions	Retraite du régime général	I	I:Rentes et pensions:Retraite du régime général
+Retenues sur salaire	Autres avantages en nature	E	E:Retenues sur salaire:Autres avantages en nature
+Retenues sur salaire	Chèques déjeuner	E	E:Retenues sur salaire:Chèques déjeuner
+Retenues sur salaire	Remboursement dacompte	E	E:Retenues sur salaire:Remboursement dacompte
+Retenues sur salaire	Saisie Opposition	E	E:Retenues sur salaire:Saisie Opposition
+Retenues sur salaire	Véhicule de fonction	E	E:Retenues sur salaire:Véhicule de fonction
+Revenus dinvestissement	Coupon	I	I:Revenus dinvestissement:Coupon
+Revenus dinvestissement	Dividende	I	I:Revenus dinvestissement:Dividende
+Revenus dinvestissement	Intérêts de CoDevI	I	I:Revenus dinvestissement:Intérêts de CoDevI
+Revenus dinvestissement	Intérêts de LEP	I	I:Revenus dinvestissement:Intérêts de LEP
+Revenus dinvestissement	Intérêts de livret A et Bleu	I	I:Revenus dinvestissement:Intérêts de livret A et Bleu
+Revenus dinvestissement	Intérêts de livret B	I	I:Revenus dinvestissement:Intérêts de livret B
+Revenus dinvestissement	Intérêts de livrets bancaires	I	I:Revenus dinvestissement:Intérêts de livrets bancaires
+Revenus dinvestissement	Plus-values Boursières	I	I:Revenus dinvestissement:Plus-values Boursières
+Revenus dinvestissement	Prime dEtat sur Epargne Logement	I	I:Revenus dinvestissement:Prime dEtat sur Epargne Logement
+Revenus divers	Cadeaux 	I	I:Revenus divers:Cadeaux 
+Revenus divers	Crédits dimpôts	I	I:Revenus divers:Crédits dimpôts
+Revenus divers	Déblocage de prêt	I	I:Revenus divers:Déblocage de prêt
+Revenus divers	Intérêts compte bancaire	I	I:Revenus divers:Intérêts compte bancaire
+Revenus divers	Loterie	I	I:Revenus divers:Loterie
+Revenus du travail	Acompte	I	I:Revenus du travail:Acompte
+Revenus du travail	Intéressement	I	I:Revenus du travail:Intéressement
+Revenus du travail	Participation aux bénéfices	I	I:Revenus du travail:Participation aux bénéfices
+Revenus du travail	Remboursements de frais	I	I:Revenus du travail:Remboursements de frais
+Revenus du travail	Salaire brut	I	I:Revenus du travail:Salaire brut
+Salaire brut	Prime	I	I:Salaire brut:Prime
+Salaire brut	Salaire net	I	I:Salaire brut:Salaire net
+Santé	Dentiste	E	E:Santé:Dentiste
+Santé	Hôpital	E	E:Santé:Hôpital
+Santé	Médecin généraliste	E	E:Santé:Médecin généraliste
+Santé	Médecin spécialiste	E	E:Santé:Médecin spécialiste
+Santé	Opticien	E	E:Santé:Opticien
+Santé	Pharmacie	E	E:Santé:Pharmacie
+Soins	Coiffeur	E	E:Soins:Coiffeur
+Soins	Habillement	E	E:Soins:Habillement
+Soins	Parfums-Produits de beauté	E	E:Soins:Parfums-Produits de beauté
+Taxes et impôts	Autres taxes	E	E:Taxes et impôts:Autres taxes
+Taxes et impôts	Impôts sur le revenu	E	E:Taxes et impôts:Impôts sur le revenu
+Taxes et impôts	Intérêts de retard	E	E:Taxes et impôts:Intérêts de retard
+Taxes et impôts	ISF	E	E:Taxes et impôts:ISF
+Taxes et impôts	Redevance télévisuelle	E	E:Taxes et impôts:Redevance télévisuelle
+Taxes et impôts	Taxe dhabitation	E	E:Taxes et impôts:Taxe dhabitation
+Taxes et impôts	Taxe foncière	E	E:Taxes et impôts:Taxe foncière
+Transport	Avion	E	E:Transport:Avion
+Transport	Location de véhicule	E	E:Transport:Location de véhicule
+Transport	Train	E	E:Transport:Train
+Transport	Transports en commun	E	E:Transport:Transports en commun
+Transport	VTC-Taxi	E	E:Transport:VTC-Taxi

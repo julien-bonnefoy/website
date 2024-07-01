@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block modal %}
+<div id="editModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="editModalTitle" class="modal-title">{{ row.nom }}</h3>
+                <button type="button" class="close" data-bs-dismiss="modal">
+                    <span aria-hidden="true">X</span> <span class="sr-only">close</span>
+                </button>
+            </div>
+            <div id="editModalBody" class="modal-body">
+                <form>
+                    <div class="form-group row">
+                        <label for="spe1">Spécialité:</label>
+                        <input id="spe_input" type="text" class="form-control" value="{{ row.spe1 }}" name="spe1">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock modal %}

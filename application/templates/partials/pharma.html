@@ -1,0 +1,126 @@
+<div style="background-color: rgb(255, 255, 255); opacity: 1; width: 300px; transform: translate(-55%, -50%); height: 425px; font-size: 11px;" class="flip-card-front px-0 card">
+  <span id="{&quot;index&quot;:{{ row["id"] }},&quot;type&quot;:&quot;uga-badge-front&quot;}" class="uga-badge position-absolute top-0 start-100  bg-white badge bg-secondary">{{ row['uga'] }}</span>
+  <span style="font-size: 11px; transform: translate(-50%, -50%);" id="cib-badge-front" class="position-absolute top-100 start-100 bg-secondary badge bg-secondary">{{ row['c24c1'] }}<span class="visually-hidden"></span></span>
+  <div class="p-3 card-header">
+    <button id="btn-{{ row["id"] }}" class="btn btn-warning btn-sm d-block fw-bold w-100 mb-2">
+      <div class="pb-0 mb-0" style="font-size: 10px; text-decoration: none;">{{ row['nom'] }}</div>
+      <span style="font-size: 8px; transform: translateX(-50%);" id="id-badge-front" class="position-absolute bg-dark badge bg-secondary">{{ row["id"] }} <span class="visually-hidden"></span></span>
+    </button>
+    <div class="d-flex justify-content-center" style="height: 25px; min-height: 25px; max-height: 25px;">
+      <div class="border-3 border-info col-3 form-floating" style="height: 25px; min-height: 25px; max-height: 25px;">
+        <input class="pt-3 fw-bolder bg-light form-control-sm form-control" disabled="" name="dm" step="any" value={{ row["c24c1"] }}>
+        <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">DM</label>
+      </div>
+      <div class="border-3 border-info col-3 form-floating" style="height: 25px; min-height: 25px; max-height: 25px;">
+        <input class="pt-3 fw-bolder bg-light form-control-sm form-control" name="dp" disabled="" step="any" value={{ row["cib_dp"] }}>
+        <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">DP</label>
+      </div>
+      <div class="border-3 border-info col-3 form-floating" style="height: 25px; min-height: 25px; max-height: 25px;">
+        <input class="pt-3 fw-bolder bg-light form-control-sm form-control" name="dso" disabled="" step="any" value={{ row["cib_dso"] }}>
+        <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">DSO</label>
+     </div>
+     <div class="border-3 border-info col-3 form-floating" style="height: 25px; min-height: 25px; max-height: 25px;">
+        <input class="pt-3 fw-bolder bg-light form-control-sm form-control" name="nv22" disabled="" step="any" value={{ row["nv22"] }}>
+        <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">NV 2022</label>
+     </div>
+    </div>
+  </div>
+  <form id="{&quot;index&quot;:{{ row["id"] }},&quot;type&quot;:&quot;form&quot;}" action="/dash/biocodex/pharma/{{ row["id"] }}" method="post">
+    <div class="card-body" id="{&quot;index&quot;:{{ row["id"] }},&quot;type&quot;:&quot;card-body&quot;}" style="flex: 0 1 auto;">
+      <div class="d-flex">
+        <div class="border-3 border-info col-12 px-0 form-floating">
+          <input class="pt-3 form-control-sm form-control" name="adr" step="any" value="{{ row["adr"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">ADRESSE</label>
+        </div>
+      </div>
+      <div class="d-flex">
+        <span style="background-color: rgb(255, 255, 255); opacity: 0.5; color: rgb(0, 0, 128);" class="badge">
+          <input class="text-bold my-2 col-5 form-control-sm form-control" style="font-size: 10px;" name="tel" step="any" value="{{ row["tel"] }}">
+        </span>
+        <div class="border-3 border-info col-3 px-0 form-floating">
+          <input class="pt-3 form-control-sm form-control" name="cp" step="any" value="{{ row["cp"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">CP</label>
+        </div>
+        <div class="border-3 border-info col-4 px-0 form-floating">
+          <input class="pt-3 form-control-sm form-control" style="font-size: 11px; overflow-x: hidden;"  name="ville" step="any" value="{{ row["vil"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">VILLE</label>
+        </div>
+      </div>
+      <br>
+      <div class="d-flex">
+        <div class="border-3 border-info col-12 px-0 form-floating">
+          <input class="pt-3 form-control-sm form-control" name="com" step="any" value="{{ row["com"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">COMMENT.</label>
+        </div>
+      </div>
+        <hr style="margin: 2rem 0;">
+      <div>
+        <style scoped="">
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+
+            .dataframe thead tr th {
+                text-align: center;
+            }
+        </style>
+        <table border="1" class="dataframe table table-condensed table-nonfluid tablesorter tablesorter-default" role="grid">
+          <thead>
+            <tr role="row" class="tablesorter-headerRow">
+              <th data-column="0" class="tablesorter-header tablesorter-headerUnSorted" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" style="user-select: none;" aria-sort="none" aria-label=": No sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner"></div></th>
+              <th colspan="2" halign="left" data-column="1" class="tablesorter-header tablesorter-headerUnSorted" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" style="user-select: none;" aria-sort="none" aria-label="fev23: No sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner">fev23</div></th>
+              <th colspan="2" halign="left" data-column="3" class="tablesorter-header tablesorter-headerUnSorted" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" style="user-select: none;" aria-sort="none" aria-label="juin23: No sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner">juin23</div></th>
+              <th colspan="2" halign="left" data-column="5" class="tablesorter-header tablesorter-headerUnSorted" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" style="user-select: none;" aria-sort="none" aria-label="sept23: No sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner">sept23</div></th>
+            </tr>
+            <tr role="row" class="tablesorter-headerRow">
+              <th data-column="0" class="tablesorter-header tablesorter-headerUnSorted" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" style="user-select: none;" aria-sort="none" aria-label=": No sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner"></div></th>
+              <th data-column="1" class="tablesorter-header tablesorter-headerUnSorted" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" style="user-select: none;" aria-sort="none" aria-label="cma: No sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner">cma</div></th>
+              <th data-column="2" class="tablesorter-header tablesorter-headerUnSorted" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" style="user-select: none;" aria-sort="none" aria-label="rank: No sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner">rank</div></th>
+              <th data-column="3" class="tablesorter-header tablesorter-headerUnSorted" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" style="user-select: none;" aria-sort="none" aria-label="cma: No sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner">cma</div></th>
+              <th data-column="4" class="tablesorter-header tablesorter-headerUnSorted" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" style="user-select: none;" aria-sort="none" aria-label="rank: No sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner">rank</div></th>
+              <th data-column="5" class="tablesorter-header tablesorter-headerUnSorted" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" style="user-select: none;" aria-sort="none" aria-label="cma: No sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner">cma</div></th>
+              <th data-column="6" class="tablesorter-header tablesorter-headerUnSorted" tabindex="0" scope="col" role="columnheader" aria-disabled="false" unselectable="on" style="user-select: none;" aria-sort="none" aria-label="rank: No sort applied, activate to apply an ascending sort"><div class="tablesorter-header-inner">rank</div></th>
+            </tr>
+          </thead>
+          <tbody aria-live="polite" aria-relevant="all">
+            <tr role="row">
+              <th>circ.</th>
+              <td>{{ row['ca_circ_cma_fev23'] }}</td>
+              <td>{{ row['rang_ca_circ_fev23'] }}</td>
+              <td>{{ row['ca_circ_cma_juin23'] }}</td>
+              <td>{{ row['rang_ca_circ_juin23'] }}</td>
+              <td>{{ row['ca_circ_cma_sept23'] }}</td>
+              <td style="background-color: #bbbbbb"></td>
+            </tr>
+            <tr role="row">
+              <th>ul</th>
+              <td>{{ row['ca_ul_cma_fev_23'] }}</td>
+              <td>{{ row['rang_ca_ul_fev23'] }}</td>
+              <td>{{ row['ca_ul_cma_juin_23'] }}</td>
+              <td>{{ row['rang_ca_ul_juin23'] }}</td>
+              <td>{{ row['ca_ul_cma_sept23'] }}</td>
+              <td>{{ row['rang_ca_ul_sept23'] }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="p-3 card-footer">
+      <div class="d-flex">
+        <div class="ms-auto w-50 form-floating">
+          <input class="pt-4 form-control-sm form-control" name="ddv" step="any" value="{{ row["ddv"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">DDV</label>
+        </div>
+        <div class="w-50 form-floating">
+          <input class="pt-4 form-control-sm form-control" name="rdv" step="any" value="{{ row["rdv"] }}">
+          <label class="px-1 py-2 bg-transparent form-label col-form-label col-form-label-sm col">RDV</label>
+        </div>
+      </div>
+    </div>
+    <input type="submit" class="btn btn-xl mx-auto form-control" id="subit-pharma-{{ row["id"] }}" style="display: block;" step="any" value="SAVE &amp; CLOSE">
+  </form>
+</div>

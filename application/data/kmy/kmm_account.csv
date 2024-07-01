@@ -1,0 +1,2639 @@
+Date	Payee	Amount	Category	Memo	Status	Number
+2022-01-01	SUMERIA		Solde douverture		R	
+2022-01-03	MONOPRIX	-0,6	Alimentation:Supermarché		R	
+2022-01-04	SELECTA	-0,4	Alimentation:TakeAway		R	
+2022-01-04	SELECTA	-7,1	Alimentation:TakeAway		R	
+2022-01-04	MIGUEL FERREIRA	20	Remboursements divers:Remboursements divers		R	
+2022-01-04	RATP	-1,9	Transport:Transports en commun		R	
+2022-01-04	RATP	-1,9	Transport:Transports en commun		R	
+2022-01-04	SNCF	-5,2	Transport:Transports en commun		R	
+2022-01-04	SNCF	-5,2	Transport:Transports en commun		R	
+2022-01-05	MONOPRIX	-42,01	Alimentation:Supermarché		R	
+2022-01-05	LYDIA	-5	Frais bancaires		R	
+2022-01-05	MIGUEL FERREIRA	-220	Junk:T		R	
+2022-01-05	FREE MOBILE	-46,98	Logement:Frais généraux:Téléphone mobile		R	
+2022-01-05	APPLE	-39,99	Loisirs:Service Numérique		R	
+2022-01-05	REÇU	140	Remboursements divers:Remboursements divers		R	
+2022-01-05	ATM	-20	Retrait despèces		R	
+2022-01-05	ATM	-30	Retrait despèces		R	
+2022-01-05	PHARMACIE REPUBLIQUE	-19,98	Santé:Paharmacie		R	
+2022-01-05	BONNEFOY JULIEN	429,6	Transaction interne		R	
+2022-01-05	REVOLUT	-13,99	Transaction interne		R	
+2022-01-05	SNCF	-75,2	Transport:Transports en commun		R	
+2022-01-06	MONOPRIX	-20,29	Alimentation:Supermarché		R	
+2022-01-06	MICROSOFT	-7	Loisirs:Service Numérique		R	
+2022-01-07	LA BANQUE POSTALE	-30	Retrait despèces		R	
+2022-01-11	SITIS MARKET	-7,52	Alimentation:Supermarché		R	
+2022-01-11	LE LONGCHAMP	-17,4	Junk:Tabac		R	
+2022-01-11	BONNEFOY JULIEN	84,4	Transaction interne		R	
+2022-01-11	UBER	-7,29	Transport:VTC-Taxi		R	
+2022-01-12	SITIS MARKET	-7,07	Alimentation:Supermarché		R	
+2022-01-12	SITIS MARKET	-6,37	Alimentation:Supermarché		R	
+2022-01-12	MIGUEL FERREIRA	-220	Junk:T		R	
+2022-01-12	MIGUEL FERREIRA	-220	Junk:T		R	
+2022-01-12	LA POSTE	-9	Logement:Frais généraux:Services postaux		R	
+2022-01-12	NORDVPN	-12,71	Loisirs:Service Numérique		R	
+2022-01-12	FONCIA AD IMMOBILIER GERANCE	705	Revenus fonciers		R	
+2022-01-12	PHARMACIE PREMIERE	-44,16	Santé:Paharmacie		R	
+2022-01-13	MCDONALDS	-11,35	Alimentation:Fast food		R	
+2022-01-13	SITIS MARKET	-7,13	Alimentation:Supermarché		R	
+2022-01-13	POLE EMPLOI DR IDF	780,33	Allocations et Sécurité sociale:Allocation de Retour à lEmploi		R	
+2022-01-13	LYDIA	-5	Frais bancaires		R	
+2022-01-13	MIGUEL FERREIRA	-220	Junk:T		R	
+2022-01-13	DUFOUR BONAPA	-27,84	Junk:Tabac		R	
+2022-01-13	OUI ENERGY	-424,66	Logement:Frais généraux:Electricité		R	
+2022-01-13	JETBRAINS	-6,36	Loisirs:Service Numérique		R	
+2022-01-13	LA BANQUE POSTALE	-50	Retrait despèces		R	
+2022-01-13	UBER	-13,51	Transport:VTC-Taxi		R	
+2022-01-14	ARLOME	-2,6	Junk:Tabac		R	
+2022-01-14	APPLE	-6,99	Loisirs:Service Numérique		R	
+2022-01-14	LA BANQUE POSTALE	-50	Retrait despèces		R	
+2022-01-14	UBER	-14,06	Transport:VTC-Taxi		R	
+2022-01-14	UBER	-29,37	Transport:VTC-Taxi		R	
+2022-01-15	SITIS MARKET	-11,42	Alimentation:Supermarché		R	
+2022-01-15	LE LONGCHAMP	-29,2	Junk:Tabac		R	
+2022-01-16	MONOPRIX	-41,43	Alimentation:Supermarché		R	
+2022-01-17	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-01-17	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-01-17	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-01-17	AMAZON DIGIT	-1,99	Loisirs:Service Numérique		R	
+2022-01-18	MONOPRIX	-18,54	Alimentation:Supermarché		R	
+2022-01-18	MIGUEL FERREIRA	-220	Junk:T		R	
+2022-01-18	AMAZON	-48,67	Logement:Equipement		R	
+2022-01-18	OLIVIER LECHABLE	-610	Logement:Loyer		R	
+2022-01-18	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-01-18	FONCIA AD IMMOBILIER GERANCE	1480,26	Revenus fonciers		R	
+2022-01-19	E.LECLERC	-22,33	Alimentation:Supermarché		R	
+2022-01-19	ATM	-20	Retrait despèces		R	
+2022-01-19	UBER	-17,35	Transport:VTC-Taxi		R	
+2022-01-20	MONOPRIX	-18,17	Alimentation:Supermarché		R	
+2022-01-20	DIRECT ASSURANCE	-20,18	Assurance:Assurance Habitation		R	
+2022-01-20	ATM	-20	Retrait despèces		R	
+2022-01-21	LYDIA	-1	Frais bancaires		R	
+2022-01-21	FDJ	-50	Loterie		R	
+2022-01-22	MONOPRIX	-42,58	Alimentation:Supermarché		R	
+2022-01-22	SITIS MARKET	-8,84	Alimentation:Supermarché		R	
+2022-01-22	MIGUEL FERREIRA	-260	Junk:T		R	
+2022-01-22	RELAY	-25,3	Junk:Tabac		R	
+2022-01-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2022-01-22	MICROSOFT	-5,9	Loisirs:Service Numérique		R	
+2022-01-22	SA SUED	-19,99	Loisirs:Service Numérique		R	
+2022-01-22	UBER	-32,76	Transport:VTC-Taxi		R	
+2022-01-22	UBER	-31,04	Transport:VTC-Taxi		R	
+2022-01-23	APPLE	-8,99	Loisirs:Service Numérique		R	
+2022-01-23	UBER	1,6	Pending:Pending VTC-Taxi		R	
+2022-01-24	FREE MOBILE	-23,49	Logement:Frais généraux:Téléphone mobile		R	
+2022-01-25	MONOPRIX	-32,52	Alimentation:Supermarché		R	
+2022-01-25	POLE EMPLOI DR IDF	100	Allocations et Sécurité sociale:Allocation de Retour à lEmploi		R	
+2022-01-25	COFIROUTE	-1,6	Automobile:Péage		R	
+2022-01-25	MIGUEL FERREIRA	-370	Junk:T		R	
+2022-01-25	LE LONGCHAMP	-25,2	Junk:Tabac		R	
+2022-01-25	RELAY	-21	Junk:Tabac		R	
+2022-01-25	AMAZON	9,99	Remboursements divers:Retour marchandise		R	
+2022-01-25	BONNEFOY JULIEN	1500	Transaction interne		R	
+2022-01-25	UBEEQO	-77	Transport:Location de véhicule		R	
+2022-01-26	FRANPRIX	-8,7	Alimentation:Supermarché		R	
+2022-01-26	MONOPRIX	-4,39	Alimentation:Supermarché		R	
+2022-01-26	MONOPRIX	-16	Alimentation:Supermarché		R	
+2022-01-26	BP	-20	Automobile:Carburant		R	
+2022-01-26	SAGS LOBAU	-4,2	Automobile:Stationnement		R	
+2022-01-26	DARTY	-94,98	Logement:Equipement		R	
+2022-01-26	FREE MOBILE	-229	Logement:Frais généraux:Téléphone mobile		R	
+2022-01-26	APPLE	-39,99	Loisirs:Service Numérique		R	
+2022-01-26	UBER	-9,65	Transport:VTC-Taxi		R	
+2022-01-27	MONOPRIX	-16,79	Alimentation:Supermarché		R	
+2022-01-27	LYDIA	-1	Frais bancaires		R	
+2022-01-27	AMAZON	-40,96	Logement:Equipement		R	
+2022-01-27	AMAZON	-231,78	Logement:Equipement		R	
+2022-01-27	MAISON BERGER PARIS	-40	Logement:Equipement		R	
+2022-01-27	UBEEQO	2,8	Pending:Pending Location de véhivcule		R	
+2022-01-28	MIGUEL FERREIRA	-240	Junk:T		R	
+2022-01-28	VELOCIVETTE	-21	Junk:Tabac		R	
+2022-01-28	UMEN MEDICAL	-3,9	Non attribué		R	
+2022-01-28	UBEEQO	-64	Transport:Location de véhicule		R	
+2022-01-29	SELECTA	-1,2	Alimentation:TakeAway		R	
+2022-01-29	SELECTA	-1,2	Alimentation:TakeAway		R	
+2022-01-29	LYDIA	-0,5	Frais bancaires		R	
+2022-01-29	MIGUEL FERREIRA	13	Remboursements divers:Remboursements divers		R	
+2022-01-30	SITIS MARKET	-4,68	Alimentation:Supermarché		R	
+2022-01-30	LYDIA	-0,5	Frais bancaires		R	
+2022-01-30	LE LONGCHAMP	-15,8	Junk:Tabac		R	
+2022-01-30	ZENCO	-5	Loisirs:Service Numérique		R	
+2022-01-30	MIGUEL FERREIRA	20	Remboursements divers:Remboursements divers		R	
+2022-01-31	LYDIA	-7,9	Frais bancaires		R	
+2022-01-31	MIGUEL FERREIRA	-140	Junk:T		R	
+2022-01-31	LA BANQUE POSTALE	-30	Retrait despèces		R	
+2022-01-31	BONNEFOY JULIEN	178,38	Transaction interne		R	
+2022-02-01	LYDIA	-1	Frais bancaires		R	
+2022-02-01	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-02-07	POLE EMPLOI DR IDF	806,09	Allocations et Sécurité sociale:Allocation de Retour à lEmploi		R	
+2022-02-07	DIRECT ASSURANCE	-20,18	Assurance:Assurance Habitation		R	
+2022-02-07	MR OU MME BONNEFOY	100	Dettes personnelles		R	
+2022-02-07	AMAZON	-4,95	Logement:Equipement		R	
+2022-02-07	FREE HAUTDEBIT	-58,35	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2022-02-07	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-02-07	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-02-07	SA SUED	-38,97	Loisirs:Service Numérique		R	
+2022-02-08	MONOPRIX	-41,94	Alimentation:Supermarché		R	
+2022-02-08	OLIVIER LECHABLE	-122	Logement:Loyer		R	
+2022-02-08	CCM SAINT CYR LECOL	-70	Retrait despèces		R	
+2022-02-08	REVOLUT	-180	Transaction interne		R	
+2022-02-09	UBER	-8	Transport:VTC-Taxi		R	
+2022-02-09	UBER	-28,6	Transport:VTC-Taxi		R	
+2022-02-09	UBER	-26,45	Transport:VTC-Taxi		R	
+2022-02-10	MONOPRIX	-41,29	Alimentation:Supermarché		R	
+2022-02-10	LE LONGCHAMP	-26,3	Junk:Tabac		R	
+2022-02-10	AMAZON	-28,98	Logement:Equipement		R	
+2022-02-10	AMAZON	-13,99	Logement:Equipement		R	
+2022-02-10	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-02-10	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-02-11	E.LECLERC	-21,19	Alimentation:Supermarché		R	
+2022-02-11	AMAZON	-27,99	Logement:Equipement		R	
+2022-02-11	UBER	-27,05	Transport:VTC-Taxi		R	
+2022-02-11	UBER	-16,97	Transport:VTC-Taxi		R	
+2022-02-12	MICROSOFT	-7	Loisirs:Service Numérique		R	
+2022-02-12	NORDVPN	-12,71	Loisirs:Service Numérique		R	
+2022-02-13	MONOPRIX	-47,48	Alimentation:Supermarché		R	
+2022-02-13	JETBRAINS	-6,36	Loisirs:Service Numérique		R	
+2022-02-14	MONOPRIX	-33,64	Alimentation:Supermarché		R	
+2022-02-14	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-02-14	LA BANQUE POSTALE	-60	Retrait despèces		R	
+2022-02-14	FONCIA AD IMMOBILIER GERANCE	705	Revenus fonciers		R	
+2022-02-14	PHARMACIE RENAULT SC	-40,08	Santé:Paharmacie		R	
+2022-02-15	L ECLAIR D ARCY	-42	Alimentation:Boulangerie		R	
+2022-02-15	E.LECLERC	-34,79	Alimentation:Supermarché		R	
+2022-02-15	LE LONGCHAMP	-28	Junk:Tabac		R	
+2022-02-15	AMAZON	-7,25	Logement:Equipement		R	
+2022-02-15	LA BANQUE POSTALE	-20	Retrait despèces		R	
+2022-02-15	PHARMACIE CC LECL	-32,9	Santé:Paharmacie		R	
+2022-02-15	PHARMACIE RENAULT SC	-5,14	Santé:Paharmacie		R	
+2022-02-15	UBER	-22,02	Transport:VTC-Taxi		R	
+2022-02-15	UBER	-23,78	Transport:VTC-Taxi		R	
+2022-02-16	MY MARKET	-15,99	Alimentation:Supermarché		R	
+2022-02-17	PREMIERE CLASSE	-45,5	Logement		R	
+2022-02-17	AMAZON	-50,99	Logement:Equipement		R	
+2022-02-18	MONOPRIX	-32,04	Alimentation:Supermarché		R	
+2022-02-18	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-02-18	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-02-18	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-02-18	AMAZON	12,99	Remboursements divers:Retour marchandise		R	
+2022-02-19	LE LONGCHAMP	-27,9	Junk:Tabac		R	
+2022-02-19	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-02-20	LA BANQUE POSTALE	-20	Retrait despèces		R	
+2022-02-21	MONOPRIX	-35,14	Alimentation:Supermarché		R	
+2022-02-22	LA BANQUE POSTALE	-70	Retrait despèces		R	
+2022-02-23	SELECTA	-3	Alimentation:TakeAway		R	
+2022-02-23	SELECTA	-3	Alimentation:TakeAway		R	
+2022-02-23	APPLE	-2,99	Loisirs:Service Numérique		R	
+2022-02-24	ATM	-50	Retrait despèces		R	
+2022-02-28	LYDIA	-7,9	Frais bancaires		R	
+2022-03-01	MONOPRIX	-58,34	Alimentation:Supermarché		R	
+2022-03-01	POLE EMPLOI DR IDF	733,69	Allocations et Sécurité sociale:Allocation de Retour à lEmploi		R	
+2022-03-01	LE LONGCHAMP	-27,9	Junk:Tabac		R	
+2022-03-01	FREE MOBILE	-52,98	Logement:Frais généraux:Téléphone mobile		R	
+2022-03-01	UBER	2,43	Pending:Pending VTC-Taxi		R	
+2022-03-01	UBER	3,22	Pending:Pending VTC-Taxi		R	
+2022-03-01	UBER	-31,69	Transport:VTC-Taxi		R	
+2022-03-01	UBER	-26,14	Transport:VTC-Taxi		R	
+2022-03-02	SELECTA	-2,4	Alimentation:TakeAway		R	
+2022-03-02	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-03-02	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-03-02	SC-S E I P DIST	-2,5	Non attribué		R	
+2022-03-03	MONOPRIX	-27,08	Alimentation:Supermarché		R	
+2022-03-03	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-03-03	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-03-03	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-03-03	MICROSOFT	-6,3	Loisirs:Service Numérique		R	
+2022-03-04	MONOPRIX	-31,8	Alimentation:Supermarché		R	
+2022-03-04	DIRECT ASSURANCE	-20,18	Assurance:Assurance Habitation		R	
+2022-03-04	AMAZON DIGIT	-2,99	Loisirs:Service Numérique		R	
+2022-03-04	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-03-04	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-03-05	SITIS MARKET	-10,16	Alimentation:Supermarché		R	
+2022-03-05	LE LONGCHAMP	-27,9	Junk:Tabac		R	
+2022-03-06	MONOPRIX	-33,71	Alimentation:Supermarché		R	
+2022-03-06	MICROSOFT	-7	Loisirs:Service Numérique		R	
+2022-03-06	REVOLUT	-245	Transaction interne		R	
+2022-03-07	FREE HAUTDEBIT	-57,39	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2022-03-08	ARLOME	-3	Junk:Tabac		R	
+2022-03-08	SNCF	-5	Transport:Transports en commun		R	
+2022-03-09	SELECTA	-3	Alimentation:TakeAway		R	
+2022-03-09	SELECTA	-3	Alimentation:TakeAway		R	
+2022-03-09	SELECTA	-3	Alimentation:TakeAway		R	
+2022-03-09	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-03-09	RATP	-5	Transport:Transports en commun		R	
+2022-03-09	UBER	-8,14	Transport:VTC-Taxi		R	
+2022-03-13	MARCHAND NON COMMUNIQUÉ	3,99	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-03-13	MARCHAND NON COMMUNIQUÉ	3,99	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-03-14	MONOPRIX	-3,53	Alimentation:Supermarché		R	
+2022-03-15	MONOPRIX	-22,34	Alimentation:Supermarché		R	
+2022-03-15	VANHOUTTE	200	Remboursements divers:Remboursements divers		R	
+2022-03-17	AMAZON	-6,76	Logement:Equipement		R	
+2022-03-17	APPLE	-79,99	Loisirs:Service Numérique		R	
+2022-03-17	NORDVPN	-12,71	Loisirs:Service Numérique		R	
+2022-03-18	MAISON BERGER PARIS	-33,9	Logement:Equipement		R	
+2022-03-18	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-03-18	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-03-18	KORUM	166	Remboursements divers:Remboursements divers		R	
+2022-03-19	MONOPRIX	-32,73	Alimentation:Supermarché		R	
+2022-03-20	MONOPRIX	-21,54	Alimentation:Supermarché		R	
+2022-03-20	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-03-20	UBER	-13,35	Transport:VTC-Taxi		R	
+2022-03-21	LINKEDIN	-29,74	Loisirs:Service Numérique		R	
+2022-03-22	PICARD	-6	Alimentation:Supermarché		R	
+2022-03-22	LA BANQUE POSTALE	-30	Retrait despèces		R	
+2022-03-23	STARBUCKS	-9,45	Alimentation:TakeAway		R	
+2022-03-23	RATP	-2,8	Transport:Transports en commun		R	
+2022-03-23	SNCF	-5	Transport:Transports en commun		R	
+2022-03-24	LA BANQUE POSTALE	-40	Retrait despèces		R	
+2022-03-25	LE FONTENOY	-48,59	Junk:Tabac		R	
+2022-03-25	MINT	-109,3	Logement:Frais généraux:Electricité		R	
+2022-03-25	FREE MOBILE	-39,98	Logement:Frais généraux:Téléphone mobile		R	
+2022-03-25	MICROSOFT	-6,3	Loisirs:Service Numérique		R	
+2022-03-25	ZENCO	-11	Loisirs:Service Numérique		R	
+2022-03-25	LA SOCIETE GENERALE	-50	Retrait despèces		R	
+2022-03-25	FONCIA AD IMMOBILIER GERANCE	1017,05	Revenus fonciers		R	
+2022-03-26	MONOPRIX	-38,52	Alimentation:Supermarché		R	
+2022-03-26	APPLE	-14,99	Loisirs:Service Numérique		R	
+2022-03-26	APPLE	-2,99	Loisirs:Service Numérique		R	
+2022-03-26	JETBRAINS	-6,36	Loisirs:Service Numérique		R	
+2022-03-26	PHARMACIE RENAULT SC	-44,16	Santé:Paharmacie		R	
+2022-03-26	UBER	-14,66	Transport:VTC-Taxi		R	
+2022-03-26	UBER	-43,63	Transport:VTC-Taxi		R	
+2022-03-27	UBER	2,3	Pending:Pending VTC-Taxi		R	
+2022-03-27	UBER	2,9	Pending:Pending VTC-Taxi		R	
+2022-03-27	LA BANQUE POSTALE	-80	Retrait despèces		R	
+2022-03-27	UBER	-35,32	Transport:VTC-Taxi		R	
+2022-03-27	UBER	-43,36	Transport:VTC-Taxi		R	
+2022-03-27	UBER	-34,29	Transport:VTC-Taxi		R	
+2022-03-28	MONOPRIX	-30,69	Alimentation:Supermarché		R	
+2022-03-28	MR OU MME BONNEFOY	150	Dettes personnelles		R	
+2022-03-28	SHOP AND CLEAN B.V.	-57,18	Junk:G		R	
+2022-03-28	AMAZON	-32,99	Logement:Equipement		R	
+2022-03-28	MEETFRANZ	-4,79	Loisirs:Service Numérique		R	
+2022-03-28	UBER	27,66	Pending:Pending VTC-Taxi		R	
+2022-03-28	UBER	27,39	Pending:Pending VTC-Taxi		R	
+2022-03-28	ATM	-150	Retrait despèces		R	
+2022-03-28	UBER	-26,92	Transport:VTC-Taxi		R	
+2022-03-28	UBER	-27,39	Transport:VTC-Taxi		R	
+2022-03-28	UBER	-27,66	Transport:VTC-Taxi		R	
+2022-03-28	UBER	-26,35	Transport:VTC-Taxi		R	
+2022-03-29	LE HAVANE	-25,2	Junk:Tabac		R	
+2022-03-29	UBER	30,46	Pending:Pending VTC-Taxi		R	
+2022-03-29	SNCF	-5	Transport:Transports en commun		R	
+2022-03-29	UBER	-28,71	Transport:VTC-Taxi		R	
+2022-03-29	UBER	-30,46	Transport:VTC-Taxi		R	
+2022-03-30	MCDONALDS	-32,6	Alimentation:Fast food		R	
+2022-03-30	MY MARKET	-6	Alimentation:Supermarché		R	
+2022-03-30	LA SOCIETE GENERALE	-20	Retrait despèces		R	
+2022-03-30	UBER	-14,53	Transport:VTC-Taxi		R	
+2022-03-31	LYDIA	-7,9	Frais bancaires		R	
+2022-04-01	POLE EMPLOI DR IDF	806,09	Allocations et Sécurité sociale:Allocation de Retour à lEmploi		R	
+2022-04-02	C&A FRANCE	-59,97	Soins:Habillement		R	
+2022-04-02	KIABI	-48	Soins:Habillement		R	
+2022-04-02	UBER	-13,71	Transport:VTC-Taxi		R	
+2022-04-03	MONOPRIX	-26,18	Alimentation:Supermarché		R	
+2022-04-03	AMAZON	-59,99	Logement:Equipement		R	
+2022-04-04	SITIS MARKET	-12,35	Alimentation:Supermarché		R	
+2022-04-04	LE LONGCHAMP	-38,5	Junk:Tabac		R	
+2022-04-04	JULES	-114,99	Soins:Habillement		R	
+2022-04-05	STARBUCKS	-11,6	Alimentation:TakeAway		R	
+2022-04-05	RELAY	-21	Junk:Tabac		R	
+2022-04-05	RELAY	-9,4	Junk:Tabac		R	
+2022-04-05	OUI ENERGY	-109,3	Logement:Frais généraux:Electricité		R	
+2022-04-05	BUY PARIS DUTY	-10	Non attribué		R	
+2022-04-05	EASYJET	-12,99	Transport:Avion		R	
+2022-04-05	EASYJET	-12,49	Transport:Avion		R	
+2022-04-05	UBER	-31,74	Transport:VTC-Taxi		R	
+2022-04-06	CANAS Y TAPAS	-33,3	Alimentation:Restaurant		R	
+2022-04-06	DIRECT ASSURANCE	-20,18	Assurance:Assurance Habitation		R	
+2022-04-06	FREE HAUTDEBIT	-69,48	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2022-04-06	MICROSOFT	-7	Loisirs:Service Numérique		R	
+2022-04-06	MMA IARD	1,43	Remboursements divers:Remboursement dassurance		R	
+2022-04-07	PANASIA CAP3000	-29,25	Alimentation:Restaurant		R	
+2022-04-08	MCDONALDS	-9,5	Alimentation:Fast food		R	
+2022-04-08	STARBUCKS	-5,95	Alimentation:TakeAway		R	
+2022-04-08	TAXI BANLIEUE	-75	Frais professionels:Remboursées		R	
+2022-04-08	RELAY	-4,4	Junk:Tabac		R	
+2022-04-08	IBIS STYLES NFC	-2,5	Logement		R	
+2022-04-08	JULES	35	Remboursements divers:Retour marchandise		R	
+2022-04-10	MONOPRIX	-21,95	Alimentation:Supermarché		R	
+2022-04-11	EDGAR GASTRONOMI	-17,9	Alimentation:Restaurant		R	
+2022-04-11	PANASIA CAP3000	-27,8	Alimentation:Restaurant		R	
+2022-04-11	IBIS STYLES NFC	-5	Logement		R	
+2022-04-12	LA CANTINA DU	-18,5	Alimentation:Restaurant		R	
+2022-04-12	PANASIA CAP3000	-27,8	Alimentation:Restaurant		R	
+2022-04-12	STARBUCKS	-5,95	Alimentation:TakeAway		R	
+2022-04-12	MR OU MME BONNEFOY	150	Dettes personnelles		R	
+2022-04-13	CHEZ MAX	-13,4	Alimentation:Restaurant		R	
+2022-04-13	PETIT FENNEC	-21	Junk:Tabac		R	
+2022-04-13	ALRO	-18,5	Non attribué		R	
+2022-04-13	FONCIA AD IMMOBILIER GERANCE	705	Revenus fonciers		R	
+2022-04-14	LA CANTINA DU	-19	Alimentation:Restaurant		R	
+2022-04-14	PANASIA CAP3000	-28,3	Alimentation:Restaurant		R	
+2022-04-14	MONOPRIX	-5,02	Alimentation:Supermarché		R	
+2022-04-14	STARBUCKS	-5,95	Alimentation:TakeAway		R	
+2022-04-14	JETBRAINS	-6,36	Loisirs:Service Numérique		R	
+2022-04-15	JAMIES DELI	-7,6	Alimentation:Restaurant		R	
+2022-04-15	MR OU MME BONNEFOY	200	Dettes personnelles		R	
+2022-04-15	RELAY	-27,1	Junk:Tabac		R	
+2022-04-15	IBIS STYLES NFC	-19	Logement		R	
+2022-04-15	OLIVIER LECHABLE	-244	Logement:Loyer		R	
+2022-04-15	AMAZON DIGIT	-1,99	Loisirs:Service Numérique		R	
+2022-04-15	UBER	-43,03	Transport:VTC-Taxi		R	
+2022-04-16	MONOPRIX	-48,6	Alimentation:Supermarché		R	
+2022-04-16	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-04-16	UBER	2,2	Pending:Pending VTC-Taxi		R	
+2022-04-16	UBER	-34,37	Transport:VTC-Taxi		R	
+2022-04-16	UBER	-34,96	Transport:VTC-Taxi		R	
+2022-04-17	NICOLE ET LOUIS	-46,4	Alimentation:Restaurant		R	
+2022-04-17	MONOPRIX	-37,25	Alimentation:Supermarché		R	
+2022-04-17	NORDVPN	-12,71	Loisirs:Service Numérique		R	
+2022-04-17	UBER	2,7	Pending:Pending VTC-Taxi		R	
+2022-04-17	UBER	-15,18	Transport:VTC-Taxi		R	
+2022-04-18	MME MERCIER CELINE	100	Dettes personnelles		R	
+2022-04-18	RELAY	-21	Junk:Tabac		R	
+2022-04-18	IBIS STYLES NFC	-5	Logement		R	
+2022-04-18	LA BANQUE POSTALE	-120	Retrait despèces		R	
+2022-04-18	UBER	-38,85	Transport:VTC-Taxi		R	
+2022-04-19	PANASIA CAP3000	-28,3	Alimentation:Restaurant		R	
+2022-04-19	MONOPRIX	-2,25	Alimentation:Supermarché		R	
+2022-04-19	MICROSOFT	-3,24	Loisirs:Service Numérique		R	
+2022-04-19	PHARMACIE CAP	-10,9	Santé:Paharmacie		R	
+2022-04-19	UBER	-24,7	Transport:VTC-Taxi		R	
+2022-04-19	UBER	-16,47	Transport:VTC-Taxi		R	
+2022-04-20	EDGAR GASTRONOMI	-23,2	Alimentation:Restaurant		R	
+2022-04-20	LINKEDIN	-29,74	Loisirs:Service Numérique		R	
+2022-04-20	CREDIT DU NORD	-70	Retrait despèces		R	
+2022-04-21	ASCODEV CDG	-9,3	Automobile:Stationnement		R	
+2022-04-22	CMNE DE PARIS	-50	Automobile:Stationnement		R	
+2022-04-22	MME MERCIER CELINE	100	Dettes personnelles		R	
+2022-04-22	MR OU MME BONNEFOY	150	Dettes personnelles		R	
+2022-04-22	CIVETTE D AUT	-17,7	Junk:Tabac		R	
+2022-04-22	LES 2 STATIONS	-17,5	Junk:Tabac		R	
+2022-04-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2022-04-22	MICROSOFT	-5,73	Loisirs:Service Numérique		R	
+2022-04-23	LA BANQUE POSTALE	-150	Retrait despèces		R	
+2022-04-24	LA BANQUE POSTALE	-20	Retrait despèces		R	
+2022-04-25	ARLOME	-4,4	Junk:Tabac		R	
+2022-04-26	CREPERIE BOUFFAY	-22	Alimentation:Restaurant		R	
+2022-04-26	MME MERCIER CELINE	50	Dettes personnelles		R	
+2022-04-26	RELAY	-21	Junk:Tabac		R	
+2022-04-27	TOTAL	-8,7	Automobile:Carburant		R	
+2022-04-27	MME MERCIER CELINE	50	Dettes personnelles		R	
+2022-04-27	FREE MOBILE	-35,98	Logement:Frais généraux:Téléphone mobile		R	
+2022-04-28	PETRIN RIBEIROU	-6,6	Alimentation:Boulangerie		R	
+2022-04-28	MCDONALDS	-15,35	Alimentation:Fast food		R	
+2022-04-28	MOULIN D AUTEUIL	-18,7	Alimentation:Restaurant		R	
+2022-04-28	LA BANQUE POSTALE	-300	Retrait despèces		R	
+2022-04-28	HORUS PHARMA	2163,98	Revenus du travail:Salaire brut:Salaire net		R	
+2022-04-29	E.LECLERC	-28,06	Alimentation:Supermarché		R	
+2022-04-30	E.LECLERC	-26,7	Alimentation:Supermarché		R	
+2022-04-30	LYDIA	-7,9	Frais bancaires		R	
+2022-04-30	PARIS EXELMANS	-100	Retrait despèces		R	
+2022-04-30	PHARMACIE RENAULT SC	-37,24	Santé:Paharmacie		R	
+2022-05-02	MONOPRIX	-32,77	Alimentation:Supermarché		R	
+2022-05-03	LE LONGCHAMP	-26,63	Junk:Tabac		R	
+2022-05-03	LODING	-201	Soins:Habillement		R	
+2022-05-04	E.LECLERC	-8	Alimentation:Supermarché		R	
+2022-05-04	DIRECT ASSURANCE	-22,41	Assurance:Assurance Habitation		R	
+2022-05-04	OUI ENERGY	-232,66	Logement:Frais généraux:Electricité		R	
+2022-05-04	LA BANQUE POSTALE	-30	Retrait despèces		R	
+2022-05-04	LA BANQUE POSTALE	-120	Retrait despèces		R	
+2022-05-05	E.LECLERC	-15,04	Alimentation:Supermarché		R	
+2022-05-05	OUI ENERGY	-11,38	Logement:Frais généraux:Electricité		R	
+2022-05-05	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2022-05-06	MICROSOFT	-7	Loisirs:Service Numérique		R	
+2022-05-06	LA BANQUE POSTALE	-20	Retrait despèces		R	
+2022-05-07	BUREAU VALLEE	-19,74	Logement:Equipement		R	
+2022-05-07	IBAN FR7611315XXXXX44	-150	Non attribué		R	
+2022-05-07	ATM	-160	Retrait despèces		R	
+2022-05-08	MONOPRIX	-22,12	Alimentation:Supermarché		R	
+2022-05-08	ATM	-20	Retrait despèces		R	
+2022-05-09	LE LONGCHAMP	-21	Junk:Tabac		R	
+2022-05-09	ATM	-150	Retrait despèces		R	
+2022-05-09	WECASA	-29,9	Soins:Coiffeur		R	
+2022-05-10	E.LECLERC	-68,97	Alimentation:Supermarché		R	
+2022-05-12	FONCIA AD IMMOBILIER GERANCE	705	Revenus fonciers		R	
+2022-05-13	E.LECLERC	-24,2	Alimentation:Supermarché		R	
+2022-05-13	YOUNITED	-32,4	Crédit:Mensualité		R	
+2022-05-13	ECLAIR D ARCY	-57	Junk:Tabac		R	
+2022-05-14	E.LECLERC	-13,68	Alimentation:Supermarché		R	
+2022-05-14	JETBRAINS	-6,36	Loisirs:Service Numérique		R	
+2022-05-14	ATM	-300	Retrait despèces		R	
+2022-05-15	BP	-10,35	Automobile:Carburant		R	
+2022-05-15	LYDIA	-4,5	Frais bancaires		R	
+2022-05-15	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-05-16	QUICK	-10,2	Alimentation:Fast food		R	
+2022-05-16	MONOPRIX	-24,75	Alimentation:Supermarché		R	
+2022-05-16	TOTAL	-150	Automobile:Carburant		R	
+2022-05-16	CMNE DE MONTIGNY LE BRETONN	-1	Automobile:Stationnement		R	
+2022-05-16	GRAND PARIS SEINE OUEST	-2	Automobile:Stationnement		R	
+2022-05-16	LE LONGCHAMP	-17,5	Junk:Tabac		R	
+2022-05-16	BUREAU VALLEE	-13,98	Logement:Equipement		R	
+2022-05-16	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-05-16	TOTAL	110	Pending:Pending Carburant		R	
+2022-05-17	J&W CAFE TABAC	-4	Alimentation:Restaurant		R	
+2022-05-17	TOPAL ENGIN	-21	Junk:Tabac		R	
+2022-05-17	NORDVPN	-12,71	Loisirs:Service Numérique		R	
+2022-05-18	BP	-5,42	Automobile:Carburant		R	
+2022-05-18	CMNE DE BAGNEUX	-2	Automobile:Stationnement		R	
+2022-05-18	GRAND PARIS SEINE OUEST	-3	Automobile:Stationnement		R	
+2022-05-18	GRAND PARIS SEINE OUEST	-2	Automobile:Stationnement		R	
+2022-05-18	GRAND PARIS SEINE OUEST	-1,6	Automobile:Stationnement		R	
+2022-05-19	E.LECLERC	-37,84	Alimentation:Supermarché		R	
+2022-05-19	MICROSOFT	-6,52	Loisirs:Service Numérique		R	
+2022-05-20	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-05-21	E.LECLERC	-46,42	Alimentation:Supermarché		R	
+2022-05-21	AMAZON	-34,78	Logement:Equipement		R	
+2022-05-21	AMAZON	-17,9	Logement:Equipement		R	
+2022-05-21	SA SUED	-19,99	Loisirs:Service Numérique		R	
+2022-05-22	MONOPRIX	-12,37	Alimentation:Supermarché		R	
+2022-05-22	LE LONGCHAMP	-17,5	Junk:Tabac		R	
+2022-05-22	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-05-22	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-05-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2022-05-23	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-05-23	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-05-23	FREE MOBILE	-36,98	Logement:Frais généraux:Téléphone mobile		R	
+2022-05-23	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-05-23	LINKEDIN	-29,74	Loisirs:Service Numérique		R	
+2022-05-24	CMNE DE PARIS	-2	Automobile:Stationnement		R	
+2022-05-24	PAYBYPHONE	-4,5	Automobile:Stationnement		R	
+2022-05-24	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-05-24	LA BANQUE POSTALE	-210	Retrait despèces		R	
+2022-05-24	BONNEFOY JULIEN	220,32	Transaction interne		R	
+2022-05-25	MONOPRIX	-33,61	Alimentation:Supermarché		R	
+2022-05-25	LYDIA	-3,15	Frais bancaires		R	
+2022-05-25	HORUS PHARMA	615,97	Revenus du travail:Salaire brut:Salaire net		R	
+2022-05-26	RDT BOULANG	-5,1	Alimentation:Boulangerie		R	
+2022-05-26	ATM	-40	Retrait despèces		R	
+2022-05-26	LA BANQUE POSTALE	-60	Retrait despèces		R	
+2022-05-26	PHARMACIE REPUBLIQUE	-19,98	Santé:Paharmacie		R	
+2022-05-27	SITIS MARKET	-16,04	Alimentation:Supermarché		R	
+2022-05-27	BP	-17,5	Automobile:Carburant		R	
+2022-05-27	LYDIA	-2	Frais bancaires		R	
+2022-05-27	LE LONGCHAMP	-17,5	Junk:Tabac		R	
+2022-05-27	HORUS PHARMA	2456,72	Revenus du travail:Salaire brut:Salaire net		R	
+2022-05-28	MONOPRIX	-45,76	Alimentation:Supermarché		R	
+2022-05-28	MONOPRIX	-30,04	Alimentation:Supermarché		R	
+2022-05-28	LE ROYAL CAMBRO	-21	Junk:Tabac		R	
+2022-05-28	AMAZON	-5,64	Logement:Equipement		R	
+2022-05-28	AMAZON	-85,78	Logement:Equipement		R	
+2022-05-28	MARCHAND NON COMMUNIQUÉ	0,2	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-05-29	BP	-6,68	Automobile:Carburant		R	
+2022-05-30	ADS SUPERETTE	-7,8	Alimentation:Supérette		R	
+2022-05-30	SWATCH	-47	Cadeaux		R	
+2022-05-30	LA BANQUE POSTALE	-300	Retrait despèces		R	
+2022-05-30	LA BANQUE POSTALE	-150	Retrait despèces		R	
+2022-05-31	TOTAL	-150	Automobile:Carburant		R	
+2022-05-31	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-05-31	REL.PKG PORTE ST	-7,29	Automobile:Stationnement		R	
+2022-05-31	LYDIA	-6,75	Frais bancaires		R	
+2022-05-31	LYDIA	-7,9	Frais bancaires		R	
+2022-05-31	TOTAL	119,86	Pending:Pending Carburant		R	
+2022-06-01	KADOCOM	-30,58	Cadeaux		R	
+2022-06-02	MONOPRIX	-46,76	Alimentation:Supermarché		R	
+2022-06-02	LE BALTO	-25,2	Junk:Tabac		R	
+2022-06-02	MESBAGAGES.CO	-33,8	Logement:Equipement		R	
+2022-06-02	MARCHAND NON COMMUNIQUÉ	4,99	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-06-02	MARCHAND NON COMMUNIQUÉ	6	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-06-02	LA BANQUE POSTALE	-100	Retrait despèces		R	
+2022-06-03	SITIS MARKET	-14,27	Alimentation:Supermarché		R	
+2022-06-03	CMNE DE PARIS	-4	Automobile:Stationnement		R	
+2022-06-04	MONOPRIX	-14,57	Alimentation:Supermarché		R	
+2022-06-05	LA BANQUE POSTALE	-300	Retrait despèces		R	
+2022-06-06	PETRIN RIBEIROU	-9,45	Alimentation:Boulangerie		R	
+2022-06-06	DIRECT ASSURANCE	-22,39	Assurance:Assurance Habitation		R	
+2022-06-06	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2022-06-06	MICROSOFT	-7	Loisirs:Service Numérique		R	
+2022-06-07	SITIS MARKET	-10,33	Alimentation:Supermarché		R	
+2022-06-07	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-06-07	SYLVIE SANCTORUM	-250	Dettes personnelles		R	
+2022-06-07	LE LONGCHAMP	-27,9	Junk:Tabac		R	
+2022-06-07	OLIVIER LECHABLE	-122	Logement:Loyer		R	
+2022-06-07	OLIVIER LECHABLE	-122	Logement:Loyer		R	
+2022-06-07	MARCHAND NON COMMUNIQUÉ	5,64	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-06-08	MONOPRIX	-33,13	Alimentation:Supermarché		R	
+2022-06-08	PAYBYPHONE	-4,5	Automobile:Stationnement		R	
+2022-06-09	WECASA	-29,9	Soins:Coiffeur		R	
+2022-06-10	E.LECLERC	-100,48	Alimentation:Supermarché		R	
+2022-06-10	SNC PARC LYONDID	-2,4	Automobile:Stationnement		R	
+2022-06-10	LE LONGCHAMP	-21	Junk:Tabac		R	
+2022-06-10	ESPACE SFR	-25	Logement:Equipement		R	
+2022-06-10	LA BANQUE POSTALE	-300	Retrait despèces		R	
+2022-06-11	LIDL ST CYR L	-15,33	Alimentation:Supermarché		R	
+2022-06-12	ATM	-40	Retrait despèces		R	
+2022-06-13	CMNE DE MONTIGNY LE BRETONN	-1,7	Automobile:Stationnement		R	
+2022-06-14	LA POSTE	-9,25	Logement:Frais généraux:Services postaux		R	
+2022-06-14	JETBRAINS	-6,36	Loisirs:Service Numérique		R	
+2022-06-14	ATM	-150	Retrait despèces		R	
+2022-06-15	LIDL ST CYR L	-14,89	Alimentation:Supermarché		R	
+2022-06-16	FRANPRIX	-9,9	Alimentation:Supermarché		R	
+2022-06-16	CMNE DE PARIS	-4	Automobile:Stationnement		R	
+2022-06-16	GRAND PARIS SEINE OUEST	-1,6	Automobile:Stationnement		R	
+2022-06-16	TOPAL ENGIN	-19,7	Junk:Tabac		R	
+2022-06-16	MINT ENERGIE	43,93	Remboursements divers:Remboursement délectricité		R	
+2022-06-17	CARREFOUR	-5,48	Alimentation:Supermarché		R	
+2022-06-17	E.LECLERC	-30,41	Alimentation:Supermarché		R	
+2022-06-17	CMNE DE PARIS	-4	Automobile:Stationnement		R	
+2022-06-17	CMNE DE PARIS	-4	Automobile:Stationnement		R	
+2022-06-17	NORDVPN	-12,71	Loisirs:Service Numérique		R	
+2022-06-17	MARCHAND NON COMMUNIQUÉ	6	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-06-18	PAYBYPHONE	-1	Automobile:Stationnement		R	
+2022-06-18	PAYBYPHONE	-2	Automobile:Stationnement		R	
+2022-06-19	BP	-13,88	Automobile:Carburant		R	
+2022-06-19	MICROSOFT	-7,1	Loisirs:Service Numérique		R	
+2022-06-20	SITIS MARKET	-8,37	Alimentation:Supermarché		R	
+2022-06-20	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-06-20	LE LONGCHAMP	-19	Junk:Tabac		R	
+2022-06-20	APPLE	-9,99	Loisirs:Service Numérique		R	
+2022-06-21	J&W CAFE TABAC	-15,5	Alimentation:Restaurant		R	
+2022-06-21	AMAZON	-13,99	Logement:Equipement		R	
+2022-06-21	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-06-21	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-06-21	LINKEDIN	-29,74	Loisirs:Service Numérique		R	
+2022-06-21	BONNEFOY JULIEN	159,32	Transaction interne		R	
+2022-06-22	CARREFOUR	-10,27	Alimentation:Supermarché		R	
+2022-06-22	E.LECLERC	-61,26	Alimentation:Supermarché		R	
+2022-06-22	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-06-22	CMNE DE PARIS	-4	Automobile:Stationnement		R	
+2022-06-22	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-06-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2022-06-23	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-06-23	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-06-23	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-06-23	PAYBYPHONE	-1	Automobile:Stationnement		R	
+2022-06-23	LA BANQUE POSTALE	-20	Retrait despèces		R	
+2022-06-24	L ECLAIR D ARCY	-26	Alimentation:Boulangerie		R	
+2022-06-24	E.LECLERC	-19,04	Alimentation:Supermarché		R	
+2022-06-24	SA SUED	-39,95	Loisirs:Service Numérique		R	
+2022-06-24	ATM	-450	Retrait despèces		R	
+2022-06-24	HORUS PHARMA	587,8	Revenus du travail:Salaire brut:Salaire net		R	
+2022-06-24	FONCIA AD IMMOBILIER GERANCE	1012,99	Revenus fonciers		R	
+2022-06-25	E.LECLERC	-53,98	Alimentation:Supermarché		R	
+2022-06-25	LYDIA	-6,75	Frais bancaires		R	
+2022-06-25	FREE MOBILE	-37,32	Logement:Frais généraux:Téléphone mobile		R	
+2022-06-25	IBAN FR7611315XXXXX44	-195	Non attribué		R	
+2022-06-27	L HYPOTHESE	-11,2	Alimentation:Restaurant		R	
+2022-06-27	FRANPRIX	-7,75	Alimentation:Supermarché		R	
+2022-06-27	BP	-9,38	Automobile:Carburant		R	
+2022-06-27	CMNE DE PARIS	-4	Automobile:Stationnement		R	
+2022-06-27	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-06-27	MARCHAND NON COMMUNIQUÉ	4	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-06-27	MARCHAND NON COMMUNIQUÉ	4	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-06-28	MCDONALDS	-15,6	Alimentation:Fast food		R	
+2022-06-28	E.LECLERC	-96,93	Alimentation:Supermarché		R	
+2022-06-28	MONOPRIX	-4,48	Alimentation:Supermarché		R	
+2022-06-28	STARBUCKS	-9,6	Alimentation:TakeAway		R	
+2022-06-28	CMNE DE BAGNEUX	-1	Automobile:Stationnement		R	
+2022-06-28	CMNE DE PARIS	-4	Automobile:Stationnement		R	
+2022-06-28	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-06-28	TABAC MON ANGE	-20,5	Junk:Tabac		R	
+2022-06-28	HORUS PHARMA	3076,04	Revenus du travail:Salaire brut:Salaire net		R	
+2022-06-29	FRANPRIX	-12,85	Alimentation:Supermarché		R	
+2022-06-29	CMNE DE PARIS	-4	Automobile:Stationnement		R	
+2022-06-29	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-06-29	APPLE	-98,99	Loisirs:Service Numérique		R	
+2022-06-29	APPLE	-79,99	Loisirs:Service Numérique		R	
+2022-06-30	E.LECLERC	-69,37	Alimentation:Supermarché		R	
+2022-06-30	FRANPRIX	-7,68	Alimentation:Supermarché		R	
+2022-06-30	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-06-30	CMNE DE PARIS	-6	Automobile:Stationnement		R	
+2022-06-30	LYDIA	-7,9	Frais bancaires		R	
+2022-06-30	ARLOME	-5,3	Junk:Tabac		R	
+2022-06-30	SAMSONITE STORE PARIS	-33	Logement:Equipement		R	
+2022-07-01	MONOPRIX	-16,01	Alimentation:Supermarché		R	
+2022-07-01	PAYBYPHONE	-4,5	Automobile:Stationnement		R	
+2022-07-01	ZENCO	-44	Loisirs:Service Numérique		R	
+2022-07-01	ATM	-300	Retrait despèces		R	
+2022-07-01	LA BANQUE POSTALE	-210	Retrait despèces		R	
+2022-07-02	ASTERIX RESTAU	-6,2	Alimentation:Restaurant		R	
+2022-07-02	ASTERIX RESTAU	-7	Alimentation:Restaurant		R	
+2022-07-02	COFIROUTE	-5,5	Automobile:Péage		R	
+2022-07-02	CC SAINT LAZARE	-4,1	Automobile:Stationnement		R	
+2022-07-02	CGF15868PAULK2	-9,9	Non attribué		R	
+2022-07-02	MARCHAND NON COMMUNIQUÉ	4	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-07-02	APPLE	98,99	Remboursements divers:Retour marchandise		R	
+2022-07-02	LODING	-218	Soins:Habillement		R	
+2022-07-02	ZARA	-89,95	Soins:Habillement		R	
+2022-07-03	MONOPRIX	-19,18	Alimentation:Supermarché		R	
+2022-07-03	COFIROUTE	-4	Automobile:Péage		R	
+2022-07-03	LA BANQUE POSTALE	-150	Retrait despèces		R	
+2022-07-04	SHOP AND CLEAN B.V.	-127	Junk:G		R	
+2022-07-05	E.LECLERC	-180	Alimentation:Supermarché		R	
+2022-07-05	E.LECLERC	-22,47	Alimentation:Supermarché		R	
+2022-07-05	MONOPRIX	-10,29	Alimentation:Supermarché		R	
+2022-07-05	STARBUCKS	-9,6	Alimentation:TakeAway		R	
+2022-07-05	S N B	-24	Non attribué		R	
+2022-07-05	PHARMACIE PREMIERE	-41,32	Santé:Paharmacie		R	
+2022-07-06	DIRECT ASSURANCE	-22,39	Assurance:Assurance Habitation		R	
+2022-07-06	BP	-3,2	Automobile:Carburant		R	
+2022-07-06	SYLVIE SANCTORUM	-250	Dettes personnelles		R	
+2022-07-06	AMAZON	-82,31	Logement:Equipement		R	
+2022-07-06	FREE HAUTDEBIT	-63,48	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2022-07-06	MICROSOFT	-7	Loisirs:Service Numérique		R	
+2022-07-07	PETRIN RIBEIROU	-6,3	Alimentation:Boulangerie		R	
+2022-07-07	MONOPRIX	-44,92	Alimentation:Supermarché		R	
+2022-07-07	BP	-1,6	Automobile:Carburant		R	
+2022-07-07	LE LONGCHAMP	-22,5	Junk:Tabac		R	
+2022-07-07	OUI ENERGY	-74,18	Logement:Frais généraux:Electricité		R	
+2022-07-08	AUX MERVEILLEUX	-42,1	Alimentation:Boulangerie		R	
+2022-07-08	E.LECLERC	-450	Alimentation:Supermarché		R	
+2022-07-08	E.LECLERC	-46,21	Alimentation:Supermarché		R	
+2022-07-08	OLIVIER LECHABLE	-122	Logement:Loyer		R	
+2022-07-08	MARCHAND NON COMMUNIQUÉ	0,6	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-07-09	LYDIA	-4,35	Frais bancaires		R	
+2022-07-09	MARCHAND NON COMMUNIQUÉ	4	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-07-09	LA BANQUE POSTALE	-240	Retrait despèces		R	
+2022-07-10	PETRIN RIBEIROU	-12,6	Alimentation:Boulangerie		R	
+2022-07-10	MONOPRIX	-15,82	Alimentation:Supermarché		R	
+2022-07-10	LYDIA	-3,6	Frais bancaires		R	
+2022-07-10	UBER	33,22	Pending:Pending VTC-Taxi		R	
+2022-07-10	MARCHAND NON COMMUNIQUÉ	6	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-07-10	LA BANQUE POSTALE	-100	Retrait despèces		R	
+2022-07-10	UBER	-37,2	Transport:VTC-Taxi		R	
+2022-07-10	UBER	-38,53	Transport:VTC-Taxi		R	
+2022-07-10	UBER	-33,22	Transport:VTC-Taxi		R	
+2022-07-11	LYDIA	-1,5	Frais bancaires		R	
+2022-07-11	IBAN FR7630066XXXXX32	-150	Non attribué		R	
+2022-07-11	ATM	-70	Retrait despèces		R	
+2022-07-11	BONNEFOY JULIEN	250	Transaction interne		R	
+2022-07-12	NICOLE ET LOUIS	-4,4	Alimentation:Restaurant		R	
+2022-07-12	MONOPRIX	-25,98	Alimentation:Supermarché		R	
+2022-07-12	COFIROUTE	-2,7	Automobile:Péage		R	
+2022-07-12	LYDIA	-1,04	Frais bancaires		R	
+2022-07-12	UBER	1,33	Pending:Pending VTC-Taxi		R	
+2022-07-12	ATM	-30	Retrait despèces		R	
+2022-07-12	UBER	-8,52	Transport:VTC-Taxi		R	
+2022-07-12	UBER	-8,53	Transport:VTC-Taxi		R	
+2022-07-13	COTE BOULANGE	-7	Alimentation:Boulangerie		R	
+2022-07-13	SUSHI GROUPE	-21,2	Alimentation:Restaurant		R	
+2022-07-13	COFIROUTE	-1,6	Automobile:Péage		R	
+2022-07-13	LYDIA	-1	Frais bancaires		R	
+2022-07-13	LA CAPE DE FEU	-22,6	Junk:Tabac		R	
+2022-07-13	TABAC GLAB	-21	Junk:Tabac		R	
+2022-07-13	BOULANGER	-98,99	Logement:Equipement		R	
+2022-07-13	FONCIA AD IMMOBILIER GERANCE	705	Revenus fonciers		R	
+2022-07-13	JULES	-29,99	Soins:Habillement		R	
+2022-07-14	BP	-13,31	Automobile:Carburant		R	
+2022-07-14	LYDIA	-3,3	Frais bancaires		R	
+2022-07-14	JETBRAINS	-6,36	Loisirs:Service Numérique		R	
+2022-07-14	LA BANQUE POSTALE	-220	Retrait despèces		R	
+2022-07-15	MONOPRIX	-47,58	Alimentation:Supermarché		R	
+2022-07-16	E.LECLERC	-150	Alimentation:Supermarché		R	
+2022-07-16	E.LECLERC	-28,35	Alimentation:Supermarché		R	
+2022-07-17	MCDONALDS	-12,4	Alimentation:Fast food		R	
+2022-07-17	LYDIA	-2,25	Frais bancaires		R	
+2022-07-17	AMAZON	-26,98	Logement:Equipement		R	
+2022-07-17	NORDVPN	-12,71	Loisirs:Service Numérique		R	
+2022-07-17	LA BANQUE POSTALE	-300	Retrait despèces		R	
+2022-07-17	LA BANQUE POSTALE	-210	Retrait despèces		R	
+2022-07-17	BONNEFOY JULIEN	350	Transaction interne		R	
+2022-07-17	BONNEFOY JULIEN	100	Transaction interne		R	
+2022-07-18	NICOLE ET LOUIS	-4,4	Alimentation:Restaurant		R	
+2022-07-18	RELAIS EPI DOR	-3,3	Automobile:Carburant		R	
+2022-07-18	TOTAL	-15,4	Automobile:Carburant		R	
+2022-07-18	LYDIA	-7,65	Frais bancaires		R	
+2022-07-18	LE LONGCHAMP	-28	Junk:Tabac		R	
+2022-07-19	BP	-5,2	Automobile:Carburant		R	
+2022-07-19	IBAN FR7616798XXXXX56	-65	Non attribué		R	
+2022-07-20	MONOPRIX	-15,82	Alimentation:Supermarché		R	
+2022-07-20	MARCHAND NON COMMUNIQUÉ	15,82	Non attribuée		R	
+2022-07-23	LYDIA	-1	Frais bancaires		R	
+2022-07-23	APPLE	-9,99	Loisirs:Service Numérique		R	
+2022-07-23	APPLE	-2,99	Loisirs:Service Numérique		R	
+2022-07-23	AMAZON	26,98	Remboursements divers:Retour marchandise		R	
+2022-07-24	LYDIA	-0,5	Frais bancaires		R	
+2022-07-25	SITIS MARKET	-11,09	Alimentation:Supermarché		R	
+2022-07-25	MME MERCIER CELINE	1400	Dettes personnelles		R	
+2022-07-25	MR OU MME BONNEFOY	1400	Dettes personnelles		R	
+2022-07-25	AMMONITIA	-1	Logement:Loyer		R	
+2022-07-25	AMMONITIA	-1520,1	Logement:Loyer		R	
+2022-07-25	AMMONITIA	-975,71	Logement:Loyer		R	
+2022-07-26	MR OU MME BONNEFOY	100	Dettes personnelles		R	
+2022-07-26	MR OU MME BONNEFOY	100	Dettes personnelles		R	
+2022-07-26	LYDIA	-0,5	Frais bancaires		R	
+2022-07-26	AMMONITIA	-1	Logement:Loyer		R	
+2022-07-26	AMMONITIA	-233,37	Logement:Loyer		R	
+2022-07-26	AMMONITIA	-116,94	Logement:Loyer		R	
+2022-07-26	MICROSOFT	-6,76	Loisirs:Service Numérique		R	
+2022-07-27	LIDL ST CYR L	-33,09	Alimentation:Supermarché		R	
+2022-07-28	FREE MOBILE	-46,1	Logement:Frais généraux:Téléphone mobile		R	
+2022-07-28	HORUS PHARMA	1889,06	Revenus du travail:Salaire brut:Salaire net		R	
+2022-07-29	MONOPRIX	-21,29	Alimentation:Supermarché		R	
+2022-07-29	MAAF ASSURANCES	-49,25	Assurance:Assurance Habitation		R	
+2022-07-29	YOUNITED	-21,6	Crédit:Mensualité		R	
+2022-07-29	LE LONGCHAMP	-25,2	Junk:Tabac		R	
+2022-07-29	MARCHAND NON COMMUNIQUÉ	1	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-07-29	HORUS PHARMA	664,35	Revenus du travail:Salaire brut:Salaire net		R	
+2022-07-29	PHARMACIE RENAULT SC	-37,24	Santé:Paharmacie		R	
+2022-07-29	TRESOR PUBLIC	-132,22	Taxes et impôts		R	
+2022-07-30	E.LECLERC	-26,02	Alimentation:Supermarché		R	
+2022-07-30	MARCHAND NON COMMUNIQUÉ	1	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2022-07-30	WECASA	29,9	Remboursements divers:Retour marchandise		R	
+2022-07-30	LA BANQUE POSTALE	-40	Retrait despèces		R	
+2022-07-30	WECASA	-29,9	Soins:Coiffeur		R	
+2022-07-31	SITIS MARKET	-7,66	Alimentation:Supermarché		R	
+2022-07-31	LYDIA	-1	Frais bancaires		R	
+2022-07-31	LYDIA	-7,9	Frais bancaires		R	
+2022-07-31	AMAZON	-13,99	Logement:Equipement		R	
+2022-07-31	AMAZON	-11,99	Logement:Equipement		R	
+2022-07-31	LA BANQUE POSTALE	-140	Retrait despèces		R	
+2022-07-31	LA BANQUE POSTALE	-300	Retrait despèces		R	
+2022-07-31	EUROPCAR	-149	Transport:Location de véhicule		R	
+2022-08-01	LYDIA	-6,59	Frais bancaires		R	
+2022-08-01	ALEXANDRE CASTRO	-70	Logement:Equipement		R	
+2022-08-01	LEROY MERLIN	-102,7	Logement:Equipement		R	
+2022-08-01	IBAN FR7618206XXXXX48	-66,15	Non attribué		R	
+2022-08-01	WECASA	-29,9	Soins:Coiffeur		R	
+2022-08-02	FRANPRIX	-56,05	Alimentation:Supermarché		R	
+2022-08-02	LE LONGCHAMP	-19,7	Junk:Tabac		R	
+2022-08-03	BOULANGERIE DAUTEUIL	-7,5	Alimentation:Boulangerie		R	
+2022-08-03	MONOPRIX	-10,99	Alimentation:Supermarché		R	
+2022-08-03	STARBUCKS	-9,6	Alimentation:TakeAway		R	
+2022-08-03	INDIGO	-3,6	Automobile:Stationnement		R	
+2022-08-03	PEARL DIFFUSION	-36,95	Logement:Equipement		R	
+2022-08-03	UFC QUE CHOISIR	-45	Loisirs:Service Numérique		R	
+2022-08-03	ATM	-300	Retrait despèces		R	
+2022-08-03	PHARMACIE PREMIERE	-59,94	Santé:Paharmacie		R	
+2022-08-04	MCDONALDS	-15,6	Alimentation:Fast food		R	
+2022-08-04	MONOPRIX	-57,99	Alimentation:Supermarché		R	
+2022-08-04	DIRECT ASSURANCE	-22,39	Assurance:Assurance Habitation		R	
+2022-08-04	AMAZON DIGIT	-2,99	Loisirs:Service Numérique		R	
+2022-08-04	BONNEFOY JULIEN	400	Transaction interne		R	
+2022-08-05	MCDONALDS	-17,6	Alimentation:Fast food		R	
+2022-08-05	FRANPRIX	-35,45	Alimentation:Supermarché		R	
+2022-08-05	LE LONGCHAMP	-21	Junk:Tabac		R	
+2022-08-05	OUI ENERGY	-72,16	Logement:Frais généraux:Electricité		R	
+2022-08-05	FREE HAUTDEBIT	-63,48	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2022-08-05	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-08-05	EUROPCAR	-100	Transport:Location de véhicule		R	
+2022-08-05	UBER	-16,04	Transport:VTC-Taxi		R	
+2022-08-05	UBER	-16,49	Transport:VTC-Taxi		R	
+2022-08-06	AUCHAN	-21,71	Alimentation:Supermarché		R	
+2022-08-06	MONOPRIX	-41,14	Alimentation:Supermarché		R	
+2022-08-06	AMAZON	-27,59	Logement:Equipement		R	
+2022-08-06	PLAQUE RAPIDE	-9	Logement:Frais généraux:Services postaux		R	
+2022-08-06	MICROSOFT	-7	Loisirs:Service Numérique		R	
+2022-08-06	ATM	-15	Non attribué		R	
+2022-08-07	MCDONALDS	-15,2	Alimentation:Fast food		R	
+2022-08-07	OLIVIER ABBOU	-15	Dettes personnelles		R	
+2022-08-07	LE LONGCHAMP	-29,6	Junk:Tabac		R	
+2022-08-07	LA SOCIETE GENERALE	-100	Retrait despèces		R	
+2022-08-08	CARTE BANCAIRE	15	Dettes personnelles		R	
+2022-08-08	EUROPCAR	100	Pending:Pending Location de véhivcule		R	
+2022-08-09	E.LECLERC	-84,28	Alimentation:Supermarché		R	
+2022-08-09	FRANPRIX	-10,5	Alimentation:Supermarché		R	
+2022-08-11	AUCHAN	-94,29	Alimentation:Supermarché		R	
+2022-08-11	AUCHAN	-11,5	Alimentation:Supermarché		R	
+2022-08-11	AUCHAN	-10,06	Alimentation:Supermarché		R	
+2022-08-11	STARBUCKS	-6,05	Alimentation:TakeAway		R	
+2022-08-11	TOTAL	-150	Automobile:Carburant		R	
+2022-08-11	TOTAL	114,97	Pending:Pending Carburant		R	
+2022-08-11	SEPHORA	-85	Soins:Parfums-Produits de beauté		R	
+2022-08-12	AUCHAN	-77,69	Alimentation:Supermarché		R	
+2022-08-12	FONCIA AD IMMOBILIER GERANCE	705	Revenus fonciers		R	
+2022-08-13	FRANPRIX	-18,4	Alimentation:Supermarché		R	
+2022-08-13	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-08-13	AMAZON DIGIT	-2,99	Loisirs:Service Numérique		R	
+2022-08-13	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-08-13	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-08-13	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-08-13	JETBRAINS	-6,36	Loisirs:Service Numérique		R	
+2022-08-14	GIFI	-102,1	Logement:Equipement		R	
+2022-08-14	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-08-15	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-08-16	MCDONALDS	-14,4	Alimentation:Fast food		R	
+2022-08-16	E.LECLERC	-28,54	Alimentation:Supermarché		R	
+2022-08-17	MONOPRIX	-11,93	Alimentation:Supermarché		R	
+2022-08-17	LE BALTO	-40,13	Junk:Tabac		R	
+2022-08-17	OLIVIER LECHABLE	-122	Logement:Loyer		R	
+2022-08-17	NORDVPN	-12,71	Loisirs:Service Numérique		R	
+2022-08-17	LEVIS	-159	Soins:Habillement		R	
+2022-08-17	GALERIES LAFAYETTE OUTLET ONP	-114	Soins:Parfums-Produits de beauté		R	
+2022-08-18	AUCHAN	-13,02	Alimentation:Supermarché		R	
+2022-08-18	CARREFOUR	-9,13	Alimentation:Supermarché		R	
+2022-08-18	FRANPRIX	-18,7	Alimentation:Supermarché		R	
+2022-08-18	STARBUCKS	-6,05	Alimentation:TakeAway		R	
+2022-08-18	GL BASTILLE	-21	Junk:Tabac		R	
+2022-08-19	FRANPRIX	-13,85	Alimentation:Supermarché		R	
+2022-08-19	AMAZON	-79,98	Logement:Equipement		R	
+2022-08-19	AMAZON	-9,85	Logement:Equipement		R	
+2022-08-19	AMAZON	-29,95	Logement:Equipement		R	
+2022-08-19	AMAZON	-12,02	Logement:Equipement		R	
+2022-08-19	MICROSOFT	-7,1	Loisirs:Service Numérique		R	
+2022-08-20	CASHBACK SUMERIA	11,92	Cashback		R	
+2022-08-21	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-08-21	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-08-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2022-08-25	GELAJUNKIE	-5,5	Alimentation:Restaurant		R	
+2022-08-25	BP	-50	Automobile:Carburant		R	
+2022-08-25	FREE MOBILE	-38,98	Logement:Frais généraux:Téléphone mobile		R	
+2022-08-25	HORUS PHARMA	510,2	Revenus du travail:Salaire brut:Salaire net		R	
+2022-08-26	MCDONALDS	-19,9	Alimentation:Fast food		R	
+2022-08-26	RELAY	-15	Junk:Tabac		R	
+2022-08-27	KAYANI RESTAURAN	-70,8	Alimentation:Restaurant		R	
+2022-08-27	CARREFOUR	-56,81	Alimentation:Supermarché		R	
+2022-08-27	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2022-08-28	FRANPRIX	-18,25	Alimentation:Supermarché		R	
+2022-08-28	BP	-27,8	Automobile:Carburant		R	
+2022-08-28	ALHESA	-17,2	Junk:Tabac		R	
+2022-08-28	LA SOCIETE GENERALE	-160	Retrait despèces		R	
+2022-08-29	BOULANGERIE THIE	-5,4	Alimentation:Boulangerie		R	
+2022-08-29	FRANPRIX	-9,1	Alimentation:Supermarché		R	
+2022-08-29	FRANPRIX	-15,7	Alimentation:Supermarché		R	
+2022-08-29	HORUS PHARMA	2048,05	Revenus du travail:Salaire brut:Salaire net		R	
+2022-08-30	FRANPRIX	-24,1	Alimentation:Supermarché		R	
+2022-08-30	FRANPRIX	-10,44	Alimentation:Supermarché		R	
+2022-08-30	LA SOCIETE GENERALE	-170	Retrait despèces		R	
+2022-08-30	LA SOCIETE GENERALE	-60	Retrait despèces		R	
+2022-08-30	PHARMACIE TRAPEZE	-38,25	Santé:Paharmacie		R	
+2022-08-30	DOCTEUR MAIER	-7,5	Santé:Médecin généraliste		R	
+2022-08-31	FRANPRIX	-19,2	Alimentation:Supermarché		R	
+2022-08-31	LYDIA	-9,9	Frais bancaires		R	
+2022-08-31	PHARMACIE REPUBLIQUE	-19,98	Santé:Paharmacie		R	
+2022-08-31	PHARMACIE PREMIERE	-41,32	Santé:Paharmacie		R	
+2022-08-31	TRESOR PUBLIC	-285,59	Taxes et impôts		R	
+2022-09-01	BONNEFOY JULIEN	432,5	Transaction interne		R	
+2022-09-01	EUROPCAR	-110,82	Transport:Location de véhicule		R	
+2022-09-02	FRANPRIX	-52,21	Alimentation:Supermarché		R	
+2022-09-02	ALHESA	-35,2	Junk:Tabac		R	
+2022-09-03	INDIGO	-37,8	Automobile:Stationnement		R	
+2022-09-03	EUROPCAR	-100	Transport:Location de véhicule		R	
+2022-09-04	FRANPRIX	-28,55	Alimentation:Supermarché		R	
+2022-09-04	OTYPO	-9,5	Logement:Frais généraux:Services postaux		R	
+2022-09-05	CMNE DE PARIS	-8	Automobile:Stationnement		R	
+2022-09-05	LE NARVAL	-21	Junk:Tabac		R	
+2022-09-05	OUI ENERGY	-80,65	Logement:Frais généraux:Electricité		R	
+2022-09-06	FRANPRIX	-25,95	Alimentation:Supermarché		R	
+2022-09-06	DIRECT ASSURANCE	-22,39	Assurance:Assurance Habitation		R	
+2022-09-06	CMNE DE PARIS	-2	Automobile:Stationnement		R	
+2022-09-06	CMNE DE PARIS	-2	Automobile:Stationnement		R	
+2022-09-06	CMNE DE PARIS	-4,5	Automobile:Stationnement		R	
+2022-09-06	ALHESA	-22,43	Junk:Tabac		R	
+2022-09-06	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2022-09-06	MICROSOFT	-7	Loisirs:Service Numérique		R	
+2022-09-07	CMNE DE PARIS	-2	Automobile:Stationnement		R	
+2022-09-07	PARKING CARNOT	-5,5	Automobile:Stationnement		R	
+2022-09-07	ALHESA	-22,3	Junk:Tabac		R	
+2022-09-10	ADS SUPERETTE	-6,4	Alimentation:Supérette		R	
+2022-09-12	EUROPCAR	98,56	Pending:Pending Location de véhivcule		R	
+2022-09-13	AMMONITIA	-1043	Logement:Loyer		R	
+2022-09-13	OLIVIER LECHABLE	-122	Logement:Loyer		R	
+2022-09-13	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-09-13	JETBRAINS	-6,36	Loisirs:Service Numérique		R	
+2022-09-15	AMAZON	-1	Logement:Equipement		R	
+2022-09-15	AMAZON	-1	Logement:Equipement		R	
+2022-09-16	ALHESA	-15,86	Junk:Tabac		R	
+2022-09-17	LA POSTE	-38,7	Logement:Frais généraux:Services postaux		R	
+2022-09-20	AMAZON DIGIT	-1,99	Loisirs:Service Numérique		R	
+2022-09-21	LYDIA	-1	Frais bancaires		R	
+2022-09-23	FRANPRIX	-14,3	Alimentation:Supermarché		R	
+2022-09-23	CARTE BANCAIRE	150	Dettes personnelles		R	
+2022-09-23	CARTE BANCAIRE	200	Dettes personnelles		R	
+2022-09-23	LYDIA	-2,5	Frais bancaires		R	
+2022-09-23	APPLE	-9,99	Loisirs:Service Numérique		R	
+2022-09-23	APPLE	-2,99	Loisirs:Service Numérique		R	
+2022-09-23	NORDVPN	-12,71	Loisirs:Service Numérique		R	
+2022-09-23	TICKETS	-20,99	Loisirs:Spectacles		R	
+2022-09-23	LA SOCIETE GENERALE	-300	Retrait despèces		R	
+2022-09-23	FONCIA AD IMMOBILIER GERANCE	1118,12	Revenus fonciers		R	
+2022-09-24	FRANPRIX	-28,65	Alimentation:Supermarché		R	
+2022-09-25	FRANPRIX	-7,8	Alimentation:Supermarché		R	
+2022-09-25	YOUNITED	-21,6	Crédit:Mensualité		R	
+2022-09-25	AMAZON	-12,34	Logement:Equipement		R	
+2022-09-25	MICROSOFT	-7,38	Loisirs:Service Numérique		R	
+2022-09-25	LA SOCIETE GENERALE	-50	Retrait despèces		R	
+2022-09-26	ALHESA	-25,2	Junk:Tabac		R	
+2022-09-26	MAISON BERGER PARIS	-44,8	Logement:Equipement		R	
+2022-09-26	FREE MOBILE	-36,26	Logement:Frais généraux:Téléphone mobile		R	
+2022-09-26	AMMONITIA	-125	Logement:Loyer		R	
+2022-09-26	MK MOUCHOTTE	-12,01	Non attribué		R	
+2022-09-27	FRANPRIX	-26,1	Alimentation:Supermarché		R	
+2022-09-27	ALHESA	-47,71	Junk:Tabac		R	
+2022-09-27	AMAZON	-22,99	Logement:Equipement		R	
+2022-09-27	BRICORAMA	-78,64	Logement:Equipement		R	
+2022-09-27	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2022-09-27	LA SOCIETE GENERALE	-140	Retrait despèces		R	
+2022-09-28	CARREFOUR	-9,05	Alimentation:Supermarché		R	
+2022-09-28	FRANPRIX	-31,24	Alimentation:Supermarché		R	
+2022-09-28	AMAZON	-26,17	Logement:Equipement		R	
+2022-09-28	AMAZON	-33,36	Logement:Equipement		R	
+2022-09-28	LA POSTE	-4,17	Logement:Frais généraux:Services postaux		R	
+2022-09-28	HORUS PHARMA	1081,31	Revenus du travail:Salaire brut:Salaire net		R	
+2022-09-29	FRANPRIX	-18,39	Alimentation:Supermarché		R	
+2022-09-29	LA SOCIETE GENERALE	-270	Retrait despèces		R	
+2022-09-29	TRESOR PUBLIC	-594,32	Taxes et impôts		R	
+2022-09-30	FRANPRIX	-17,44	Alimentation:Supermarché		R	
+2022-09-30	APGIS	7,5	Allocations et Sécurité sociale:Remboursement de frais de santé		R	
+2022-09-30	LYDIA	-9,9	Frais bancaires		R	
+2022-09-30	ESPACE TABAC 50	-28	Junk:Tabac		R	
+2022-10-01	CARREFOUR	-72,8	Alimentation:Supermarché		R	
+2022-10-01	MR OU MME BONNEFOY	1200	Dettes personnelles		R	
+2022-10-01	AMMONITIA	-1173	Logement:Loyer		R	
+2022-10-02	FRANPRIX	-16,9	Alimentation:Supermarché		R	
+2022-10-03	SISI	-25,2	Non attribué		R	
+2022-10-05	FRANPRIX	-23,2	Alimentation:Supermarché		R	
+2022-10-05	DIRECT ASSURANCE	-22,39	Assurance:Assurance Habitation		R	
+2022-10-05	OUI ENERGY	-39,15	Logement:Frais généraux:Electricité		R	
+2022-10-06	FRANPRIX	-24,48	Alimentation:Supermarché		R	
+2022-10-06	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2022-10-07	FRANPRIX	-12,07	Alimentation:Supermarché		R	
+2022-10-07	MARCHAND NON COMMUNIQUÉ	22,99	Non attribuée		R	
+2022-10-08	FRANPRIX	-28,6	Alimentation:Supermarché		R	
+2022-10-08	KIOSQUE STARB	-7,15	Alimentation:TakeAway		R	
+2022-10-08	SNC PARC LYONDID	-6,8	Automobile:Stationnement		R	
+2022-10-08	ALHESA	-27,7	Junk:Tabac		R	
+2022-10-08	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-10-09	PETRIN RIBEIROU	-15	Alimentation:Boulangerie		R	
+2022-10-09	FRANPRIX	-22,84	Alimentation:Supermarché		R	
+2022-10-10	FRANPRIX	-15,51	Alimentation:Supermarché		R	
+2022-10-10	COTISATION ASSURANCE	-27,25	Assurance:Assurance Habitation		R	
+2022-10-10	CARTE BANCAIRE	300	Dettes personnelles		R	
+2022-10-10	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-10-10	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-10-10	LA SOCIETE GENERALE	-300	Retrait despèces		R	
+2022-10-11	M OU MME BOUVRY CHRISTOPHE	100	Dettes personnelles		R	
+2022-10-11	XMIND	-50,99	Loisirs:Service Numérique		R	
+2022-10-12	CARREFOUR	-8,77	Alimentation:Supermarché		R	
+2022-10-12	FONCIA AD IMMOBILIER GERANCE	705	Revenus fonciers		R	
+2022-10-13	LE CIGARIUM	-21	Junk:Tabac		R	
+2022-10-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2022-10-13	LA SOCIETE GENERALE	-100	Retrait despèces		R	
+2022-10-14	FRANPRIX	-22,53	Alimentation:Supermarché		R	
+2022-10-14	LE POT COMMUN	-50	Cadeaux		R	
+2022-10-15	FRANPRIX	-18,69	Alimentation:Supermarché		R	
+2022-10-15	PHARMACIE TRAPEZE	-5,14	Santé:Paharmacie		R	
+2022-10-16	FRANPRIX	-12,8	Alimentation:Supermarché		R	
+2022-10-16	ALHESA	-17,2	Junk:Tabac		R	
+2022-10-16	LA SOCIETE GENERALE	-140	Retrait despèces		R	
+2022-10-17	FRANPRIX	-21,2	Alimentation:Supermarché		R	
+2022-10-17	TICKET À GRATTER	5,14	Cashback		R	
+2022-10-17	AVANSSUR	39,17	Remboursements divers:Remboursement dassurance		R	
+2022-10-19	MICROSOFT	-7,25	Loisirs:Service Numérique		R	
+2022-10-19	PHARMACIE GIRAUD	-2,99	Santé:Paharmacie		R	
+2022-10-21	FRANPRIX	-20,95	Alimentation:Supermarché		R	
+2022-10-21	AMAZON DIGIT	-2,99	Loisirs:Service Numérique		R	
+2022-10-21	DOCTEUR ANXO LIONEL	-35	Santé:Médecin généraliste		R	
+2022-10-22	IKEA	-156,93	Logement:Equipement		R	
+2022-10-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2022-10-22	CANDY COIFFURE	-22,5	Soins:Coiffeur		R	
+2022-10-23	APPLE	-9,99	Loisirs:Service Numérique		R	
+2022-10-23	NORDVPN	-12,71	Loisirs:Service Numérique		R	
+2022-10-24	FRANPRIX	-22,54	Alimentation:Supermarché		R	
+2022-10-24	ALHESA	-32,7	Junk:Tabac		R	
+2022-10-24	FREE MOBILE	-35,98	Logement:Frais généraux:Téléphone mobile		R	
+2022-10-25	AUCHAN	-103,22	Alimentation:Supermarché		R	
+2022-10-25	FRANPRIX	-20,98	Alimentation:Supermarché		R	
+2022-10-25	HORUS PHARMA	1156,59	Revenus du travail:Salaire brut:Salaire net		R	
+2022-10-26	FRANPRIX	-16,35	Alimentation:Supermarché		R	
+2022-10-27	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2022-10-27	MMA IARD	201	Remboursements divers:Remboursement dassurance		R	
+2022-10-27	HORUS PHARMA	1208,59	Revenus du travail:Salaire brut:Salaire net		R	
+2022-10-28	APGIS	17,5	Allocations et Sécurité sociale:Remboursement de frais de santé		R	
+2022-10-30	AUCHAN	-34,72	Alimentation:Supermarché		R	
+2022-10-31	TOTAL	-200	Automobile:Carburant		R	
+2022-10-31	SANEF	-17,3	Automobile:Péage		R	
+2022-10-31	LYDIA	-9,9	Frais bancaires		R	
+2022-10-31	TOTAL	125,04	Pending:Pending Carburant		R	
+2022-11-01	FRANPRIX	-7,15	Alimentation:Supermarché		R	
+2022-11-01	LA SOCIETE GENERALE	-210	Retrait despèces		R	
+2022-11-02	LA SOCIETE GENERALE	-20	Retrait despèces		R	
+2022-11-03	BOULANGERIE THIE	-6	Alimentation:Boulangerie		R	
+2022-11-03	CARTE BANCAIRE	250	Dettes personnelles		R	
+2022-11-03	AMMONITIA	-913	Logement:Loyer		R	
+2022-11-03	AMMONITIA	-250	Logement:Loyer		R	
+2022-11-03	TRESOR PUBLIC	-1191,95	Taxes et impôts		R	
+2022-11-04	CARTE BANCAIRE	300	Dettes personnelles		R	
+2022-11-04	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2022-11-04	LA SOCIETE GENERALE	-120	Retrait despèces		R	
+2022-11-05	BOULANGERIE THIE	-3,1	Alimentation:Boulangerie		R	
+2022-11-05	AUCHAN	-67,41	Alimentation:Supermarché		R	
+2022-11-05	FRANPRIX	-17,18	Alimentation:Supermarché		R	
+2022-11-05	CARTE BANCAIRE	150	Dettes personnelles		R	
+2022-11-05	LYDIA	-3,75	Frais bancaires		R	
+2022-11-05	ALHESA	-19,69	Junk:Tabac		R	
+2022-11-05	ALHESA	-19,69	Junk:Tabac		R	
+2022-11-05	LA SOCIETE GENERALE	-150	Retrait despèces		R	
+2022-11-06	CARTE BANCAIRE	50	Dettes personnelles		R	
+2022-11-06	LYDIA	-3,75	Frais bancaires		R	
+2022-11-07	CARTE BANCAIRE	70	Dettes personnelles		R	
+2022-11-07	LYDIA	-1,25	Frais bancaires		R	
+2022-11-07	OUI ENERGY	-9,81	Logement:Frais généraux:Electricité		R	
+2022-11-07	ATM	-100	Retrait despèces		R	
+2022-11-08	CARTE BANCAIRE	100	Dettes personnelles		R	
+2022-11-08	CARTE BANCAIRE	100	Dettes personnelles		R	
+2022-11-08	LYDIA	-1,75	Frais bancaires		R	
+2022-11-08	LA SOCIETE GENERALE	-100	Retrait despèces		R	
+2022-11-09	LYDIA	-5	Frais bancaires		R	
+2022-11-09	LA SOCIETE GENERALE	-100	Retrait despèces		R	
+2022-11-10	LYDIA	-1,5	Frais bancaires		R	
+2022-11-11	FONCIA AD IMMOBILIER GERANCE	705	Revenus fonciers		R	
+2022-11-12	GOOGLE DOMAINS	-12	Loisirs:Service Numérique		R	
+2022-11-13	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-11-13	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-11-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2022-11-14	FRANPRIX	-5,9	Alimentation:Supermarché		R	
+2022-11-14	OLIVIER LECHABLE	-262	Logement:Loyer		R	
+2022-11-14	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-11-14	AMAZON DIGIT	-2,99	Loisirs:Service Numérique		R	
+2022-11-14	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-11-14	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2022-11-14	ATM	-50	Retrait despèces		R	
+2022-11-14	ATM	-100	Retrait despèces		R	
+2022-11-14	PHARMACIE TRAPEZE	-24,61	Santé:Paharmacie		R	
+2022-11-15	LYDIA	-2,5	Frais bancaires		R	
+2022-11-15	UBER	-27,96	Transport:VTC-Taxi		R	
+2022-11-15	UBER	-26,26	Transport:VTC-Taxi		R	
+2022-11-18	LA SOCIETE GENERALE	-140	Retrait despèces		R	
+2022-11-19	LYDIA	-2,09	Frais bancaires		R	
+2022-11-19	MICROSOFT	-7,75	Loisirs:Service Numérique		R	
+2022-11-21	CARTE BANCAIRE	200	Dettes personnelles		R	
+2022-11-21	ATM	-210	Retrait despèces		R	
+2022-11-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2022-11-23	CARTE BANCAIRE	150	Dettes personnelles		R	
+2022-11-23	CIC	-150	Retrait despèces		R	
+2022-11-24	FREE MOBILE	-35,98	Logement:Frais généraux:Téléphone mobile		R	
+2022-11-24	NORDVPN	-12,71	Loisirs:Service Numérique		R	
+2022-11-24	HORUS PHARMA	447	Revenus du travail:Salaire brut:Salaire net		R	
+2022-11-27	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2022-11-28	HORUS PHARMA	987,58	Revenus du travail:Salaire brut:Salaire net		R	
+2022-11-29	FRANPRIX	-11,35	Alimentation:Supermarché		R	
+2022-11-29	TABAC PRESSE	-15,69	Junk:Tabac		R	
+2022-11-30	FRANPRIX	-24,37	Alimentation:Supermarché		R	
+2022-11-30	LYDIA	-9,9	Frais bancaires		R	
+2022-11-30	DOCTEUR ANXO LIONEL	-35	Santé:Médecin généraliste		R	
+2022-11-30	TRESOR PUBLIC	-404,15	Taxes et impôts		R	
+2022-12-01	FRANPRIX	-21,5	Alimentation:Supermarché		R	
+2022-12-01	TABAC PRESSE	-17,2	Junk:Tabac		R	
+2022-12-02	FRANPRIX	-13,99	Alimentation:Supermarché		R	
+2022-12-03	FRANPRIX	-17,69	Alimentation:Supermarché		R	
+2022-12-04	PETRIN RIBEIROU	-6,7	Alimentation:Boulangerie		R	
+2022-12-05	FRANPRIX	-22,34	Alimentation:Supermarché		R	
+2022-12-05	CIC	-300	Retrait despèces		R	
+2022-12-06	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2022-12-07	FRANPRIX	-29,58	Alimentation:Supermarché		R	
+2022-12-07	LA SOCIETE GENERALE	-110	Retrait despèces		R	
+2022-12-08	LA SOCIETE GENERALE	-80	Retrait despèces		R	
+2022-12-09	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2022-12-09	FRANPRIX	-23,54	Alimentation:Supermarché		R	
+2022-12-09	APGIS	17,5	Allocations et Sécurité sociale:Remboursement de frais de santé		R	
+2022-12-09	COTISATION ASSURANCE	-27,25	Assurance:Assurance Habitation		R	
+2022-12-11	FRANPRIX	-24,48	Alimentation:Supermarché		R	
+2022-12-11	PICARD	-6,9	Alimentation:Supermarché		R	
+2022-12-11	MICROSOFT	-7,24	Loisirs:Service Numérique		R	
+2022-12-12	FRANPRIX	-15,09	Alimentation:Supermarché		R	
+2022-12-12	CARTE BANCAIRE	200	Dettes personnelles		R	
+2022-12-12	LA SOCIETE GENERALE	-140	Retrait despèces		R	
+2022-12-13	FRANPRIX	-14,33	Alimentation:Supermarché		R	
+2022-12-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2022-12-14	FRANPRIX	-19,29	Alimentation:Supermarché		R	
+2022-12-14	CARTE BANCAIRE	120	Dettes personnelles		R	
+2022-12-14	LA SOCIETE GENERALE	-120	Retrait despèces		R	
+2022-12-14	LA SOCIETE GENERALE	-50	Retrait despèces		R	
+2022-12-14	PHARMACIE TRAPEZE	-2,95	Santé:Paharmacie		R	
+2022-12-15	MONOPRIX	-16,51	Alimentation:Supermarché		R	
+2022-12-15	DOCTEUR MARTIN	-25	Santé:Médecin généraliste		R	
+2022-12-16	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2022-12-16	FRANPRIX	-7,25	Alimentation:Supermarché		R	
+2022-12-16	TABAC PRESSE	-17,2	Junk:Tabac		R	
+2022-12-19	CARTE BANCAIRE	200	Dettes personnelles		R	
+2022-12-19	LA SOCIETE GENERALE	-140	Retrait despèces		R	
+2022-12-20	BOULANGERIE THIE	-2,9	Alimentation:Boulangerie		R	
+2022-12-20	FRANPRIX	-11,64	Alimentation:Supermarché		R	
+2022-12-20	FRANPRIX	-21,91	Alimentation:Supermarché		R	
+2022-12-20	CASHBACK SUMERIA	0,71	Cashback		R	
+2022-12-20	LYDIA	-5,09	Frais bancaires		R	
+2022-12-20	TABAC PRESSE	-14,3	Junk:Tabac		R	
+2022-12-20	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-12-20	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2022-12-22	CARTE BANCAIRE	300	Dettes personnelles		R	
+2022-12-22	MR OU MME BONNEFOY	100	Dettes personnelles		R	
+2022-12-22	SHOP AND CLEAN B.V.	-127	Junk:G		R	
+2022-12-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2022-12-22	HORUS PHARMA	2104,49	Revenus du travail:Salaire brut:Salaire net		R	
+2022-12-23	CARREFOUR	-24,32	Alimentation:Supermarché		R	
+2022-12-23	APGIS	7,5	Allocations et Sécurité sociale:Remboursement de frais de santé		R	
+2022-12-23	LYDIA	-7,5	Frais bancaires		R	
+2022-12-23	TABAC PRESSE	-27,7	Junk:Tabac		R	
+2022-12-23	CMNE DE BOULOGNE	-60	Retrait despèces		R	
+2022-12-23	LA SOCIETE GENERALE	-140	Retrait despèces		R	
+2022-12-23	HORUS PHARMA	20	Revenus du travail:Salaire brut:Salaire net		R	
+2022-12-24	BOULANGERIE THIE	-12,04	Alimentation:Boulangerie		R	
+2022-12-24	AUCHAN	-98,91	Alimentation:Supermarché		R	
+2022-12-24	AUCHAN	-21,97	Alimentation:Supermarché		R	
+2022-12-24	AUCHAN	-33,9	Alimentation:Supermarché		R	
+2022-12-24	AUCHAN	-29,64	Alimentation:Supermarché		R	
+2022-12-24	PICARD	-62,96	Alimentation:Supermarché		R	
+2022-12-24	STARBUCKS	-13,35	Alimentation:TakeAway		R	
+2022-12-24	LYDIA	-2,09	Frais bancaires		R	
+2022-12-24	TABAC PRESSE	-13,5	Junk:Tabac		R	
+2022-12-24	APPLE	-64	Logement:Equipement		R	
+2022-12-24	NORDVPN	-12,71	Loisirs:Service Numérique		R	
+2022-12-24	THE BARBER	-56	Soins:Coiffeur		R	
+2022-12-26	BOULANGERIE THIE	-3	Alimentation:Boulangerie		R	
+2022-12-26	LES 3 CLEFS	-2,9	Logement:Frais généraux:Services postaux		R	
+2022-12-27	CARREFOUR	-16,42	Alimentation:Supermarché		R	
+2022-12-27	TABAC PRESSE	-15,5	Junk:Tabac		R	
+2022-12-27	FREE MOBILE	-35,98	Logement:Frais généraux:Téléphone mobile		R	
+2022-12-27	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2022-12-28	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2022-12-28	BOULANGERIE THIE	-22,6	Alimentation:Boulangerie		R	
+2022-12-28	CARREFOUR	-18,46	Alimentation:Supermarché		R	
+2022-12-28	AMAZON	-23,98	Logement:Equipement		R	
+2022-12-28	APPLE	-4,99	Loisirs:Service Numérique		R	
+2022-12-29	TOTAL	-200	Automobile:Carburant		R	
+2022-12-29	M OU MME BOUVRY CHRISTOPHE	25	Dettes personnelles		R	
+2022-12-29	TOTAL	170	Pending:Pending Carburant		R	
+2022-12-29	ATM	-300	Retrait despèces		R	
+2022-12-30	CARREFOUR	-11,28	Alimentation:Supermarché		R	
+2022-12-30	LYDIA	-4,5	Frais bancaires		R	
+2022-12-30	TABAC PRESSE	-27,7	Junk:Tabac		R	
+2022-12-30	AMMONITIA	-1043	Logement:Loyer		R	
+2022-12-30	LA SOCIETE GENERALE	-100	Retrait despèces		R	
+2022-12-31	CARREFOUR	-35,53	Alimentation:Supermarché		R	
+2022-12-31	LYDIA	-9,9	Frais bancaires		R	
+2022-12-31	LYDIA	-1,5	Frais bancaires		R	
+2023-01-04	CARREFOUR	-8,18	Alimentation:Supermarché		R	
+2023-01-04	CARTE BANCAIRE	50	Dettes personnelles		R	
+2023-01-05	CARTE BANCAIRE	300	Dettes personnelles		R	
+2023-01-05	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2023-01-05	LA SOCIETE GENERALE	-300	Retrait despèces		R	
+2023-01-10	CARTE BANCAIRE	100	Dettes personnelles		R	
+2023-01-10	LA SOCIETE GENERALE	-100	Retrait despèces		R	
+2023-01-11	INDIGO	-2,5	Automobile:Stationnement		R	
+2023-01-11	CARTE BANCAIRE	100	Dettes personnelles		R	
+2023-01-11	CARTE BANCAIRE	150	Dettes personnelles		R	
+2023-01-11	LYDIA	-1,25	Frais bancaires		R	
+2023-01-11	MICROSOFT	-7,19	Loisirs:Service Numérique		R	
+2023-01-11	ATM	-150	Retrait despèces		R	
+2023-01-11	PHARMACIE PREMIERE	-41,32	Santé:Paharmacie		R	
+2023-01-12	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2023-01-12	CARREFOUR	-25,6	Alimentation:Supermarché		R	
+2023-01-12	LYDIA	-6,25	Frais bancaires		R	
+2023-01-13	CARREFOUR	-24,7	Alimentation:Supermarché		R	
+2023-01-13	CARTE BANCAIRE	250	Dettes personnelles		R	
+2023-01-13	ATM	-200	Retrait despèces		R	
+2023-01-14	CARREFOUR	-21,34	Alimentation:Supermarché		R	
+2023-01-14	LYDIA	-6,25	Frais bancaires		R	
+2023-01-15	CARREFOUR	-18,13	Alimentation:Supermarché		R	
+2023-01-15	CARTE BANCAIRE	200	Dettes personnelles		R	
+2023-01-15	ATM	-100	Retrait despèces		R	
+2023-01-15	LA SOCIETE GENERALE	-50	Retrait despèces		R	
+2023-01-16	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2023-01-16	LYDIA	-5	Frais bancaires		R	
+2023-01-16	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2023-01-19	CARREFOUR	-15,04	Alimentation:Supermarché		R	
+2023-01-21	MARCHAND NON COMMUNIQUÉ	41,32	Non attribuée		R	
+2023-01-22	PETRIN RIBEIROU	-4,3	Alimentation:Boulangerie		R	
+2023-01-22	TABAC PRESSE	-10,5	Junk:Tabac		R	
+2023-01-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2023-01-23	BOULANGERIE THIE	-7,7	Alimentation:Boulangerie		R	
+2023-01-23	CARREFOUR	-17,82	Alimentation:Supermarché		R	
+2023-01-23	CARREFOUR	-9,31	Alimentation:Supermarché		R	
+2023-01-25	LYDIA	-0,5	Frais bancaires		R	
+2023-01-26	BOULANGERIE THIE	-4,5	Alimentation:Boulangerie		R	
+2023-01-26	CARREFOUR	-24,06	Alimentation:Supermarché		R	
+2023-01-26	MR OU MME BONNEFOY	300	Dettes personnelles		R	
+2023-01-26	LYDIA	-5	Frais bancaires		R	
+2023-01-26	TABAC PRESSE	-10,5	Junk:Tabac		R	
+2023-01-27	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2023-01-27	CARREFOUR	-31,94	Alimentation:Supermarché		R	
+2023-01-27	TABAC PRESSE	-10,5	Junk:Tabac		R	
+2023-01-27	FREE MOBILE	-35,98	Logement:Frais généraux:Téléphone mobile		R	
+2023-01-27	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2023-01-27	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2023-01-28	CARREFOUR	-6,68	Alimentation:Supermarché		R	
+2023-01-28	LA SOCIETE GENERALE	-150	Retrait despèces		R	
+2023-01-29	CARREFOUR	-46,29	Alimentation:Supermarché		R	
+2023-01-29	M OU MME BOUVRY CHRISTOPHE	30	Dettes personnelles		R	
+2023-01-29	M OU MME BOUVRY CHRISTOPHE	300	Dettes personnelles		R	
+2023-01-29	LYDIA	-2,25	Frais bancaires		R	
+2023-01-29	TABAC PRESSE	-13,1	Junk:Tabac		R	
+2023-01-30	LYDIA	-0,5	Frais bancaires		R	
+2023-01-30	LA POSTE	-8,87	Logement:Frais généraux:Services postaux		R	
+2023-01-31	YOUNITED	-43,2	Crédit:Mensualité		R	
+2023-01-31	LYDIA	-9,9	Frais bancaires		R	
+2023-01-31	TABAC PRESSE	-23,5	Junk:Tabac		R	
+2023-01-31	AMAZON	-26,98	Logement:Equipement		R	
+2023-01-31	DARTY	-9,99	Logement:Equipement		R	
+2023-02-01	CARREFOUR	-28,1	Alimentation:Supermarché		R	
+2023-02-01	TOTAL	-14,3	Automobile:Carburant		R	
+2023-02-02	BOULANGERIE THIE	-2,9	Alimentation:Boulangerie		R	
+2023-02-02	CARREFOUR	-14,46	Alimentation:Supermarché		R	
+2023-02-02	TABAC PRESSE	-18,7	Junk:Tabac		R	
+2023-02-02	PHARMACIE TRAPEZE	-5,14	Santé:Paharmacie		R	
+2023-02-03	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2023-02-03	FRANPRIX	-16,55	Alimentation:Supermarché		R	
+2023-02-03	LA SOCIETE GENERALE	-50	Retrait despèces		R	
+2023-02-05	MME MERCIER CELINE	50	Dettes personnelles		R	
+2023-02-05	LA SOCIETE GENERALE	-50	Retrait despèces		R	
+2023-02-06	CARREFOUR	-17,3	Alimentation:Supermarché		R	
+2023-02-06	TOTAL	-12,6	Automobile:Carburant		R	
+2023-02-06	MR OU MME BONNEFOY	100	Dettes personnelles		R	
+2023-02-06	UBER	-36,55	Transport:VTC-Taxi		R	
+2023-02-07	CARREFOUR	-11,13	Alimentation:Supermarché		R	
+2023-02-08	CARREFOUR	-12,27	Alimentation:Supermarché		R	
+2023-02-08	CARREFOUR	-7,33	Alimentation:Supermarché		R	
+2023-02-09	CARREFOUR	-18,99	Alimentation:Supermarché		R	
+2023-02-09	M OU MME BOUVRY CHRISTOPHE	100	Dettes personnelles		R	
+2023-02-09	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2023-02-10	LYDIA	-5	Frais bancaires		R	
+2023-02-10	TABAC PRESSE	-10,5	Junk:Tabac		R	
+2023-02-10	LES 3 CLEFS	-7,48	Logement:Frais généraux:Services postaux		R	
+2023-02-11	M OU MME BOUVRY CHRISTOPHE	100	Dettes personnelles		R	
+2023-02-11	TABAC PRESSE	-10,5	Junk:Tabac		R	
+2023-02-11	MICROSOFT	-7,03	Loisirs:Service Numérique		R	
+2023-02-11	UBER	-39,91	Transport:VTC-Taxi		R	
+2023-02-13	CARREFOUR	-10,68	Alimentation:Supermarché		R	
+2023-02-13	TABAC PRESSE	-10,5	Junk:Tabac		R	
+2023-02-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2023-02-14	CARREFOUR	-2,79	Alimentation:Supermarché		R	
+2023-02-14	TABAC PRESSE	-17,2	Junk:Tabac		R	
+2023-02-15	FRANPRIX	-1,3	Alimentation:Supermarché		R	
+2023-02-17	LYDIA	-5	Frais bancaires		R	
+2023-02-18	MR OU MME BONNEFOY	20	Dettes personnelles		R	
+2023-02-18	TABAC PRESSE	-14,7	Junk:Tabac		R	
+2023-02-22	CARREFOUR	-19,93	Alimentation:Supermarché		R	
+2023-02-22	FRANPRIX	-0,29	Alimentation:Supermarché		R	
+2023-02-22	M OU MME BOUVRY CHRISTOPHE	100	Dettes personnelles		R	
+2023-02-22	TABAC PRESSE	-17,3	Junk:Tabac		R	
+2023-02-22	TABAC PRESSE	-10,5	Junk:Tabac		R	
+2023-02-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2023-02-22	LA SOCIETE GENERALE	-50	Retrait despèces		R	
+2023-02-24	MME MERCIER CELINE	100	Dettes personnelles		R	
+2023-02-24	TABAC PRESSE	-19,8	Junk:Tabac		R	
+2023-02-24	FREE MOBILE	-41,98	Logement:Frais généraux:Téléphone mobile		R	
+2023-02-24	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2023-02-24	LA SOCIETE GENERALE	-30	Retrait despèces		R	
+2023-02-27	MR OU MME BONNEFOY	27	Dettes personnelles		R	
+2023-02-27	LA SOCIETE GENERALE	-30	Retrait despèces		R	
+2023-02-28	LYDIA	-9,9	Frais bancaires		R	
+2023-03-01	CARREFOUR	-6,81	Alimentation:Supermarché		R	
+2023-03-01	POLE EMPLOI DR IDF	668,47	Allocations et Sécurité sociale:Allocation de Retour à lEmploi		R	
+2023-03-01	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-03-02	TABAC LES 4 ARBR	-16,4	Junk:Tabac		R	
+2023-03-02	OLIVIER LECHABLE	-124	Logement:Loyer		R	
+2023-03-03	MY MARKET	-14,2	Alimentation:Supermarché		R	
+2023-03-03	MR OU MME BONNEFOY	113	Dettes personnelles		R	
+2023-03-03	LA FRANCAISE DES	-5	Junk:Tabac		R	
+2023-03-03	CARGO CENTRAK	-13,67	Logement:Equipement		R	
+2023-03-03	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2023-03-03	EASYJET	-113	Transport:Avion		R	
+2023-03-03	UBER	-11,32	Transport:VTC-Taxi		R	
+2023-03-04	GRAND PARIS SEINE OUEST	-2	Automobile:Stationnement		R	
+2023-03-04	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-03-04	TROIFOIRIEN	-5	Logement:Equipement		R	
+2023-03-05	CARREFOUR	-26,06	Alimentation:Supermarché		R	
+2023-03-05	RELAY	-11,5	Junk:Tabac		R	
+2023-03-06	CARREFOUR	-20,48	Alimentation:Supermarché		R	
+2023-03-06	CARREFOUR	-11,3	Alimentation:Supermarché		R	
+2023-03-06	TABAC PRESSE	-18,4	Junk:Tabac		R	
+2023-03-06	FREE HAUTDEBIT	-59,32	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2023-03-07	TOOGOODTOG	-4	Alimentation:TakeAway		R	
+2023-03-07	CARREFOUR	-11,47	Alimentation:Supermarché		R	
+2023-03-07	CARREFOUR	-4,33	Alimentation:Supermarché		R	
+2023-03-07	TABAC PRESSE	-15	Junk:Tabac		R	
+2023-03-08	CARREFOUR	-13,08	Alimentation:Supermarché		R	
+2023-03-08	CARREFOUR	-8,74	Alimentation:Supermarché		R	
+2023-03-09	CARREFOUR	-13,53	Alimentation:Supermarché		R	
+2023-03-09	CARREFOUR	-17,42	Alimentation:Supermarché		R	
+2023-03-10	BOULANGERIE THIE	-15,7	Alimentation:Boulangerie		R	
+2023-03-10	CARREFOUR	-7,4	Alimentation:Supermarché		R	
+2023-03-10	CARREFOUR	-9,85	Alimentation:Supermarché		R	
+2023-03-10	TABAC PRESSE	-28,9	Junk:Tabac		R	
+2023-03-11	CARREFOUR	-12,39	Alimentation:Supermarché		R	
+2023-03-11	CARREFOUR	-28,31	Alimentation:Supermarché		R	
+2023-03-11	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-03-11	MICROSOFT	-6,22	Loisirs:Service Numérique		R	
+2023-03-13	CARREFOUR	-6,72	Alimentation:Supermarché		R	
+2023-03-13	CARREFOUR	-17,54	Alimentation:Supermarché		R	
+2023-03-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2023-03-14	CARREFOUR	-9,91	Alimentation:Supermarché		R	
+2023-03-14	CARREFOUR	-13,69	Alimentation:Supermarché		R	
+2023-03-15	CARREFOUR	-5,63	Alimentation:Supermarché		R	
+2023-03-15	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-03-19	MR OU MME BONNEFOY	100	Dettes personnelles		R	
+2023-03-19	LA SOCIETE GENERALE	-100	Retrait despèces		R	
+2023-03-24	MR OU MME BONNEFOY	120	Dettes personnelles		R	
+2023-03-24	FREE MOBILE	-36,98	Logement:Frais généraux:Téléphone mobile		R	
+2023-03-24	LA SOCIETE GENERALE	-80	Retrait despèces		R	
+2023-03-25	CARREFOUR	-4,33	Alimentation:Supermarché		R	
+2023-03-26	LYDIA	-0,5	Frais bancaires		R	
+2023-03-28	MME MERCIER CELINE	32	Dettes personnelles		R	
+2023-03-28	LYDIA	-1,5	Frais bancaires		R	
+2023-03-28	LA SOCIETE GENERALE	-30	Retrait despèces		R	
+2023-03-30	SELECTA	-2,9	Alimentation:TakeAway		R	
+2023-03-30	MR OU MME BONNEFOY	50	Dettes personnelles		R	
+2023-03-30	LYDIA	-1	Frais bancaires		R	
+2023-03-30	LA SOCIETE GENERALE	-40	Retrait despèces		R	
+2023-03-30	SNCF	-5	Transport:Transports en commun		R	
+2023-03-31	LYDIA	-9,9	Frais bancaires		R	
+2023-04-01	LYDIA	-1	Frais bancaires		R	
+2023-04-04	CARREFOUR	-9,73	Alimentation:Supermarché		R	
+2023-04-04	MME MERCIER CELINE	30	Dettes personnelles		R	
+2023-04-04	MR OU MME BONNEFOY	40	Dettes personnelles		R	
+2023-04-04	TABAC PRESSE	-15,8	Junk:Tabac		R	
+2023-04-04	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2023-04-04	NATIONALE DISTRI	-8,34	Non attribué		R	
+2023-04-04	ATM	-20	Retrait despèces		R	
+2023-04-05	FRANPRIX	-13,04	Alimentation:Supermarché		R	
+2023-04-05	MONOPRIX	-22,79	Alimentation:Supermarché		R	
+2023-04-05	M OU MME BOUVRY CHRISTOPHE	100	Dettes personnelles		R	
+2023-04-05	TABAC PRESSE	-16,46	Junk:Tabac		R	
+2023-04-05	CIC	-40	Retrait despèces		R	
+2023-04-06	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2023-04-08	MME MERCIER CELINE	20	Dettes personnelles		R	
+2023-04-08	CIC	-20	Retrait despèces		R	
+2023-04-10	LYDIA	-0,5	Frais bancaires		R	
+2023-04-11	POLE EMPLOI DR IDF	831,51	Allocations et Sécurité sociale:Allocation de Retour à lEmploi		R	
+2023-04-11	TABAC VILLAGE	-23	Junk:Tabac		R	
+2023-04-12	MONOPRIX	-8,2	Alimentation:Supermarché		R	
+2023-04-12	LYDIA	-1	Frais bancaires		R	
+2023-04-12	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2023-04-13	CARREFOUR	-46,66	Alimentation:Supermarché		R	
+2023-04-13	CARREFOUR	-19,48	Alimentation:Supermarché		R	
+2023-04-13	TABAC PRESSE	-14,1	Junk:Tabac		R	
+2023-04-13	APPLE	-2,99	Loisirs:Service Numérique		R	
+2023-04-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2023-04-14	CARREFOUR	-8,53	Alimentation:Supermarché		R	
+2023-04-14	FRANPRIX	-7,29	Alimentation:Supermarché		R	
+2023-04-14	MAAF ASSURANCES	-185,64	Assurance:Assurance Habitation		R	
+2023-04-14	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-04-14	MICROSOFT	-2,28	Loisirs:Service Numérique		R	
+2023-04-14	ATM	-150	Retrait despèces		R	
+2023-04-14	PHARMACIE REPUBLIQUE	-9,99	Santé:Paharmacie		R	
+2023-04-15	CARREFOUR	-7,22	Alimentation:Supermarché		R	
+2023-04-15	ARLOME	-1,3	Junk:Tabac		R	
+2023-04-15	TABAC PRESSE	-14,5	Junk:Tabac		R	
+2023-04-15	SNCF	-5	Transport:Transports en commun		R	
+2023-04-15	UBER	-8	Transport:VTC-Taxi		R	
+2023-04-16	UBER	0,3	Pending:Pending VTC-Taxi		R	
+2023-04-16	CIC	-30	Retrait despèces		R	
+2023-04-17	CARREFOUR	-9,1	Alimentation:Supermarché		R	
+2023-04-17	TABAC PRESSE	-15,8	Junk:Tabac		R	
+2023-04-17	POST-PAIEMENT	-5,07	Non attribué		R	
+2023-04-18	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2023-04-18	CARREFOUR	-7,31	Alimentation:Supermarché		R	
+2023-04-18	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-04-18	PHARMACIE TRAPEZE	-3,53	Santé:Paharmacie		R	
+2023-04-19	CARREFOUR	-21,24	Alimentation:Supermarché		R	
+2023-04-19	CARREFOUR	-2,7	Alimentation:Supermarché		R	
+2023-04-20	CARREFOUR	-19,52	Alimentation:Supermarché		R	
+2023-04-21	CARREFOUR	-19,66	Alimentation:Supermarché		R	
+2023-04-22	CARREFOUR	-8,64	Alimentation:Supermarché		R	
+2023-04-22	CARREFOUR	-11,43	Alimentation:Supermarché		R	
+2023-04-22	TABAC PRESSE	-18,4	Junk:Tabac		R	
+2023-04-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2023-04-23	CARREFOUR	-12,01	Alimentation:Supermarché		R	
+2023-04-23	SNCF	-5	Transport:Transports en commun		R	
+2023-04-24	CARREFOUR	-14,07	Alimentation:Supermarché		R	
+2023-04-25	CARREFOUR	-7,64	Alimentation:Supermarché		R	
+2023-04-26	CARREFOUR	-6,82	Alimentation:Supermarché		R	
+2023-04-27	MR OU MME BONNEFOY	100	Dettes personnelles		R	
+2023-04-27	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-04-27	FREE MOBILE	-40,73	Logement:Frais généraux:Téléphone mobile		R	
+2023-04-27	ATM	-50	Retrait despèces		R	
+2023-04-30	MME MERCIER CELINE	30	Dettes personnelles		R	
+2023-04-30	LYDIA	-9,9	Frais bancaires		R	
+2023-04-30	VAD FRANCE	-2,99	Non attribué		R	
+2023-04-30	LA SOCIETE GENERALE	-20	Retrait despèces		R	
+2023-05-02	ATM	-40	Retrait despèces		R	
+2023-05-02	BONNEFOY JULIEN	40,28	Transaction interne		R	
+2023-05-03	CARREFOUR	-4,48	Alimentation:Supermarché		R	
+2023-05-03	POLE EMPLOI DR IDF	818,88	Allocations et Sécurité sociale:Allocation de Retour à lEmploi		R	
+2023-05-03	YOUNITED	-32,4	Crédit:Mensualité		R	
+2023-05-03	M OU MME BOUVRY CHRISTOPHE	50	Dettes personnelles		R	
+2023-05-03	ATM	-50	Retrait despèces		R	
+2023-05-03	ATM	-150	Retrait despèces		R	
+2023-05-03	CIC	-100	Retrait despèces		R	
+2023-05-04	MONOPRIX	-17	Alimentation:Supermarché		R	
+2023-05-04	LE ROYAL BOULOG	-26,4	Junk:Tabac		R	
+2023-05-04	APPLE	-12,99	Loisirs:Service Numérique		R	
+2023-05-04	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2023-05-05	FRANPRIX	-14,25	Alimentation:Supermarché		R	
+2023-05-05	YOUNITED	-10,8	Crédit:Mensualité		R	
+2023-05-05	LYDIA	-2,5	Frais bancaires		R	
+2023-05-05	TABAC PRESSE	-25,72	Junk:Tabac		R	
+2023-05-05	FREE HAUTDEBIT	-61,99	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2023-05-06	AOB SLIMPY	-34,8	Alimentation:Supérette		R	
+2023-05-06	CARREFOUR	-10,2	Alimentation:Supermarché		R	
+2023-05-06	PHARMACIE REPUBLIQUE	-31,98	Santé:Paharmacie		R	
+2023-05-06	PHARMACIE REPUBLIQUE	-4,99	Santé:Paharmacie		R	
+2023-05-06	PHARMACIE TRAPEZE	-3,5	Santé:Paharmacie		R	
+2023-05-06	PHARMACIE PREMIERE	-41,32	Santé:Paharmacie		R	
+2023-05-07	TABAC LAM	-23	Junk:Tabac		R	
+2023-05-09	CARREFOUR	-32,96	Alimentation:Supermarché		R	
+2023-05-09	ATM	-50	Retrait despèces		R	
+2023-05-09	ATM	-30	Retrait despèces		R	
+2023-05-09	PHARMACIE TRAPEZE	-7,5	Santé:Paharmacie		R	
+2023-05-09	UBER	-11,18	Transport:VTC-Taxi		R	
+2023-05-10	CARREFOUR	-20,22	Alimentation:Supermarché		R	
+2023-05-10	BRICORAMA	-5,4	Logement:Equipement		R	
+2023-05-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2023-05-15	POST-PAIEMENT	-20,19	Non attribué		R	
+2023-05-17	CARREFOUR	-8,83	Alimentation:Supermarché		R	
+2023-05-20	CARREFOUR	-7,23	Alimentation:Supermarché		R	
+2023-05-23	MME MERCIER CELINE	30	Dettes personnelles		R	
+2023-05-23	LA SOCIETE GENERALE	-30	Retrait despèces		R	
+2023-05-24	LYDIA	-1	Frais bancaires		R	
+2023-05-25	CARREFOUR	-23,47	Alimentation:Supermarché		R	
+2023-05-25	TABAC PRESSE	-13,3	Junk:Tabac		R	
+2023-05-25	APPLE	-2,99	Loisirs:Service Numérique		R	
+2023-05-25	ATM	-400	Retrait despèces		R	
+2023-05-25	STE PHARDEX	1366,74	Revenus du travail:Salaire brut:Salaire net		R	
+2023-05-26	MONOPRIX	-74,68	Alimentation:Supermarché		R	
+2023-05-26	LYDIA	-6	Frais bancaires		R	
+2023-05-26	AMAZON	-41,27	Logement:Equipement		R	
+2023-05-26	MAISON BERGER PARIS	-55,49	Logement:Equipement		R	
+2023-05-26	FREE MOBILE	-37,98	Logement:Frais généraux:Téléphone mobile		R	
+2023-05-26	ATM	-130	Retrait despèces		R	
+2023-05-27	PETRIN RIBEIROU	-6,5	Alimentation:Boulangerie		R	
+2023-05-27	CARREFOUR	-15,35	Alimentation:Supermarché		R	
+2023-05-27	LYDIA	-1,95	Frais bancaires		R	
+2023-05-27	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2023-05-27	UBER	-15,78	Transport:VTC-Taxi		R	
+2023-05-28	LEROY MERLIN	-58,2	Logement:Equipement		R	
+2023-05-28	ATM	-150	Retrait despèces		R	
+2023-05-29	CARREFOUR	-28,53	Alimentation:Supermarché		R	
+2023-05-29	LYDIA	-2,25	Frais bancaires		R	
+2023-05-29	LEROY MERLIN	-28,35	Logement:Equipement		R	
+2023-05-29	LEROY MERLIN	-26,7	Logement:Equipement		R	
+2023-05-29	LEROY MERLIN	28,35	Remboursements divers:Retour marchandise		R	
+2023-05-30	CARREFOUR	-12,68	Alimentation:Supermarché		R	
+2023-05-30	CARREFOUR	-14,48	Alimentation:Supermarché		R	
+2023-05-30	TABAC PRESSE	-16,5	Junk:Tabac		R	
+2023-05-30	AMAZON	-16,98	Logement:Equipement		R	
+2023-05-30	LEROY MERLIN	43,8	Remboursements divers:Retour marchandise		R	
+2023-05-31	CARREFOUR	-4,48	Alimentation:Supermarché		R	
+2023-05-31	CARREFOUR	-6,62	Alimentation:Supermarché		R	
+2023-05-31	CARREFOUR	-14,74	Alimentation:Supermarché		R	
+2023-05-31	LYDIA	-9,9	Frais bancaires		R	
+2023-05-31	CIC	-150	Retrait despèces		R	
+2023-06-01	FRANPRIX	-18,05	Alimentation:Supermarché		R	
+2023-06-01	LYDIA	-2,25	Frais bancaires		R	
+2023-06-02	CARREFOUR	-11,94	Alimentation:Supermarché		R	
+2023-06-03	CARREFOUR	-17,79	Alimentation:Supermarché		R	
+2023-06-03	UBER	-9,76	Transport:VTC-Taxi		R	
+2023-06-04	AUX MERVEILLEUX	-25,8	Alimentation:Boulangerie		R	
+2023-06-04	M OU MME BOUVRY CHRISTOPHE	50	Dettes personnelles		R	
+2023-06-05	CARREFOUR	-18,08	Alimentation:Supermarché		R	
+2023-06-06	CARREFOUR	-12,85	Alimentation:Supermarché		R	
+2023-06-06	CARREFOUR	-18,36	Alimentation:Supermarché		R	
+2023-06-06	POLE EMPLOI DR IDF	91,71	Allocations et Sécurité sociale:Allocation de Retour à lEmploi		R	
+2023-06-06	POLE EMPLOI DR IDF	252,28	Allocations et Sécurité sociale:Allocation de Retour à lEmploi		R	
+2023-06-06	MR OU MME BONNEFOY	100	Dettes personnelles		R	
+2023-06-06	TABAC PRESSE	-16,5	Junk:Tabac		R	
+2023-06-06	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2023-06-07	CARREFOUR	-22,18	Alimentation:Supermarché		R	
+2023-06-08	CARREFOUR	-19,56	Alimentation:Supermarché		R	
+2023-06-08	CARREFOUR	-10,41	Alimentation:Supermarché		R	
+2023-06-08	TABAC PRESSE	-14,1	Junk:Tabac		R	
+2023-06-09	CARREFOUR	-23,37	Alimentation:Supermarché		R	
+2023-06-10	CARREFOUR	-13,07	Alimentation:Supermarché		R	
+2023-06-11	CARREFOUR	-26,27	Alimentation:Supermarché		R	
+2023-06-12	CARREFOUR	-14,6	Alimentation:Supermarché		R	
+2023-06-12	CARREFOUR	-24,75	Alimentation:Supermarché		R	
+2023-06-12	CARREFOUR	-8,39	Alimentation:Supermarché		R	
+2023-06-12	TABAC PRESSE	-16,4	Junk:Tabac		R	
+2023-06-13	CARREFOUR	-5,54	Alimentation:Supermarché		R	
+2023-06-13	CARREFOUR	-11,96	Alimentation:Supermarché		R	
+2023-06-13	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-06-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2023-06-15	POST-PAIEMENT	-8,45	Non attribué		R	
+2023-06-16	BP	-4,6	Automobile:Carburant		R	
+2023-06-16	LA SOCIETE GENERALE	-20	Retrait despèces		R	
+2023-06-17	CARREFOUR	-28,15	Alimentation:Supermarché		R	
+2023-06-19	HOTEL IBIS ACCOR	-28	Frais professionels:Non-remboursées		R	
+2023-06-19	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-06-19	LAMAISONLYOVEL	-5	Logement:Equipement		R	
+2023-06-19	LAMAISONLYOVEL	-5	Logement:Equipement		R	
+2023-06-19	LAMAISONLYOVEL	5	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2023-06-20	MR OU MME BONNEFOY	100	Dettes personnelles		R	
+2023-06-20	HOTEL IBIS ACCOR	-20,9	Frais professionels:Non-remboursées		R	
+2023-06-20	HOTEL IBIS ACCOR	-22,8	Frais professionels:Non-remboursées		R	
+2023-06-20	HOTEL IBIS ACCOR	-3,9	Frais professionels:Non-remboursées		R	
+2023-06-20	LE GALIA	-23	Junk:Tabac		R	
+2023-06-21	MARCHE DE LA	-7,1	Alimentation:Supermarché		R	
+2023-06-21	HOTEL IBIS ACCOR	-3,9	Frais professionels:Non-remboursées		R	
+2023-06-21	LAMAISONLYOVEL	-5	Logement:Equipement		R	
+2023-06-21	LAMAISONLYOVEL	-5	Logement:Equipement		R	
+2023-06-21	LAMAISONLYOVEL	5	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2023-06-21	LAMAISONLYOVEL	5	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2023-06-22	CARREFOUR	-18,6	Alimentation:Supermarché		R	
+2023-06-22	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-06-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2023-06-23	CARREFOUR	-23,11	Alimentation:Supermarché		R	
+2023-06-23	MR OU MME BONNEFOY	50	Dettes personnelles		R	
+2023-06-23	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-06-24	CARREFOUR	-16,22	Alimentation:Supermarché		R	
+2023-06-24	CARREFOUR	-10,96	Alimentation:Supermarché		R	
+2023-06-24	M OU MME BOUVRY CHRISTOPHE	60	Dettes personnelles		R	
+2023-06-24	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-06-24	FREE MOBILE	-35,98	Logement:Frais généraux:Téléphone mobile		R	
+2023-06-25	CARREFOUR	-4,27	Alimentation:Supermarché		R	
+2023-06-26	CARREFOUR	-4,4	Alimentation:Supermarché		R	
+2023-06-26	CARREFOUR	-8,32	Alimentation:Supermarché		R	
+2023-06-26	TICKET À GRATTER	4,27	Cashback		R	
+2023-06-26	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-06-26	SA SUED	-38,97	Loisirs:Service Numérique		R	
+2023-06-26	ATM	-450	Retrait despèces		R	
+2023-06-26	STE PHARDEX	2392,93	Revenus du travail:Salaire brut:Salaire net		R	
+2023-06-27	FRANPRIX	-9,95	Alimentation:Supermarché		R	
+2023-06-27	TABAC PRESSE	-16,5	Junk:Tabac		R	
+2023-06-27	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2023-06-27	ATM	-160	Retrait despèces		R	
+2023-06-27	PHARMACIE TRAPEZE	-5,14	Santé:Paharmacie		R	
+2023-06-28	BOULANGERIE THIE	-7,7	Alimentation:Boulangerie		R	
+2023-06-28	CARREFOUR	-22,43	Alimentation:Supermarché		R	
+2023-06-28	CMNE DE PARIS	-4,2	Automobile:Stationnement		R	
+2023-06-28	CMNE DE PARIS	-4,2	Automobile:Stationnement		R	
+2023-06-28	CMNE DE PARIS	-4,2	Automobile:Stationnement		R	
+2023-06-28	CMNE DE PARIS	-6,4	Automobile:Stationnement		R	
+2023-06-28	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-06-29	CARREFOUR	-17,44	Alimentation:Supermarché		R	
+2023-06-29	TABAC PRESSE	-13,7	Junk:Tabac		R	
+2023-06-29	MARCHAND NON COMMUNIQUÉ	1,9	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2023-06-30	CARREFOUR	-10,51	Alimentation:Supermarché		R	
+2023-06-30	CARREFOUR	-19,39	Alimentation:Supermarché		R	
+2023-06-30	CMNE DE PARIS	-4,2	Automobile:Stationnement		R	
+2023-06-30	CMNE DE PARIS	-2,2	Automobile:Stationnement		R	
+2023-06-30	LYDIA	-9,9	Frais bancaires		R	
+2023-07-01	AUCHAN	-31,83	Alimentation:Supermarché		R	
+2023-07-01	CARREFOUR	-10,78	Alimentation:Supermarché		R	
+2023-07-01	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-07-01	ATM	-140	Retrait despèces		R	
+2023-07-01	LA SOCIETE GENERALE	-20	Retrait despèces		R	
+2023-07-02	CARREFOUR	-9,77	Alimentation:Supermarché		R	
+2023-07-02	CARREFOUR	-15,54	Alimentation:Supermarché		R	
+2023-07-02	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-07-03	CARREFOUR	-28,68	Alimentation:Supermarché		R	
+2023-07-03	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-07-04	CARREFOUR	-11,47	Alimentation:Supermarché		R	
+2023-07-05	CARREFOUR	-23,88	Alimentation:Supermarché		R	
+2023-07-05	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-07-05	ATM	-180	Retrait despèces		R	
+2023-07-06	TABAC PRESSE	-27,3	Junk:Tabac		R	
+2023-07-06	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2023-07-07	CARREFOUR	-11,87	Alimentation:Supermarché		R	
+2023-07-07	FRANPRIX	-3,64	Alimentation:Supermarché		R	
+2023-07-07	CMNE DE PARIS	-4,2	Automobile:Stationnement		R	
+2023-07-07	CMNE DE PARIS	-4,2	Automobile:Stationnement		R	
+2023-07-07	CMNE DE PARIS	-4,2	Automobile:Stationnement		R	
+2023-07-07	IWONALEX	-18,5	Non attribué		R	
+2023-07-08	CARREFOUR	-22,47	Alimentation:Supermarché		R	
+2023-07-08	TABAC PRESSE	-13,7	Junk:Tabac		R	
+2023-07-08	MARCHAND NON COMMUNIQUÉ	4,2	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2023-07-09	CARREFOUR	-25,94	Alimentation:Supermarché		R	
+2023-07-09	ATM	-150	Retrait despèces		R	
+2023-07-09	CIC	-120	Retrait despèces		R	
+2023-07-10	CARREFOUR	-17,96	Alimentation:Supermarché		R	
+2023-07-11	CARREFOUR	-13,89	Alimentation:Supermarché		R	
+2023-07-12	CARREFOUR	-16,37	Alimentation:Supermarché		R	
+2023-07-12	PHOTOMATON	-8	Logement:Frais généraux:Photographie		R	
+2023-07-13	CARREFOUR	-31,37	Alimentation:Supermarché		R	
+2023-07-13	TABAC PRESSE	-29,9	Junk:Tabac		R	
+2023-07-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2023-07-13	DRFIP ILLE ET VILAINE	-86	Taxes et impôts		R	
+2023-07-14	CARREFOUR	-19,37	Alimentation:Supermarché		R	
+2023-07-14	CARREFOUR	-11,46	Alimentation:Supermarché		R	
+2023-07-15	CARREFOUR	-12,35	Alimentation:Supermarché		R	
+2023-07-15	ATM	-150	Retrait despèces		R	
+2023-07-16	AMAZON	-16,8	Logement:Equipement		R	
+2023-07-16	AMAZON	-23,48	Logement:Equipement		R	
+2023-07-16	GIFI	-17,97	Logement:Equipement		R	
+2023-07-17	CARREFOUR	-25,96	Alimentation:Supermarché		R	
+2023-07-17	TABAC PRESSE	-17,69	Junk:Tabac		R	
+2023-07-17	POST-PAIEMENT	-20,28	Non attribué		R	
+2023-07-18	CARREFOUR	-11,75	Alimentation:Supermarché		R	
+2023-07-19	CARREFOUR	-20,48	Alimentation:Supermarché		R	
+2023-07-19	MR OU MME BONNEFOY	150	Dettes personnelles		R	
+2023-07-20	MAVROMMATIS	-18	Alimentation:Restaurant		R	
+2023-07-20	CARREFOUR	-15	Alimentation:Supermarché		R	
+2023-07-20	CMNE DE PARIS	-4,2	Automobile:Stationnement		R	
+2023-07-20	CMNE DE PARIS	-4,2	Automobile:Stationnement		R	
+2023-07-20	CMNE DE PARIS	-4,2	Automobile:Stationnement		R	
+2023-07-20	TABAC PRESSE	-27,3	Junk:Tabac		R	
+2023-07-20	AMAZON	-8,92	Logement:Equipement		R	
+2023-07-21	CARREFOUR	-18,27	Alimentation:Supermarché		R	
+2023-07-21	PHARDEX	70,6	Revenus du travail:Remboursements de frais		R	
+2023-07-22	CARREFOUR	-29,54	Alimentation:Supermarché		R	
+2023-07-22	CARREFOUR	-1,98	Alimentation:Supermarché		R	
+2023-07-22	E.LECLERC	-27,28	Alimentation:Supermarché		R	
+2023-07-22	INDIGO	-0,8	Automobile:Stationnement		R	
+2023-07-22	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-07-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2023-07-24	CARREFOUR	-13,71	Alimentation:Supermarché		R	
+2023-07-24	CMNE DE PARIS	-4,2	Automobile:Stationnement		R	
+2023-07-24	INDIGO	-1,1	Automobile:Stationnement		R	
+2023-07-24	TABAC PRESSE	-13,7	Junk:Tabac		R	
+2023-07-24	UBER	-10,29	Transport:VTC-Taxi		R	
+2023-07-25	CARREFOUR	-21,78	Alimentation:Supermarché		R	
+2023-07-25	TABAC PRESSE	-21,7	Junk:Tabac		R	
+2023-07-25	ATM	-300	Retrait despèces		R	
+2023-07-25	STE PHARDEX	2783,15	Revenus du travail:Salaire brut:Salaire net		R	
+2023-07-25	PHARMACIE TRAPEZE	-5,14	Santé:Paharmacie		R	
+2023-07-25	APGIS	-6,6	Santé:Participation mutuelle		R	
+2023-07-25	APGIS	-2,13	Santé:Participation mutuelle		R	
+2023-07-25	APGIS	-6,6	Santé:Participation mutuelle		R	
+2023-07-25	UBER	-10,91	Transport:VTC-Taxi		R	
+2023-07-26	CMNE DE PARIS	-6,2	Automobile:Stationnement		R	
+2023-07-26	LYDIA	-4,5	Frais bancaires		R	
+2023-07-26	LE SAINT AUGU	-18,7	Junk:Tabac		R	
+2023-07-26	LA SOCIETE GENERALE	-150	Retrait despèces		R	
+2023-07-27	CARREFOUR	-21,31	Alimentation:Supermarché		R	
+2023-07-27	INDIGO	-2,5	Automobile:Stationnement		R	
+2023-07-27	LYDIA	-2,25	Frais bancaires		R	
+2023-07-27	AMAZON	-20,88	Logement:Equipement		R	
+2023-07-27	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2023-07-27	S N B	-39,9	Non attribué		R	
+2023-07-27	PHARMACIE REPUBLIQUE	31,98	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2023-07-27	ATM	-100	Retrait despèces		R	
+2023-07-27	PHARMACIE REPUBLIQUE	-31,98	Santé:Paharmacie		R	
+2023-07-27	PHARMACIE REPUBLIQUE	-31,98	Santé:Paharmacie		R	
+2023-07-27	PHARMACIE PREMIERE	-41,32	Santé:Paharmacie		R	
+2023-07-27	UBER	-0,61	Transport:VTC-Taxi		R	
+2023-07-28	CARREFOUR	-19,56	Alimentation:Supermarché		R	
+2023-07-28	LYDIA	-1,5	Frais bancaires		R	
+2023-07-28	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-07-29	CARREFOUR	-14,32	Alimentation:Supermarché		R	
+2023-07-29	ATM	-150	Retrait despèces		R	
+2023-07-30	LYDIA	-2,25	Frais bancaires		R	
+2023-07-30	TABAC PRESSE	-15,8	Junk:Tabac		R	
+2023-07-31	CARREFOUR	-13,6	Alimentation:Supermarché		R	
+2023-07-31	CARREFOUR	-25,04	Alimentation:Supermarché		R	
+2023-07-31	LYDIA	-9,9	Frais bancaires		R	
+2023-07-31	TABAC PRESSE	-18,6	Junk:Tabac		R	
+2023-08-01	CARREFOUR	-14,15	Alimentation:Supermarché		R	
+2023-08-01	CARREFOUR	-15,81	Alimentation:Supermarché		R	
+2023-08-01	ATM	-180	Retrait despèces		R	
+2023-08-02	CARREFOUR	-16,61	Alimentation:Supermarché		R	
+2023-08-03	CARREFOUR	-16,03	Alimentation:Supermarché		R	
+2023-08-03	CARREFOUR	-16,24	Alimentation:Supermarché		R	
+2023-08-03	PHARMACIE TRAPEZE	-5,14	Santé:Paharmacie		R	
+2023-08-04	CARREFOUR	-17,85	Alimentation:Supermarché		R	
+2023-08-04	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2023-08-05	TABAC PRESSE	-18,7	Junk:Tabac		R	
+2023-08-05	FREE MOBILE	-36,98	Logement:Frais généraux:Téléphone mobile		R	
+2023-08-05	ATM	-100	Retrait despèces		R	
+2023-08-06	CARREFOUR	-13,42	Alimentation:Supermarché		R	
+2023-08-06	CARREFOUR	-12,49	Alimentation:Supermarché		R	
+2023-08-06	PICARD	-8	Alimentation:Supermarché		R	
+2023-08-06	MEDIUM	-4,57	Loisirs:Service Numérique		R	
+2023-08-07	CARREFOUR	-23,4	Alimentation:Supermarché		R	
+2023-08-08	TOTAL	-200	Automobile:Carburant		R	
+2023-08-08	COFIROUTE	-21,2	Automobile:Péage		R	
+2023-08-08	PEAGE AUTOROUTE ASF	-15	Automobile:Péage		R	
+2023-08-08	PEAGE AUTOROUTE ASF	-3,1	Automobile:Péage		R	
+2023-08-08	PEAGE AUTOROUTE ASF	-1,8	Automobile:Péage		R	
+2023-08-08	TABAC PRESSE	-23	Junk:Tabac		R	
+2023-08-08	TOTAL	160,12	Pending:Pending Carburant		R	
+2023-08-09	CASHBACK SUMERIA	0,51	Cashback		R	
+2023-08-11	ESTACIO SERVEI PIC BLANC	-73,57	Automobile:Carburant		R	
+2023-08-11	GASOPAS- TERMINALS	-10	Automobile:Carburant		R	
+2023-08-11	SUPERMERCAT ALFA	-128,58	Junk:Tabac		R	
+2023-08-11	GASOPAS	0	Remboursements divers:Remboursements divers		R	
+2023-08-11	PHARDEX	88,8	Revenus du travail:Remboursements de frais		R	
+2023-08-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2023-08-14	CARREFOUR	-27,37	Alimentation:Supermarché		R	
+2023-08-14	COFIROUTE	-21,2	Automobile:Péage		R	
+2023-08-14	PEAGE AUTOROUTE ASF	-15	Automobile:Péage		R	
+2023-08-14	PEAGE AUTOROUTE ASF	-1,8	Automobile:Péage		R	
+2023-08-14	PEAGE AUTOROUTE ASF	-3,1	Automobile:Péage		R	
+2023-08-15	CAFE DU NORD	-16,1	Alimentation:Restaurant		R	
+2023-08-15	LA BUTTE GLACEE	-15,8	Alimentation:TakeAway		R	
+2023-08-15	STARBUCKS	-8,35	Alimentation:TakeAway		R	
+2023-08-16	CARREFOUR	-18,47	Alimentation:Supermarché		R	
+2023-08-16	ATM	-150	Retrait despèces		R	
+2023-08-17	CARREFOUR	-12,72	Alimentation:Supermarché		R	
+2023-08-17	TABAC PRESSE	-22,3	Junk:Tabac		R	
+2023-08-18	TOTAL	-200	Automobile:Carburant		R	
+2023-08-18	TOTAL	149,99	Pending:Pending Carburant		R	
+2023-08-18	LA SOCIETE GENERALE	-30	Retrait despèces		R	
+2023-08-19	PHARMACIE KERMEN	-22,8	Santé:Paharmacie		R	
+2023-08-20	CARREFOUR	-20,53	Alimentation:Supermarché		R	
+2023-08-20	CMNE DE NEUILLY SUR SEINE	-3	Automobile:Stationnement		R	
+2023-08-20	JARDIN ACCLIMAT	-18	Loisirs:Spectacles		R	
+2023-08-20	ATM	-150	Retrait despèces		R	
+2023-08-21	AU PALAIS DES	-7,95	Alimentation:Restaurant		R	
+2023-08-21	STARBUCKS	-12,5	Alimentation:TakeAway		R	
+2023-08-21	PHARMACIE ORL	-14,8	Santé:Paharmacie		R	
+2023-08-22	AU PALAIS DES	-6,2	Alimentation:Restaurant		R	
+2023-08-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2023-08-23	FREE MOBILE	-45,61	Logement:Frais généraux:Téléphone mobile		R	
+2023-08-24	JAMIES DELI	-8,6	Alimentation:Restaurant		R	
+2023-08-24	RELAY	-14,5	Junk:Tabac		R	
+2023-08-25	CARREFOUR	-24,26	Alimentation:Supermarché		R	
+2023-08-25	FRANPRIX	-17,76	Alimentation:Supermarché		R	
+2023-08-25	REL.PKG PORTE ST	-10	Automobile:Stationnement		R	
+2023-08-25	TABAC PRESSE	-23,7	Junk:Tabac		R	
+2023-08-25	ATM	-180	Retrait despèces		R	
+2023-08-25	STE PHARDEX	1103,03	Revenus du travail:Salaire brut:Salaire net		R	
+2023-08-25	PHARMACIE TRAPEZE	-5,14	Santé:Paharmacie		R	
+2023-08-25	APGIS	-6,6	Santé:Participation mutuelle		R	
+2023-08-26	CARREFOUR	-22,08	Alimentation:Supermarché		R	
+2023-08-27	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2023-08-28	FRANPRIX	-28,56	Alimentation:Supermarché		R	
+2023-08-28	TABAC PRESSE	-15,8	Junk:Tabac		R	
+2023-08-28	ATM	-40	Retrait despèces		R	
+2023-08-29	CARREFOUR	-24,53	Alimentation:Supermarché		R	
+2023-08-29	LYDIA	-1	Frais bancaires		R	
+2023-08-29	TABAC PRESSE	-18,6	Junk:Tabac		R	
+2023-08-29	ATM	-150	Retrait despèces		R	
+2023-08-30	CARREFOUR	-19,6	Alimentation:Supermarché		R	
+2023-08-30	YOUNITED	-32,4	Crédit:Mensualité		R	
+2023-08-30	LYDIA	-2,25	Frais bancaires		R	
+2023-08-31	CARREFOUR	-28,47	Alimentation:Supermarché		R	
+2023-08-31	LYDIA	-9,9	Frais bancaires		R	
+2023-09-01	CARREFOUR	-16,69	Alimentation:Supermarché		R	
+2023-09-01	FRANPRIX	-40,4	Alimentation:Supermarché		R	
+2023-09-01	CIC	-150	Retrait despèces		R	
+2023-09-01	PHARMACIE TRAPEZE	-2,5	Santé:Paharmacie		R	
+2023-09-02	FRANPRIX	-24,77	Alimentation:Supermarché		R	
+2023-09-02	TABAC PRESSE	-15,8	Junk:Tabac		R	
+2023-09-02	PHARMACIE TRAPEZE	-9,49	Santé:Paharmacie		R	
+2023-09-03	CARREFOUR	-24,27	Alimentation:Supermarché		R	
+2023-09-04	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2023-09-04	CARREFOUR	-17,81	Alimentation:Supermarché		R	
+2023-09-04	DOCTOLIB	30	Pending:Pënding Doctolib		R	
+2023-09-04	ATM	-70	Retrait despèces		R	
+2023-09-04	DOCTOLIB	-65	Santé :Pending doctolib		R	
+2023-09-05	CARREFOUR	-20,74	Alimentation:Supermarché		R	
+2023-09-05	CARREFOUR	-18,92	Alimentation:Supermarché		R	
+2023-09-06	CARREFOUR	-17,47	Alimentation:Supermarché		R	
+2023-09-06	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2023-09-06	MEDIUM	-4,67	Loisirs:Service Numérique		R	
+2023-09-07	CARREFOUR	-16,26	Alimentation:Supermarché		R	
+2023-09-08	LE CENTRAL CAFE	-15,1	Alimentation:Restaurant		R	
+2023-09-08	FRANPRIX	-20,17	Alimentation:Supermarché		R	
+2023-09-09	CARREFOUR	-19,37	Alimentation:Supermarché		R	
+2023-09-10	CARREFOUR	-15,93	Alimentation:Supermarché		R	
+2023-09-12	CARREFOUR	-18,33	Alimentation:Supermarché		R	
+2023-09-12	MR OU MME BONNEFOY	100	Dettes personnelles		R	
+2023-09-13	JB AU RENDEZ VOU	-14	Alimentation:Restaurant		R	
+2023-09-13	COFIROUTE	-9,3	Automobile:Péage		R	
+2023-09-13	TABAC PRESSE	-18,4	Junk:Tabac		R	
+2023-09-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2023-09-14	CARREFOUR	-26,86	Alimentation:Supermarché		R	
+2023-09-15	CARREFOUR	-7,76	Alimentation:Supermarché		R	
+2023-09-15	PHARMACIE TRAPEZE	-2,57	Santé:Paharmacie		R	
+2023-09-18	CARREFOUR	-4,95	Alimentation:Supermarché		R	
+2023-09-18	POLE EMPLOI DR IDF	943,95	Allocations et Sécurité sociale:Allocation de Retour à lEmploi		R	
+2023-09-18	CIC	-450	Retrait despèces		R	
+2023-09-19	CARREFOUR	-19,66	Alimentation:Supermarché		R	
+2023-09-19	CARREFOUR	-12,8	Alimentation:Supermarché		R	
+2023-09-19	ATM	-100	Retrait despèces		R	
+2023-09-19	ATM	-130	Retrait despèces		R	
+2023-09-19	CIC	-70	Retrait despèces		R	
+2023-09-20	INDIGO	-5,2	Automobile:Stationnement		R	
+2023-09-20	MAIRIE DE PARIS	-4,25	Automobile:Stationnement		R	
+2023-09-20	LUMIERE	-21,5	Non attribué		R	
+2023-09-21	CARREFOUR	-26,92	Alimentation:Supermarché		R	
+2023-09-21	CARREFOUR	-18,62	Alimentation:Supermarché		R	
+2023-09-21	TABAC PRESSE	-18,7	Junk:Tabac		R	
+2023-09-21	LA POSTE	-42,6	Logement:Frais généraux:Services postaux		R	
+2023-09-22	FRANPRIX	-11,4	Alimentation:Supermarché		R	
+2023-09-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2023-09-23	CARREFOUR	-16,35	Alimentation:Supermarché		R	
+2023-09-23	MME MERCIER CELINE	30	Dettes personnelles		R	
+2023-09-24	CARREFOUR	-14,1	Alimentation:Supermarché		R	
+2023-09-25	CARREFOUR	-16	Alimentation:Supermarché		R	
+2023-09-25	TABAC PRESSE	-16,4	Junk:Tabac		R	
+2023-09-25	FREE MOBILE	-35,98	Logement:Frais généraux:Téléphone mobile		R	
+2023-09-25	NATIONALE DISTRI	-21,36	Non attribué		R	
+2023-09-25	ATM	-100	Retrait despèces		R	
+2023-09-25	STE PHARDEX	2129,67	Revenus du travail:Salaire brut:Salaire net		R	
+2023-09-26	CARREFOUR	-12,42	Alimentation:Supermarché		R	
+2023-09-26	FRANPRIX	-25,3	Alimentation:Supermarché		R	
+2023-09-26	LYDIA	-1,5	Frais bancaires		R	
+2023-09-26	TABAC PRESSE	-18,3	Junk:Tabac		R	
+2023-09-26	SA SUED	-38,97	Loisirs:Service Numérique		R	
+2023-09-27	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2023-09-27	NATIONALE DISTRI	-19,9	Non attribué		R	
+2023-09-28	BOULANGERIE	-2,8	Alimentation:Boulangerie		R	
+2023-09-28	CARREFOUR	-20,17	Alimentation:Supermarché		R	
+2023-09-28	MAIRIE DE PARIS	-8,25	Automobile:Stationnement		R	
+2023-09-28	MAIRIE DE PARIS	-8,25	Automobile:Stationnement		R	
+2023-09-28	FDADISTRIBUTION	-1,3	Non attribué		R	
+2023-09-28	FDADISTRIBUTION	-1,3	Non attribué		R	
+2023-09-28	FDADISTRIBUTION	-0,7	Non attribué		R	
+2023-09-28	ATM	-300	Retrait despèces		R	
+2023-09-29	CARREFOUR	-12,92	Alimentation:Supermarché		R	
+2023-09-29	CARREFOUR	-14,43	Alimentation:Supermarché		R	
+2023-09-29	LYDIA	-4,5	Frais bancaires		R	
+2023-09-30	CARREFOUR	-17,25	Alimentation:Supermarché		R	
+2023-09-30	CARREFOUR	-18,66	Alimentation:Supermarché		R	
+2023-09-30	VINCI	-5	Automobile:Stationnement		R	
+2023-09-30	LYDIA	-9,9	Frais bancaires		R	
+2023-10-01	CARREFOUR	-15,71	Alimentation:Supermarché		R	
+2023-10-02	FRANPRIX	-15,6	Alimentation:Supermarché		R	
+2023-10-03	CARREFOUR	-11,84	Alimentation:Supermarché		R	
+2023-10-03	CARREFOUR	-15,58	Alimentation:Supermarché		R	
+2023-10-03	CARREFOUR	-9,23	Alimentation:Supermarché		R	
+2023-10-04	CARREFOUR	-15,24	Alimentation:Supermarché		R	
+2023-10-04	CARREFOUR	-12,78	Alimentation:Supermarché		R	
+2023-10-05	CARREFOUR	-9,46	Alimentation:Supermarché		R	
+2023-10-05	TABAC PRESSE	-18,4	Junk:Tabac		R	
+2023-10-05	FREE HAUTDEBIT	-64,48	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2023-10-06	CARREFOUR	-18,03	Alimentation:Supermarché		R	
+2023-10-06	CARREFOUR	-12,58	Alimentation:Supermarché		R	
+2023-10-06	MEDIUM	-4,76	Loisirs:Service Numérique		R	
+2023-10-07	MEDIUM	-0,01	Loisirs:Service Numérique		R	
+2023-10-08	CARREFOUR	-9,62	Alimentation:Supermarché		R	
+2023-10-08	ATM	-150	Retrait despèces		R	
+2023-10-09	CARREFOUR	-16,14	Alimentation:Supermarché		R	
+2023-10-09	CARREFOUR	-18	Alimentation:Supermarché		R	
+2023-10-09	HEROKU	-6,05	Loisirs:Service Numérique		R	
+2023-10-09	FREE TELECOM	9,99	Remboursements divers:Remboursement Internet-TV-Téléphone		R	
+2023-10-09	CIC	-70	Retrait despèces		R	
+2023-10-10	CARREFOUR	-12,99	Alimentation:Supermarché		R	
+2023-10-10	CARREFOUR	-10,43	Alimentation:Supermarché		R	
+2023-10-11	CARREFOUR	-18,71	Alimentation:Supermarché		R	
+2023-10-11	CARREFOUR	-7,13	Alimentation:Supermarché		R	
+2023-10-11	SYLVIE SANCTORUM	-250	Dettes personnelles		R	
+2023-10-11	TABAC PRESSE	-15,8	Junk:Tabac		R	
+2023-10-12	CARREFOUR	-15,23	Alimentation:Supermarché		R	
+2023-10-12	CARREFOUR	-17,3	Alimentation:Supermarché		R	
+2023-10-12	ATM	-300	Retrait despèces		R	
+2023-10-13	BOULANGERIE THIE	-5,5	Alimentation:Boulangerie		R	
+2023-10-13	FRANPRIX	-22,58	Alimentation:Supermarché		R	
+2023-10-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2023-10-14	CARREFOUR	-15,41	Alimentation:Supermarché		R	
+2023-10-14	CARREFOUR	-14	Alimentation:Supermarché		R	
+2023-10-14	ATM	-60	Retrait despèces		R	
+2023-10-14	LA SOCIETE GENERALE	-30	Retrait despèces		R	
+2023-10-15	ATM	-60	Retrait despèces		R	
+2023-10-16	CARREFOUR	-11,87	Alimentation:Supermarché		R	
+2023-10-17	CARREFOUR	-8,42	Alimentation:Supermarché		R	
+2023-10-17	CARREFOUR	-15,26	Alimentation:Supermarché		R	
+2023-10-18	CARREFOUR	-20,62	Alimentation:Supermarché		R	
+2023-10-18	CARREFOUR	-7,88	Alimentation:Supermarché		R	
+2023-10-18	MR OU MME BONNEFOY	100	Dettes personnelles		R	
+2023-10-18	AMAZON	-41,88	Logement:Equipement		R	
+2023-10-18	PHARDEX	76,75	Revenus du travail:Remboursements de frais		R	
+2023-10-19	CARREFOUR	-16,71	Alimentation:Supermarché		R	
+2023-10-20	CARREFOUR	-18,33	Alimentation:Supermarché		R	
+2023-10-20	CARREFOUR	-16,84	Alimentation:Supermarché		R	
+2023-10-21	CARREFOUR	-10,85	Alimentation:Supermarché		R	
+2023-10-21	CARREFOUR	-11,12	Alimentation:Supermarché		R	
+2023-10-22	CARREFOUR	-11	Alimentation:Supermarché		R	
+2023-10-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2023-10-23	CARREFOUR	-14,23	Alimentation:Supermarché		R	
+2023-10-23	CARREFOUR	-11	Alimentation:Supermarché		R	
+2023-10-24	CARREFOUR	-5,5	Alimentation:Supermarché		R	
+2023-10-25	CARREFOUR	-19,35	Alimentation:Supermarché		R	
+2023-10-25	TABAC PRESSE	-20,7	Junk:Tabac		R	
+2023-10-25	FREE MOBILE	-35,98	Logement:Frais généraux:Téléphone mobile		R	
+2023-10-25	ATM	-600	Retrait despèces		R	
+2023-10-25	STE PHARDEX	4476,8	Revenus du travail:Salaire brut:Salaire net		R	
+2023-10-26	CARREFOUR	-24,2	Alimentation:Supermarché		R	
+2023-10-26	CARREFOUR	-20,85	Alimentation:Supermarché		R	
+2023-10-26	GRAND PARIS SEINE OUEST	-4,15	Automobile:Stationnement		R	
+2023-10-26	LYDIA	-9	Frais bancaires		R	
+2023-10-27	CARREFOUR	-15,75	Alimentation:Supermarché		R	
+2023-10-27	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2023-10-27	QPF HDV BS	-1,7	Non attribué		R	
+2023-10-27	UBER	-13,15	Transport:VTC-Taxi		R	
+2023-10-30	MR OU MME BONNEFOY	30	Dettes personnelles		R	
+2023-10-31	LYDIA	-9,9	Frais bancaires		R	
+2023-10-31	LOCCITANE	-36	Soins:Parfums-Produits de beauté		R	
+2023-11-01	CARREFOUR	-19,05	Alimentation:Supermarché		R	
+2023-11-01	VINCI	-44	Automobile:Stationnement		R	
+2023-11-01	2THELOO RAILWAY	-1	Non attribué		R	
+2023-11-01	ATM	-100	Retrait despèces		R	
+2023-11-01	UBER	-24,31	Transport:VTC-Taxi		R	
+2023-11-02	CMNE DE NEUILLY SUR SEINE	-2,6	Automobile:Stationnement		R	
+2023-11-02	CMNE DE NEUILLY SUR SEINE	-2,6	Automobile:Stationnement		R	
+2023-11-02	CMNE DE NEUILLY SUR SEINE	-5,2	Automobile:Stationnement		R	
+2023-11-02	VINCI	-5	Automobile:Stationnement		R	
+2023-11-03	CARREFOUR	-21,11	Alimentation:Supermarché		R	
+2023-11-03	CARREFOUR	-22,82	Alimentation:Supermarché		R	
+2023-11-03	TABAC PRESSE	-24,7	Junk:Tabac		R	
+2023-11-03	ATM	-200	Retrait despèces		R	
+2023-11-04	CARREFOUR	-15,51	Alimentation:Supermarché		R	
+2023-11-04	CARREFOUR	-12,63	Alimentation:Supermarché		R	
+2023-11-04	FRANPRIX	-20,23	Alimentation:Supermarché		R	
+2023-11-04	AMAZON	-85,37	Logement:Equipement		R	
+2023-11-04	MAISON BERGER PARIS	-56,7	Logement:Equipement		R	
+2023-11-04	PHARMACIE TRAPEZE	-7,9	Santé:Paharmacie		R	
+2023-11-05	CARREFOUR	-17,05	Alimentation:Supermarché		R	
+2023-11-05	CIC	-40	Retrait despèces		R	
+2023-11-06	CARREFOUR	-17,14	Alimentation:Supermarché		R	
+2023-11-06	CARREFOUR	-13,54	Alimentation:Supermarché		R	
+2023-11-06	MEDIUM	-4,71	Loisirs:Service Numérique		R	
+2023-11-07	CARREFOUR	-22,67	Alimentation:Supermarché		R	
+2023-11-07	CARREFOUR	-12,24	Alimentation:Supermarché		R	
+2023-11-07	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2023-11-07	CIC	-150	Retrait despèces		R	
+2023-11-08	CARREFOUR	-54,13	Alimentation:Supermarché		R	
+2023-11-08	ROYAL PEREIRE	-9,8	Junk:Tabac		R	
+2023-11-08	HEROKU	-15,94	Loisirs:Service Numérique		R	
+2023-11-08	ROSETTA	-21	Non attribué		R	
+2023-11-09	CARREFOUR	-8,53	Alimentation:Supermarché		R	
+2023-11-09	CIC	-200	Retrait despèces		R	
+2023-11-09	UBER	-18,29	Transport:VTC-Taxi		R	
+2023-11-10	ATM	-20	Retrait despèces		R	
+2023-11-11	CARREFOUR	-14,43	Alimentation:Supermarché		R	
+2023-11-11	AMAZON	-36,99	Logement:Equipement		R	
+2023-11-11	BRICORAMA	-45,75	Logement:Equipement		R	
+2023-11-12	PETRIN RIBEIROU	-6,13	Alimentation:Boulangerie		R	
+2023-11-12	GOOGLE DOMAINS	-12	Loisirs:Service Numérique		R	
+2023-11-12	CIC	-100	Retrait despèces		R	
+2023-11-13	CARREFOUR	-19,97	Alimentation:Supermarché		R	
+2023-11-13	FRANPRIX	-31,7	Alimentation:Supermarché		R	
+2023-11-13	LYDIA	-1,5	Frais bancaires		R	
+2023-11-13	TABAC PRESSE	-30,2	Junk:Tabac		R	
+2023-11-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2023-11-13	CIC	-60	Retrait despèces		R	
+2023-11-14	CARREFOUR	-16,46	Alimentation:Supermarché		R	
+2023-11-14	FRANPRIX	-17,2	Alimentation:Supermarché		R	
+2023-11-14	LYDIA	-1	Frais bancaires		R	
+2023-11-14	TABAC PRESSE	-17,9	Junk:Tabac		R	
+2023-11-14	PINK POUSS	-39,53	Non attribué		R	
+2023-11-14	ATM	-300	Retrait despèces		R	
+2023-11-14	PHARMACIE TRAPEZE	-8,47	Santé:Paharmacie		R	
+2023-11-15	CARREFOUR	-13,62	Alimentation:Supermarché		R	
+2023-11-15	CARREFOUR	-12,9	Alimentation:Supermarché		R	
+2023-11-15	LYDIA	-4,5	Frais bancaires		R	
+2023-11-16	CARREFOUR	-12,29	Alimentation:Supermarché		R	
+2023-11-16	CARREFOUR	-13,98	Alimentation:Supermarché		R	
+2023-11-16	CARREFOUR	-14,32	Alimentation:Supermarché		R	
+2023-11-16	MARCHAND NON COMMUNIQUÉ	0,04	Remboursements divers:Annulation/Régularistation transaction carte bancaire		R	
+2023-11-16	ATM	-300	Retrait despèces		R	
+2023-11-16	PHARDEX	881,5	Revenus du travail:Remboursements de frais		R	
+2023-11-16	PHARMACIE TRAPEZE	-15	Santé:Paharmacie		R	
+2023-11-17	CARREFOUR	-19,74	Alimentation:Supermarché		R	
+2023-11-17	LYDIA	-4,5	Frais bancaires		R	
+2023-11-18	CARREFOUR	-14,94	Alimentation:Supermarché		R	
+2023-11-18	AMAZON	-205,99	Logement:Equipement		R	
+2023-11-18	ATM	-150	Retrait despèces		R	
+2023-11-19	CARREFOUR	-16,03	Alimentation:Supermarché		R	
+2023-11-19	LYDIA	-2,25	Frais bancaires		R	
+2023-11-20	CARREFOUR	-13,4	Alimentation:Supermarché		R	
+2023-11-20	FRANPRIX	-30,15	Alimentation:Supermarché		R	
+2023-11-20	TABAC PRESSE	-20,6	Junk:Tabac		R	
+2023-11-20	AMMONITIA	-1061,26	Logement:Loyer		R	
+2023-11-20	UBER	-17,37	Transport:VTC-Taxi		R	
+2023-11-20	UBER	-23,34	Transport:VTC-Taxi		R	
+2023-11-21	CARREFOUR	-19,65	Alimentation:Supermarché		R	
+2023-11-21	CIC	-70	Retrait despèces		R	
+2023-11-21	UBER	-0,09	Transport:VTC-Taxi		R	
+2023-11-22	CARREFOUR	-18,74	Alimentation:Supermarché		R	
+2023-11-22	LYDIA	-1,05	Frais bancaires		R	
+2023-11-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2023-11-23	CARREFOUR	-18,77	Alimentation:Supermarché		R	
+2023-11-23	FREE MOBILE	-55,88	Logement:Frais généraux:Téléphone mobile		R	
+2023-11-24	CARREFOUR	-13,98	Alimentation:Supermarché		R	
+2023-11-24	CARREFOUR	-85,76	Alimentation:Supermarché		R	
+2023-11-24	PICARD	-21,58	Alimentation:Supermarché		R	
+2023-11-24	ATM	-150	Retrait despèces		R	
+2023-11-24	STE PHARDEX	1439,46	Revenus du travail:Salaire brut:Salaire net		R	
+2023-11-25	CARREFOUR	-10,9	Alimentation:Supermarché		R	
+2023-11-25	CARREFOUR	-11,94	Alimentation:Supermarché		R	
+2023-11-25	LYDIA	-2,25	Frais bancaires		R	
+2023-11-25	TABAC PRESSE	-9,3	Junk:Tabac		R	
+2023-11-26	CARREFOUR	-16,69	Alimentation:Supermarché		R	
+2023-11-26	CARREFOUR	-14,93	Alimentation:Supermarché		R	
+2023-11-26	FRANPRIX	-5,1	Alimentation:Supermarché		R	
+2023-11-26	ATM	-300	Retrait despèces		R	
+2023-11-27	CARREFOUR	-13,79	Alimentation:Supermarché		R	
+2023-11-27	LYDIA	-4,5	Frais bancaires		R	
+2023-11-27	TABAC PRESSE	-21,42	Junk:Tabac		R	
+2023-11-27	DISNEY PLUS	-8,99	Loisirs:Service Numérique		R	
+2023-11-27	ATM	-20	Retrait despèces		R	
+2023-11-27	APGIS	-6,6	Santé:Participation mutuelle		R	
+2023-11-28	CARREFOUR	-18,69	Alimentation:Supermarché		R	
+2023-11-28	MAIRIE DE PARIS	-4,25	Automobile:Stationnement		R	
+2023-11-28	LYDIA	-1	Frais bancaires		R	
+2023-11-28	ATM	-150	Retrait despèces		R	
+2023-11-29	CARREFOUR	-19,84	Alimentation:Supermarché		R	
+2023-11-29	CARREFOUR	-17,13	Alimentation:Supermarché		R	
+2023-11-29	LYDIA	-2,25	Frais bancaires		R	
+2023-11-29	TABAC PRESSE	-18,7	Junk:Tabac		R	
+2023-11-29	ATM	-150	Retrait despèces		R	
+2023-11-30	CARREFOUR	-15,22	Alimentation:Supermarché		R	
+2023-11-30	CARREFOUR	-13,78	Alimentation:Supermarché		R	
+2023-11-30	LYDIA	-9,9	Frais bancaires		R	
+2023-11-30	LYDIA	-2,25	Frais bancaires		R	
+2023-11-30	AMAZON	-20,8	Logement:Equipement		R	
+2023-11-30	ATM	-100	Retrait despèces		R	
+2023-11-30	ATM	-90	Retrait despèces		R	
+2023-12-01	CARREFOUR	-13,74	Alimentation:Supermarché		R	
+2023-12-01	CARREFOUR	-19,82	Alimentation:Supermarché		R	
+2023-12-01	LYDIA	-2,85	Frais bancaires		R	
+2023-12-01	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2023-12-01	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2023-12-02	CARREFOUR	-16,02	Alimentation:Supermarché		R	
+2023-12-02	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-12-02	AMAZON DIGIT	-13,99	Loisirs:Service Numérique		R	
+2023-12-02	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2023-12-02	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2023-12-03	CARREFOUR	-11,65	Alimentation:Supermarché		R	
+2023-12-03	ARCYCOM	-150	Automobile:Carburant		R	
+2023-12-03	ARCYCOM	130,25	Pending:Pending Carburant		R	
+2023-12-04	CARREFOUR	-15,16	Alimentation:Supermarché		R	
+2023-12-04	TABAC PRESSE	-18,5	Junk:Tabac		R	
+2023-12-04	CIC	-150	Retrait despèces		R	
+2023-12-05	STE PHARDEX	500	Revenus du travail:Salaire brut:Salaire net		R	
+2023-12-06	CARREFOUR	-15,78	Alimentation:Supermarché		R	
+2023-12-06	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-12-06	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2023-12-06	MEDIUM	-4,64	Loisirs:Service Numérique		R	
+2023-12-06	ATM	-200	Retrait despèces		R	
+2023-12-06	PHARMACIE TRAPEZE	-25	Santé:Paharmacie		R	
+2023-12-07	CARREFOUR	-12,6	Alimentation:Supermarché		R	
+2023-12-07	CARREFOUR	-11,34	Alimentation:Supermarché		R	
+2023-12-07	CARREFOUR	-21,56	Alimentation:Supermarché		R	
+2023-12-07	TABAC PRESSE	-15,56	Junk:Tabac		R	
+2023-12-07	TABAC PRESSE	-18,7	Junk:Tabac		R	
+2023-12-07	HEROKU	-15,8	Loisirs:Service Numérique		R	
+2023-12-07	MEDIUM	-0,01	Loisirs:Service Numérique		R	
+2023-12-08	CARREFOUR	-15,45	Alimentation:Supermarché		R	
+2023-12-08	CARREFOUR	-12,95	Alimentation:Supermarché		R	
+2023-12-09	CARREFOUR	-16,24	Alimentation:Supermarché		R	
+2023-12-10	CARREFOUR	-61,4	Alimentation:Supermarché		R	
+2023-12-12	CARREFOUR	-10,91	Alimentation:Supermarché		R	
+2023-12-13	CARREFOUR	-10,55	Alimentation:Supermarché		R	
+2023-12-13	CARREFOUR	-17,41	Alimentation:Supermarché		R	
+2023-12-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2023-12-14	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-12-16	CARREFOUR	-19	Alimentation:Supermarché		R	
+2023-12-16	MME MERCIER CELINE	30	Dettes personnelles		R	
+2023-12-17	CARREFOUR	-3,73	Alimentation:Supermarché		R	
+2023-12-17	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-12-18	CARREFOUR	-5,5	Alimentation:Supermarché		R	
+2023-12-18	CARREFOUR	-15,93	Alimentation:Supermarché		R	
+2023-12-18	CARREFOUR	-18,48	Alimentation:Supermarché		R	
+2023-12-18	TABAC PRESSE	-29,2	Junk:Tabac		R	
+2023-12-18	PHARDEX	514,5	Revenus du travail:Remboursements de frais		R	
+2023-12-19	CARREFOUR	-19,88	Alimentation:Supermarché		R	
+2023-12-19	CARREFOUR	-4,45	Alimentation:Supermarché		R	
+2023-12-20	BOULANGERIE THIE	-60	Alimentation:Boulangerie		R	
+2023-12-20	AUCHAN	-52,75	Alimentation:Supermarché		R	
+2023-12-20	CARREFOUR	-24,06	Alimentation:Supermarché		R	
+2023-12-20	TABAC PRESSE	-16,56	Junk:Tabac		R	
+2023-12-20	LA POSTE	-40	Logement:Frais généraux:Services postaux		R	
+2023-12-21	CARREFOUR	-12,96	Alimentation:Supermarché		R	
+2023-12-21	CARREFOUR	-17,34	Alimentation:Supermarché		R	
+2023-12-21	STE PHARDEX	2115,04	Revenus du travail:Salaire brut:Salaire net		R	
+2023-12-22	CARREFOUR	-41,48	Alimentation:Supermarché		R	
+2023-12-22	CARREFOUR	-10,35	Alimentation:Supermarché		R	
+2023-12-22	CARREFOUR	-18,9	Alimentation:Supermarché		R	
+2023-12-22	AMAZON	-74,7	Logement:Equipement		R	
+2023-12-22	AMAZON	-99,6	Logement:Equipement		R	
+2023-12-22	AMAZON	-72,52	Logement:Equipement		R	
+2023-12-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2023-12-23	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2023-12-23	AUCHAN	-134,66	Alimentation:Supermarché		R	
+2023-12-23	CARREFOUR	-19,76	Alimentation:Supermarché		R	
+2023-12-23	PLASTIQUES	-31	Cadeaux		R	
+2023-12-23	TABAC PRESSE	-34	Junk:Tabac		R	
+2023-12-23	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2023-12-23	LA SOCIETE GENERALE	-30	Retrait despèces		R	
+2023-12-24	BOULANGERIE THIE	-16,95	Alimentation:Boulangerie		R	
+2023-12-24	CARREFOUR	-29,25	Alimentation:Supermarché		R	
+2023-12-25	CARREFOUR	-12,41	Alimentation:Supermarché		R	
+2023-12-25	TABAC LAM	-23	Junk:Tabac		R	
+2023-12-25	FREE MOBILE	-35,98	Logement:Frais généraux:Téléphone mobile		R	
+2023-12-25	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2023-12-26	BOULANGERIE THIE	-4,3	Alimentation:Boulangerie		R	
+2023-12-26	CARREFOUR	-9	Alimentation:Supermarché		R	
+2023-12-26	CARREFOUR	-18,3	Alimentation:Supermarché		R	
+2023-12-26	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2023-12-26	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2023-12-26	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2023-12-26	SA SUED	-38,97	Loisirs:Service Numérique		R	
+2023-12-27	CARREFOUR	-26,38	Alimentation:Supermarché		R	
+2023-12-27	DISNEY PLUS	-11,99	Loisirs:Service Numérique		R	
+2023-12-27	ATM	-300	Retrait despèces		R	
+2023-12-27	LA SOCIETE GENERALE	-70	Retrait despèces		R	
+2023-12-27	PHARMACIE TRAPEZE	-2,57	Santé:Paharmacie		R	
+2023-12-27	APGIS	-6,6	Santé:Participation mutuelle		R	
+2023-12-28	CARREFOUR	-22,91	Alimentation:Supermarché		R	
+2023-12-28	CARREFOUR	-6,95	Alimentation:Supermarché		R	
+2023-12-28	AMAZON	-14,68	Logement:Equipement		R	
+2023-12-28	BRICORAMA	-4,95	Logement:Equipement		R	
+2023-12-29	CARREFOUR	-11,37	Alimentation:Supermarché		R	
+2023-12-29	CARREFOUR	-5,83	Alimentation:Supermarché		R	
+2023-12-29	TABAC PRESSE	-11,5	Junk:Tabac		R	
+2023-12-29	CIC	-30	Retrait despèces		R	
+2023-12-29	PHARMACIE TRAPEZE	-6,9	Santé:Paharmacie		R	
+2023-12-29	UBER	-9,67	Transport:VTC-Taxi		R	
+2023-12-30	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2023-12-30	CARREFOUR	-12,79	Alimentation:Supermarché		R	
+2023-12-30	MONOPRIX	-5,79	Alimentation:Supermarché		R	
+2023-12-30	VINCI	-5	Automobile:Stationnement		R	
+2023-12-30	TABAC PRESSE	-24,7	Junk:Tabac		R	
+2023-12-30	UBER	-1,05	Transport:VTC-Taxi		R	
+2023-12-31	CARREFOUR	-58,84	Alimentation:Supermarché		R	
+2023-12-31	PICARD	-35,28	Alimentation:Supermarché		R	
+2023-12-31	LYDIA	-9,9	Frais bancaires		R	
+2023-12-31	ATM	-70	Retrait despèces		R	
+2024-01-01	CARREFOUR	-11,97	Alimentation:Supermarché		R	
+2024-01-01	LYDIA	-1,05	Frais bancaires		R	
+2024-01-01	UBER	-19,07	Transport:VTC-Taxi		R	
+2024-01-02	CARREFOUR	-22,46	Alimentation:Supermarché		R	
+2024-01-02	CARREFOUR	-23,49	Alimentation:Supermarché		R	
+2024-01-02	ATM	-150	Retrait despèces		R	
+2024-01-02	UBER	-0,35	Transport:VTC-Taxi		R	
+2024-01-03	AUCHAN	-58,85	Alimentation:Supermarché		R	
+2024-01-03	AUCHAN	-59,99	Alimentation:Supermarché		R	
+2024-01-03	CARREFOUR	-6,34	Alimentation:Supermarché		R	
+2024-01-03	PHARMACIE TRAPEZE	-14,8	Santé:Paharmacie		R	
+2024-01-04	CARREFOUR	-12,6	Alimentation:Supermarché		R	
+2024-01-04	CARREFOUR	-14,39	Alimentation:Supermarché		R	
+2024-01-05	CARREFOUR	-24,17	Alimentation:Supermarché		R	
+2024-01-06	FRANPRIX	-25,29	Alimentation:Supermarché		R	
+2024-01-06	MEDIUM	-4,6	Loisirs:Service Numérique		R	
+2024-01-06	ROKICINSKIMARIU	-37	Non attribué		R	
+2024-01-06	SOA	-0,6	Non attribué		R	
+2024-01-06	PHARMACIE ARCY	-10,08	Santé:Paharmacie		R	
+2024-01-06	PHARMACIE TRAPEZE	-2,57	Santé:Paharmacie		R	
+2024-01-07	FRANPRIX	-26,85	Alimentation:Supermarché		R	
+2024-01-07	FREE HAUTDEBIT	-69,46	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2024-01-08	CARREFOUR	-14,64	Alimentation:Supermarché		R	
+2024-01-08	CARREFOUR	-19,05	Alimentation:Supermarché		R	
+2024-01-08	HEROKU	-11,89	Loisirs:Service Numérique		R	
+2024-01-09	CARREFOUR	-18,14	Alimentation:Supermarché		R	
+2024-01-09	TABAC PRESSE	-16,9	Junk:Tabac		R	
+2024-01-10	MAIRIE DE PARIS	-4,75	Automobile:Stationnement		R	
+2024-01-10	ELV	-20,7	Non attribué		R	
+2024-01-11	CARREFOUR	-6,95	Alimentation:Supermarché		R	
+2024-01-12	CARREFOUR	-13,73	Alimentation:Supermarché		R	
+2024-01-12	CARREFOUR	-15,83	Alimentation:Supermarché		R	
+2024-01-12	MR OU MME BONNEFOY	100	Dettes personnelles		R	
+2024-01-12	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-01-13	CARREFOUR	-23,43	Alimentation:Supermarché		R	
+2024-01-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2024-01-14	CARREFOUR	-11,85	Alimentation:Supermarché		R	
+2024-01-14	CARREFOUR	-8,12	Alimentation:Supermarché		R	
+2024-01-14	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-01-16	CARREFOUR	-8,11	Alimentation:Supermarché		R	
+2024-01-16	COCORICO	-6	Soins:Habillement		R	
+2024-01-17	CARREFOUR	-3,3	Alimentation:Supermarché		R	
+2024-01-17	CARREFOUR	-8,54	Alimentation:Supermarché		R	
+2024-01-17	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-01-18	FRANPRIX	-16,2	Alimentation:Supermarché		R	
+2024-01-18	FRANPRIX	-17,19	Alimentation:Supermarché		R	
+2024-01-18	MR OU MME BONNEFOY	30	Dettes personnelles		R	
+2024-01-18	PHARDEX	204,75	Revenus du travail:Remboursements de frais		R	
+2024-01-19	CARREFOUR	-12,24	Alimentation:Supermarché		R	
+2024-01-19	CARREFOUR	-9,46	Alimentation:Supermarché		R	
+2024-01-19	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-01-19	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2024-01-20	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-01-20	NATIONALE DISTRI	-21,05	Non attribué		R	
+2024-01-21	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-01-21	CANAL SAT	-2,99	Loisirs:Service Numérique		R	
+2024-01-21	ATM	-40	Retrait despèces		R	
+2024-01-22	TABAC PRESSE	-17,4	Junk:Tabac		R	
+2024-01-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2024-01-23	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-01-23	FREE MOBILE	-35,98	Logement:Frais généraux:Téléphone mobile		R	
+2024-01-25	CARREFOUR	-5,03	Alimentation:Supermarché		R	
+2024-01-25	CARREFOUR	-24,82	Alimentation:Supermarché		R	
+2024-01-25	CIC	-550	Retrait despèces		R	
+2024-01-25	STE PHARDEX	2704,73	Revenus du travail:Salaire brut:Salaire net		R	
+2024-01-26	BOULANGERIE THIE	-9,6	Alimentation:Boulangerie		R	
+2024-01-26	CARREFOUR	-12,55	Alimentation:Supermarché		R	
+2024-01-26	CARREFOUR	-16,72	Alimentation:Supermarché		R	
+2024-01-26	FRANPRIX	-16,15	Alimentation:Supermarché		R	
+2024-01-26	TABAC PRESSE	-27,6	Junk:Tabac		R	
+2024-01-26	UBER	3,06	Pending:Pending VTC-Taxi		R	
+2024-01-26	UBER	-10,26	Transport:VTC-Taxi		R	
+2024-01-26	UBER	-10,26	Transport:VTC-Taxi		R	
+2024-01-27	CARREFOUR	-16,24	Alimentation:Supermarché		R	
+2024-01-27	CARREFOUR	-12,16	Alimentation:Supermarché		R	
+2024-01-27	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-01-27	AMAZON	-56,38	Logement:Equipement		R	
+2024-01-27	DISNEY PLUS	-11,99	Loisirs:Service Numérique		R	
+2024-01-27	ATM	-20	Retrait despèces		R	
+2024-01-27	ATM	-80	Retrait despèces		R	
+2024-01-27	CMNE DE BOULOGNE	-5,8	Retrait despèces		R	
+2024-01-27	PHARMACIE TRAPEZE	-17,8	Santé:Paharmacie		R	
+2024-01-28	CARREFOUR	-16,4	Alimentation:Supermarché		R	
+2024-01-28	CARREFOUR	-17,32	Alimentation:Supermarché		R	
+2024-01-28	SYLVIE SANCTORUM	-125	Dettes personnelles		R	
+2024-01-28	AMMONITIA	-1194,34	Logement:Loyer		R	
+2024-01-29	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2024-01-29	FRANPRIX	-27,1	Alimentation:Supermarché		R	
+2024-01-29	PHARMACIE TRAPEZE	-4,9	Santé:Paharmacie		R	
+2024-01-29	UBER	-9,25	Transport:VTC-Taxi		R	
+2024-01-30	CARREFOUR	-25,15	Alimentation:Supermarché		R	
+2024-01-30	FRANPRIX	-13,4	Alimentation:Supermarché		R	
+2024-01-30	UBER	-0,39	Transport:VTC-Taxi		R	
+2024-01-31	CARREFOUR	-24,01	Alimentation:Supermarché		R	
+2024-01-31	LYDIA	-9,9	Frais bancaires		R	
+2024-02-01	CARREFOUR	-20,58	Alimentation:Supermarché		R	
+2024-02-02	CARREFOUR	-33,25	Alimentation:Supermarché		R	
+2024-02-02	NATIONALE DISTRI	-23,45	Non attribué		R	
+2024-02-03	CARREFOUR	-30,14	Alimentation:Supermarché		R	
+2024-02-04	CARREFOUR	-18,49	Alimentation:Supermarché		R	
+2024-02-05	CARREFOUR	-16,53	Alimentation:Supermarché		R	
+2024-02-05	TABAC PRESSE	-29,4	Junk:Tabac		R	
+2024-02-06	CARREFOUR	-13,73	Alimentation:Supermarché		R	
+2024-02-06	CARREFOUR	-8,7	Alimentation:Supermarché		R	
+2024-02-06	FREE HAUTDEBIT	-82,44	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2024-02-06	MEDIUM	-4,66	Loisirs:Service Numérique		R	
+2024-02-08	CARREFOUR	-15,09	Alimentation:Supermarché		R	
+2024-02-08	MR OU MME BONNEFOY	100	Dettes personnelles		R	
+2024-02-08	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-02-08	DOCTOLIB	25	Pending:Pënding Doctolib		R	
+2024-02-08	DOCTOLIB	-60	Santé :Pending doctolib		R	
+2024-02-09	HEROKU	-11,17	Loisirs:Service Numérique		R	
+2024-02-10	FRANPRIX	-16,75	Alimentation:Supermarché		R	
+2024-02-10	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-02-12	CARREFOUR	-13,53	Alimentation:Supermarché		R	
+2024-02-12	MME MERCIER CELINE	38	Dettes personnelles		R	
+2024-02-12	MR OU MME BONNEFOY	60	Dettes personnelles		R	
+2024-02-12	DOCTOLIB	30	Pending:Pënding Doctolib		R	
+2024-02-12	DOCTOLIB	-65	Santé :Pending doctolib		R	
+2024-02-13	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2024-02-13	CARREFOUR	-11,29	Alimentation:Supermarché		R	
+2024-02-13	CARREFOUR	-14,73	Alimentation:Supermarché		R	
+2024-02-13	TABAC PRESSE	-15,7	Junk:Tabac		R	
+2024-02-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2024-02-13	COCORICO	6	Remboursements divers:Retour marchandise		R	
+2024-02-14	CARREFOUR	-13,8	Alimentation:Supermarché		R	
+2024-02-15	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-02-18	CARREFOUR	-6,81	Alimentation:Supermarché		R	
+2024-02-18	MME MERCIER CELINE	20	Dettes personnelles		R	
+2024-02-18	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-02-19	CARREFOUR	-0,58	Alimentation:Supermarché		R	
+2024-02-20	CARREFOUR	-8,62	Alimentation:Supermarché		R	
+2024-02-20	TABAC PRESSE	-29,4	Junk:Tabac		R	
+2024-02-20	CIC	-490	Retrait despèces		R	
+2024-02-20	SUMERIA	0,43	Revenus divers:Intérêts compte bancaire		R	
+2024-02-20	PHARDEX	591,99	Revenus du travail:Remboursements de frais		R	
+2024-02-21	CARREFOUR	-31,09	Alimentation:Supermarché		R	
+2024-02-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2024-02-23	MONOPRIX	-17	Alimentation:Supermarché		R	
+2024-02-23	ATM	-140	Retrait despèces		R	
+2024-02-23	STE PHARDEX	3330,49	Revenus du travail:Salaire brut:Salaire net		R	
+2024-02-23	PHARMACIE TRAPEZE	-17,8	Santé:Paharmacie		R	
+2024-02-24	CARREFOUR	-15,89	Alimentation:Supermarché		R	
+2024-02-24	PHARMACIE TRAPEZE	-8,9	Santé:Paharmacie		R	
+2024-02-25	CARREFOUR	-12,82	Alimentation:Supermarché		R	
+2024-02-25	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-02-25	LA SOCIETE GENERALE	-40	Retrait despèces		R	
+2024-02-26	CARREFOUR	-21,69	Alimentation:Supermarché		R	
+2024-02-26	DEEPL	-29,99	Loisirs:Service Numérique		R	
+2024-02-26	CIC	-300	Retrait despèces		R	
+2024-02-27	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2024-02-27	CARREFOUR	-25,02	Alimentation:Supermarché		R	
+2024-02-27	FREE MOBILE	-35,98	Logement:Frais généraux:Téléphone mobile		R	
+2024-02-27	DISNEY PLUS	-11,99	Loisirs:Service Numérique		R	
+2024-02-27	LA SOCIETE GENERALE	-130	Retrait despèces		R	
+2024-02-27	DENTAIRE D ISSY	-23	Santé:Dentiste		R	
+2024-02-28	CARREFOUR	-23,85	Alimentation:Supermarché		R	
+2024-02-28	LYDIA	-1,5	Frais bancaires		R	
+2024-02-28	TABAC PRESSE	-20,1	Junk:Tabac		R	
+2024-02-29	CARREFOUR	-20,36	Alimentation:Supermarché		R	
+2024-02-29	FRANPRIX	-14,1	Alimentation:Supermarché		R	
+2024-02-29	LYDIA	-9,9	Frais bancaires		R	
+2024-02-29	PHARMACIE TRAPEZE	-15	Santé:Paharmacie		R	
+2024-03-01	CARREFOUR	-13,59	Alimentation:Supermarché		R	
+2024-03-01	CARREFOUR	-13,36	Alimentation:Supermarché		R	
+2024-03-01	AMAZON	-41,52	Logement:Equipement		R	
+2024-03-02	CARREFOUR	-16,13	Alimentation:Supermarché		R	
+2024-03-03	FRANPRIX	-25,3	Alimentation:Supermarché		R	
+2024-03-04	CARREFOUR	-15,74	Alimentation:Supermarché		R	
+2024-03-04	CARREFOUR	-21,61	Alimentation:Supermarché		R	
+2024-03-04	MY-FURNITURE	-250	Junk:T		R	
+2024-03-04	PRIVATEINTERNETACCESS	-37,19	Loisirs:Service Numérique		R	
+2024-03-05	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2024-03-05	SYLVIE SANCTORUM	-150	Dettes personnelles		R	
+2024-03-05	RM DISTRI	-15,85	Non attribué		R	
+2024-03-05	DENTAIRE D ISSY	-146,57	Santé:Dentiste		R	
+2024-03-06	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2024-03-06	CARREFOUR	-17,56	Alimentation:Supermarché		R	
+2024-03-06	CARREFOUR	-14,16	Alimentation:Supermarché		R	
+2024-03-06	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2024-03-06	AMMONITIA	-1177,34	Logement:Loyer		R	
+2024-03-06	ATM	-50	Retrait despèces		R	
+2024-03-06	LA SOCIETE GENERALE	-30	Retrait despèces		R	
+2024-03-07	CARREFOUR	-18,37	Alimentation:Supermarché		R	
+2024-03-07	CPAM HAUTS DE SEINE SEPA	6,3	Allocations et Sécurité sociale:Remboursement de frais de santé		R	
+2024-03-08	CARREFOUR	-14,39	Alimentation:Supermarché		R	
+2024-03-08	CARREFOUR	-14,72	Alimentation:Supermarché		R	
+2024-03-08	HEROKU	-11,04	Loisirs:Service Numérique		R	
+2024-03-08	PHARMACIE TRAPEZE	-5,14	Santé:Paharmacie		R	
+2024-03-09	CARREFOUR	-19,99	Alimentation:Supermarché		R	
+2024-03-10	CARREFOUR	-10,67	Alimentation:Supermarché		R	
+2024-03-10	CARREFOUR	-17,22	Alimentation:Supermarché		R	
+2024-03-11	LA SOCIETE GENERALE	-150	Retrait despèces		R	
+2024-03-12	CARREFOUR	-13,79	Alimentation:Supermarché		R	
+2024-03-12	CARREFOUR	-8,93	Alimentation:Supermarché		R	
+2024-03-12	CARREFOUR	-12,22	Alimentation:Supermarché		R	
+2024-03-13	CARREFOUR	-12,8	Alimentation:Supermarché		R	
+2024-03-15	CARREFOUR	-28,47	Alimentation:Supermarché		R	
+2024-03-15	CPAM HAUTS DE SEINE SEPA	87,94	Allocations et Sécurité sociale:Indemnités Journalières		R	
+2024-03-15	TABAC PRESSE	-24,4	Junk:Tabac		R	
+2024-03-15	PHARDEX	391,25	Revenus du travail:Remboursements de frais		R	
+2024-03-16	CARREFOUR	-16,52	Alimentation:Supermarché		R	
+2024-03-16	CASHBACK SUMERIA	2,18	Cashback		R	
+2024-03-16	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2024-03-17	CARREFOUR	-21,8	Alimentation:Supermarché		R	
+2024-03-17	CARREFOUR	-13	Alimentation:Supermarché		R	
+2024-03-17	AMAZON DIGIT	-3,99	Loisirs:Service Numérique		R	
+2024-03-18	CARREFOUR	-15,16	Alimentation:Supermarché		R	
+2024-03-18	CARREFOUR	-14,07	Alimentation:Supermarché		R	
+2024-03-19	CARREFOUR	-11,27	Alimentation:Supermarché		R	
+2024-03-19	CARREFOUR	-15,91	Alimentation:Supermarché		R	
+2024-03-21	CARREFOUR	-31,38	Alimentation:Supermarché		R	
+2024-03-21	ATM	-60	Retrait despèces		R	
+2024-03-22	CARREFOUR	-27,98	Alimentation:Supermarché		R	
+2024-03-22	CARREFOUR	-15,57	Alimentation:Supermarché		R	
+2024-03-22	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2024-03-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2024-03-23	CARREFOUR	-9,13	Alimentation:Supermarché		R	
+2024-03-23	CARREFOUR	-16,5	Alimentation:Supermarché		R	
+2024-03-23	CIC	-70	Retrait despèces		R	
+2024-03-24	CARREFOUR	-13,6	Alimentation:Supermarché		R	
+2024-03-24	FRANPRIX	-14,39	Alimentation:Supermarché		R	
+2024-03-24	TABAC PRESSE	-16,9	Junk:Tabac		R	
+2024-03-25	CARREFOUR	-14,59	Alimentation:Supermarché		R	
+2024-03-25	FRANPRIX	-30,5	Alimentation:Supermarché		R	
+2024-03-25	TABAC PRESSE	-19,5	Junk:Tabac		R	
+2024-03-25	SUMERIA	0,81	Revenus divers:Intérêts compte bancaire		R	
+2024-03-25	STE PHARDEX	1512,36	Revenus du travail:Salaire brut:Salaire net		R	
+2024-03-26	CARREFOUR	-24	Alimentation:Supermarché		R	
+2024-03-26	CARREFOUR	-16,54	Alimentation:Supermarché		R	
+2024-03-26	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-03-26	DEEPL	-29,99	Loisirs:Service Numérique		R	
+2024-03-26	SA SUED	-38,97	Loisirs:Service Numérique		R	
+2024-03-26	DOCTOLIB	30	Pending:Pënding Doctolib		R	
+2024-03-26	ATM	-230	Retrait despèces		R	
+2024-03-26	DOCTOLIB	-65	Santé :Pending doctolib		R	
+2024-03-27	FRANPRIX	-29,64	Alimentation:Supermarché		R	
+2024-03-27	INDIGO	-1,3	Automobile:Stationnement		R	
+2024-03-27	TABAC PRESSE	-15,7	Junk:Tabac		R	
+2024-03-27	FREE MOBILE	-35,98	Logement:Frais généraux:Téléphone mobile		R	
+2024-03-27	APPLE	-12,99	Loisirs:Service Numérique		R	
+2024-03-27	DISNEY PLUS	-11,99	Loisirs:Service Numérique		R	
+2024-03-27	ATM	-40	Retrait despèces		R	
+2024-03-27	PHARMACIE REPUBLIQUE	-41,32	Santé:Paharmacie		R	
+2024-03-27	PHARMACIE REPUBLIQUE	-23,98	Santé:Paharmacie		R	
+2024-03-28	CARREFOUR	-25,12	Alimentation:Supermarché		R	
+2024-03-28	LYDIA	-1	Frais bancaires		R	
+2024-03-28	MY-FURNITURE	-395	Junk:T		R	
+2024-03-28	UBER	-17,24	Transport:VTC-Taxi		R	
+2024-03-29	CARREFOUR	-29,68	Alimentation:Supermarché		R	
+2024-03-29	FRANPRIX	-14,16	Alimentation:Supermarché		R	
+2024-03-29	TABAC PRESSE	-19,5	Junk:Tabac		R	
+2024-03-29	DOCTEUR SOTIROPOULOS	-51,92	Santé:Dentiste		R	
+2024-03-29	UBER	-0,37	Transport:VTC-Taxi		R	
+2024-03-30	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2024-03-30	CARREFOUR	-12,46	Alimentation:Supermarché		R	
+2024-03-30	CARREFOUR	-24,25	Alimentation:Supermarché		R	
+2024-03-30	TABAC PRESSE	-19,4	Junk:Tabac		R	
+2024-03-30	CIC	-50	Retrait despèces		R	
+2024-03-31	CARREFOUR	-14,16	Alimentation:Supermarché		R	
+2024-03-31	LYDIA	-9,9	Frais bancaires		R	
+2024-03-31	LYDIA	-1	Frais bancaires		R	
+2024-04-01	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2024-04-01	CARREFOUR	-12,36	Alimentation:Supermarché		R	
+2024-04-01	VINCI	-5	Automobile:Stationnement		R	
+2024-04-02	CARREFOUR	-23,14	Alimentation:Supermarché		R	
+2024-04-02	FRANPRIX	-16	Alimentation:Supermarché		R	
+2024-04-02	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-04-02	DOCTEUR GARNEK	-40	Santé:Médecin généraliste		R	
+2024-04-03	CARREFOUR	-9,94	Alimentation:Supermarché		R	
+2024-04-04	CARREFOUR	-12,79	Alimentation:Supermarché		R	
+2024-04-04	CPAM HAUTS DE SEINE SEPA	43,97	Allocations et Sécurité sociale:Remboursement de frais de santé		R	
+2024-04-05	CPAM HAUTS DE SEINE SEPA	17,55	Allocations et Sécurité sociale:Remboursement de frais de santé		R	
+2024-04-05	TABAC PRESSE	-20,1	Junk:Tabac		R	
+2024-04-05	FREE HAUTDEBIT	-64,47	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2024-04-06	CARREFOUR	-12,61	Alimentation:Supermarché		R	
+2024-04-06	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-04-08	MR OU MME BONNEFOY	50	Dettes personnelles		R	
+2024-04-08	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-04-08	LA SOCIETE GENERALE	-40	Retrait despèces		R	
+2024-04-09	STE PHARDEX	500	Revenus du travail:Salaire brut:Salaire net		R	
+2024-04-10	CARREFOUR	-13,31	Alimentation:Supermarché		R	
+2024-04-10	CARREFOUR	-13,81	Alimentation:Supermarché		R	
+2024-04-10	CARREFOUR	-11,74	Alimentation:Supermarché		R	
+2024-04-10	HEROKU	-11,06	Loisirs:Service Numérique		R	
+2024-04-11	CARREFOUR	-10,41	Alimentation:Supermarché		R	
+2024-04-11	FRANPRIX	-19,4	Alimentation:Supermarché		R	
+2024-04-11	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-04-11	AMAZON	-34,96	Logement:Equipement		R	
+2024-04-11	CIC	-150	Retrait despèces		R	
+2024-04-11	DOCTOLIB	-25	Santé :Pending doctolib		R	
+2024-04-11	PHARMACIE TRAPEZE	-2,57	Santé:Paharmacie		R	
+2024-04-12	ATM	-70	Retrait despèces		R	
+2024-04-13	CARREFOUR	-27,18	Alimentation:Supermarché		R	
+2024-04-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2024-04-14	CARREFOUR	-8,38	Alimentation:Supermarché		R	
+2024-04-14	FRANPRIX	-11,98	Alimentation:Supermarché		R	
+2024-04-14	TABAC PRESSE	-32,6	Junk:Tabac		R	
+2024-04-15	CPAM HAUTS DE SEINE SEPA	33	Allocations et Sécurité sociale:Remboursement de frais de santé		R	
+2024-04-16	CARREFOUR	-23,65	Alimentation:Supermarché		R	
+2024-04-16	CARREFOUR	-24,53	Alimentation:Supermarché		R	
+2024-04-17	CARREFOUR	-7,89	Alimentation:Supermarché		R	
+2024-04-17	CARREFOUR	-9,45	Alimentation:Supermarché		R	
+2024-04-17	CPAM HAUTS DE SEINE SEPA	16,5	Allocations et Sécurité sociale:Remboursement de frais de santé		R	
+2024-04-17	SUMERIA	0,73	Revenus divers:Intérêts compte bancaire		R	
+2024-04-18	CARREFOUR	-7,64	Alimentation:Supermarché		R	
+2024-04-18	FRANPRIX	-21,05	Alimentation:Supermarché		R	
+2024-04-18	CPAM HAUTS DE SEINE SEPA	97,54	Allocations et Sécurité sociale:Indemnités Journalières		R	
+2024-04-18	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-04-19	CARREFOUR	-12,96	Alimentation:Supermarché		R	
+2024-04-19	CARREFOUR	-12,82	Alimentation:Supermarché		R	
+2024-04-19	MME MERCIER CELINE	11	Dettes personnelles		R	
+2024-04-19	AMAZON	-10,99	Logement:Equipement		R	
+2024-04-19	FDJ	-10	Loterie		R	
+2024-04-20	CARREFOUR	-8,7	Alimentation:Supermarché		R	
+2024-04-20	CARREFOUR	-10,31	Alimentation:Supermarché		R	
+2024-04-20	TABAC PRESSE	-16,9	Junk:Tabac		R	
+2024-04-21	CARREFOUR	-7,18	Alimentation:Supermarché		R	
+2024-04-24	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2024-04-24	CARREFOUR	-43,78	Alimentation:Supermarché		R	
+2024-04-24	CPAM HAUTS DE SEINE SEPA	292,62	Allocations et Sécurité sociale:Indemnités Journalières		R	
+2024-04-24	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-04-24	APPLE	-2,99	Loisirs:Service Numérique		R	
+2024-04-24	ATM	-90	Retrait despèces		R	
+2024-04-24	STE PHARDEX	107,05	Revenus du travail:Salaire brut:Salaire net		R	
+2024-04-24	PHARMACIE TRAPEZE	-2,57	Santé:Paharmacie		R	
+2024-04-25	CARREFOUR	-15,68	Alimentation:Supermarché		R	
+2024-04-25	FRANPRIX	-10,82	Alimentation:Supermarché		R	
+2024-04-25	TABAC PRESSE	-29,4	Junk:Tabac		R	
+2024-04-25	ATM	-150	Retrait despèces		R	
+2024-04-26	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2024-04-26	CARREFOUR	-20,96	Alimentation:Supermarché		R	
+2024-04-26	MME MERCIER CELINE	20	Dettes personnelles		R	
+2024-04-26	TABAC PRESSE	-13	Junk:Tabac		R	
+2024-04-27	DISNEY PLUS	-11,99	Loisirs:Service Numérique		R	
+2024-04-28	CARREFOUR	-4,54	Alimentation:Supermarché		R	
+2024-04-30	CARREFOUR	-22,74	Alimentation:Supermarché		R	
+2024-04-30	LYDIA	-9,9	Frais bancaires		R	
+2024-04-30	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-04-30	STE PHARDEX	500	Revenus du travail:Salaire brut:Salaire net		R	
+2024-05-01	CARREFOUR	-16,47	Alimentation:Supermarché		R	
+2024-05-01	CARREFOUR	-18,61	Alimentation:Supermarché		R	
+2024-05-02	CARREFOUR	-11,18	Alimentation:Supermarché		R	
+2024-05-03	FRANPRIX	-18,15	Alimentation:Supermarché		R	
+2024-05-03	TOTAL	-200	Automobile:Carburant		R	
+2024-05-03	TOTAL	174,99	Pending:Pending Carburant		R	
+2024-05-03	PHARMACIE TRAPEZE	-14,07	Santé:Paharmacie		R	
+2024-05-03	DOCTEUR MARTIN	-26,5	Santé:Médecin généraliste		R	
+2024-05-05	APPLE	-1,99	Loisirs:Service Numérique		R	
+2024-05-05	ATM	-40	Retrait despèces		R	
+2024-05-06	CARREFOUR	-17,83	Alimentation:Supermarché		R	
+2024-05-06	FRANPRIX	-27,3	Alimentation:Supermarché		R	
+2024-05-06	CPAM HAUTS DE SEINE SEPA	240,85	Allocations et Sécurité sociale:Indemnités Journalières		R	
+2024-05-06	TABAC PRESSE	-34,17	Junk:Tabac		R	
+2024-05-06	FREE MOBILE	-35,98	Logement:Frais généraux:Téléphone mobile		R	
+2024-05-06	TRESOR PUBLIC	-35	Taxes et impôts		R	
+2024-05-07	CARREFOUR	-16,45	Alimentation:Supermarché		R	
+2024-05-07	FREE HAUTDEBIT	-54,49	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2024-05-07	ATM	-80	Retrait despèces		R	
+2024-05-08	CARREFOUR	-12,14	Alimentation:Supermarché		R	
+2024-05-08	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-05-08	EXQUILLA THUNDERBIRD	-10	Loisirs:Service Numérique		R	
+2024-05-08	UBER	-21,79	Transport:VTC-Taxi		R	
+2024-05-08	UBER	-20,49	Transport:VTC-Taxi		R	
+2024-05-09	CARREFOUR	-3,45	Alimentation:Supermarché		R	
+2024-05-09	CEWE S.A.S	-4,29	Logement:Frais généraux:Photographie		R	
+2024-05-09	LA SOCIETE GENERALE	-110	Retrait despèces		R	
+2024-05-09	UBER	-1,66	Transport:VTC-Taxi		R	
+2024-05-10	CPAM HAUTS DE SEINE SEPA	17,55	Allocations et Sécurité sociale:Remboursement de frais de santé		R	
+2024-05-11	CARREFOUR	-14,43	Alimentation:Supermarché		R	
+2024-05-11	CARREFOUR	-13,45	Alimentation:Supermarché		R	
+2024-05-11	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-05-14	SUMERIA	0,11	Revenus divers:Intérêts compte bancaire		R	
+2024-05-16	CARREFOUR	-3,3	Alimentation:Supermarché		R	
+2024-05-16	FRANPRIX	-29,05	Alimentation:Supermarché		R	
+2024-05-16	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-05-16	HEROKU	-11,1	Loisirs:Service Numérique		R	
+2024-05-16	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2024-05-16	PHARDEX	476,75	Revenus du travail:Remboursements de frais		R	
+2024-05-16	STE PHARDEX	500	Revenus du travail:Salaire brut:Salaire net		R	
+2024-05-17	MCDONALDS	-14,9	Alimentation:Fast food		R	
+2024-05-17	CARREFOUR	-19,3	Alimentation:Supermarché		R	
+2024-05-17	CARREFOUR	-26,4	Alimentation:Supermarché		R	
+2024-05-17	INTEREPARGNE	423,18	Revenus du travail:Participation aux bénéfices		R	
+2024-05-18	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2024-05-18	CARREFOUR	-5,22	Alimentation:Supermarché		R	
+2024-05-18	CARREFOUR	-46,25	Alimentation:Supermarché		R	
+2024-05-18	CARREFOUR	-17,67	Alimentation:Supermarché		R	
+2024-05-18	TABAC PRESSE	-29,4	Junk:Tabac		R	
+2024-05-18	AMAZON DIGIT	-4,99	Loisirs:Service Numérique		R	
+2024-05-19	CARREFOUR	-33,02	Alimentation:Supermarché		R	
+2024-05-19	CARREFOUR	-5,84	Alimentation:Supermarché		R	
+2024-05-19	MY-FURNITURE	-654	Junk:T		R	
+2024-05-19	TABAC PRESSE	-14,5	Junk:Tabac		R	
+2024-05-19	CIC	-140	Retrait despèces		R	
+2024-05-19	LA SOCIETE GENERALE	-100	Retrait despèces		R	
+2024-05-19	LA SOCIETE GENERALE	-50	Retrait despèces		R	
+2024-05-21	FRANPRIX	-23,54	Alimentation:Supermarché		R	
+2024-05-21	TABAC PRESSE	-16,3	Junk:Tabac		R	
+2024-05-21	PHARMACIE TRAPEZE	-25,9	Santé:Paharmacie		R	
+2024-05-22	CARREFOUR	-24,43	Alimentation:Supermarché		R	
+2024-05-22	APPLE	-2,99	Loisirs:Service Numérique		R	
+2024-05-22	DOCTEUR DERHY	-37	Santé:Médecin généraliste		R	
+2024-05-23	REL. PONT AVAL	-5,77	Junk:Tabac		R	
+2024-05-23	ATM	-150	Retrait despèces		R	
+2024-05-23	INTEREPARGNE	1272,4	Revenus du travail:Intéressement		R	
+2024-05-24	BOULANGERIE THIE	-9,6	Alimentation:Boulangerie		R	
+2024-05-24	CARREFOUR	-16,9	Alimentation:Supermarché		R	
+2024-05-24	FRANPRIX	-32,35	Alimentation:Supermarché		R	
+2024-05-24	LYDIA	-2,25	Frais bancaires		R	
+2024-05-24	TABAC PRESSE	-16,9	Junk:Tabac		R	
+2024-05-24	TABAC PRESSE	-17,5	Junk:Tabac		R	
+2024-05-24	FREE MOBILE	-45,98	Logement:Frais généraux:Téléphone mobile		R	
+2024-05-24	CIC	-40	Retrait despèces		R	
+2024-05-25	CARREFOUR	-24,38	Alimentation:Supermarché		R	
+2024-05-25	FRANPRIX	-22,02	Alimentation:Supermarché		R	
+2024-05-25	TOTAL	-200	Automobile:Carburant		R	
+2024-05-25	LYDIA	-1	Frais bancaires		R	
+2024-05-25	TABAC PRESSE	-17,4	Junk:Tabac		R	
+2024-05-25	TOTAL	179,89	Pending:Pending Carburant		R	
+2024-05-25	ATM	-150	Retrait despèces		R	
+2024-05-25	UBER	-27,95	Transport:VTC-Taxi		R	
+2024-05-26	AUCHAN	-59,99	Alimentation:Supermarché		R	
+2024-05-26	AUCHAN	-56,54	Alimentation:Supermarché		R	
+2024-05-26	LYDIA	-2,25	Frais bancaires		R	
+2024-05-27	BOULANGERIE THIE	-9,6	Alimentation:Boulangerie		R	
+2024-05-27	CARREFOUR	-18,35	Alimentation:Supermarché		R	
+2024-05-27	CARREFOUR	-19,34	Alimentation:Supermarché		R	
+2024-05-27	FRANPRIX	-29,74	Alimentation:Supermarché		R	
+2024-05-27	CPAM HAUTS DE SEINE SEPA	92,21	Allocations et Sécurité sociale:Remboursement de frais de santé		R	
+2024-05-27	DISNEY PLUS	-11,99	Loisirs:Service Numérique		R	
+2024-05-27	ATM	-120	Retrait despèces		R	
+2024-05-27	STE PHARDEX	3890,73	Revenus du travail:Salaire brut:Salaire net		R	
+2024-05-27	PHARMACIE TRAPEZE	-2,57	Santé:Paharmacie		R	
+2024-05-28	CARREFOUR	-16,64	Alimentation:Supermarché		R	
+2024-05-28	LYDIA	-1,8	Frais bancaires		R	
+2024-05-29	FRANPRIX	-35,1	Alimentation:Supermarché		R	
+2024-05-29	CPAM HAUTS DE SEINE SEPA	16,55	Allocations et Sécurité sociale:Remboursement de frais de santé		R	
+2024-05-29	GRAND PARIS SEINE OUEST	-0,45	Automobile:Stationnement		R	
+2024-05-29	GRAND PARIS SEINE OUEST	-4,15	Automobile:Stationnement		R	
+2024-05-29	GRAND PARIS SEINE OUEST	-0,8	Automobile:Stationnement		R	
+2024-05-29	TABAC PRESSE	-15,7	Junk:Tabac		R	
+2024-05-29	CIC	-120	Retrait despèces		R	
+2024-05-29	LA SOCIETE GENERALE	-100	Retrait despèces		R	
+2024-05-30	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2024-05-30	CARREFOUR	-9,1	Alimentation:Supermarché		R	
+2024-05-30	FRANPRIX	-31,12	Alimentation:Supermarché		R	
+2024-05-30	LYDIA	-3,3	Frais bancaires		R	
+2024-05-30	ATM	-150	Retrait despèces		R	
+2024-05-31	CARREFOUR	-11,34	Alimentation:Supermarché		R	
+2024-05-31	FRANPRIX	-27,15	Alimentation:Supermarché		R	
+2024-05-31	LYDIA	-9,9	Frais bancaires		R	
+2024-05-31	LYDIA	-2,25	Frais bancaires		R	
+2024-05-31	TABAC PRESSE	-29,4	Junk:Tabac		R	
+2024-05-31	LA SOCIETE GENERALE	-150	Retrait despèces		R	
+2024-06-02	CARREFOUR	-32,29	Alimentation:Supermarché		R	
+2024-06-03	AUCHAN	-84,12	Alimentation:Supermarché		R	
+2024-06-03	AMMONITIA	-139,08	Logement:Loyer		R	
+2024-06-03	AMMONITIA	-200	Logement:Loyer		R	
+2024-06-03	AMMONITIA	-400	Logement:Loyer		R	
+2024-06-03	AMMONITIA	-1035,26	Logement:Loyer		R	
+2024-06-03	SYLVIE SANCTORUM	-400	Dettes personnelles		R	
+2024-06-04	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2024-06-04	CARREFOUR	-52,27	Alimentation:Supermarché		R	
+2024-06-04	FRANPRIX	-17,6	Alimentation:Supermarché		R	
+2024-06-04	TOTAL	-30	Automobile:Carburant		R	
+2024-06-04	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-06-04	LA SOCIETE GENERALE	-150	Retrait despèces		R	
+2024-06-04	LA SOCIETE GENERALE	-70	Retrait despèces		R	
+2024-06-05	BOULANGERIE THIE	-4,4	Alimentation:Boulangerie		R	
+2024-06-05	CARREFOUR	-15,53	Alimentation:Supermarché		R	
+2024-06-06	CARREFOUR	-10,95	Alimentation:Supermarché		R	
+2024-06-06	CARREFOUR	-19,31	Alimentation:Supermarché		R	
+2024-06-06	TICKET À GRATTER	4,4	Cashback		R	
+2024-06-06	FREE HAUTDEBIT	-62,47	Logement:Frais généraux:Internet-TV-Téléphone		R	
+2024-06-06	HEROKU	-11,06	Loisirs:Service Numérique		R	
+2024-06-06	DOCTEUR LE FLOCH	-23	Santé:Dentiste		R	
+2024-06-07	CARREFOUR	-13,81	Alimentation:Supermarché		R	
+2024-06-07	CARREFOUR	-8,26	Alimentation:Supermarché		R	
+2024-06-08	SNC PARC LYONDID	-2,7	Automobile:Stationnement		R	
+2024-06-08	TABAC PRESSE	-32,7	Junk:Tabac		R	
+2024-06-08	CIC	-150	Retrait despèces		R	
+2024-06-09	CARREFOUR	-19,37	Alimentation:Supermarché		R	
+2024-06-10	CARREFOUR	-16,76	Alimentation:Supermarché		R	
+2024-06-10	DOCTOLIB	-35	Santé :Pending doctolib		R	
+2024-06-10	UBER	-16,01	Transport:VTC-Taxi		R	
+2024-06-10	UBER	-16,28	Transport:VTC-Taxi		R	
+2024-06-11	CARREFOUR	-18,84	Alimentation:Supermarché		R	
+2024-06-11	CARREFOUR	-16,45	Alimentation:Supermarché		R	
+2024-06-11	CPAM HAUTS DE SEINE SEPA	13,8	Allocations et Sécurité sociale:Remboursement de frais de santé		R	
+2024-06-12	CARREFOUR	-21,23	Alimentation:Supermarché		R	
+2024-06-12	CASHBACK SUMERIA	2,32	Cashback		R	
+2024-06-12	PHARDEX	271,74	Revenus du travail:Remboursements de frais		R	
+2024-06-13	CARREFOUR	-5,5	Alimentation:Supermarché		R	
+2024-06-13	FRANPRIX	-18	Alimentation:Supermarché		R	
+2024-06-13	TABAC PRESSE	-19,59	Junk:Tabac		R	
+2024-06-13	JETBRAINS	-7,08	Loisirs:Service Numérique		R	
+2024-06-14	CARREFOUR	-7,08	Alimentation:Supermarché		R	
+2024-06-15	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-06-15	CIC	-150	Retrait despèces		R	
+2024-06-16	CARREFOUR	-8,82	Alimentation:Supermarché		R	
+2024-06-16	CIC	-150	Retrait despèces		R	
+2024-06-17	FRANPRIX	-36,05	Alimentation:Supermarché		R	
+2024-06-17	TABAC PRESSE	-12,5	Junk:Tabac		R	
+2024-06-17	PHARMACIE TRAPEZE	-25,9	Santé:Paharmacie		R	
+2024-06-18	BOULANGERIE THIE	-5,8	Alimentation:Boulangerie		R	
+2024-06-18	TABAC PRESSE	-11,19	Junk:Tabac		R	

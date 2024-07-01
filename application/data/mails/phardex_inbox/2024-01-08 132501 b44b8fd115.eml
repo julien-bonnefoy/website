@@ -1,0 +1,210 @@
+From drchpinet@gmail.com Mon Jan 08 13:25:01 2024
+Received: from AS5PR07MB9747.eurprd07.prod.outlook.com (2603:10a6:20b:652::14)
+ by AM7PR07MB6692.eurprd07.prod.outlook.com with HTTPS; Mon, 8 Jan 2024
+ 13:25:01 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=CEoxSZqYHfmkq78yiZj0qEBFk/fFbLC3MuhZJ/ssrJmHtXhPtBfPJVuZI0moVpD0H/GqK3dG/n1I3UKr8RFgIK6b7xeQ3MH4YSqkP+0asfoCA3VDpxEVcvScO2QBqoB7TZUdhSwrSvW4VGc7c+3Mk2rcep9Y7a+KmNRmNw9rjkUAGqU3ifrrUz4izQ7y19SduIN+AinBz2YP9/3RmG3QVfa/GeWxGllMs9VYvR5vQQXwuaYySaONy0vOFUwAfkQvqewetQRhgrZ9m2HfLqUun+THExXjUBuTJ6Pp0734lFPID3tg6f2aUnFfkYqtpbJRPvQhVmu2NHYfnILmyfRC4g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Dv0U8h+o6ImYg2Hmj3Pgpt1P5sFNJziNbBTho03VwjU=;
+ b=V3ntiafFl4Zk42LjQDXXh6sSFJpB7+xXVxaxA2dccsUjYU73zJh/kvE4mbmz4RHrLHkmDKs0HZQFvpQHaa5HsDOOpGm1fCNr/JA3L7QlClDwgd3tPpAkYhM/5hidis+XjnU4Ju16CkKTy9QpYs3EynsBv9pBh82cbci5DuJTciBUDMzOSBr2hRpmk02MWOz5qb50xkZ4x1dMi3ZNySqyYWwiyBXODbgeLtEYr6Ql6dhY5gt6lx3oINE1tAez6u01BfNMzBBJ6ERP3m0m3of3ayH42P25vhX9M4JUBbt23W7AlWnjNz/YHljY1hcUGJ54cJ8cyq3hS2RdS7HxqrNVog==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 194.104.110.241) smtp.rcpttodomain=phardex.fr smtp.mailfrom=gmail.com;
+ dmarc=pass (p=none sp=quarantine pct=100) action=none header.from=gmail.com;
+ dkim=pass (signature was verified) header.d=gmail.com; arc=pass (0 oda=0
+ ltdi=0 93)
+Received: from AS4P251CA0028.EURP251.PROD.OUTLOOK.COM (2603:10a6:20b:5d3::17)
+ by AS5PR07MB9747.eurprd07.prod.outlook.com (2603:10a6:20b:652::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7159.21; Mon, 8 Jan
+ 2024 13:24:59 +0000
+Received: from AM3PEPF0000A793.eurprd04.prod.outlook.com
+ (2603:10a6:20b:5d3:cafe::ea) by AS4P251CA0028.outlook.office365.com
+ (2603:10a6:20b:5d3::17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7159.21 via Frontend
+ Transport; Mon, 8 Jan 2024 13:24:59 +0000
+Authentication-Results: spf=softfail (sender IP is 194.104.110.241)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ gmail.com discourages use of 194.104.110.241 as permitted sender)
+Received: from de-smtp-inbound-delivery-1.mimecast.com (194.104.110.241) by
+ AM3PEPF0000A793.mail.protection.outlook.com (10.167.16.122) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7181.13 via Frontend Transport; Mon, 8 Jan 2024 13:24:59 +0000
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=dkim.mimecast.com; s=201903; t=1704720299;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=Dv0U8h+o6ImYg2Hmj3Pgpt1P5sFNJziNbBTho03VwjU=;
+	b=RiJ2NV674AmRV1jWB8+QaaEysl2dg1Ff7+peqXpq9SA1GLvnoMvWLm/tTY89VZIW6bErYy
+	b1HxVu6NpvPGW41ZOQ1jvAR4zBWA/pYwSSdp7SjCZcfTqBdbphbTBJJ3OOaI47tHhyF95X
+	aFNGlL8mH0yLN5CcOm9IgeCgKtsTwDUmvl09OQbu3TPKgt9Q60O/eWacpK4bcnN9JaJp9Y
+	R3GXuiiV8i2uNSY0Jrs6WOqDAGzWbhGnxaGsHbi8YV1bNT4UZMHcUh+yYN2Fy5Vbxz4jy9
+	Cmaf2EyCIsnwiZjQMfRD3jzcN9MrglSGPELTMYDkxFUVO2NzQplbQyFPgNDm5A==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1704720299; a=rsa-sha256;
+	cv=none;
+	b=Btgdv72Bzi5lehhFVoVtje0l9yHpqQOKkX1ygFOGQyhdyD45y4TZYPZ8qB7eKhDYVLLwJD
+	wcizQND4DW3OJZM1SLKceWM0eCxNpiOQMQByNUporRMjIHSUDNTyaJvkqfsMeucl1DeJE4
+	E5ocerqAUr8aCTWMTVxrKjRZTzVwuYxq64VIqVaieEU21ltYqEwhVvAuFUbclKdV0Qi49M
+	ZK5jVkjMUdE2VPLw/ITji4WvT9i/pcP96NE65Pd4/xhEuJPVKV7tt9brApfYBHfPY7ndPv
+	4ryB52jsJb430hv4D75gRyYBWQAqg4aOEqUMpHA64TnsKZUKZ825rf+Fwerudg==
+ARC-Authentication-Results: i=1;
+	relay.mimecast.com;
+	dkim=pass header.d=gmail.com header.s=20230601 header.b=eMbfUkgs;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (relay.mimecast.com: domain of drchpinet@gmail.com designates 209.85.210.42 as permitted sender) smtp.mailfrom=drchpinet@gmail.com
+Received: from mail-ot1-f42.google.com (mail-ot1-f42.google.com
+ [209.85.210.42]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ de-mta-54-7aPMiNupPjWY4MwTYB1I5A-1; Mon, 08 Jan 2024 14:24:57 +0100
+X-MC-Unique: 7aPMiNupPjWY4MwTYB1I5A-1
+Received: by mail-ot1-f42.google.com with SMTP id 46e09a7af769-6dc53fc4b0dso1318485a34.2
+        for <j.bonnefoy@phardex.fr>; Mon, 08 Jan 2024 05:24:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1704720295; x=1705325095; darn=phardex.fr;
+        h=auto-submitted:precedence:content-disposition
+         :content-transfer-encoding:mime-version:subject:references
+         :in-reply-to:message-id:date:from:to:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Dv0U8h+o6ImYg2Hmj3Pgpt1P5sFNJziNbBTho03VwjU=;
+        b=eMbfUkgsAbeDpo2c9orkY5hRFUd2ypTgBUWamiVgl3WZPjZaajmW5Pd6KY7f9Hy4Kp
+         eOF2VAfNsCvTAEnWGN6mrv9qsyN61xS/7B9obRcQxRY4N+tq+ySE6RhjtMY7ClK2JYCN
+         rm2u85F58hVfY6BeKBu0SPIDJT9LVIYl3/wLJ7pOWS16La4WoTITrz0/KyFO6vvvvllQ
+         NZcSzUxXtchzigsO6wC/MkA1LjpJLOHUqVXg6O3ZA3BluB2YBibQRM+FNuHzEvS9aT3D
+         M4veXuLrD5FiJ3Cn9rcknveXPzY8DQSQ8oAIqLpeJ60Py8MbP+dpiVB03l5xk4S3ZtYg
+         z67Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1704720295; x=1705325095;
+        h=auto-submitted:precedence:content-disposition
+         :content-transfer-encoding:mime-version:subject:references
+         :in-reply-to:message-id:date:from:to:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Dv0U8h+o6ImYg2Hmj3Pgpt1P5sFNJziNbBTho03VwjU=;
+        b=IohZWC3MJafoffIyfnKZg4Qt3KaFJrC1Xn7HQdq23NbIhaLo5lNvbu8XWwWZmmUxWN
+         cKWeeSC+Yk0qHzVqYpgCBLI3BJW6U2LXvglih5NgH7gyrlyO6eP8xu1uTjsXIgdxSBX9
+         4huzNsr+rJLUClrZsK1MPFpm0h45AVXI3+CxGnqhu/2lm7lmWJhzqssNU4Jfq3hQYlfX
+         nkzA1ZSyU5Bvk0m/UTpeUKIuUXrtVuSKSEVroaEOCUsqP/z0klYB7J9jiGLmrwBbqIvp
+         hbCsjI0bcwFExmPOWcTlww+HSVbXFeHNcrBD3Qf3ybY26ItevI+fTeWH5/+y7dOPpF1G
+         ovMw==
+X-Gm-Message-State: AOJu0Yz540mwDV7aExAqmy+MLduRuA9f+/YJ+4n3jRznArBUyBwJvVmD
+	iQg/I/+BthEtb1/9vOttHLIvowlMkTlACy2rshGSxy5H+icIAcwDftYAgi1VUg==
+X-Google-Smtp-Source: AGHT+IEh06Dw2xn/xm59bPSSDD9qMbOUbEsN1mHRi2A9mg1dtyr6z3z0IG++No4n0tr+7JFwFt4h6nhUuDfPfkS3vKfgvFB6oYqkFNw24zQi
+X-Received: by 2002:a9d:64cf:0:b0:6dc:3dad:a540 with SMTP id n15-20020a9d64cf000000b006dc3dada540mr2770613otl.36.1704720295660;
+        Mon, 08 Jan 2024 05:24:55 -0800 (PST)
+To: j.bonnefoy@phardex.fr
+From: "Docteur Christophe PINET" <drchpinet@gmail.com>
+Date: Mon, 8 Jan 2024 05:24:55 -0800
+Message-ID: <CA+TmtUe8Rs5aG9xNwV+3m9a0hzzGKE3ZKOZjtJyXtYvjOa0yVg@mail.gmail.com>
+In-Reply-To: <AM7PR07MB6692A5CB8BCE97DDC50F8E8AEE6B2@AM7PR07MB6692.eurprd07.prod.outlook.com>
+References: <13CAC032-6C5C-44E3-9628-E7DACD2FC59B@phardex.fr>
+	<CA+TmtUewk=QwN4ajdEJcv5eUyY-osaCVkO_uQScszNUMvxhWig@mail.gmail.com>
+	<AM7PR07MB6692EB1A33A4FF17EDC1ADE0EE8AA@AM7PR07MB6692.eurprd07.prod.outlook.com>
+	<CA+TmtUdBg2V-MdUUdAw+KvaQponF6cAE50=bA_UtLyGmEP3DWQ@mail.gmail.com>
+	<AM7PR07MB6692A5CB8BCE97DDC50F8E8AEE6B2@AM7PR07MB6692.eurprd07.prod.outlook.com>
+Subject: RE: Contact
+Precedence: bulk
+X-Autoreply: yes
+Auto-Submitted: auto-replied
+Authentication-Results-Original: relay.mimecast.com;	dkim=pass
+ header.d=gmail.com header.s=20230601 header.b=eMbfUkgs;	dmarc=pass
+ (policy=none) header.from=gmail.com;	spf=pass (relay.mimecast.com: domain of
+ drchpinet@gmail.com designates 209.85.210.42 as permitted sender)
+ smtp.mailfrom=drchpinet@gmail.com
+X-Mimecast-Spam-Score: -3
+X-Mimecast-Impersonation-Protect: Policy=Impersonation - VIP Header Display Name Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+X-Mimecast-Impersonation-Protect: Policy=New Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+Return-Path: drchpinet@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 08 Jan 2024 13:24:59.2613
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ aff6f387-f031-4ba5-69f6-08dc104d367f
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: d1197c46-2c75-438b-a7ef-16690d1f8b64:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ AM3PEPF0000A793:EE_|AS5PR07MB9747:EE_|AM7PR07MB6692:EE_
+X-MS-Exchange-Organization-AuthSource:
+ AM3PEPF0000A793.eurprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: aff6f387-f031-4ba5-69f6-08dc104d367f
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:194.104.110.241;CTRY:DE;LANG:fr;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:de-smtp-inbound-delivery-1.mimecast.com;PTR:de-smtp-inbound-delivery-1.mimecast.com;CAT:NONE;SFS:(13230031)(230273577357003)(230922051799003)(230173577357003)(451199024)(42186006)(6916009)(34756004)(76482006)(5660300002)(1096003)(4744005)(8676002)(7116003)(82202003)(26005)(73392003)(336012)(356005)(7596003)(7636003)(3480700007)(86362001)(55446002);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jan 2024 13:24:59.2301
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: aff6f387-f031-4ba5-69f6-08dc104d367f
+X-MS-Exchange-CrossTenant-Id: d1197c46-2c75-438b-a7ef-16690d1f8b64
+X-MS-Exchange-CrossTenant-AuthSource:
+ AM3PEPF0000A793.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR07MB9747
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.8083300
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7159.020
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?Q25IRzc1Tk1jUmtHZUlCaGZUa1FEK1ltSFpXbW5EV0luWDkyTTF0TmRKeWov?=
+ =?utf-8?B?UnpUMXJYMmM0RjhNaWtwZSsvRDVtTEgwN2s1MkdBREZ0MEhFWGpwdk9jdy9w?=
+ =?utf-8?B?K25ncERtbEw3eUdHVXFaSjNJelFlY2FmR01qNzVpNHU0WVMranhlUzYyVlNL?=
+ =?utf-8?B?cDhHWWt5OGhyK3VVWXdDY3JDaU9ma0d2blpLZzFhWnJyLzQ1OHRGRjNrREdi?=
+ =?utf-8?B?UG5YS2VMRlZMNWhqTDd0S2t6eTFOQUk5QU4wdkhxam9ua3lUaEpOd1hRcXZi?=
+ =?utf-8?B?TjBrazBwSGYxMVZwdUduYkZ3WWpmZUVqNThqb2pDRHVSRGw2MGZ5RnZoM00z?=
+ =?utf-8?B?TjR1c2FId2lhUWlqL2t1ZHVRbmtNNzF3MzNJcTE1ZHZDRVNTN2E4WnE4bWxK?=
+ =?utf-8?B?RGFGMURuOXJzZktjZTlDV0NJVXRwUmRoaytGaTFXTmtKOW9ENVlqbXR4NmE3?=
+ =?utf-8?B?aE10dVhjWVJqY2lIbnNacG1RUTlzOTFWelZQQlNzblNwTkIweCs1TXNwbm5S?=
+ =?utf-8?B?NUk1aXkweFZmU29mQkRBZEdJZXFqOFg4dUZsME5jYUVtOXVIajRPamdWcjZi?=
+ =?utf-8?B?MGVHRzZYdUhWQUEwbmtvckZ1YmlKak81OTlPVFVISGhvYUJTU1U3YVQ5aTBy?=
+ =?utf-8?B?eTlFS2ZBbFRDNUF2RkJ5TW5RWHdEM0FXMDhVSWNpcElyZ0Q5aVZkam9GSDlT?=
+ =?utf-8?B?M216MHFqbjYzTFUza1FzSmJid3NiVkp3dWlyTVhjR3B1VVNPdHpBTUFEY1Z5?=
+ =?utf-8?B?MW9qTkZWSmpLeml0cnVIa1hFREoyRm1zNWIxMitkZTRSb1pGZDhXS1RNQWJj?=
+ =?utf-8?B?a1cwOXF5M2thTWJpZXpjdytoWUFmV2ZFaG04MERZSi95dExyRFBpVEZ0N2w0?=
+ =?utf-8?B?QURIVndvaUxzZTRhYlNVWm5rK1ZtbVUrdHRkVER1QWpsU25QYm01UWNTUW5x?=
+ =?utf-8?B?Q0oxZ1RZd0NuZGhvS3o4OC9lK0Q5THlmZytrZVd2djdzR21pQ3BsMUNoZHNo?=
+ =?utf-8?B?R1RpT0k1bGtqUGxOdGpxWE1FTHdIY2JlZUVEcTJnbEdEQzBzTDJPMmFWamZ2?=
+ =?utf-8?B?OVR6QkhYMU9iK1dpZ1U5WlV0K1BSNmtpRUhvc3M5bGxrWm4yWE9yYlNYdjZw?=
+ =?utf-8?B?M3BDVXVPNWw2SWVHdnE1NlZTV1B1UzV3dUZpUG9MR0JsQ0dpcEZzZDMxMllO?=
+ =?utf-8?B?N0c0MXNJZnJ6MENvTHZKUDBjYUNNemdmRU9KRVpZSjdnaWUrbFZjSGkwZkRz?=
+ =?utf-8?B?R0kzZjl5ZFNzblZGa1MyRmdxeGhVdEw1U2xFdHh1R25PdUpxeEtTT3NLa3Fu?=
+ =?utf-8?B?d2FzYkxENjQ3RFFaVzNiVmZIUS92dHArd2YvakVMR0tMUWVsVEkrcFRia05I?=
+ =?utf-8?B?RlBDeTYxNzNDVVBsaHJzZVRXbmNTZkh3U3NQWStzcFBlSGw2enRETDdDOGk3?=
+ =?utf-8?B?TUp5VlBKb2dQRWViQmRDN25tQVp1L213Q05Kd2JWcXQ1dGRPbXZRMnNFWGIr?=
+ =?utf-8?B?cHBrRjd1V0pXMi9LTFhoR0w5Zk1zdmJKa3Vvc2M1SXIvRERNTHlPZ2dmd2hr?=
+ =?utf-8?B?RWUxTDM4dG9wWGJTS2s4Ymc2T2FyTVNhWDNuMmcwSXlIU0JoUEV4OURYWWxP?=
+ =?utf-8?B?OXo2aU4xZXJENWJxSnJtTkE4VkhFSEE2NCtTN21HRTZ3Vk1Ralp2OElXNHdH?=
+ =?utf-8?B?UXlTcnJRNWpJVS93Y3VGakhsM2s2SVZzMEQ1QUhLTWdTZEN0R0RiV0JpVk9P?=
+ =?utf-8?B?ZXVpOExCckZEUHNMRVRMeVlYSlJzY2VibU9RT0NWTTNGYlNDNEF2Y25uNGIx?=
+ =?utf-8?B?MWhmN1lHaHNBbFZBZndlZHJoQnlFK2htd2dMZGdxTHc0SkRVSng2T0JLNkMz?=
+ =?utf-8?B?bzNIT1R3S3ZXWU1raTlCSXdwSUc3ejV1K251Wi9ER2o2bEl3ODcyMGRIcTBy?=
+ =?utf-8?B?amsrU3lKeGsvdkJlM0VaWTNJcTB0aEt4VnBSTVhHVmJkVlhXM2Q4SndzZlhm?=
+ =?utf-8?B?TFJ1cWgxeHQvVjBBMnRXWituSkI3WE9qd3RQRVRjRUd2UHJhZXlnMGF6VGhN?=
+ =?utf-8?B?KzNLV0Q0dkF0L3hMQno2bllzSUZLZ0dESFZRQmJCdDQzNHNXaWFJVnkwaFNx?=
+ =?utf-8?B?QjRHNzk3azQ0MFo3OE51TW11TDdkRW1Ud0VNbEZXL2ZWdi9HQ3lmb1EzWTMr?=
+ =?utf-8?B?SFF4N0xQUjN3MGVOTjBRVmJOWElhU3Y0Vnd0VE5Oa1hHaGhoU1llZ2hPYWNV?=
+ =?utf-8?B?NHl2TGFjYlB3dGpOUWJvYUlxMC9wayt0RmFRRklqWWRUblJtcEl1SFRzOGN1?=
+ =?utf-8?B?THVmNVpqWkoyL1lsR1RMeG5tcldJL2tIMk16QUp4VXFkTmt1dFBucFBJSmJT?=
+ =?utf-8?B?eUIyNUhRZzY1akhLTkVsUk9sTUIvc3A1NGdNRVdYbXlERzYzekQzaXZTYita?=
+ =?utf-8?B?d2dhSHg0VjNxcUY0Vmc9PQ==?=
+MIME-Version: 1.0
+
+4paIIENhdXRpb24gOiBFeHRlcm5hbCBFbWFpbC4gRG8gbm90IGNsaWNrIGxpbmtzIG9yIG9wZW4g
+YXR0YWNobWVudHMgdW5sZXNzIHlvdSByZWNvZ25pemUgdGhlIHNlbmRlciBhbmQgdGhlIGNvbnRl
+bnQgaXMgc2FmZS4NCkRvIG5vdCBzY2FuIFFSIGNvZGVzIGZyb20gZXh0ZXJuYWwgZW1haWxzLg0K
+DQoNCkNlY2kgZXN0IHVuZSByw6lwb25zZSBhdXRvbWF0aXF1ZQ0KDQoNCkplIHJlw6dvaXMgYmVh
+dWNvdXAgZGUgbWFpbHMgZXQgbmUgcGV1eCByw6lwb25kcmUgw6AgdG91cy4NCkplIG5lIGRvbm5l
+IGRvbmMgcGFzIGQnYXZpcyBtw6lkaWNhbCBwYXIgbWFpbC4NCg0KDQoNCg0KDQoNCi0tDQpDb3Jk
+aWFsZW1lbnQNCg0KRG9jdGV1ciBDaHJpc3RvcGhlIFBJTkVUDQo=
+

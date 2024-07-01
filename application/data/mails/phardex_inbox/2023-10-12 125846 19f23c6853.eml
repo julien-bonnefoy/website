@@ -1,0 +1,236 @@
+From isabelle.n.laffont@gmail.com Thu Oct 12 12:58:46 2023
+Received: from AM7PR07MB6263.eurprd07.prod.outlook.com (2603:10a6:20b:138::13)
+ by AM7PR07MB6692.eurprd07.prod.outlook.com with HTTPS; Thu, 12 Oct 2023
+ 12:58:46 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=pass;
+ b=C7pDU/A6nmN3Qv/2RhK+cmOy6oAUlOXwfEEwK9EE29UZTeaCy6hC5GyLl0mdC7VQUtVvkcyLr5lKYDbCqZ4OLoyciSCP45Y6sN+8X5Z+1S45PWrzM0CzMSocGzWOaM/eyZTRtebq+36f4yR4sHgu01bUBDBQBDArTue/45EJWyXvkPX1TYV7xkM6360n85WPgnTOeoqdTVdHYW2zmglKNoemXlFjHNabSRkycIhMmVaW1wj2QslecJ0NmblTlekK90Se3y/rPhzkS9U7h/Y3TjrYjlEdWHzXqA60Kr8WdRSd4oGgofO5nxocCZq8Ppa4WO56DgjZ9INqUifTphU6UA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9+jodFjxsM9+d4NebSddes9cMyn6reLacPj7Ll3T1jY=;
+ b=grX6JFJsYBWyknITOKWwdzFSbxVVi1tvno+p/Ifu2ShY4NECy8YH0lx2I4vMJBxiiSiBdNfZQ7JqStfl2Q2xasF7+IJ8T+xvkubwzQvmo8KD3tIA69s2suRhS6/naS/cif/ObyU0fTsP7R5TUIc6B2dRdT2NabTboprW1vrmHW4wltuVMdJdwypExsFVAECSrm0+c066oepJaMgXezZE9rgQTsbryN2cxB3dmLmulxjSiI1F5CYNFyNSNuTw2XjH4NRb2hjxzKNffmmN1J0POtEbwtz4W+c4PiwTWNWiaYUNIKurK/FQeF6ZU7BeFyR5Vt/T3MJbsO1JimahvjZ45w==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 194.104.110.241) smtp.rcpttodomain=phardex.fr smtp.mailfrom=gmail.com;
+ dmarc=fail (p=none sp=quarantine pct=100) action=none header.from=gmail.com;
+ dkim=fail (body hash did not verify) header.d=gmail.com; arc=pass (0 oda=0
+ ltdi=0 93)
+Received: from DUZPR01CA0044.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:468::7) by AM7PR07MB6263.eurprd07.prod.outlook.com
+ (2603:10a6:20b:138::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6863.41; Thu, 12 Oct
+ 2023 12:58:44 +0000
+Received: from DBAEUR03FT046.eop-EUR03.prod.protection.outlook.com
+ (2603:10a6:10:468:cafe::33) by DUZPR01CA0044.outlook.office365.com
+ (2603:10a6:10:468::7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6863.41 via Frontend
+ Transport; Thu, 12 Oct 2023 12:58:44 +0000
+Authentication-Results: spf=softfail (sender IP is 194.104.110.241)
+ smtp.mailfrom=gmail.com; dkim=fail (body hash did not verify)
+ header.d=gmail.com;dmarc=fail action=none header.from=gmail.com;compauth=none
+ reason=405
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ gmail.com discourages use of 194.104.110.241 as permitted sender)
+Received: from de-smtp-inbound-delivery-1.mimecast.com (194.104.110.241) by
+ DBAEUR03FT046.mail.protection.outlook.com (100.127.142.67) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.6886.30 via Frontend Transport; Thu, 12 Oct 2023 12:58:44 +0000
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=dkim.mimecast.com; s=201903; t=1697115524;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=9+jodFjxsM9+d4NebSddes9cMyn6reLacPj7Ll3T1jY=;
+	b=dt8AGf97x4k+GmEY6jE3ObxqEu4RtXgQKTSyGc3tLg37V9OK4iCl4WDKWiDAG9uDtmeOYa
+	/n3rbWTWhz688q7XuyFfCeTgFOsszoqvIXfYOnghtIluq+Kx5bdTjvjbDWYxa+U7mG1Zr5
+	bC+35oaq0FA2U6dvkqKii4BMc7/ecG5dvYbkVN2Ut/2m7H4oyWVR16OjQbubScbC5OIXMW
+	OUaPEOhdQ81SbCYmqZ3fHAC4GV27sbKCx0MVeGxyBprQgwFozfmMv1QplnxVgGDIDt05Ib
+	BKPqAJVV44hb3scd7ktR9LjafeJwWuSnt/Fvl6Z759T2r40wY3r82HU1xFyjzA==
+ARC-Seal: i=1; s=201903; d=dkim.mimecast.com; t=1697115524; a=rsa-sha256;
+	cv=none;
+	b=bWe/jRBz4txAX/9+tlFmIf/rj7EhkaE/OVuWUxq8xnXr4OCCecfs/5/58UomE899RU+lL+
+	3+8crcaxT1J9p3sfKTnGxytua8aFOom2PKrbcltNIxMRpPRRJkWt6FLytjyx3q1g4+j0k3
+	RJMToFK5YZ4R3l6l6rpQan3pnhfM9gSygKj8CvdSgFFhRxsiIrD0GZlC5duqQfK84dQxNq
+	YBwsJW0IINO393tGTbwH1fDiF7S5NGRawfeUHf+Y9Ew2EPaTL/SFy6gmjFQ2gi3lhCSMGt
+	DLqeRCNYoP66KNP4n0St5/6oTeyvVCWCy4VpfodhvPQefIW+aDpmLFb+IAeZZQ==
+ARC-Authentication-Results: i=1;
+	relay.mimecast.com;
+	dkim=pass header.d=gmail.com header.s=20230601 header.b=CF+LR9qu;
+	dmarc=pass (policy=none) header.from=gmail.com;
+	spf=pass (relay.mimecast.com: domain of isabelle.n.laffont@gmail.com designates 209.85.128.44 as permitted sender) smtp.mailfrom=isabelle.n.laffont@gmail.com
+Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com
+ [209.85.128.44]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ de-mta-44-TnujZrY_M-WBZit1Wm_cdQ-1; Thu, 12 Oct 2023 14:58:42 +0200
+X-MC-Unique: TnujZrY_M-WBZit1Wm_cdQ-1
+Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4065f29e933so10815375e9.1
+        for <j.bonnefoy@phardex.fr>; Thu, 12 Oct 2023 05:58:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1697115522; x=1697720322; darn=phardex.fr;
+        h=to:in-reply-to:references:message-id:date:subject:mime-version:from
+         :content-transfer-encoding:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NFElPnGejy9Z0hf836KHaSNjfbA7tA/7VofdN8eHkTw=;
+        b=CF+LR9qucf/nov7Fh3quotwr1/zkaLMpqbnGtTG/bKkNkGYtZq+9NKkao8eDpdajHR
+         PdloBjr4ZAvePq8NN7Qmrwuf29bWSqFFpGi6MULWPvCdf3RacQ1aGjeBheI8Vvas3lXp
+         eeoo/57wiwnrYC06GWPIFO6gLVhpD7lzI6lKSfNVjvI7N/PE2srGgiwSceaAmHUktWHE
+         +4G/WlDHcMhmFEM9C9+xm2gYGA0cw1qcGFmwa6pNMFRTbzr+tZAiu38Ju8WmZeQceC0/
+         LcGsUC6KQ4pmlGWXFeJ8YaLeAHUW60FBZFhzsmiOGLALVSuHTvOsapp38DtheOGROr1D
+         wTfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697115522; x=1697720322;
+        h=to:in-reply-to:references:message-id:date:subject:mime-version:from
+         :content-transfer-encoding:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=NFElPnGejy9Z0hf836KHaSNjfbA7tA/7VofdN8eHkTw=;
+        b=o1/YG6kdEtmcPnqJLOieKFsVlEYXvZZUWZTTgA2gxEaabWXZsDpivzA7H55eFserT0
+         rdIOKLiz9Wy4kd/rwivAr7vhXFgPDuKq+C6e7Nt+YhR5M0ECul/dWpkyv8nLwHoOCaZd
+         hIe82mucvAiuPkdbehngs49hljS2DfTkTXJC659eHSaeGz7nUT8s3QcxHvH0uBTFM1vf
+         +eZ5tAlg3QnMo4XK5kIWg5bBuQjPi/J22Zfy/9uhqnnEydW5c72PHd3+igJeRHLNUBVM
+         4ukrNXX612p6vwkTHgy4ciopVWnwH7uStod14OR9Wzg1uoCDCeCnkvtPcEiWs32ABXy1
+         Od0g==
+X-Gm-Message-State: AOJu0YwPQIuKEfj6E/9tBZtK0HlR0j/QKcbiYgwdaYi9DngnJc5WKHl2
+	3/XWBYml0T9cXtxyqVlFTxdaQd6yfeE=
+X-Google-Smtp-Source: AGHT+IE3MMvSsoHZ7zfXDZr0upUhvOPaj+fyqiyupnAntq3dAE/DTQSgpLwekhsNg2+4FTG4mxmMIA==
+X-Received: by 2002:adf:ca0e:0:b0:32d:8373:fbe9 with SMTP id o14-20020adfca0e000000b0032d8373fbe9mr4257926wrh.35.1697115521663;
+        Thu, 12 Oct 2023 05:58:41 -0700 (PDT)
+Return-Path: isabelle.n.laffont@gmail.com
+Received: from smtpclient.apple ([37.175.169.209])
+        by smtp.gmail.com with ESMTPSA id r18-20020adfe692000000b0031912c0ffebsm18378079wrm.23.2023.10.12.05.58.38
+        for <j.bonnefoy@phardex.fr>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 12 Oct 2023 05:58:39 -0700 (PDT)
+From: Isabelle Laffont <isabelle.n.laffont@gmail.com>
+Subject: Re: Laboratoire BIOCODEX - VM
+Date: Thu, 12 Oct 2023 14:58:37 +0200
+Message-Id: <6A56B166-D451-40ED-BFEA-C275EDB94309@gmail.com>
+References: <4936847B-DB49-4926-983D-D213258B1F43@phardex.fr>
+In-Reply-To: <4936847B-DB49-4926-983D-D213258B1F43@phardex.fr>
+To: BONNEFOY Julien <j.bonnefoy@phardex.fr>
+X-Mailer: iPhone Mail (19H365)
+Authentication-Results-Original: relay.mimecast.com;	dkim=pass
+ header.d=gmail.com header.s=20230601 header.b=CF+LR9qu;	dmarc=pass
+ (policy=none) header.from=gmail.com;	spf=pass (relay.mimecast.com: domain of
+ isabelle.n.laffont@gmail.com designates 209.85.128.44 as permitted sender)
+ smtp.mailfrom=isabelle.n.laffont@gmail.com
+X-Mimecast-Spam-Score: -3
+X-Mimecast-Impersonation-Protect: Policy=Impersonation - VIP Header Display Name Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+X-Mimecast-Impersonation-Protect: Policy=New Impersonation Protection Definition;Similar Internal Domain=false;Similar Monitored External Domain=false;Custom External Domain=false;Mimecast External Domain=false;Newly Observed Domain=false;Internal User Name=false;Custom Display Name List=false;Reply-to Address Mismatch=false;Targeted Threat Dictionary=false;Mimecast Threat Dictionary=false;Custom Threat Dictionary=false
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-MS-Exchange-Organization-ExpirationStartTime: 12 Oct 2023 12:58:44.3501
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ f45120d4-8508-457a-0925-08dbcb22f76d
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: d1197c46-2c75-438b-a7ef-16690d1f8b64:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ DBAEUR03FT046:EE_|AM7PR07MB6263:EE_|AM7PR07MB6692:EE_
+X-MS-Exchange-Organization-AuthSource:
+ DBAEUR03FT046.eop-EUR03.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: f45120d4-8508-457a-0925-08dbcb22f76d
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-Forefront-Antispam-Report:
+ CIP:194.104.110.241;CTRY:DE;LANG:fr;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:de-smtp-inbound-delivery-1.mimecast.com;PTR:de-smtp-inbound-delivery-1.mimecast.com;CAT:NONE;SFS:(13230031)(84050400002)(230922051799003)(451199024)(956004)(82202003)(7636003)(356005)(7596003)(55446002)(36756003)(86362001)(33656002)(426003)(336012)(4744005)(8676002)(26005)(2616005)(6916009)(1096003)(34756004)(73392003)(5660300002)(76482006);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2023 12:58:44.2408
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f45120d4-8508-457a-0925-08dbcb22f76d
+X-MS-Exchange-CrossTenant-Id: d1197c46-2c75-438b-a7ef-16690d1f8b64
+X-MS-Exchange-CrossTenant-AuthSource:
+ DBAEUR03FT046.eop-EUR03.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR07MB6263
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.1789922
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.6863.043
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910001)(944506478)(944626604)(920097)(930097)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?UEdodDhCcHRZWE1zTmpUOHA2QWlHSUxwNFZHQUo1czhZbmpXdjJIbzNxMzJ1?=
+ =?utf-8?B?SjdiaGpvbExJS1ZwL1JQNkFQdkxqSVFwS2NsMVVESzRpM2JicTYwV1hFY0dx?=
+ =?utf-8?B?QXRFN3NISk5BY25venUxWExyWGFZbGtJZnlaT3hsaVRzN0RlaWQwZ3Q5Vk43?=
+ =?utf-8?B?UFpmRWljK2svbWRZbkcxczltb28zZTNOWU5YT3B4L01hNjdPbzNLM2x1U3hK?=
+ =?utf-8?B?VndpdkhtUjdtQytXdDVTL2E0d0xiV1QyeURJOVZjLzlTd2xDQjZNSzRpRFBE?=
+ =?utf-8?B?Z0NsSGVuY0QxRGt6M1lJSmVEeDJOZHNEclIvcUV2cmJuSG1TNXA1YlFKaGRs?=
+ =?utf-8?B?ZXFHS2RMaklZWkE1SmJlZGx0TThmQnFaRXF5WHBoWE9sNS83TVhpR1RSTGUw?=
+ =?utf-8?B?c0p1QWFERHBhVG1MYTFVWlpFaU1EVmo4U2RiQ3hWdWpyUnJIbFRIUmlXTGM1?=
+ =?utf-8?B?c0Y0M2w3ZE1xUGFxbGY5Q0dobGxLa3ZwOUN6QlBKUVRVU1ltYVlqcFZkSFd1?=
+ =?utf-8?B?c3Fsd3hTWW1kOVdoSlEwWlN2Y1VXYVI1Mm5FRTBzeDBrNkxjeFBvZCtDTFFQ?=
+ =?utf-8?B?a2lyemIyVWVDWU1BMkttUGpHbEd3M0JpUjNyQzE2RkpvTC9nQjMxaEF6N3hR?=
+ =?utf-8?B?d2ZUMnhkVnN5T0dyS013RU82ZVdkdmhTdGk3Q280S3RJVERKUTN0TU1qL2xS?=
+ =?utf-8?B?SzdkTXUrUmZQQ0pOYlhVZE5rOS9pZXBEU3k3QitDQ0ZzWkE3WlJxY1ZoTFZj?=
+ =?utf-8?B?MnpXMGlqYkVJeWNlOTZGb1VIcVdKQ1BxZEFhbnNLa2ljTHhySnk3elo5S3Zp?=
+ =?utf-8?B?TVFoVmNQWU12L3pKd3ZvZEw5MEt2emYxNFNwN2s5ckp0amwwQzBVS3V0dDVz?=
+ =?utf-8?B?WWJKZWJORzZyNGF4TklKUVprbUtXLzZtTVduZlNRb25jeHphb1NqczNBZTVP?=
+ =?utf-8?B?WFFBbTZkSGtaS3psS0ZCMksrMkhKYXJmY2c3S2orNkM2WWVwVnRHcUJldmt1?=
+ =?utf-8?B?UmpkTlRRbXJBV3BXTWZ2azRnSWFlZVBNNVZRbDdldFE3b2xaVnNrb2VEK1Jm?=
+ =?utf-8?B?UHhsOUJjd2JOcWdGd09VSEhSTEpzcGxjMXdvY0lUMEZ0RVhIZGx3U3p2UG5G?=
+ =?utf-8?B?YW1PQWZvd1RIN2lNdkE5OFVkRyt5YjhyTzV0SXNBK1N2eXhJcUR1WHpvamFF?=
+ =?utf-8?B?anhZcFo3bWRtSUx6TllydGVjc2QrdjJtdW9TMVVBNWFKUldpeUtCZmVra0Zr?=
+ =?utf-8?B?ems4U1FyZkY0ZjB5V3Z0a09wQ2dDUXB6dDF3Ym05YVQ1c1FRSnAwNjRNVEhn?=
+ =?utf-8?B?aDZtalNEdXNDVndLeEtiT0g3REdCSVBVbVpBZjNOc20yN1FiQkluamZHQWQz?=
+ =?utf-8?B?NlBXWFh0SXBuOGtTKzlDNkJ3WlV5Z1dDdXhDUzlYa0sxU0R4dHBybUN3YjJp?=
+ =?utf-8?B?UENxVU8rOFc0enRMU3BvVUpJcmJDSWlyVldrazV5UUNQUU84WlRtbnhxRVpp?=
+ =?utf-8?B?OWZzTGRVSXJkT3UrMER3ZWRFTmJVT29wQndSZ0ZMemdBV29zd3VWdVNmUzMw?=
+ =?utf-8?B?Z1pDT0d6ZEdQcUszUHB0RXhsZVMzOHBwdE5PK29BNWdVc21qZ2RnOVBnUlhY?=
+ =?utf-8?B?dk1oaWpPWWF0ZHR4eStFc2RiaSswNGh6REt3QTdoM2NtV1hMaHBCS2c5ZkQv?=
+ =?utf-8?B?R010citXRnN2cGJDKzN4YWxlT3ZTL2hkcUtKWmJQZUszM2g5LzdoOGJvZnkz?=
+ =?utf-8?B?ZjJpUlF3b2E5VzhCT2w5WnpSUEJFYUYyS3BVKzlOZU9LbkRZcTdSTnBkcGVh?=
+ =?utf-8?B?bWRZZXJ6L00xeFBiMFIzQTNOY1MyM1NsUDJ4L3puNXZ2ajhVbFVTellzM1E2?=
+ =?utf-8?B?bGNiRHZ3ejNCZExpdnl0dzNJSkR3cWV5Q0Irenp2VGJRc25hTVdzM1o1R1Nw?=
+ =?utf-8?B?ck1IeEk5Yy9yV1NUUHJ5cHVPYXVncmsrSVNVYzlpSGhCN3NqOXA2N0FPUTJN?=
+ =?utf-8?B?OE4rSllla1MrWkNCcmlOQjJYR2Q2M21KanRPOTVuOUlxTzdwelIvN3RzUzcv?=
+ =?utf-8?B?V05WR0M5c3RpUVZDM3Vwdm9tcElaVC9GQytsRGp5d2gyakh0TTNaWE54dmQ4?=
+ =?utf-8?B?L1Z2Rll1ZmREWlpGQ0t5aFU5bnZiMlpKYkN4VFhucmtJQWxsQlBuUGRBT3pl?=
+ =?utf-8?B?aWtXV2JmZW1nOFZFekFtSXQ4NmRqWC9iMnR0UHI2UGx6VDMwSTRSejAzc0V1?=
+ =?utf-8?B?R1g1RUxQekJzZGQ3b3hzM29vNTRiTk9Zb09COGk0blJaZU9qeVRZSitLSDdx?=
+ =?utf-8?B?TzRXcnNEZ1N5K0JldENQc0c4d1Jid1RPbm1MMzFGcysyVGgwYVQ1ejdOeGJJ?=
+ =?utf-8?Q?Fb1UgkjCTW7asUbgUkEYMhNiESaGSA7Sjzp19?=
+MIME-Version: 1.0
+
+=E2=96=88 Caution : External Email. Do not click links or open attachments =
+unless you recognize the sender and the content is safe.
+
+
+Oui ok pour moi
+
+Envoy=C3=A9 de mon iPhone
+
+> Le 12 oct. 2023 =C3=A0 14:57, BONNEFOY Julien <j.bonnefoy@phardex.fr> a =
+=C3=A9crit :
+>
+> =EF=BB=BFBonjour Docteur Laffont,
+> Bonjour Docteur Claret
+>
+> Je suis d=C3=A9l=C3=A9gu=C3=A9 m=C3=A9dical pour le laboratoire BIOCODEX =
+et je souhaitais prendre rendez-vous avec vous pour le d=C3=A9but d=E2=80=
+=99ann=C3=A9e prochaine, car nous obtenons une extension d=E2=80=99 AMM dan=
+s un traitement des troubles du d=C3=A9ficit de l=E2=80=99attention/hyperac=
+tivit=C3=A9.
+>
+> Je n=E2=80=99ai pas plus de pr=C3=A9cisions pour le moment, car je n=E2=
+=80=99ai pas encore =C3=A9t=C3=A9 form=C3=A9=E2=80=A6
+>
+> Merci de me pr=C3=A9ciser si vous =C3=AAtes int=C3=A9ress=C3=A9 auquel ca=
+s, je serai ravi de vous rencontrer =C3=A0 partir de la deuxi=C3=A8me semai=
+ne de janvier 2024.
+>
+> Je vous souhaite une agr=C3=A9able journ=C3=A9e.
+>
+> Cordialement.
+>
+> Julien Bonnefoy
+> D=C3=A9l=C3=A9gu=C3=A9 m=C3=A9dical Paris
+> Laboratoire Biocodex
+> 07.50.64.31.44
+>
+> Envoy=C3=A9 de mon iPhone
+
+

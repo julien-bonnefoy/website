@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}OCR{% endblock %}
+{% block content %}
+<div class="col d-flex justify-content-around flex-column wrap inner">
+<h1 style="text-align: center; margin-bottom: 10vh;">EXTRACT TEXT FROM IMAGES</h1>
+    <div class="row inner">
+        <div class="col-6">
+            <h2 class="text-center mb-4" style="letter-spacing: 1px; font-size: 1.5rem;">Enter the URL of the image containing text to extract</h2>
+            <div class="form-group col-12" style="text-align: center">
+                <form method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <input  class="w-75 mx-auto" name="img_url" type="text"  placeholder="Image URL">
+                    <button class="btn btn-dark btn-lg" type="submit" style="margin-top: 12px">SEND</button>
+                </form>
+            </div>
+            <p class="text-center mb-0 mt-4">Example:</p>
+            <p class="text-center mb-0 font-size: 18px">https://i.ytimg.com/vi/yesBU0OoGCY/maxresdefault.jpg</p>
+        </div>
+        <div class="col-6">
+            <h2 class="text-center mb-4" style="text-align: center; letter-spacing: 1px;  font-size: 1.5rem;">Or browse one from your computer and process it</h2><br>
+            <div class="form-group col-12" style="text-align: center; justify-content: center">
+                <form method="post" enctype="multipart/form-data">
+                  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                  <input name="file" type="file" id="file"><br>
+                  <button class="btn btn-dark btn-lg" type="submit" style="margin-top: 6px;">PROCESS</button>
+                </form>
+             </div>
+             <p class="text-center mt-4 mb-0">Supported formats :</p>
+             <p style="text-align: center; font-size: 18px; margin-bottom: 0">'pdf', 'png', 'jpg', 'jpeg', 'gif', 'svg'</p>
+        </div>
+    </div>
+    <div class="row">
+        <hr>
+    </div>
+    <div class="inner" style="border-left: 6px solid lightgrey;  background-color: #ededed">
+        <div class="row">
+            <hr>
+        </div>
+        <div class="row">
+            <div class="col-6 d-flex align-items-center justify-content-center" style="text-align: center;">
+                {% if source %}
+                   <img src="{{source}}" width="500px" alt="">
+                {% endif %}
+            </div>
+            <div class="col-6" style="text-align: center;">
+                {% if ocr_text %}
+                    {% for line in ocr_text %}
+                        <p style="margin-bottom: 0.1em">{{line}}<br></p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}
