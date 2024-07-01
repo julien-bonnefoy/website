@@ -2,10 +2,9 @@
 .flaskenv
 .idea
 .gitignore
-notebooks
-venv
-migrations
-node_modules
+notebooks/
+venv/
+node_modules/
 package-lock.json
 package.json
 application/data/csv/ps-infospratiques.csv
