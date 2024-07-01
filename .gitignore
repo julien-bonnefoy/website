@@ -1,7 +1,6 @@
 .env
 .flaskenv
 .idea
-.gitignore
 notebooks/
 venv/
 node_modules/
