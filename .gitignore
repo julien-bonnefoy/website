@@ -1,6 +1,7 @@
 .env
 .flaskenv
 .idea
+biocodex
 notebooks/
 venv/
 node_modules/
