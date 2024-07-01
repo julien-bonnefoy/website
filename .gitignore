@@ -1,0 +1,11 @@
+.env
+.flaskenv
+.idea
+notebooks
+venv
+migrations
+node_modules
+package-lock.json
+package.json
+application/data/csv/ps-infospratiques.csv
+application/data/mails/phardex_inbox.mbox
