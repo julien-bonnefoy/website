@@ -1,6 +1,7 @@
 .env
 .flaskenv
 .idea
+.gitignore
 notebooks
 venv
 migrations
